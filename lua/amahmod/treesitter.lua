@@ -14,6 +14,7 @@ configs.setup {
   },
   indent = { enable = true, disable = { "yaml" } },
   autotag = { enable = true },
+  autopairs = { enable = true },
   matchup = {enable = true},
   context_commentstring = {
     enable = true,
