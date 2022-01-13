@@ -5,3 +5,4 @@ end
 
 require("amahmod.lsp.lsp-installer")
 require("amahmod.lsp.handlers").setup()
+require("amahmod.lsp.null-ls")

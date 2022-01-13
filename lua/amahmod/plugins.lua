@@ -70,12 +70,15 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
+ -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-symbols.nvim"
   use "nvim-telescope/telescope-project.nvim"
   use "nvim-telescope/telescope-fzy-native.nvim"
 
+  -- TreeSitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "windwp/nvim-ts-autotag"
   use "JoosepAlviste/nvim-ts-context-commentstring"
