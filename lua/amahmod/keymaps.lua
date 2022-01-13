@@ -10,14 +10,6 @@ keymap('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
 -- General
 keymap('n', 'n', 'nzzzv', opts) -- keep the cursor centered when doing 'n'
 keymap('n', 'N', 'Nzzzv', opts) -- keep the cursor centered when doing 'N'
@@ -36,7 +28,6 @@ keymap('n', '<leader>ts', ':set spell!<CR>', opts) -- Toggle spell check
 keymap('n', '<leader>th', ':set nohlsearch<CR>', opts) -- Toggle spell check
 keymap('n', '<leader>z', ':%s/<C-R><C-W>/<C-R>0/g<CR>', opts) -- replace word under cursor with register "0" content globally
 
--- Normal --
 -- Better window management
 keymap('n', '<C-h>', '<C-w>h', opts) -- focus left window
 keymap('n', '<C-j>', '<C-w>j', opts) -- focus bottom window
@@ -151,3 +142,20 @@ keymap('n', '<leader>gr', ':Gread<CR>', opts)
 -- keymap('n', '<leader>gB', ':Git blame<Cr>', opts)
 keymap('n', '<leader>gl', ':Git log<CR>', opts)
 keymap('n', '<leader>gL', ':Gclog<CR>', opts)
+
+-- Spctree: search and replace
+keymap('n', '<leader>ss', ':lua require("spectre").open()<CR>', opts) -- search current word
+keymap('n', '<leader>sw', ':lua require("spectre").open_visual({select_word=true})<CR>', opts)
+keymap('v', '<leader>s', ':lua require("spectre").open_visual()<CR>', opts) -- search in current file
+keymap('n', '<leader>sp', ':lua require("spectre").open_file_search()<CR>', opts)
+
+-- Markdown Preview
+keymap('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', opts)
+
+-- CodeActionMenu
+keymap('n', '<leader>ca', ':CodeActionMenu<CR>', opts)
+
+-- EasiAlign
+keymap('n', 'ga', ':EasyAlign<CR>', opts)
+keymap('v', 'ga', ':EasyAlign<CR>', opts)
+keymap('x', 'ga', ':EasyAlign<CR>', opts)

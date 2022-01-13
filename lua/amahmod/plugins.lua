@@ -47,9 +47,16 @@ return packer.startup(
     use 'lewis6991/impatient.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'antoinemadec/FixCursorHold.nvim' -- This is needed to fix lsp doc highlight
+    use 'windwp/nvim-spectre'
+    use 'wakatime/vim-wakatime'
+    use 'github/copilot.vim'
+    use {'junegunn/vim-easy-align', cmd = {'EasyAlign'}}
+    use {'tpope/vim-surround', event = 'BufRead'}
+    use 'ggandor/lightspeed.nvim'
 
     -- Colorscheme
     use 'lunarvim/darkplus.nvim'
+    use 'norcalli/nvim-colorizer.lua'
 
     -- cmp plugins
     use 'hrsh7th/nvim-cmp' -- The completion plugin
@@ -68,6 +75,7 @@ return packer.startup(
     use 'neovim/nvim-lspconfig' -- enable LSP
     use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
     use 'jose-elias-alvarez/null-ls.nvim' -- for formatters and linters
+    use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
@@ -85,6 +93,18 @@ return packer.startup(
     -- Git
     use 'lewis6991/gitsigns.nvim'
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool'}}
+
+    -- JavaScript {{{
+    use {'metakirby5/codi.vim', cmd = {'Codi', 'Codi!', 'Codi!!'}}
+    -- }}}
+    --
+    --  Markdown {{{
+    use {
+      'iamcco/markdown-preview.nvim',
+      ft = {'markdown', 'vimwiki'},
+      run = 'cd app && yarn install',
+      config = function() vim.cmd [[ let g:mkdp_filetypes = ['markdown', 'vimwiki'] ]] end,
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
