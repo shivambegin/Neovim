@@ -53,7 +53,7 @@ keymap('n', '<leader>wc', '<C-w>c', opts) -- Close current window in the current
 keymap('n', '<leader>wo', '<C-w>o', opts) -- Close every window in the current tabview but the current one
 keymap('n', '<leader>wR', '<C-w>R', opts) -- Rotates the windows from right to left
 
-keymap("n", "<leader>e", ":Lex 20<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Resize with arrows
 keymap('n', '<C-Right>', ':vertical resize -2<CR>', opts) -- Increase the window to the right
