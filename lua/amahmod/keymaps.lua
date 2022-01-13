@@ -64,7 +64,7 @@ keymap('n', '<C-Down>', ':resize -2<CR>', opts) -- Increase the window to down
 -- Buffers 
 keymap('n', '<leader>s', ':w<CR>', opts) -- save buffer
 keymap('n', '<leader>q', ':q!<CR>', opts) -- close buffer without saving
-keymap('n', '<leader>x', ':bdelete<CR>', opts) -- close all buffers
+keymap('n', '<leader>x', ':Bdelete<CR>', opts) -- close all buffers
 keymap('n', '<leader>ba', ':bufdo bd<CR>', opts) -- close all buffers
 keymap('n', '<leader>bo', ':w <bar> %bd <bar> e# <bar> bd#<CR>', opts) -- close all buffers except current one
 keymap("n", "<S-l>", ":bnext<CR>", opts) -- next buffer
