@@ -1,14 +1,14 @@
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 
-local term_opts = { silent = true }
+local term_opts = {silent = true}
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Remap space as leader key
+keymap('', '<Space>', '<Nop>', opts)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Modes
 --   normal_mode = "n",
@@ -36,13 +36,12 @@ keymap('n', '<leader>ts', ':set spell!<CR>', opts) -- Toggle spell check
 keymap('n', '<leader>th', ':set nohlsearch<CR>', opts) -- Toggle spell check
 keymap('n', '<leader>z', ':%s/<C-R><C-W>/<C-R>0/g<CR>', opts) -- replace word under cursor with register "0" content globally
 
-
 -- Normal --
 -- Better window management
-keymap("n", "<C-h>", "<C-w>h", opts) -- focus left window
-keymap("n", "<C-j>", "<C-w>j", opts) -- focus bottom window
-keymap("n", "<C-k>", "<C-w>k", opts) -- focus top winodw
-keymap("n", "<C-l>", "<C-w>l", opts) -- focus right window
+keymap('n', '<C-h>', '<C-w>h', opts) -- focus left window
+keymap('n', '<C-j>', '<C-w>j', opts) -- focus bottom window
+keymap('n', '<C-k>', '<C-w>k', opts) -- focus top winodw
+keymap('n', '<C-l>', '<C-w>l', opts) -- focus right window
 keymap('n', '<leader>ws', ':sp<CR>', opts) -- split window horizontally
 keymap('n', '<leader>wv', ':vs<CR>', opts) -- split window vertically
 keymap('n', '<leader>wH', '<C-w>H', opts) -- Move current window the far left and use the full height of the screen
@@ -53,7 +52,7 @@ keymap('n', '<leader>wc', '<C-w>c', opts) -- Close current window in the current
 keymap('n', '<leader>wo', '<C-w>o', opts) -- Close every window in the current tabview but the current one
 keymap('n', '<leader>wR', '<C-w>R', opts) -- Rotates the windows from right to left
 
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
 -- Resize with arrows
 keymap('n', '<C-Right>', ':vertical resize -2<CR>', opts) -- Increase the window to the right
@@ -67,32 +66,32 @@ keymap('n', '<leader>q', ':q!<CR>', opts) -- close buffer without saving
 keymap('n', '<leader>x', ':Bdelete<CR>', opts) -- close all buffers
 keymap('n', '<leader>ba', ':bufdo bd<CR>', opts) -- close all buffers
 keymap('n', '<leader>bo', ':w <bar> %bd <bar> e# <bar> bd#<CR>', opts) -- close all buffers except current one
-keymap("n", "<S-l>", ":bnext<CR>", opts) -- next buffer
-keymap("n", "<S-h>", ":bprevious<CR>", opts) -- previous buffer
+keymap('n', '<S-l>', ':bnext<CR>', opts) -- next buffer
+keymap('n', '<S-h>', ':bprevious<CR>', opts) -- previous buffer
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+keymap('v', '<', '<gv', opts)
+keymap('v', '>', '>gv', opts)
 
 -- Move text up and down
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', opts) -- move line down
 keymap('v', 'K', ':m \'<-2<CR>gv=gv', opts) -- move line up
-keymap("v", "p", '"_dP', opts)
+keymap('v', 'p', '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap('x', 'J', ':move \'>+1<CR>gv-gv', opts)
+keymap('x', 'K', ':move \'<-2<CR>gv-gv', opts)
+keymap('x', '<A-j>', ':move \'>+1<CR>gv-gv', opts)
+keymap('x', '<A-k>', ':move \'<-2<CR>gv-gv', opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap('t', '<C-h>', '<C-\\><C-N><C-w>h', term_opts)
+keymap('t', '<C-j>', '<C-\\><C-N><C-w>j', term_opts)
+keymap('t', '<C-k>', '<C-\\><C-N><C-w>k', term_opts)
+keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 
 -- Telescope {{{
 keymap('n', '<C-p>', ':Telescope find_files<CR>', opts)
@@ -141,3 +140,14 @@ keymap('n', '<leader>6', ':BufferLineGoToBuffer 6<CR>', opts)
 keymap('n', '<leader>7', ':BufferLineGoToBuffer 7<CR>', opts)
 keymap('n', '<leader>8', ':BufferLineGoToBuffer 8<CR>', opts)
 keymap('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', opts)
+
+-- Fugitive
+keymap('n', '<leader>gg', ':Git<CR>', opts)
+-- keymap('n', '<leader>gd', ':Git diff<CR>', opts)
+-- keymap('n', '<leader>gD', ':Gdiffsplit<CR>', opts)
+-- keymap('n', '<leader>ge', ':Gedit<CR>', opts)
+keymap('n', '<leader>gr', ':Gread<CR>', opts)
+-- keymap('n', '<leader>gw', ':Gwrite<CR>', opts)
+-- keymap('n', '<leader>gB', ':Git blame<Cr>', opts)
+keymap('n', '<leader>gl', ':Git log<CR>', opts)
+keymap('n', '<leader>gL', ':Gclog<CR>', opts)
