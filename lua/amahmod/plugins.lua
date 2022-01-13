@@ -51,6 +51,9 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
+  use 'lewis6991/impatient.nvim'
+  use "lukas-reineke/indent-blankline.nvim"
+  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
   -- Colorscheme
   use "lunarvim/darkplus.nvim"
