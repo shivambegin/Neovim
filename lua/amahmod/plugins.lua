@@ -55,8 +55,9 @@ return packer.startup(
     use 'ggandor/lightspeed.nvim'
 
     -- Colorscheme
-    use 'lunarvim/darkplus.nvim'
+    -- use 'lunarvim/darkplus.nvim'
     use 'norcalli/nvim-colorizer.lua'
+    use 'projekt0n/github-nvim-theme'
 
     -- cmp plugins
     use 'hrsh7th/nvim-cmp' -- The completion plugin

@@ -114,7 +114,7 @@ local config = {
   options = {
     -- Disable sections and component separators
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'github',
     component_separators = {left = '', right = ''},
     section_separators = {left = '', right = ''},
     disabled_filetypes = {'dashboard', 'NvimTree', 'Outline'},
