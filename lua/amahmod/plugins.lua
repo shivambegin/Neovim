@@ -57,7 +57,8 @@ return packer.startup(
     -- Colorscheme
     -- use 'lunarvim/darkplus.nvim'
     use 'norcalli/nvim-colorizer.lua'
-    use 'projekt0n/github-nvim-theme'
+    use 'folke/tokyonight.nvim'
+    use 'mhartington/oceanic-next'
 
     -- cmp plugins
     use 'hrsh7th/nvim-cmp' -- The completion plugin
