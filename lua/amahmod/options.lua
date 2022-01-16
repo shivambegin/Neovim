@@ -34,6 +34,11 @@ local options = {
   sidescrolloff = 8,
   guifont = 'monospace:h17', -- the font used in graphical neovim applications
   lazyredraw = true, -- don't redraw the screen until it is needed
+  foldmethod = 'expr',
+  foldexpr = 'nvim_treesitter#foldexpr()',
+  foldnestmax = 3, -- maximum number of nested folds
+  foldminlines = 1, -- minimum number of lines to be folded
+  foldlevelstart = 99, -- do not auto fold
 }
 
 vim.opt.shortmess:append 'c'

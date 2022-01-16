@@ -159,3 +159,6 @@ keymap('n', '<leader>ca', ':CodeActionMenu<CR>', opts)
 keymap('n', 'ga', ':EasyAlign<CR>', opts)
 keymap('v', 'ga', ':EasyAlign<CR>', opts)
 keymap('x', 'ga', ':EasyAlign<CR>', opts)
+
+-- CodeAction
+keymap('n', '<leader>ca', ':CodeActionMenu<CR>', opts)
