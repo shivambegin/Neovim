@@ -53,6 +53,7 @@ return packer.startup(
     use {'junegunn/vim-easy-align', cmd = {'EasyAlign'}}
     use {'tpope/vim-surround', event = 'BufRead'}
     use 'ggandor/lightspeed.nvim'
+    use 'b0o/schemastore.nvim' -- provide json file completion for various file types
 
     -- Colorscheme
     -- use 'lunarvim/darkplus.nvim'
