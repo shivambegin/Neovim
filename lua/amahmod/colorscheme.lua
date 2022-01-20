@@ -1,4 +1,5 @@
 local transparent_background = false
+local colorscheme = 'tokyonight'
 
 -- tokyonight
 vim.g.tokyonight_style = 'dark'
@@ -24,4 +25,8 @@ if transparent_background then
   ]]
 end
 
-vim.cmd [[colorscheme tokyonight]]
+local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
+if not status_ok then
+  vim.notify('colorscheme ' .. colorscheme .. ' not found!')
+  return
+end
