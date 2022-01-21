@@ -162,3 +162,27 @@ keymap('x', 'ga', ':EasyAlign<CR>', opts)
 
 -- CodeAction
 keymap('n', '<leader>ca', ':CodeActionMenu<CR>', opts)
+
+-- Trouble {{{
+keymap('n', 'tt', ':TroubleToggle<CR>', opts)
+keymap('n', 'td', ':TroubleToggle workspace_diagnostics<CR>', opts)
+keymap('n', 'tD', ':TroubleToggle workspace_diagnostics<CR>', opts)
+keymap('n', 'tq', ':TroubleToggle quickfix<CR>', opts)
+keymap('n', 'tr', ':TroubleToggle lsp_references<CR>', opts)
+keymap('n', 'tl', ':TroubleToggle loclist<CR>', opts)
+keymap('n', 'ti', ':TroubleToggle lsp_implementations<CR>', opts)
+keymap('n', 'tT', ':TroubleToggle telescope<CR>', opts)
+-- }}}
+
+-- Git linker
+keymap(
+  'n', '<leader>gb',
+  '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+  opts
+)
+keymap(
+  'v', '<leader>gb',
+  '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+  opts
+)
+keymap('n', '<leader>gB', '<cmd>lua require"gitlinker".get_buf_range_url()<cr>', opts)

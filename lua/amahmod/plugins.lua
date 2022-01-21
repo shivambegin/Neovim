@@ -79,6 +79,11 @@ return packer.startup(
     use 'williamboman/nvim-lsp-installer' -- simple to use language server installer
     use 'jose-elias-alvarez/null-ls.nvim' -- for formatters and linters
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+    use {
+      'folke/lsp-trouble.nvim',
+      config = function() require('trouble').setup() end,
+      cmd = {'LspTrouble', 'TroubleToggle'},
+    } -- window for showing LSP detected issues in code
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
@@ -96,6 +101,7 @@ return packer.startup(
     -- Git
     use 'lewis6991/gitsigns.nvim'
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool'}}
+    use 'ruifm/gitlinker.nvim'
 
     -- JavaScript {{{
     use {'metakirby5/codi.vim', cmd = {'Codi', 'Codi!', 'Codi!!'}}
