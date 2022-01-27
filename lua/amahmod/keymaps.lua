@@ -51,7 +51,7 @@ keymap('n', '<C-Left>', ':vertical resize +2<CR>', opts) -- Increase the window 
 keymap('n', '<C-Up>', ':resize +2<CR>', opts) -- Increase the window to up
 keymap('n', '<C-Down>', ':resize -2<CR>', opts) -- Increase the window to down
 
--- Buffers 
+-- Buffers
 keymap('n', '<leader>s', ':w<CR>', opts) -- save buffer
 keymap('n', '<leader>q', ':q!<CR>', opts) -- close buffer without saving
 keymap('n', '<leader>x', ':Bdelete<CR>', opts) -- close all buffers
@@ -66,9 +66,9 @@ keymap('v', '<', '<gv', opts)
 keymap('v', '>', '>gv', opts)
 
 -- Move text up and down
-keymap('v', 'J', ':m \'>+1<CR>gv=gv', opts) -- move line down
-keymap('v', 'K', ':m \'<-2<CR>gv=gv', opts) -- move line up
-keymap('v', 'p', '"_dP', opts)
+-- keymap('v', 'J', ':m \'>+1<CR>gv=gv', opts) -- move line down
+-- keymap('v', 'K', ':m \'<-2<CR>gv=gv', opts) -- move line up
+-- keymap('v', 'p', '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -92,8 +92,9 @@ keymap('n', '<Leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', opts)
 keymap('n', '<Leader>fF', ':Telescope file_browser<CR>', opts)
 keymap('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
 keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', opts)
-keymap('n', '<leader>:', ':Telescope commands<CR>', opts)
-keymap('n', '<leader>/', ':Telescope command_history<CR>', opts)
+keymap('n', '<leader>fcc', ':Telescope commands<CR>', opts)
+keymap('n', '<leader>:', ':Telescope command_history<CR>', opts)
+keymap('n', '<leader>/', ':Telescope search_history<CR>', opts)
 keymap('n', '<Leader>fp', ':Telescope pickers<CR>', opts)
 keymap('n', '<Leader>fP', ':Telescope project<CR>', opts)
 keymap('n', '<Leader>fj', ':Telescope jumplist<CR>', opts)
@@ -186,3 +187,5 @@ keymap(
   opts
 )
 keymap('n', '<leader>gB', '<cmd>lua require"gitlinker".get_buf_range_url()<cr>', opts)
+
+keymap('n', '<leader>F', ':Format<CR>', opts)
