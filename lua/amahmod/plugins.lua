@@ -115,9 +115,9 @@ return packer.startup(
       config = function() vim.cmd [[ let g:mkdp_filetypes = ['markdown', 'vimwiki'] ]] end,
     }
 
+    use {'chentau/marks.nvim'}
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end
 )
-
