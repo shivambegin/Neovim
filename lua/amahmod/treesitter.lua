@@ -48,8 +48,14 @@ configs.setup {
       goto_previous_start = {['[m'] = '@function.outer', ['[['] = '@class.outer', ['[a'] = '@parameter.inner'},
       goto_previous_end = {['[M'] = '@function.outer', ['[]'] = '@class.outer', ['[A'] = '@parameter.inner'},
     },
+    lsp_interop = {
+      enable = true,
+      border = 'none',
+      peek_definition_code = {['<leader>df'] = '@function.outer', ['<leader>dF'] = '@class.outer'},
+    },
     select = {
       enable = true,
+      lookahead = true,
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ['af'] = '@function.outer',

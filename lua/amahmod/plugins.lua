@@ -95,7 +95,7 @@ return packer.startup(
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'windwp/nvim-ts-autotag'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    -- use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/nvim-treesitter-refactor'
 
     -- Git
