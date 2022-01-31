@@ -29,6 +29,7 @@ return packer.startup(
     use 'wbthomason/packer.nvim' -- Have packer manage itself
     use 'nvim-lua/popup.nvim' -- An implementation of the Popup API from vim in Neovim
     use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
+    use 'kyazdani42/nvim-web-devicons'
 
     -- theme
     use { "norcalli/nvim-colorizer.lua",
@@ -47,6 +48,8 @@ return packer.startup(
       end,
     } 
     use  'folke/tokyonight.nvim' 
+
+    use { 'kyazdani42/nvim-tree.lua', cmd = {  "NvimTreeToggle", "NvimTreeFindFile" }, config = "require('plugins.nvim-tree')" }
 
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end
