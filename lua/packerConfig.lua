@@ -74,6 +74,18 @@ return packer.startup(
     }
     use 'github/copilot.vim'
 
+    -- Fuzyy search
+    use {
+      'nvim-telescope/telescope.nvim',
+      cmd = {'Telescope'},
+      config = 'require("plugins.telescope")',
+      requires = {
+        {'nvim-telescope/telescope-file-browser.nvim'},
+        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+        'nvim-telescope/telescope-project.nvim'
+      },
+    }
+
     -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
     use {'lewis6991/gitsigns.nvim', event = {'BufRead', 'BufNewFile'}, config = 'require(\'plugins.gitsigns\')'}
