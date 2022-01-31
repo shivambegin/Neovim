@@ -51,6 +51,22 @@ return packer.startup(
 
     use { 'kyazdani42/nvim-tree.lua', cmd = {  "NvimTreeToggle", "NvimTreeFindFile" }, config = "require('plugins.nvim-tree')" }
     
+    -- Completion
+    use {
+      "hrsh7th/nvim-cmp",
+      config = "require('plugins.cmp')",
+      requires = {
+        { "hrsh7th/cmp-cmdline" },
+        { "hrsh7th/cmp-buffer" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-path" },
+        { "saadparwaiz1/cmp_luasnip" },
+        { "L3MON4D3/LuaSnip" },
+        { "rafamadriz/friendly-snippets" },
+        { "hrsh7th/cmp-nvim-lua"},
+      }
+    }
+
     -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
     use { 'lewis6991/gitsigns.nvim', event = { "BufRead", "BufNewFile" }, config = "require('plugins.gitsigns')" }
