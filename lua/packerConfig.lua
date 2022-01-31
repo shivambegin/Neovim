@@ -50,10 +50,10 @@ return packer.startup(
     use  'folke/tokyonight.nvim' 
 
     use { 'kyazdani42/nvim-tree.lua', cmd = {  "NvimTreeToggle", "NvimTreeFindFile" }, config = "require('plugins.nvim-tree')" }
-
-
-
+    
+    -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
+    use { 'lewis6991/gitsigns.nvim', event = { "BufRead", "BufNewFile" }, config = "require('plugins.gitsigns')" }
 
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end
