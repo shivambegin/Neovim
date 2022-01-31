@@ -88,3 +88,15 @@ keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 
 -- Nvim-tree
 keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
+
+
+-- Fugitive
+keymap('n', '<leader>gg', ':Git<CR>', opts)
+-- keymap('n', '<leader>gd', ':Git diff<CR>', opts)
+-- keymap('n', '<leader>gD', ':Gdiffsplit<CR>', opts)
+-- keymap('n', '<leader>ge', ':Gedit<CR>', opts)
+keymap('n', '<leader>gr', ':Gread<CR>', opts)
+keymap('n', '<leader>gw', ':Gwrite<CR>', opts)
+-- keymap('n', '<leader>gB', ':Git blame<Cr>', opts)
+keymap('n', '<leader>gl', ':Git log<CR>', opts)
+keymap('n', '<leader>gL', ':Gclog<CR>', opts)

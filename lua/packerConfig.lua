@@ -51,6 +51,10 @@ return packer.startup(
 
     use { 'kyazdani42/nvim-tree.lua', cmd = {  "NvimTreeToggle", "NvimTreeFindFile" }, config = "require('plugins.nvim-tree')" }
 
+
+
+    use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
+
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end
 )
