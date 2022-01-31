@@ -3,36 +3,11 @@ if not status_ok then return end
 
 gitsigns.setup {
   signs = {
-    add = {
-      hl = "GitSignsAdd",
-      text = "▌",
-      numhl = "GitSignsAdd",
-      linehl = "GitSignsAddLn",
-    },
-    change = {
-      hl = "GitSignsChange",
-      text = "▌",
-      numhl = "GitSignsChange",
-      linehl = "GitSignsChangeLn",
-    },
-    delete = {
-      hl = "GitSignsDelete",
-      text = "▌",
-      numhl = "GitSignsDelete",
-      linehl = "GitSignsDeleteLn",
-    },
-    topdelete = {
-      hl = "GitSignsDelete",
-      text = "‾",
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
-    },
-    changedelete = {
-      hl = "GitSignsChange",
-      text = "~",
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
-    },
+    add = {hl = 'GitSignsAdd', text = '▌', numhl = 'GitSignsAdd', linehl = 'GitSignsAddLn'},
+    change = {hl = 'GitSignsChange', text = '▌', numhl = 'GitSignsChange', linehl = 'GitSignsChangeLn'},
+    delete = {hl = 'GitSignsDelete', text = '▌', numhl = 'GitSignsDelete', linehl = 'GitSignsDeleteLn'},
+    topdelete = {hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn'},
   },
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = true, -- Toggle with `:Gitsigns toggle_numhl`

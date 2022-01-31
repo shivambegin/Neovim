@@ -32,55 +32,51 @@ return packer.startup(
     use 'kyazdani42/nvim-web-devicons'
 
     -- theme
-    use { "norcalli/nvim-colorizer.lua",
-      ft = {
-        "css",
-        "scss",
-        "sass",
-        "javascriptreact",
-        "typescriptreact",
-        "lua",
-        'vue',
-        'svelte'
-      },
-      config = function()
-        require("colorizer").setup()
-      end,
-    } 
-    use  'folke/tokyonight.nvim' 
+    use {
+      'norcalli/nvim-colorizer.lua',
+      ft = {'css', 'scss', 'sass', 'javascriptreact', 'typescriptreact', 'lua', 'vue', 'svelte'},
+      config = function() require('colorizer').setup() end,
+    }
+    use 'folke/tokyonight.nvim'
 
-    use { 'kyazdani42/nvim-tree.lua', cmd = {  "NvimTreeToggle", "NvimTreeFindFile" }, config = "require('plugins.nvim-tree')" }
-    
+    use {
+      'kyazdani42/nvim-tree.lua',
+      cmd = {'NvimTreeToggle', 'NvimTreeFindFile'},
+      config = 'require(\'plugins.nvim-tree\')',
+    }
+
     -- Completion
     use {
-      "hrsh7th/nvim-cmp",
-      config = "require('plugins.cmp')",
+      'hrsh7th/nvim-cmp',
+      config = 'require(\'plugins.cmp\')',
       requires = {
-        { "hrsh7th/cmp-cmdline" },
-        { "hrsh7th/cmp-buffer" },
-        { "hrsh7th/cmp-nvim-lsp" },
-        { "hrsh7th/cmp-path" },
-        { "saadparwaiz1/cmp_luasnip" },
-        { "L3MON4D3/LuaSnip" },
-        { "rafamadriz/friendly-snippets" },
-        { "hrsh7th/cmp-nvim-lua"},
-      }
+        {'hrsh7th/cmp-cmdline'},
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/cmp-path'},
+        {'saadparwaiz1/cmp_luasnip'},
+        {'L3MON4D3/LuaSnip', config = 'require(\'plugins.luasnip\')'},
+        {'rafamadriz/friendly-snippets'},
+        {'hrsh7th/cmp-nvim-lua'},
+      },
     }
 
     -- LSP
-    use { 'neovim/nvim-lspconfig',
-    config = "require('plugins.lsp')",
-    requires = {
-      'b0o/schemastore.nvim',
-      'williamboman/nvim-lsp-installer' ,
-      'jose-elias-alvarez/null-ls.nvim' ,
-      {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+    use {
+      'neovim/nvim-lspconfig',
+      config = 'require(\'plugins.lsp\')',
+      requires = {
+        'b0o/schemastore.nvim',
+        'williamboman/nvim-lsp-installer',
+        'jose-elias-alvarez/null-ls.nvim',
+        {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
+      },
     }
-  }
+    use 'github/copilot.vim'
 
     -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
-    use { 'lewis6991/gitsigns.nvim', event = { "BufRead", "BufNewFile" }, config = "require('plugins.gitsigns')" }
+    use {'lewis6991/gitsigns.nvim', event = {'BufRead', 'BufNewFile'}, config = 'require(\'plugins.gitsigns\')'}
 
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end

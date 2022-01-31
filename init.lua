@@ -1,7 +1,6 @@
-require "options"
-require "keymaps"
-require "autocommands"
-require "packerConfig"
+require 'options'
+require 'keymaps'
+require 'autocommands'
+require 'packerConfig'
 
-
-require "colorscheme"
+require 'colorscheme'

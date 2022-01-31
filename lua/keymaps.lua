@@ -1,4 +1,3 @@
-
 local opts = {noremap = true, silent = true}
 
 local term_opts = {silent = true}
@@ -85,13 +84,11 @@ keymap('t', '<C-j>', '<C-\\><C-N><C-w>j', term_opts)
 keymap('t', '<C-k>', '<C-\\><C-N><C-w>k', term_opts)
 keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 
-
 -- Format
 keymap('n', '<leader>F', ':Format<CR>', opts)
 
 -- Nvim-tree
 keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
-
 
 -- Fugitive
 keymap('n', '<leader>gg', ':Git<CR>', opts)
