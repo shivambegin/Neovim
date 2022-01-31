@@ -67,6 +67,17 @@ return packer.startup(
       }
     }
 
+    -- LSP
+    use { 'neovim/nvim-lspconfig',
+    config = "require('plugins.lsp')",
+    requires = {
+      'b0o/schemastore.nvim',
+      'williamboman/nvim-lsp-installer' ,
+      'jose-elias-alvarez/null-ls.nvim' ,
+      {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+    }
+  }
+
     -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
     use { 'lewis6991/gitsigns.nvim', event = { "BufRead", "BufNewFile" }, config = "require('plugins.gitsigns')" }

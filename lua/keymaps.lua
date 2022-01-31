@@ -86,6 +86,9 @@ keymap('t', '<C-k>', '<C-\\><C-N><C-w>k', term_opts)
 keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 
 
+-- Format
+keymap('n', '<leader>F', ':Format<CR>', opts)
+
 -- Nvim-tree
 keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
