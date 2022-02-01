@@ -107,6 +107,10 @@ return packer.startup(
     use 'moll/vim-bbye' -- Delete buffer without messing up layout
     use {'akinsho/bufferline.nvim', config = 'require("plugins.bufferline")'}
 
+    -- Editing
+    use {'tpope/vim-surround', event = 'BufRead'}
+    use {'junegunn/vim-easy-align', cmd = {'EasyAlign'}}
+
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end
 )

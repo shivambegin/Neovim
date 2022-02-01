@@ -157,3 +157,8 @@ keymap('n', '<leader>Ss', ':lua require("spectre").open()<CR>', opts) -- search 
 keymap('n', '<leader>Sw', ':lua require("spectre").open_visual({select_word=true})<CR>', opts)
 keymap('v', '<leader>S', ':lua require("spectre").open_visual()<CR>', opts) -- search in current file
 keymap('n', '<leader>Sp', ':lua require("spectre").open_file_search()<CR>', opts)
+
+-- EasiAlign
+keymap('n', 'ga', ':EasyAlign<CR>', opts)
+keymap('v', 'ga', ':EasyAlign<CR>', opts)
+keymap('x', 'ga', ':EasyAlign<CR>', opts)
