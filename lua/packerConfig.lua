@@ -45,6 +45,13 @@ return packer.startup(
       config = 'require(\'plugins.nvim-tree\')',
     }
 
+    -- Treesitter
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = 'require("plugins.nvim-treesitter")'}
+    use 'windwp/nvim-ts-autotag'
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use 'nvim-treesitter/nvim-treesitter-refactor'
+
     -- Completion
     use {
       'hrsh7th/nvim-cmp',
@@ -82,7 +89,7 @@ return packer.startup(
       requires = {
         {'nvim-telescope/telescope-file-browser.nvim'},
         {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
-        'nvim-telescope/telescope-project.nvim'
+        'nvim-telescope/telescope-project.nvim',
       },
     }
 
