@@ -94,6 +94,7 @@ return packer.startup(
         'nvim-telescope/telescope-project.nvim',
       },
     }
+    use 'windwp/nvim-spectre'
 
     -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}

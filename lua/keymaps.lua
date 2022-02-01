@@ -151,3 +151,9 @@ keymap('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', opts)
 
 -- CodeAction
 keymap('n', '<leader>ca', ':CodeActionMenu<CR>', opts)
+
+-- Spctree: search and replace
+keymap('n', '<leader>Ss', ':lua require("spectre").open()<CR>', opts) -- search current word
+keymap('n', '<leader>Sw', ':lua require("spectre").open_visual({select_word=true})<CR>', opts)
+keymap('v', '<leader>S', ':lua require("spectre").open_visual()<CR>', opts) -- search in current file
+keymap('n', '<leader>Sp', ':lua require("spectre").open_file_search()<CR>', opts)
