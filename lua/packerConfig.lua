@@ -31,6 +31,10 @@ return packer.startup(
     use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
     use 'kyazdani42/nvim-web-devicons'
 
+    -- Movment
+    use 'ggandor/lightspeed.nvim'
+    use {'chentau/marks.nvim'}
+
     -- theme
     use {
       'norcalli/nvim-colorizer.lua',
@@ -110,6 +114,17 @@ return packer.startup(
     -- Editing
     use {'tpope/vim-surround', event = 'BufRead'}
     use {'junegunn/vim-easy-align', cmd = {'EasyAlign'}}
+
+    -- JavaScript
+    use {'metakirby5/codi.vim', cmd = {'Codi', 'Codi!', 'Codi!!'}}
+
+    --  Markdown
+    use {
+      'iamcco/markdown-preview.nvim',
+      ft = {'markdown', 'vimwiki'},
+      run = 'cd app && yarn install',
+      config = function() vim.cmd [[ let g:mkdp_filetypes = ['markdown', 'vimwiki'] ]] end,
+    }
 
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end

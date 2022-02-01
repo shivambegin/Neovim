@@ -162,3 +162,6 @@ keymap('n', '<leader>Sp', ':lua require("spectre").open_file_search()<CR>', opts
 keymap('n', 'ga', ':EasyAlign<CR>', opts)
 keymap('v', 'ga', ':EasyAlign<CR>', opts)
 keymap('x', 'ga', ':EasyAlign<CR>', opts)
+
+-- Markdown Preview
+keymap('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', opts)
