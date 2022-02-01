@@ -39,6 +39,7 @@ return packer.startup(
     }
     use 'folke/tokyonight.nvim'
 
+    -- File explorer
     use {
       'kyazdani42/nvim-tree.lua',
       cmd = {'NvimTreeToggle', 'NvimTreeFindFile'},
@@ -97,6 +98,13 @@ return packer.startup(
     -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
     use {'lewis6991/gitsigns.nvim', event = {'BufRead', 'BufNewFile'}, config = 'require(\'plugins.gitsigns\')'}
+
+    -- Commenting
+    use {'numToStr/Comment.nvim', config = 'require("plugins.comment")'}
+
+    -- Buffers
+    use 'moll/vim-bbye' -- Delete buffer without messing up layout
+    use {'akinsho/bufferline.nvim', config = 'require("plugins.bufferline")'}
 
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end
