@@ -126,6 +126,8 @@ return packer.startup(
       config = function() vim.cmd [[ let g:mkdp_filetypes = ['markdown', 'vimwiki'] ]] end,
     }
 
+    -- Time tracking
+    use 'wakatime/vim-wakatime'
     if PACKER_BOOTSTRAP then require('packer').sync() end
   end
 )
