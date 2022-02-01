@@ -67,6 +67,7 @@ return packer.startup(
         {'hrsh7th/cmp-nvim-lua'},
       },
     }
+    use {'windwp/nvim-autopairs', config = 'require("plugins.autopairs")'}
 
     -- LSP
     use {
