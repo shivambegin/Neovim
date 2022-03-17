@@ -22,4 +22,7 @@ require'nvim-tree'.setup {
   diagnostics = {enable = true, icons = {hint = '', info = '', warning = '', error = ''}},
   update_focused_file = {enable = true, update_cwd = true, ignore_list = {}},
   filters = {dotfiles = false, custom = {'.git'}},
+  view = {
+    side = 'right'
+  }
 }
