@@ -21,7 +21,7 @@ require'nvim-tree'.setup {
   update_to_buf_dir = {enable = true, auto_open = true},
   diagnostics = {enable = true, icons = {hint = '', info = '', warning = '', error = ''}},
   update_focused_file = {enable = true, update_cwd = true, ignore_list = {}},
-  filters = {dotfiles = false, custom = {'.git'}},
+  filters = {dotfiles = false, custom = {'.git', 'node_modules', '.cache'}},
   view = {
     side = 'right'
   }
