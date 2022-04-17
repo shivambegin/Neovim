@@ -90,6 +90,9 @@ cmp.setup {
     --   end, {'i', 's'}
     -- ),
   },
+  window = {
+    documentation = 'native'
+  },
   formatting = {
     fields = {'kind', 'abbr', 'menu'},
     format = function(entry, vim_item)
@@ -108,7 +111,6 @@ cmp.setup {
   },
   sources = {{name = 'nvim_lsp'}, {name = 'nvim_lua'}, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'}},
   confirm_opts = {behavior = cmp.ConfirmBehavior.Replace, select = false},
-  documentation = {border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'}},
   experimental = {ghost_text = true, native_menu = false},
 }
 
