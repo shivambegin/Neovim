@@ -12,7 +12,7 @@ end
 
 local autocmds = {
   highlight = {{'TextYankPost', '*', 'lua require(\'vim.highlight\').on_yank({higroup = \'Search\', timeout = 200})'}},
-  -- format = {{'BufWritePre', '*', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}},
+  format = {{'BufWritePre', '*', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}},
   auto_resize = {{'VimResized', '*', 'tabdo wincmd ='}},
   bufs = {{'BufWritePre', 'COMMIT_EDITMSG', 'setlocal noundofile'}, {'BufWritePre', 'MERGE_MSG', 'setlocal noundofile'}},
   filetypes = {
