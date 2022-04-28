@@ -42,6 +42,7 @@ return packer.startup(
     use {
       'norcalli/nvim-colorizer.lua',
       ft = {'css', 'scss', 'sass', 'javascriptreact', 'typescriptreact', 'lua', 'vue', 'svelte'},
+      event = {'BufRead', 'BufNewFile'},
       config = function() require('colorizer').setup() end,
     }
     use 'folke/tokyonight.nvim'
@@ -77,7 +78,7 @@ return packer.startup(
         {'hrsh7th/cmp-nvim-lua'},
       },
     }
-    use {'windwp/nvim-autopairs', config = 'require("plugins.autopairs")'}
+    use {'windwp/nvim-autopairs', event = {'InsertEnter'}, config = 'require("plugins.autopairs")'}
 
     -- LSP
     use {
@@ -121,11 +122,11 @@ return packer.startup(
     use {'lewis6991/gitsigns.nvim', event = {'BufRead', 'BufNewFile'}, config = 'require(\'plugins.gitsigns\')'}
 
     -- Commenting
-    use {'numToStr/Comment.nvim', config = 'require("plugins.comment")'}
+    use {'numToStr/Comment.nvim', event = {'BufRead', 'BufNewFile'}, config = 'require("plugins.comment")'}
 
     -- Buffers
     use 'moll/vim-bbye' -- Delete buffer without messing up layout
-    use {'akinsho/bufferline.nvim', config = 'require("plugins.bufferline")'}
+    use {'akinsho/bufferline.nvim', after = 'nvim-web-devicons', config = 'require("plugins.bufferline")'}
 
     -- Editing
     use {'tpope/vim-surround', event = 'BufRead'}
