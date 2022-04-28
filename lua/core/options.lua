@@ -38,6 +38,7 @@ local options = {
   foldnestmax = 3, -- maximum number of nested folds
   foldminlines = 1, -- minimum number of lines to be folded
   foldlevelstart = 99, -- do not auto fold
+  laststatus = 3, -- global status line
 }
 
 vim.opt.shortmess:append 'c'
