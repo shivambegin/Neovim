@@ -48,7 +48,7 @@ return packer.startup(
 
     -- Movment
     use 'ggandor/lightspeed.nvim'
-    use {'chentau/marks.nvim'}
+    use {'chentau/marks.nvim', config = function() require('configs.marks').config() end}
 
     -- theme
     use {
