@@ -32,7 +32,7 @@ function M.config()
           deleted = '',
           modified = '',
           renamed = '➜',
-          untracked = '★',
+          untracked = '',
           ignored = '◌',
           unstaged = '✗',
           staged = '✓',
