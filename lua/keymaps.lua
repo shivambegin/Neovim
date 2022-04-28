@@ -88,7 +88,8 @@ keymap('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
 keymap('n', '<leader>F', ':Format<CR>', opts)
 
 -- Nvim-tree
-keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
+keymap('n', '<leader>e', ':Neotree toggle<CR>', opts)
+keymap('n', '<leader>o', ':Neotree focus<CR>', opts)
 
 -- Fugitive
 keymap('n', '<leader>gg', ':Git<CR>', opts)
