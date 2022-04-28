@@ -166,3 +166,6 @@ keymap('x', 'ga', ':EasyAlign<CR>', opts)
 
 -- Markdown Preview
 keymap('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', opts)
+
+-- Symbols outline
+keymap('n', '<leader>lS', '<cmd>SymbolsOutline<CR>', opts)

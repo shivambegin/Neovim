@@ -33,6 +33,18 @@ return packer.startup(
     use {'rcarriga/nvim-notify', config = function() require('plugins.notify').config() end}
     -- Neovim UI Enhancer
     use {'MunifTanjim/nui.nvim', module = 'nui'}
+    -- Cursorhold fix
+    use {
+      'antoinemadec/FixCursorHold.nvim',
+      event = {'BufRead', 'BufNewFile'},
+      config = function() vim.g.cursorhold_updatetime = 100 end,
+    }
+    -- Indent detection
+    use {
+      'Darazaki/indent-o-matic',
+      event = 'BufRead',
+      config = function() require('plugins.indent-o-matic').config() end,
+    }
 
     -- Movment
     use 'ggandor/lightspeed.nvim'
@@ -91,6 +103,13 @@ return packer.startup(
         {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
       },
     }
+    -- LSP symbols
+    use {
+      'simrat39/symbols-outline.nvim',
+      cmd = 'SymbolsOutline',
+      setup = function() require('plugins.symbols-outline').config() end,
+    }
+
     use 'github/copilot.vim'
 
     -- Fuzyy search
@@ -117,6 +136,11 @@ return packer.startup(
 
     use 'windwp/nvim-spectre'
 
+    use {
+      'karb94/neoscroll.nvim',
+      event = {'BufRead', 'BufNewFile'},
+      config = function() require('plugins.neoscroll').config() end,
+    }
     -- Git
     use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
     use {'lewis6991/gitsigns.nvim', event = {'BufRead', 'BufNewFile'}, config = 'require(\'plugins.gitsigns\')'}
@@ -124,8 +148,9 @@ return packer.startup(
     -- Commenting
     use {'numToStr/Comment.nvim', event = {'BufRead', 'BufNewFile'}, config = 'require("plugins.comment")'}
 
-    -- Buffers
+    -- Better buffer closing
     use 'moll/vim-bbye' -- Delete buffer without messing up layout
+    -- Bufferline
     use {'akinsho/bufferline.nvim', after = 'nvim-web-devicons', config = 'require("plugins.bufferline")'}
 
     -- Editing
@@ -142,6 +167,9 @@ return packer.startup(
       run = 'cd app && yarn install',
       config = function() vim.cmd [[ let g:mkdp_filetypes = ['markdown', 'vimwiki'] ]] end,
     }
+
+    -- Tools
+    use {'tpope/vim-repeat'}
 
     -- Time tracking
     use 'wakatime/vim-wakatime'
