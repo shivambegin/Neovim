@@ -1,9 +1,8 @@
-local opts = {noremap = true, silent = true}
+local utils = require 'core.utils'
 
-local term_opts = {silent = true}
-
--- Shorten function name
 local map = vim.keymap.set
+local cmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
 -- Remap space as leader key
 map('', '<Space>', '<Nop>')
@@ -11,161 +10,196 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- General
+-- map('n', '<leader>ts', ':set spell!<CR>') -- Toggle spell check
 map('n', 'n', 'nzzzv') -- keep the cursor centered when doing 'n'
 map('n', 'N', 'Nzzzv') -- keep the cursor centered when doing 'N'
 map('n', 'J', 'mzJ`z') -- keep the cursor in same position when joining lines
 map('n', 'cn', '*``cgn') -- change next match by pressing dot (.)
 map('n', 'cN', '*``cgN') -- change previous match by pressing dot (.)
-map('n', '<leader>vp', '`[v`]<CR>') -- visually select previous pasted text
-map('v', '<leader>p', '"_dP') -- delete into black hole and past last yank
-map('n', '<leader>Y', 'gg"+yG') -- copy hole buffer
-map('n', '<leader>V', 'ggVG') -- select hole buffer
-map('n', '<leader>D', 'gg"_dG') -- delete into black hole register
-map('v', '<leader>D', '"_d') -- delete into black hole register
-map('n', '<C-d>', '<C-d>zz') -- move and center
-map('n', '<C-u>', '<C-u>zz') -- move and center
-map('n', '<leader>ts', ':set spell!<CR>') -- Toggle spell check
-map('n', '<leader>th', ':set nohlsearch<CR>') -- Toggle spell check
-map('n', '<leader>z', ':%s/<C-R><C-W>/<C-R>0/g<CR>') -- replace word under cursor with register "0" content globally
+map('n', '<leader>vp', '`[v`]<CR>', {desc = 'Select pasted text'})
+-- map('v', '<leader>p', '"_dP') -- delete into black hole and past last yank
+map('n', '<leader>Y', 'gg"+yG', {desc = 'Copy whole buffer'})
+map('n', '<leader>V', 'ggVG', {desc = 'Select whole buffer'})
+-- map('n', '<leader>D', 'gg"_dG') -- delete into black hole register
+-- map('v', '<leader>D', '"_d') -- delete into black hole register
+map('n', '<C-d>', '<C-d>zz', {desc = 'Scroll down'})
+map('n', '<C-u>', '<C-u>zz', {desc = 'Scroll up'})
+map(
+  'n', '<leader>z', ':%s/<C-R><C-W>/<C-R>0/g<CR>',
+  {desc = 'Replace word under cursor with register "0" content globally'}
+)
+map('n', '<leader>h', '<cmd>nohlsearch<CR>', {desc = 'Hide highlights'})
 
 -- Better window management
-map('n', '<C-h>', '<C-w>h') -- focus left window
-map('n', '<C-j>', '<C-w>j') -- focus bottom window
-map('n', '<C-k>', '<C-w>k') -- focus top winodw
-map('n', '<C-l>', '<C-w>l') -- focus right window
-map('n', '<leader>ws', ':sp<CR>') -- split window horizontally
-map('n', '<leader>wv', ':vs<CR>') -- split window vertically
-map('n', '<leader>wH', '<C-w>H') -- Move current window the far left and use the full height of the screen
-map('n', '<leader>wJ', '<C-w>J') -- Move current window the far bottom and use the full width of the screen
-map('n', '<leader>wK', '<C-w>K') -- Move current window the far top and full width of the screen
-map('n', '<leader>wL', '<C-w>L') -- Move current window the far right and full height of the screen
-map('n', '<leader>wc', '<C-w>c') -- Close current window in the current tabview
-map('n', '<leader>wo', '<C-w>o') -- Close every window in the current tabview but the current one
-map('n', '<leader>wR', '<C-w>R') -- Rotates the windows from right to left
-
-map('n', '<leader>e', ':NvimTreeToggle<CR>')
-
--- Resize with arrows
-map('n', '<C-Right>', ':vertical resize -2<CR>') -- Increase the window to the right
-map('n', '<C-Left>', ':vertical resize +2<CR>') -- Increase the window to the left
-map('n', '<C-Up>', ':resize +2<CR>') -- Increase the window to up
-map('n', '<C-Down>', ':resize -2<CR>') -- Increase the window to down
+map('n', '<C-h>', '<C-w>h', {desc = 'Focus left window'})
+map('n', '<C-j>', '<C-w>j', {desc = 'Focus bottom window'})
+map('n', '<C-k>', '<C-w>k', {desc = 'Focus top window'})
+map('n', '<C-l>', '<C-w>l', {desc = 'Focus right windwo'})
 
 -- Buffers
-map('n', '<leader>s', ':w<CR>') -- save buffer
-map('n', '<leader>q', ':q!<CR>') -- close buffer without saving
-map('n', '<leader>x', ':Bdelete<CR>') -- close all buffers
-map('n', '<leader>ba', ':bufdo bd<CR>') -- close all buffers
-map('n', '<leader>bo', ':w <bar> %bd <bar> e# <bar> bd#<CR>') -- close all buffers except current one
-map('n', '<S-l>', ':bnext<CR>') -- next buffer
-map('n', '<S-h>', ':bprevious<CR>') -- previous buffer
+map('n', '<leader>ba', ':bufdo bd<CR>', {desc = 'close all buffers'})
+map('n', '<leader>bo', ':w <bar> %bd <bar> e# <bar> bd#<CR>', {desc = 'Close all buffers except current one'})
+map('n', '<C-s>', '<cmd>w!<CR>', {desc = 'Force save'})
+map('n', '<leader>q', '<cmd>q<CR>', {desc = 'Close buffer/window'})
+map('n', '<leader>w', '<cmd>w<CR>', {desc = 'Save buffer'})
+-- map('n', '<leader>s', ':w<CR>', {desc = 'Save buffer'})
+map('n', '<C-q>', '<cmd>q!<CR>', {desc = 'Force quit'})
+map('n', '<leader>x', ':bdelete<CR>', {desc = 'Close buffer'})
+map('n', '<S-l>', ':bnext<CR>', {desc = 'Go to next buffer'})
+map('n', '<S-h>', ':bprevious<CR>', {desc = 'Go to previous buffer'})
 
 -- Visual --
 -- Stay in indent mode
-map('v', '<', '<gv')
-map('v', '>', '>gv')
+map('v', '<', '<gv', {desc = '(V) Indent to left'})
+map('v', '>', '>gv', {desc = '(V) Indent to right'})
+map('v', 'J', ':m \'>+1<CR>gv=gv', {desc = '(V) Move selection up'})
+map('v', 'K', ':m \'<-2<CR>gv=gv', {desc = '(V) Move selection down'})
 
--- Move text up and down
--- keymap('v', 'J', ':m \'>+1<CR>gv=gv') -- move line down
--- keymap('v', 'K', ':m \'<-2<CR>gv=gv') -- move line up
--- keymap('v', 'p', '"_dP')
+-- Quickfix
+map('n', '<A-q>', ':lua require("utils").toggle_qf()<CR>', {desc = 'Toggle quickfix list'})
+-- remap("n", "<A-o>", ":copen<CR>") -- open quickfix
+map('n', '<A-j>', ':cnext<CR>', {desc = 'Next quickfix item'})
+map('n', '<A-k>', ':cprev<CR>', {desc = 'previous quickfix item'})
 
--- Visual Block --
--- Move text up and down
-map('x', 'J', ':move \'>+1<CR>gv-gv')
-map('x', 'K', ':move \'<-2<CR>gv-gv')
-map('x', '<A-j>', ':move \'>+1<CR>gv-gv')
-map('x', '<A-k>', ':move \'<-2<CR>gv-gv')
+-- LocationList
+map('n', '<Leader>lo', ':lopen<CR>', {desc = 'Open location list'})
+map('n', '<Leader>lc', ':lclose<CR>', {desc = 'Close location list'})
+map('n', '<Leader>ln', ':lnext<CR>', {desc = 'Next location list item'})
+map('n', '<Leader>lp', ':lprev<CR>', {desc = 'Previous location list item'})
 
--- Terminal --
--- Better terminal navigation
-map('t', '<C-h>', '<C-\\><C-N><C-w>h', term_opts)
-map('t', '<C-j>', '<C-\\><C-N><C-w>j', term_opts)
-map('t', '<C-k>', '<C-\\><C-N><C-w>k', term_opts)
-map('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
+-- Packer
+map('n', '<leader>pc', '<cmd>PackerCompile<cr>', {desc = 'Packer compile'})
+map('n', '<leader>pi', '<cmd>PackerInstall<cr>', {desc = 'Install packer plugins'})
+map('n', '<leader>ps', '<cmd>PackerSync<cr>', {desc = 'Sync packer plugins'})
+map('n', '<leader>pS', '<cmd>PackerStatus<cr>', {desc = 'Packer status'})
+map('n', '<leader>pu', '<cmd>PackerUpdate<cr>', {desc = 'Update packer plugins'})
 
--- Format
-map('n', '<leader>F', ':Format<CR>')
+-- LSP
+map('n', 'gD', vim.lsp.buf.declaration, {desc = 'Go to declaration'})
+map('n', 'gd', vim.lsp.buf.definition, {desc = 'Show the definition of current function'})
+map('n', 'gI', vim.lsp.buf.implementation, {desc = 'Go to implementation'})
+map('n', 'gr', vim.lsp.buf.references, {desc = 'Find references'})
+map('n', 'go', vim.diagnostic.open_float, {desc = 'Open line diagnostic'})
+map('n', 'gl', vim.diagnostic.open_float, {desc = 'Open line diagnostic'})
+map('n', '[d', vim.diagnostic.goto_prev, {desc = 'Go to previous diagnostic'})
+map('n', ']d', vim.diagnostic.goto_next, {desc = 'Go to next diagnostic'})
+map('n', 'K', vim.lsp.buf.hover, {desc = 'Open hover content'})
+map('n', '<leader>rn', vim.lsp.buf.rename, {desc = 'Rename tag'})
+map('n', '<leader>lf', vim.lsp.buf.formatting_sync, {desc = 'Format code'})
+map('n', '<leader>li', '<cmd>LspInfo<cr>', {desc = 'LSP info'})
+map('n', '<leader>lI', '<cmd>LspInstallInfo<cr>', {desc = 'LSP install info'})
+map('n', '<leader>la', vim.lsp.buf.code_action, {desc = 'LSP code actions'})
+map('n', '<leader>lr', vim.lsp.buf.rename, {desc = 'LSP rename symbol'})
+map('n', '<leader>ld', vim.diagnostic.open_float, {desc = 'LSP oepn line diagnostic'})
 
--- Nvim-tree
+-- NeoTree
 map('n', '<leader>e', ':Neotree toggle<CR>')
 map('n', '<leader>o', ':Neotree focus<CR>')
 
--- Fugitive
-map('n', '<leader>gg', ':Git<CR>')
--- keymap('n', '<leader>gd', ':Git diff<CR>')
--- keymap('n', '<leader>gD', ':Gdiffsplit<CR>')
--- keymap('n', '<leader>ge', ':Gedit<CR>')
-map('n', '<leader>gr', ':Gread<CR>')
-map('n', '<leader>gw', ':Gwrite<CR>')
--- keymap('n', '<leader>gB', ':Git blame<Cr>')
-map('n', '<leader>gl', ':Git log<CR>')
-map('n', '<leader>gL', ':Gclog<CR>')
-
--- Telescope {{{
-map('n', '<C-p>', ':Telescope find_files<CR>')
-map('n', '<Leader>fG', ':Telescope grep_string<CR>')
-map('n', '<Leader>fg', ':Telescope live_grep<CR>')
-map('n', '<Leader>ff', ':Telescope current_buffer_fuzzy_find<CR>')
-map('n', '<Leader>fF', ':Telescope file_browser<CR>')
-map('n', '<Leader>fb', ':Telescope buffers<CR>')
-map('n', '<Leader>fo', ':Telescope oldfiles<CR>')
-map('n', '<leader>fcc', ':Telescope commands<CR>')
-map('n', '<leader>:', ':Telescope command_history<CR>')
-map('n', '<leader>/', ':Telescope search_history<CR>')
-map('n', '<Leader>fp', ':Telescope pickers<CR>')
-map('n', '<Leader>fP', ':Telescope project<CR>')
-map('n', '<Leader>fj', ':Telescope jumplist<CR>')
-map('n', '<Leader>fr', ':Telescope lsp_references<CR>')
-map('n', '<Leader>fR', ':Telescope registers<CR>')
-map('n', '<Leader>ft', ':Telescope treesitter<CR>')
-map('n', '<Leader>fT', ':Telescope current_buffer_tags<CR>')
-map('n', '<Leader>fws', ':Telescope lsp_workspace_symbols<CR>')
-map('n', '<Leader>fca', ':Telescope lsp_code_actions<CR>')
-map('n', '<Leader>fwd', ':Telescope lsp_workspace_diagnostics<CR>')
-map('n', '<Leader>fi', ':Telescope lsp_implementations<CR>')
-map('n', '<Leader>fds', ':Telescope lsp_document_symbols<CR>')
-map('n', '<Leader>fdd', ':Telescope lsp_document_diagnostics<CR>')
-map('n', '<Leader>fD', ':Telescope lsp_definitions<CR>')
-map('n', '<Leader>ftd', ':Telescope lsp_definitions<CR>')
--- keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>')
--- keymap('n', '<Leader>fgC', ':Telescope git_bcommits<CR>')
--- keymap('n', '<Leader>fgb', ':Telescope git_branches<CR>')
--- keymap('n', '<Leader>fgs', ':Telescope git_status<CR>')
--- keymap('n', '<Leader>fgS', ':Telescope git_stash<CR>')
-map('n', '<Leader>fR', ':Telescope resume<CR>')
-map('n', '<Leader>fs', ':Telescope symbols<CR>')
-
 -- Bufferline
-map('n', 'H', ':BufferLineCyclePrev<CR>')
-map('n', 'L', ':BufferLineCycleNext<CR>')
-map('n', '<leader><leader>', ':BufferLinePick<CR>')
-map('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>')
-map('n', '<leader>2', ':BufferLineGoToBuffer 2<CR>')
-map('n', '<leader>3', ':BufferLineGoToBuffer 3<CR>')
-map('n', '<leader>4', ':BufferLineGoToBuffer 4<CR>')
-map('n', '<leader>5', ':BufferLineGoToBuffer 5<CR>')
-map('n', '<leader>6', ':BufferLineGoToBuffer 6<CR>')
-map('n', '<leader>7', ':BufferLineGoToBuffer 7<CR>')
-map('n', '<leader>8', ':BufferLineGoToBuffer 8<CR>')
-map('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>')
+map('n', '<S-l>', '<cmd>BufferLineCycleNext<cr>', {desc = 'Go to next buffer (bufferline)'})
+map('n', '<S-h>', '<cmd>BufferLineCyclePrev<cr>', {desc = 'Got to previous buffer (bufferline)'})
+map('n', '}', '<cmd>BufferLineMoveNext<cr>', {desc = 'Move buffer to the right'})
+map('n', '{', '<cmd>BufferLineMovePrev<cr>', {desc = 'Move buffer to the left'})
+map('n', '<leader><leader>', ':BufferLinePick<CR>', {desc = 'Select a buffer'})
+map('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', {desc = 'Go to buffer 1'})
+map('n', '<leader>2', ':BufferLineGoToBuffer 2<CR>', {desc = 'Go to buffer 2'})
+map('n', '<leader>3', ':BufferLineGoToBuffer 3<CR>', {desc = 'Go to buffer 3'})
+map('n', '<leader>4', ':BufferLineGoToBuffer 4<CR>', {desc = 'Go to buffer 4'})
+map('n', '<leader>5', ':BufferLineGoToBuffer 5<CR>', {desc = 'Go to buffer 5'})
+map('n', '<leader>6', ':BufferLineGoToBuffer 6<CR>', {desc = 'Go to buffer 6'})
+map('n', '<leader>7', ':BufferLineGoToBuffer 7<CR>', {desc = 'Go to buffer 7'})
+map('n', '<leader>8', ':BufferLineGoToBuffer 8<CR>', {desc = 'Go to buffer 8'})
+map('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', {desc = 'Go to buffer 9'})
 
--- CodeAction
-map('n', '<leader>ca', ':CodeActionMenu<CR>')
+-- vim-bbye
+map('n', '<leader>c', '<cmd>Bdelete!<CR>', {desc = 'Close buffer (vim-bbye)'})
+
+-- Telescope
+map('n', '<C-p>', ':Telescope find_files<CR>', {desc = 'Find files (Telescope)'})
+map('n', '<leader>fw', ':Telescope live_grep<CR>', {desc = 'Live grep (Telescope)'})
+map('n', '<leader>gt', ':Telescope git_status<CR>', {desc = 'Git status (Telescope)'})
+map('n', '<leader>gb', ':Telescope git_branches<CR>', {desc = 'Git branches (Telescope)'})
+map('n', '<leader>gc', ':Telescope git_commits<CR>', {desc = 'Git commits (Telescope)'})
+map('n', '<Leader>ff', ':Telescope current_buffer_fuzzy_find<CR>', {desc = 'Find  in current buffer'})
+-- map('n', '<leader>ff', ':Telescope ', {desc = 'Find files (Telescope)'})
+map('n', '<leader>fb', ':Telescope buffers<CR>', {desc = 'Buffer list'})
+map('n', '<leader>fh', ':Telescope tags<CR>', {desc = 'Help tags'})
+map('n', '<leader>fm', ':Telescope marks<CR>', {desc = 'Find marks'})
+map('n', '<leader>fo', ':Telescope oldfiles<CR>', {desc = 'Find old files'})
+-- map('n', '<leader>sb', ':Telescope ', {desc = 'Find git branches'})
+map('n', '<leader>sh', ':Telescope help_tags<CR>', {desc = 'Help tags'})
+map('n', '<leader>sm', ':Telescope man_pages<CR>', {desc = 'Man pages'})
+map('n', '<leader>sn', function() require('telescope').extensions.notify.notify() end, {desc = 'Notification list'})
+map('n', '<leader>sr', ':Telescope registers<CR>', {desc = 'Find registers'})
+map('n', '<leader>sk', ':Telescope keymaps<CR>', {desc = 'Find key maps'})
+map('n', '<leader>sc', ':Telescope commands<CR>', {desc = 'Find commands'})
+map('n', '<leader>ls', ':Telescope lsp_document_symbols<CR>', {desc = 'LSP document symbols'})
+map('n', '<leader>lR', ':Telescope lsp_references<CR>', {desc = 'LSP references'})
+map('n', '<leader>lD', ':Telescope diagnostics<CR>', {desc = 'Workspace diagnostics'})
+map('n', '<Leader>fR', ':Telescope resume<CR>', {desc = 'Resume last search'})
+map('n', '<leader>:', ':Telescope command_history<CR>', {desc = 'Find command history'})
+map('n', '<leader>/', ':Telescope search_history<CR>', {desc = 'Find search history'})
+
+-- Comment
+map('n', '<C-/>', function() require('Comment.api').toggle_current_linewise() end, {desc = 'Comment/uncomment code'})
+map(
+  'v', '<C-/>', '<esc><cmd>lua require(\'Comment.api\').toggle_linewise_op(vim.fn.visualmode())<CR>',
+  {desc = 'Comment/uncomment in visual mode'}
+)
+
+-- Terminal
+map('n', '<C-\\>', '<cmd>ToggleTerm<CR>', {desc = 'Toggle terminal'})
+map('n', '<leader>tn', function() utils.toggle_term_cmd 'node' end, {desc = 'Open node in terminal'})
+map('n', '<leader>tu', function() utils.toggle_term_cmd 'ncdu' end, {desc = 'Open ncdu in terminal'})
+map('n', '<leader>tt', function() utils.toggle_term_cmd 'htop' end, {desc = 'Open htop in terminal'})
+map('n', '<leader>tp', function() utils.toggle_term_cmd 'python' end, {desc = 'Open python in terminal'})
+map('n', '<leader>tl', function() utils.toggle_term_cmd 'lazygit' end, {desc = 'Open lazygit in terminal'})
+map('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', {desc = 'Open floating terminal'})
+map('n', '<leader>th', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', {desc = 'Open terminal in horizontal pane'})
+map('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<cr>', {desc = 'Open terminal in vertical pane'})
+
+-- SymbolsOutline
+map('n', '<leader>lS', '<cmd>SymbolsOutline<CR>', {desc = 'Open symbols outline'})
+
+-- Git (fugitive)
+map('n', '<leader>gg', ':Git<CR>', {desc = 'Open git (fugitive)'})
+
+-- GitSigns
+map('n', '<leader>gj', function() require('gitsigns').next_hunk() end, {desc = 'Go to next git hunk'})
+map('n', '<leader>gk', function() require('gitsigns').prev_hunk() end, {desc = 'Go to previous git hunk'})
+map('n', '<leader>gl', function() require('gitsigns').blame_line() end, {desc = 'Git blame line'})
+map('n', '<leader>gp', function() require('gitsigns').preview_hunk() end, {desc = 'Git preview hunk'})
+map('n', '<leader>gh', function() require('gitsigns').reset_hunk() end, {desc = 'Git reset hunk'})
+map('n', '<leader>gr', function() require('gitsigns').reset_buffer() end, {desc = 'Git reset buffer'})
+map('n', '<leader>gs', function() require('gitsigns').stage_hunk() end, {desc = 'Git stage hunk'})
+map('n', '<leader>gu', function() require('gitsigns').undo_stage_hunk() end, {desc = 'Git undow staged hunk'})
+map('n', '<leader>gd', function() require('gitsigns').diffthis() end, {desc = 'Git diff current buffer'})
 
 -- Spctree: search and replace
-map('n', '<leader>Ss', ':lua require("spectre").open()<CR>') -- search current word
-map('n', '<leader>Sw', ':lua require("spectre").open_visual({select_word=true})<CR>')
-map('v', '<leader>S', ':lua require("spectre").open_visual()<CR>') -- search in current file
-map('n', '<leader>Sp', ':lua require("spectre").open_file_search()<CR>')
+map(
+  'n', '<leader>ss', ':lua require("spectre").open_visual({select_word=true})<CR>', {desc = 'Search word under cursor'}
+)
+map('n', '<leader>sw', ':lua require("spectre").open_file_search()<CR>', {desc = 'Search and replace in current file'})
+map('n', '<leader>SW', ':lua require("spectre").open()<CR>', {desc = 'Search and replace in workspace'}) -- search current word
+map('v', '<leader>s', ':lua require("spectre").open_visual()<CR>', {desc = 'Search selected text in workspace'})
 
 -- EasiAlign
-map('n', 'ga', ':EasyAlign<CR>')
-map('v', 'ga', ':EasyAlign<CR>')
-map('x', 'ga', ':EasyAlign<CR>')
+map('n', 'ga', ':EasyAlign<CR>', {desc = 'Align text  (EasiAlign normal mode)'})
+map('v', 'ga', ':EasyAlign<CR>', {desc = 'Align text  (EasyAlign visual mode)'})
+map('x', 'ga', ':EasyAlign<CR>', {desc = 'Align text (EasiAlign pending mode)'})
 
 -- Markdown Preview
-map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>')
+map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', {desc = 'Open/Toggle markdown preview'})
 
--- Symbols outline
-map('n', '<leader>lS', '<cmd>SymbolsOutline<CR>')
+function _G.set_terminal_keymaps()
+  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
+  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], {})
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], {})
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], {})
+  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], {})
+end
+
+augroup('TermMappings', {})
+cmd('TermOpen', {desc = 'Set terminal keymaps', group = 'TermMappings', callback = _G.set_terminal_keymaps})
