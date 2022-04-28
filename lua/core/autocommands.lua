@@ -1,30 +1,57 @@
-local create_augroups = function(tbl)
-  for group_name, definition in pairs(tbl) do
-    vim.api.nvim_command('augroup ' .. group_name)
-    vim.api.nvim_command('autocmd!')
-    for _, def in ipairs(definition) do
-      local command = table.concat(vim.tbl_flatten({'autocmd', def}), ' ')
-      vim.api.nvim_command(command)
-    end
-    vim.api.nvim_command('augroup END')
-  end
-end
+local fn = vim.fn
 
-local autocmds = {
-  highlight = {{'TextYankPost', '*', 'lua require(\'vim.highlight\').on_yank({higroup = \'Search\', timeout = 200})'}},
-  format = {{'BufWritePre', '*', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}},
-  auto_resize = {{'VimResized', '*', 'tabdo wincmd ='}},
-  bufs = {{'BufWritePre', 'COMMIT_EDITMSG', 'setlocal noundofile'}, {'BufWritePre', 'MERGE_MSG', 'setlocal noundofile'}},
-  filetypes = {
-    {'BufNewFile,BufRead', '*.toml', ' setf toml'},
-    {'BufNewFile,BufRead', '.prettierrc', ' setf json'},
-    {'BufNewFile,BufRead', '.eslintrc', ' setf json'},
-    {'BufNewFile,BufRead', '.eslintignore', ' setf gitignore'},
-    {'FileType', 'gitcommit', 'set spell'},
-    {'FileType', 'gitcommit', 'set wrap'},
-    {'FileType', 'markdown', 'set spell'},
-    {'FileType', 'markdown', 'set wrap'},
-  },
-}
+vim.api.nvim_create_augroup('bufcheck', {clear = true})
 
-create_augroups(autocmds)
+-- Format on save
+vim.api.nvim_create_autocmd(
+  'BufWritePre', {group = 'bufcheck', pattern = '*', callback = function() vim.lsp.buf.formatting_sync() end}
+)
+
+-- highlight yanks
+vim.api.nvim_create_autocmd(
+  'TextYankPost', {group = 'bufcheck', pattern = '*', callback = function() vim.highlight.on_yank {timeout = 500} end}
+)
+
+-- start terminal in insert mode
+vim.api.nvim_create_autocmd('TermOpen', {group = 'bufcheck', pattern = '*', command = 'startinsert | set winfixheight'})
+
+-- Strip trailing whitespaces on save
+vim.api.nvim_create_autocmd('BufWritePre', {group = 'bufcheck', pattern = '*', command = '%s/\\s\\+$//e'})
+
+-- start git messages in insert mode
+vim.api.nvim_create_autocmd(
+  'FileType', {group = 'bufcheck', pattern = {'gitcommit', 'gitrebase'}, command = 'startinsert | 1'}
+)
+
+-- Enalbe spell check and wrap
+vim.api.nvim_create_autocmd(
+  'FileType', {
+    group = 'bufcheck',
+    desc = 'Enable spell check and text wraping',
+    pattern = {'markdown', 'gitcommit', 'text'},
+    callback = function()
+      vim.opt_local.spell = true
+      vim.opt_local.wrap = true
+    end,
+  }
+)
+
+-- Return to last edit position when opening files
+vim.api.nvim_create_autocmd(
+  'BufReadPost', {
+    group = 'bufcheck',
+    desc = 'Return to last edit position when opening files',
+    pattern = '*',
+    callback = function()
+      local ft = vim.opt_local.filetype:get()
+      -- don't apply to git messages
+      if (ft:match('commit') or ft:match('rebase')) then return end
+      -- get position of last saved edit
+      local markpos = vim.api.nvim_buf_get_mark(0, '"')
+      local line = markpos[1]
+      local col = markpos[2]
+      -- if in range, go there
+      if (line > 1) and (line <= vim.api.nvim_buf_line_count(0)) then vim.api.nvim_win_set_cursor(0, {line, col}) end
+    end,
+  }
+)
