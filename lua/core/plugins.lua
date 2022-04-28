@@ -154,7 +154,24 @@ return packer.startup(
       config = function() require('configs.neoscroll').config() end,
     }
     -- Git
-    use {'tpope/vim-fugitive', cmd = {'Git', 'Gdiff', 'Gclog', 'Git mergetool', 'Gread', 'Gwrite'}}
+    use {
+      'tpope/vim-fugitive',
+      cmd = {
+        'G',
+        'Git',
+        'Gdiff',
+        'Gclog',
+        'Ggrep',
+        'Gread',
+        'Gwrite',
+        'GDelete',
+        'GBrowser',
+        'Gdiffsplit',
+        'Gvdiffsplit',
+        'Gfetch',
+        'Gfetch',
+      },
+    }
     use {
       'lewis6991/gitsigns.nvim',
       event = {'BufRead', 'BufNewFile'},
