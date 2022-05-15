@@ -102,13 +102,18 @@ return packer.startup(
 
     -- LSP
     use {
-      'neovim/nvim-lspconfig',
-      config = function() require('configs.lsp').config() end,
-      requires = {
-        'b0o/schemastore.nvim',
-        'williamboman/nvim-lsp-installer',
-        'jose-elias-alvarez/null-ls.nvim',
-        {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
+      'williamboman/nvim-lsp-installer',
+      {
+        'neovim/nvim-lspconfig',
+        config = function()
+          require('configs.lsp.lsp-installer')
+          require('configs.lsp').config()
+        end,
+        requires = {
+          'b0o/schemastore.nvim',
+          'jose-elias-alvarez/null-ls.nvim',
+          {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
+        },
       },
     }
     -- LSP symbols
