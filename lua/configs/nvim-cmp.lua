@@ -10,10 +10,16 @@ function M.config()
 
   require('luasnip/loaders/from_vscode').lazy_load()
 
-  local check_backspace = function()
-    local col = vim.fn.col '.' - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
-  end
+  -- local check_backspace = function()
+  --   local col = vim.fn.col '.' - 1
+  --   return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
+  -- end
+  --
+  -- local has_words_before = function()
+  --   local cursor = vim.api.nvim_win_get_cursor(0)
+  --   return (vim.api.nvim_buf_get_lines(0, cursor[1] - 1, cursor[1], true)[1] or ''):sub(cursor[2], cursor[2])
+  --     :match('%s')
+  -- end
 
   --   פּ ﯟ   some other good icons
   local kind_icons = {
@@ -66,6 +72,8 @@ function M.config()
       --   function(fallback)
       --     if cmp.visible() then
       --       cmp.select_next_item()
+      --     elseif has_words_before() then
+      --       cmp.complete()
       --     elseif luasnip.expandable() then
       --       luasnip.expand()
       --     elseif luasnip.expand_or_jumpable() then
@@ -94,7 +102,7 @@ function M.config()
       --   end, {'i', 's'}
       -- ),
     },
-    window = {documentation = 'native'},
+    window = {documentation = cmp.config.window.bordered()},
     formatting = {
       fields = {'kind', 'abbr', 'menu'},
       format = function(entry, vim_item)
@@ -111,13 +119,20 @@ function M.config()
         return vim_item
       end,
     },
-    sources = {{name = 'nvim_lsp'}, {name = 'nvim_lua'}, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'}},
+    sources = {
+      {name = 'nvim_lsp'},
+      {name = 'nvim_lua'},
+      {name = 'luasnip'},
+      {name = 'buffer'},
+      {name = 'path'},
+      {name = 'nvim_lsp_signature_help'},
+    },
     confirm_opts = {behavior = cmp.ConfirmBehavior.Replace, select = false},
     experimental = {ghost_text = true, native_menu = false},
   }
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
+  cmp.setup.cmdline('/', {sources = cmp.config.sources({{name = 'nvim_lsp_document_symbol'}}, {{name = 'buffer'}})})
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
