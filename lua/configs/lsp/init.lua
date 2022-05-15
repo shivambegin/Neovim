@@ -57,6 +57,9 @@ function M.config()
   local on_attach = function(client, bufnr)
 
     client.resolved_capabilities.document_formatting = false
+
+    if (client.name == 'null-ls') then client.resolved_capabilities.document_formatting = true end
+
     vim.api.nvim_create_user_command('Format', vim.lsp.buf.formatting, {})
     lsp_highlight_document(client)
   end
