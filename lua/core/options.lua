@@ -1,3 +1,8 @@
+vim.cmd [[ set whichwrap+=<,>,[,],h,l ]]
+vim.cmd [[ set iskeyword+=- ]]
+vim.cmd [[ set fcs=eob:\ ]]
+vim.cmd [[ filetype plugin indent on ]]
+
 local options = {
   backup = false, -- creates a backup file
   clipboard = 'unnamedplus', -- allows neovim to access the system clipboard
@@ -44,6 +49,3 @@ local options = {
 vim.opt.shortmess:append 'c'
 
 for k, v in pairs(options) do vim.opt[k] = v end
-
-vim.cmd 'set whichwrap+=<,>,[,],h,l'
-vim.cmd [[set iskeyword+=-]]
