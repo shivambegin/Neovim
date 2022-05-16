@@ -60,6 +60,7 @@ function M.config()
 
     if (client.name == 'null-ls') then client.resolved_capabilities.document_formatting = true end
 
+    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.api.nvim_create_user_command('Format', vim.lsp.buf.formatting, {})
     lsp_highlight_document(client)
   end
