@@ -18,24 +18,6 @@ vim.api.nvim_create_autocmd('TermOpen', {group = 'bufcheck', pattern = '*', comm
 -- Strip trailing whitespaces on save
 vim.api.nvim_create_autocmd('BufWritePre', {group = 'bufcheck', pattern = '*', command = '%s/\\s\\+$//e'})
 
--- start git messages in insert mode
-vim.api.nvim_create_autocmd(
-  'FileType', {group = 'bufcheck', pattern = {'gitcommit', 'gitrebase'}, command = 'startinsert | 1'}
-)
-
--- Enalbe spell check and wrap
-vim.api.nvim_create_autocmd(
-  'FileType', {
-    group = 'bufcheck',
-    desc = 'Enable spell check and text wraping',
-    pattern = {'markdown', 'gitcommit', 'text'},
-    callback = function()
-      vim.opt_local.spell = true
-      vim.opt_local.wrap = true
-    end,
-  }
-)
-
 -- Return to last edit position when opening files
 vim.api.nvim_create_autocmd(
   'BufReadPost', {
