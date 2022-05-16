@@ -45,6 +45,12 @@ return packer.startup(
       event = 'BufRead',
       config = function() require('configs.indent-o-matic').config() end,
     }
+    -- Indentation
+    use {
+      'lukas-reineke/indent-blankline.nvim',
+      setup = function() require('configs.indent-blankline').setup() end,
+      config = function() require('configs.indent-blankline').config() end,
+    }
 
     -- Movment
     use 'ggandor/lightspeed.nvim'
