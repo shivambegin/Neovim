@@ -90,7 +90,7 @@ function telescope_select()
             actions.select_default:replace(
               function()
                 local selection = state.get_selected_entry()
-                actions._close(prompt_bufnr, false)
+                actions.close(prompt_bufnr)
                 if not selection then
                   -- User did not select anything.
                   on_choice(nil, nil)
@@ -107,12 +107,7 @@ function telescope_select()
               end
             )
 
-            actions.close:replace(
-              function()
-                actions._close(prompt_bufnr, false)
-                on_choice(nil, nil)
-              end
-            )
+            actions.close:enhance{post = function() end}
 
             return true
           end,
