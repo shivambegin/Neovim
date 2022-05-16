@@ -10,16 +10,16 @@ function M.config()
 
   require('luasnip/loaders/from_vscode').lazy_load()
 
-  -- local check_backspace = function()
-  --   local col = vim.fn.col '.' - 1
-  --   return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
-  -- end
-  --
-  -- local has_words_before = function()
-  --   local cursor = vim.api.nvim_win_get_cursor(0)
-  --   return (vim.api.nvim_buf_get_lines(0, cursor[1] - 1, cursor[1], true)[1] or ''):sub(cursor[2], cursor[2])
-  --     :match('%s')
-  -- end
+  local check_backspace = function()
+    local col = vim.fn.col '.' - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
+  end
+
+  local has_words_before = function()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    return (vim.api.nvim_buf_get_lines(0, cursor[1] - 1, cursor[1], true)[1] or ''):sub(cursor[2], cursor[2])
+      :match('%s')
+  end
 
   --   פּ ﯟ   some other good icons
   local kind_icons = {
@@ -68,39 +68,34 @@ function M.config()
       -- Accept currently selected item. If none selected, `select` first item.
       -- Set `select` to `false` to only confirm explicitly selected items.
       ['<CR>'] = cmp.mapping.confirm {select = true},
-      -- ['<Tab>'] = cmp.mapping(
-      --   function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_next_item()
-      --     elseif has_words_before() then
-      --       cmp.complete()
-      --     elseif luasnip.expandable() then
-      --       luasnip.expand()
-      --     elseif luasnip.expand_or_jumpable() then
-      --       luasnip.expand_or_jump()
-      --       -- elseif check_backspace() then
-      --       --   fallback()
-      --     else
-      --       local copilot_keys = vim.fn['copilot#Accept']()
-      --       if copilot_keys ~= '' then
-      --         vim.api.nvim_feedkeys(copilot_keys, 'i', true)
-      --       else
-      --         fallback()
-      --       end
-      --     end
-      --   end, {'i', 's'}
-      -- ),
-      -- ['<S-Tab>'] = cmp.mapping(
-      --   function(fallback)
-      --     if cmp.visible() then
-      --       cmp.select_prev_item()
-      --     elseif luasnip.jumpable(-1) then
-      --       luasnip.jump(-1)
-      --     else
-      --       fallback()
-      --     end
-      --   end, {'i', 's'}
-      -- ),
+ ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.expandable() then
+            luasnip.expand()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, {
+          "i",
+          "s",
+        }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, {
+          "i",
+          "s",
+        }),
     },
     window = {documentation = cmp.config.window.bordered()},
     formatting = {
@@ -119,23 +114,16 @@ function M.config()
         return vim_item
       end,
     },
-    sources = {
-      {name = 'nvim_lsp'},
-      {name = 'nvim_lua'},
-      {name = 'luasnip'},
-      {name = 'buffer'},
-      {name = 'path'},
-      {name = 'nvim_lsp_signature_help'},
-    },
+    sources = {},
     confirm_opts = {behavior = cmp.ConfirmBehavior.Replace, select = false},
     experimental = {ghost_text = true, native_menu = false},
   }
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {sources = cmp.config.sources({{name = 'nvim_lsp_document_symbol'}}, {{name = 'buffer'}})})
+  cmp.setup.cmdline('/', {sources = cmp.config.sources({{name = 'buffer'}})})
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
+  cmp.setup.cmdline(':', {sources = cmp.config.sources({{name = 'path'}})})
 
 end
 

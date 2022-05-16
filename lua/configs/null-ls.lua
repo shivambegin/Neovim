@@ -12,11 +12,11 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 local M = {}
-M.setup = function(on_attach)
+M.config = function(on_attach)
   null_ls.setup {
     sources = {
       diagnostics.eslint_d.with {condition = with_root_file {'.eslintrc', '.eslintrc.js', '.eslintrc.json'}},
-      diagnostics.markdownlint,
+      -- diagnostics.markdownlint,
       diagnostics.yamllint,
 
       formatting.prettierd.with {extra_filetypes = {'svelte'}},

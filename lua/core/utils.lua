@@ -4,6 +4,10 @@ M.user_terminals = {}
 
 function M.add_cmp_source(source, priority)
   if type(priority) ~= 'number' then priority = 1000 end
+
+  local priority = ({nvim_lsp = 1000, luasnip = 750, buffer = 500, path = 250})[source]
+  if  priority == nil then priority = 250 end
+
   local cmp_avail, cmp = pcall(require, 'cmp')
   if cmp_avail then
     local config = cmp.get_config()

@@ -1,141 +1,165 @@
 local fn = vim.fn
 
 local plugins = {
-  'wbthomason/packer.nvim', -- Have packer manage itself
-  'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
-  'nvim-lua/plenary.nvim', -- Useful lua functions used ny lots of plugins
-  'kyazdani42/nvim-web-devicons',
-  {'rcarriga/nvim-notify', config = function() require('configs.notify').config() end},
+  -- Plugin manager
+  ['wbthomason/packer.nvim'] = {},
+
+  -- An implementation of the Popup API from vim in Neovim
+  ['nvim-lua/popup.nvim'] = {},
+
+  -- Useful lua functions used ny lots of plugins
+  ['nvim-lua/plenary.nvim'] = {},
+
+  -- -- Colorscheme
+  -- -- 'folke/tokyonight.nvim',
+  ['rose-pine/neovim'] = {as = 'rose-pine', tag = 'v1.*', config = function() vim.cmd('colorscheme rose-pine') end},
+  -- -- {'shaunsingh/nord.nvim'},
+
+  -- Indent detection
+  ['Darazaki/indent-o-matic'] = {
+    event = 'BufReadPost',
+    config = function() require('configs.indent-o-matic').config() end,
+  },
+
   -- Neovim UI Enhancer
-  {'MunifTanjim/nui.nvim', module = 'nui'},
+  ['MunifTanjim/nui.nvim'] = {module = 'nui'},
+
+  -- Notification Enhancer
+  ['rcarriga/nvim-notify'] = {event = 'VimEnter', config = function() require('configs.notify').config() end},
+
   -- Cursorhold fix
-  {
-    'antoinemadec/FixCursorHold.nvim',
+  ['antoinemadec/FixCursorHold.nvim'] = {
     event = {'BufRead', 'BufNewFile'},
     config = function() vim.g.cursorhold_updatetime = 100 end,
   },
-  -- Indent detection
-  {'Darazaki/indent-o-matic', event = 'BufRead', config = function() require('configs.indent-o-matic').config() end},
-  -- Indentation
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    setup = function() require('configs.indent-blankline').setup() end,
-    config = function() require('configs.indent-blankline').config() end,
+
+  -- Icons
+  ['kyazdani42/nvim-web-devicons'] = {
+    event = 'VimEnter',
+    config = function() require('configs.nvim-web-devicons').config() end,
   },
 
-  -- Movment
-  'ggandor/lightspeed.nvim',
-  {'chentoast/marks.nvim', config = function() require('configs.marks').config() end},
+  -- Better buffer closing
+  ['moll/vim-bbye'] = {},
 
-  -- theme
-  {
-    'norcalli/nvim-colorizer.lua',
-    ft = {'css', 'scss', 'sass', 'javascriptreact', 'typescriptreact', 'lua', 'vue', 'svelte'},
-    event = {'BufRead', 'BufNewFile'},
-    config = function() require('colorizer').setup() end,
+  -- Bufferline
+  ['akinsho/bufferline.nvim'] = {
+    after = 'nvim-web-devicons',
+    config = function() require('configs.bufferline').config() end,
   },
-
-  -- 'folke/tokyonight.nvim',
-  {'rose-pine/neovim', as = 'rose-pine', tag = 'v1.*', config = function() vim.cmd('colorscheme rose-pine') end},
-  -- {'shaunsingh/nord.nvim'},
 
   -- File explorer
-  {
-    'nvim-neo-tree/neo-tree.nvim',
+  ['nvim-neo-tree/neo-tree.nvim'] = {
     module = 'neo-tree',
     cmd = 'Neotree',
-    requires = 'MunifTanjim/nui.nvim',
+    requires = {'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim'},
     config = function() require('configs.neo-tree').config() end,
   },
 
-  -- Treesitter
-  {'windwp/nvim-ts-autotag', after = 'nvim-treesitter'},
-  {'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter'},
-  {'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter'},
-  {'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter'},
-  {
-    'nvim-treesitter/nvim-treesitter',
+  -- Auto close tag
+  ['windwp/nvim-ts-autotag'] = {after = 'nvim-treesitter'},
+
+  -- Conetxt based commenting
+  ['JoosepAlviste/nvim-ts-context-commentstring'] = {after = 'nvim-treesitter'},
+
+  ['nvim-treesitter/nvim-treesitter-textobjects'] = {after = 'nvim-treesitter'},
+  ['nvim-treesitter/nvim-treesitter-refactor'] = {after = 'nvim-treesitter'},
+
+  -- Syntax highlighting
+  ['nvim-treesitter/nvim-treesitter'] = {
     run = ':TSUpdate',
+    event = {'BufRead', 'BufNewFile'},
+    cmd = {
+      'TSInstall',
+      'TSInstallInfo',
+      'TSInstallSync',
+      'TSUninstall',
+      'TSUpdate',
+      'TSUpdateSync',
+      'TSDisableAll',
+      'TSEnableAll',
+    },
     config = function() require('configs.nvim-treesitter').config() end,
   },
 
-  -- Completion
-  {
-    'hrsh7th/nvim-cmp',
-    config = function() require('configs.nvim-cmp').config() end,
-    requires = {
-      {'hrsh7th/cmp-cmdline'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-nvim-lsp-signature-help'},
-      {'hrsh7th/cmp-nvim-lsp-document-symbol'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'L3MON4D3/LuaSnip', config = function() require('configs.luasnip').config() end},
-      {'rafamadriz/friendly-snippets'},
-      {'hrsh7th/cmp-nvim-lua'},
-    },
-  },
-  {'windwp/nvim-autopairs', event = {'InsertEnter'}, config = function() require('configs.autopairs').config() end},
+  -- Snippet collection
+  ['rafamadriz/friendly-snippets'] = {event = 'InsertEnter'},
 
-  -- LSP
-  {
-    'williamboman/nvim-lsp-installer',
-    {
-      'neovim/nvim-lspconfig',
-      config = function()
-        require('configs.lsp.lsp-installer')
-        require('configs.lsp').config()
-      end,
-      requires = {
-        'b0o/schemastore.nvim',
-        'jose-elias-alvarez/null-ls.nvim',
-        {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
-      },
-    },
+  -- Snippet engine
+  ['L3MON4D3/LuaSnip'] = {after = 'friendly-snippets', config = function() require('configs.luasnip').config() end},
+
+  -- Completion engine
+  ['hrsh7th/nvim-cmp'] = {after = 'LuaSnip', config = function() require('configs.nvim-cmp').config() end},
+
+  -- Snippet completion source
+  ['saadparwaiz1/cmp_luasnip'] = {
+    after = 'nvim-cmp',
+    config = function() require'core.utils'.add_cmp_source('luasnip', 399) end,
   },
 
-  -- LSP symbols
-  {
-    'simrat39/symbols-outline.nvim',
-    cmd = 'SymbolsOutline',
-    setup = function() require('configs.symbols-outline').config() end,
+  -- Buffer completion source
+  ['hrsh7th/cmp-buffer'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'buffer' end},
+
+  -- Path completion source
+  ['hrsh7th/cmp-path'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'path' end},
+
+  -- LSP completion source
+  ['hrsh7th/cmp-nvim-lsp'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'nvim_lsp' end},
+
+  -- LSP signature completion source
+  ['hrsh7th/cmp-nvim-lsp-signature-help'] = {
+    after = 'nvim-cmp',
+    config = function() require'core.utils'.add_cmp_source 'nvim_lsp_signature_help' end,
   },
 
-  'github/copilot.vim',
+  -- LSP Neovim API completion source
+  ['hrsh7th/cmp-nvim-lua'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'nvim_lua' end},
 
-  -- Fuzyy search
-  {'nvim-telescope/telescope.nvim', config = function() require('configs.telescope').config() end},
+  -- Built-in LSP
+  ['neovim/nvim-lspconfig'] = {event = 'VimEnter'},
 
-  {
-    'nvim-telescope/telescope-project.nvim',
+  -- LSP installer
+  ['williamboman/nvim-lsp-installer'] = {
+    after = 'nvim-lspconfig',
+    config = function()
+      require('configs.lsp.lsp-installer')
+      require('configs.lsp').config()
+    end,
+    requires = {'b0o/schemastore.nvim'},
+  },
+
+  -- Formattign and Linting
+  ['jose-elias-alvarez/null-ls.nvim'] = {
+    event = {'BufRead', 'BufNewFile'},
+    config = function() require('configs.null-ls').config() end,
+  },
+
+  -- Fuzyy finder
+  ['nvim-telescope/telescope.nvim'] = {
+    module = 'telescope',
+    cmd = 'Telescope',
+    config = function() require('configs.telescope').config() end,
+  },
+
+  ['nvim-telescope/telescope-project.nvim'] = {
     after = 'telescope.nvim',
     config = function() require('telescope').load_extension 'project' end,
   },
 
-  {
-    'nvim-telescope/telescope-file-browser.nvim',
+  ['nvim-telescope/telescope-file-browser.nvim'] = {
     after = 'telescope.nvim',
     config = function() require('telescope').load_extension 'file_browser' end,
   },
 
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
+  -- Fuzzy finder syntax support
+  [('nvim-telescope/telescope-%s-native.nvim'):format(vim.fn.has 'win32' == 1 and 'fzy' or 'fzf')] = {
     after = 'telescope.nvim',
     run = 'make',
-    config = function() require('telescope').load_extension 'fzf' end,
+    config = function() require('telescope').load_extension(vim.fn.has 'win32' == 1 and 'fzy_native' or 'fzf') end,
   },
 
-  'windwp/nvim-spectre',
-
-  {
-    'karb94/neoscroll.nvim',
-    event = {'BufRead', 'BufNewFile'},
-    config = function() require('configs.neoscroll').config() end,
-  },
   -- Git
-  {
-    'tpope/vim-fugitive',
+  ['tpope/vim-fugitive'] = {
     cmd = {
       'G',
       'Git',
@@ -152,48 +176,93 @@ local plugins = {
       'Gfetch',
     },
   },
-  {
-    'lewis6991/gitsigns.nvim',
+
+  ['lewis6991/gitsigns.nvim'] = {
     event = {'BufRead', 'BufNewFile'},
     config = function() require('configs.gitsigns').config() end,
   },
 
-  -- Commenting
-  {
-    'numToStr/Comment.nvim',
+  -- Color highlighting
+  ['norcalli/nvim-colorizer.lua'] = {
     event = {'BufRead', 'BufNewFile'},
+    config = function() require('colorizer').setup() end,
+  },
+
+  -- Auto pairs
+  ['windwp/nvim-autopairs'] = {event = {'InsertEnter'}, config = function() require('configs.autopairs').config() end},
+
+  -- Terminal
+  -- ['akinsho/nvim-toggleterm.lua'] = {
+  --   cmd = 'ToggleTerm',
+  --   module = {'toggleterm', 'toggleterm.terminal'},
+  --   config = function() require('configs.toggleterm').config() end,
+  -- },
+
+  -- Commenting
+  ['numToStr/Comment.nvim'] = {
+    module = {'Comment', 'Comment.api'},
+    -- event = {'BufRead', 'BufNewFile'},
+    keys = {'gc', 'gb', 'g<', 'g>'},
     config = function() require('configs.comment').config() end,
   },
 
-  -- Better buffer closing
-  'moll/vim-bbye', -- Delete buffer without messing up layout
-  -- Bufferline
-  {
-    'akinsho/bufferline.nvim',
-    after = 'nvim-web-devicons',
-    config = function() require('configs.bufferline').config() end,
+  -- Indentation
+  ['lukas-reineke/indent-blankline.nvim'] = {
+    event = 'BufRead',
+    setup = function() require('configs.indent-blankline').setup() end,
+    config = function() require('configs.indent-blankline').config() end,
   },
 
-  -- Editing
-  {'tpope/vim-surround', event = 'BufRead'},
-  {'junegunn/vim-easy-align', cmd = {'EasyAlign'}},
+  -- Smooth scrolling
+  ['karb94/neoscroll.nvim'] = {
+    event = {'BufRead', 'BufNewFile'},
+    config = function() require('configs.neoscroll').config() end,
+  },
 
-  -- JavaScript
-  {'metakirby5/codi.vim', cmd = {'Codi', 'Codi!', 'Codi!!'}},
+  ----------------------------------------------------
 
-  --  Markdown
-  {
-    'iamcco/markdown-preview.nvim',
+  -- Move around the whole buffer
+  ['ggandor/lightspeed.nvim'] = {event = {'VimEnter'}},
+
+  -- Marks management
+  ['chentoast/marks.nvim'] = {event = {'VimEnter'}, config = function() require('configs.marks').config() end},
+
+  -- LSP code action menu
+  ['weilbith/nvim-code-action-menu'] = {cmd = 'CodeActionMenu'},
+
+  -- LSP symbols outline
+  ['simrat39/symbols-outline.nvim'] = {
+    cmd = 'SymbolsOutline',
+    setup = function() require('configs.symbols-outline').config() end,
+  },
+
+  -- AI based auto completion
+  ['github/copilot.vim'] = {},
+
+  -- Find and replace enhancer
+  ['windwp/nvim-spectre'] = {event = {'VimEnter'}},
+
+  -- Surround textobjects easily
+  ['tpope/vim-surround'] = {event = 'BufRead'},
+
+  -- Align texts
+  ['junegunn/vim-easy-align'] = {cmd = {'EasyAlign'}},
+
+  -- JavaScript interactive scratchpad
+  ['metakirby5/codi.vim'] = {cmd = {'Codi', 'Codi!', 'Codi!!'}},
+
+  -- Markdown live preview
+  ['iamcco/markdown-preview.nvim'] = {
     ft = {'markdown', 'vimwiki'},
     run = 'cd app && yarn install',
     config = function() vim.cmd [[ let g:mkdp_filetypes = ['markdown', 'vimwiki'] ]] end,
   },
 
-  -- Tools
-  {'tpope/vim-repeat'},
+  -- Repeat plugin maps with "."
+  ['tpope/vim-repeat'] = {event = {'BufNewFile', 'BufReadPost'}},
 
   -- Time tracking
-  'wakatime/vim-wakatime',
+  ['wakatime/vim-wakatime'] = {},
 }
 
 -- Automatically install packer

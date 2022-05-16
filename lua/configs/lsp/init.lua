@@ -47,7 +47,6 @@ function M.config()
     'dockerls',
     'tsserver',
     'gopls',
-    'null-ls',
     'diagnosticls',
     'sqlls',
     'svelte',
@@ -84,49 +83,37 @@ function M.config()
     set_keymappings(client, bufnr)
   end
 
-  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-  --
-  -- capabilities = vim.lsp.protocol.make_client_capabilities()
-  -- capabilities.textDocument.completion.completionItem.documentationFormat = {'markdown', 'plaintext'}
-  -- capabilities.textDocument.completion.completionItem.snippetSupport = true
-  -- capabilities.textDocument.completion.completionItem.preselectSupport = true
-  -- capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-  -- capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-  -- capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-  -- capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-  -- capabilities.textDocument.completion.completionItem.tagSupport = {valueSet = {1}}
-  -- capabilities.textDocument.completion.completionItem.resolveSupport = {
-  --   properties = {'documentation', 'detail', 'additionalTextEdits'},
-  -- }
-
-  local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-  if not status_ok then
-    vim.notify('Please add \'cmp_nvim_lsp\' to plugin list')
-    return
-  end
-
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  local had_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-  if had_cmp_nvim_lsp then capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities) end
+  capabilities.textDocument.completion.completionItem.documentationFormat = {'markdown', 'plaintext'}
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.completion.completionItem.preselectSupport = true
+  capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+  capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+  capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+  capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+  capabilities.textDocument.completion.completionItem.tagSupport = {valueSet = {1}}
+  capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {'documentation', 'detail', 'additionalTextEdits'},
+  }
 
   local had_lspconfig = pcall(require, 'lspconfig')
   if had_lspconfig then
     for _, server in ipairs(servers) do require('configs.lsp.servers.' .. server).setup(on_attach, capabilities) end
+
+    -- Prefix diagnostic virtual text
+    vim.diagnostic.config {
+      virtual_text = {source = 'always', prefix = ' ', spacing = 6},
+      float = {header = false, source = 'always'},
+      signs = true,
+      underline = false,
+      update_in_insert = false,
+    }
+
+    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
+
+    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
+
   end
-
-  -- Prefix diagnostic virtual text
-  vim.diagnostic.config {
-    virtual_text = {source = 'always', prefix = ' ', spacing = 6},
-    float = {header = false, source = 'always'},
-    signs = true,
-    underline = false,
-    update_in_insert = false,
-  }
-
-  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
-
-  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
-
 end
 
 return M
