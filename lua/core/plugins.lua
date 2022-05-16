@@ -66,7 +66,7 @@ local plugins = {
   },
 
   -- Simple statusline component that shows what scope you are working inside
-  ['SmiteshP/nvim-gps'] = {after = 'nvim-treesitter'},
+  ['SmiteshP/nvim-gps'] = {after = 'nvim-treesitter', config = function() require('configs.nvim-gps').config() end},
 
   -- Statusline
   ['feline-nvim/feline.nvim'] = {
