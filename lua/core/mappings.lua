@@ -40,11 +40,10 @@ map('n', '<C-l>', '<C-w>l', {desc = 'Focus right windwo'})
 map('n', '<leader>ba', ':bufdo bd<CR>', {desc = 'close all buffers'})
 map('n', '<leader>bo', ':w <bar> %bd <bar> e# <bar> bd#<CR>', {desc = 'Close all buffers except current one'})
 map('n', '<C-s>', '<cmd>w!<CR>', {desc = 'Force save'})
-map('n', '<leader>q', '<cmd>q<CR>', {desc = 'Close buffer/window'})
+map('n', '<leader>q', '<cmd>q!<CR>', {desc = 'Close buffer/window'})
 map('n', '<leader>w', '<cmd>w<CR>', {desc = 'Save buffer'})
 -- map('n', '<leader>s', ':w<CR>', {desc = 'Save buffer'})
 map('n', '<C-q>', '<cmd>q!<CR>', {desc = 'Force quit'})
-map('n', '<leader>x', ':bdelete<CR>', {desc = 'Close buffer'})
 map('n', '<S-l>', ':bnext<CR>', {desc = 'Go to next buffer'})
 map('n', '<S-h>', ':bprevious<CR>', {desc = 'Go to previous buffer'})
 
@@ -94,7 +93,7 @@ map('n', '<leader>7', ':BufferLineGoToBuffer 7<CR>', {desc = 'Go to buffer 7'})
 map('n', '<leader>8', ':BufferLineGoToBuffer 8<CR>', {desc = 'Go to buffer 8'})
 map('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', {desc = 'Go to buffer 9'})
 
--- vim-bbye
+-- bufdelete.nvim
 map('n', '<leader>c', '<cmd>Bdelete!<CR>', {desc = 'Close buffer (vim-bbye)'})
 
 -- Telescope

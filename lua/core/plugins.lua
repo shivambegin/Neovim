@@ -40,7 +40,7 @@ local plugins = {
   },
 
   -- Better buffer closing
-  ['moll/vim-bbye'] = {},
+  ['famiu/bufdelete.nvim'] = {cmd = {'Bdelete', 'Bwipeout'}},
 
   -- Bufferline
   ['akinsho/bufferline.nvim'] = {
