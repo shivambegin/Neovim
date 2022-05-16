@@ -18,6 +18,23 @@ local function lsp_highlight_document(client)
   end
 end
 
+local function set_keymappings(client, bufnr)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = 'Hover symbol details', buffer = bufnr})
+  vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, {desc = 'LSP code action', buffer = bufnr})
+  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, {desc = 'Format code', buffer = bufnr})
+  vim.keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help, {desc = 'Signature help', buffer = bufnr})
+  vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {desc = 'Rename current symbol', buffer = bufnr})
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {desc = 'Declaration of current symbol', buffer = bufnr})
+  vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, {desc = 'Implementation of current symbol', buffer = bufnr})
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = 'Show the definition of current symbol', buffer = bufnr})
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, {desc = 'References of current symbol', buffer = bufnr})
+  vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, {desc = 'Hover diagnostics', buffer = bufnr})
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {desc = 'Previous diagnostic', buffer = bufnr})
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {desc = 'Next diagnostic', buffer = bufnr})
+  vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {desc = 'Hover diagnostics', buffer = bufnr})
+  vim.keymap.set('n', 'go', vim.diagnostic.open_float, {desc = 'Hover diagnostics', buffer = bufnr})
+end
+
 function M.config()
 
   local servers = {
@@ -62,7 +79,9 @@ function M.config()
 
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.api.nvim_create_user_command('Format', vim.lsp.buf.formatting, {})
+
     lsp_highlight_document(client)
+    set_keymappings(client, bufnr)
   end
 
   -- local capabilities = vim.lsp.protocol.make_client_capabilities()
