@@ -31,10 +31,14 @@ map(
 map('n', '<leader>h', '<cmd>nohlsearch<CR>', {desc = 'Hide highlights'})
 
 -- Better window management
-map('n', '<C-h>', '<C-w>h', {desc = 'Focus left window'})
-map('n', '<C-j>', '<C-w>j', {desc = 'Focus bottom window'})
-map('n', '<C-k>', '<C-w>k', {desc = 'Focus top window'})
-map('n', '<C-l>', '<C-w>l', {desc = 'Focus right windwo'})
+-- map('n', '<C-h>', '<C-w>h', {desc = 'Move to left split'})
+-- map('n', '<C-j>', '<C-w>j', {desc = 'Move to below split'})
+-- map('n', '<C-k>', '<C-w>k', {desc = 'Move to above split'})
+-- map('n', '<C-l>', '<C-w>l', {desc = 'Move to right split'})
+-- map('n', '<C-Up>', '<cmd>resize -2<CR>', {desc = 'Resize split up'})
+-- map('n', '<C-Down>', '<cmd>resize +2<CR>', {desc = 'Resize split down'})
+-- map('n', '<C-Left>', '<cmd>vertical resize -2<CR>', {desc = 'Resize split left'})
+-- map('n', '<C-Right>', '<cmd>vertical resize +2<CR>', {desc = 'Resize split right'})
 
 -- Buffers
 map('n', '<leader>ba', ':bufdo bd<CR>', {desc = 'close all buffers'})
@@ -139,6 +143,19 @@ map('n', '<leader>tl', function() utils.toggle_term_cmd 'lazygit' end, {desc = '
 map('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', {desc = 'Open floating terminal'})
 map('n', '<leader>th', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', {desc = 'Open terminal in horizontal pane'})
 map('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<cr>', {desc = 'Open terminal in vertical pane'})
+
+-- Smart splits
+-- Better window navigation
+map('n', '<C-h>', function() require('smart-splits').move_cursor_left() end, {desc = 'Move to left split'})
+map('n', '<C-j>', function() require('smart-splits').move_cursor_down() end, {desc = 'Move to below split'})
+map('n', '<C-k>', function() require('smart-splits').move_cursor_up() end, {desc = 'Move to above split'})
+map('n', '<C-l>', function() require('smart-splits').move_cursor_right() end, {desc = 'Move to right split'})
+
+-- Resize with arrows
+map('n', '<C-Up>', function() require('smart-splits').resize_up() end, {desc = 'Resize split up'})
+map('n', '<C-Down>', function() require('smart-splits').resize_down() end, {desc = 'Resize split down'})
+map('n', '<C-Left>', function() require('smart-splits').resize_left() end, {desc = 'Resize split left'})
+map('n', '<C-Right>', function() require('smart-splits').resize_right() end, {desc = 'Resize split right'})
 
 -- SymbolsOutline
 map('n', '<leader>lS', '<cmd>SymbolsOutline<CR>', {desc = 'Open symbols outline'})
