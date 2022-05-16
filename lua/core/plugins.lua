@@ -170,10 +170,10 @@ local plugins = {
   },
 
   -- Fuzzy finder syntax support
-  [('nvim-telescope/telescope-%s-native.nvim'):format(vim.fn.has 'win32' == 1 and 'fzy' or 'fzf')] = {
+  ['nvim-telescope/telescope-fzf-native.nvim'] = {
     after = 'telescope.nvim',
     run = 'make',
-    config = function() require('telescope').load_extension(vim.fn.has 'win32' == 1 and 'fzy_native' or 'fzf') end,
+    config = function() require('telescope').load_extension 'fzf' end,
   },
 
   -- Git
