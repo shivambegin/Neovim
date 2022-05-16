@@ -56,6 +56,15 @@ local plugins = {
     config = function() require('configs.neo-tree').config() end,
   },
 
+  -- Simple statusline component that shows what scope you are working inside
+  ['SmiteshP/nvim-gps'] = {after = 'nvim-treesitter'},
+
+  -- Statusline
+  ['feline-nvim/feline.nvim'] = {
+    after = {'nvim-web-devicons', 'nvim-gps'},
+    config = function() require('configs.feline').config() end,
+  },
+
   -- Auto close tag
   ['windwp/nvim-ts-autotag'] = {after = 'nvim-treesitter'},
 
