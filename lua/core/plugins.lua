@@ -201,11 +201,11 @@ local plugins = {
   ['windwp/nvim-autopairs'] = {event = {'InsertEnter'}, config = function() require('configs.autopairs').config() end},
 
   -- Terminal
-  -- ['akinsho/nvim-toggleterm.lua'] = {
-  --   cmd = 'ToggleTerm',
-  --   module = {'toggleterm', 'toggleterm.terminal'},
-  --   config = function() require('configs.toggleterm').config() end,
-  -- },
+  ['akinsho/nvim-toggleterm.lua'] = {
+    cmd = 'ToggleTerm',
+    module = {'toggleterm', 'toggleterm.terminal'},
+    config = function() require('configs.nvim-toggleterm').config() end,
+  },
 
   -- Commenting
   ['numToStr/Comment.nvim'] = {
