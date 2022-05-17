@@ -158,9 +158,6 @@ map('n', '<C-Down>', function() require('smart-splits').resize_down() end, {desc
 map('n', '<C-Left>', function() require('smart-splits').resize_left() end, {desc = 'Resize split left'})
 map('n', '<C-Right>', function() require('smart-splits').resize_right() end, {desc = 'Resize split right'})
 
--- SymbolsOutline
-map('n', '<leader>lS', '<cmd>SymbolsOutline<CR>', {desc = 'Open symbols outline'})
-
 -- Git (fugitive)
 map('n', '<leader>gg', ':Git<CR>', {desc = 'Open git (fugitive)'})
 

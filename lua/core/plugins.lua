@@ -249,22 +249,11 @@ local plugins = {
     config = function() require('configs.neoscroll').config() end,
   },
 
-  ----------------------------------------------------
-
   -- Move around the whole buffer
   ['ggandor/lightspeed.nvim'] = {event = {'VimEnter'}},
 
   -- Marks management
   ['chentoast/marks.nvim'] = {event = {'VimEnter'}, config = function() require('configs.marks').config() end},
-
-  -- LSP code action menu
-  ['weilbith/nvim-code-action-menu'] = {cmd = 'CodeActionMenu'},
-
-  -- LSP symbols outline
-  ['simrat39/symbols-outline.nvim'] = {
-    cmd = 'SymbolsOutline',
-    setup = function() require('configs.symbols-outline').config() end,
-  },
 
   -- AI based auto completion
   ['github/copilot.vim'] = {config = function() require'configs.copilot'.config() end},
