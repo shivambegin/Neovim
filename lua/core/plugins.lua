@@ -83,6 +83,9 @@ local plugins = {
   ['nvim-treesitter/nvim-treesitter-textobjects'] = {after = 'nvim-treesitter'},
   ['nvim-treesitter/nvim-treesitter-refactor'] = {after = 'nvim-treesitter'},
 
+  -- Navigate to matching text
+  ['andymass/vim-matchup'] = {after = 'nvim-treesitter'},
+
   -- Syntax highlighting
   ['nvim-treesitter/nvim-treesitter'] = {
     run = ':TSUpdate',

@@ -69,6 +69,7 @@ function M.config()
         },
       },
     },
+    matchup = {enable = true, disable = {'c', 'ruby'}},
   }
 
 end
