@@ -21,6 +21,21 @@ local colorscheme = 'rose-pine'
 -- vim.g.nord_disable_background = false
 -- vim.g.nord_italic = true
 
+if transparent_background then
+  vim.cmd [[
+  hi Normal guibg=NONE ctermbg=NONE
+  hi LineNr guibg=NONE ctermbg=NONE
+  hi SignColumn guibg=NONE ctermbg=NONE
+  hi EndOfBuffer guibg=NONE ctermbg=NONE
+  ]]
+end
+
+local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
+if not status_ok then
+  vim.notify('colorscheme ' .. colorscheme .. ' not found!')
+  return
+end
+
 -- Rose pine
 require('rose-pine').setup(
   {
@@ -53,18 +68,3 @@ require('rose-pine').setup(
     highlight_groups = {ColorColumn = {bg = 'rose'}},
   }
 )
-
-if transparent_background then
-  vim.cmd [[
-  hi Normal guibg=NONE ctermbg=NONE
-  hi LineNr guibg=NONE ctermbg=NONE
-  hi SignColumn guibg=NONE ctermbg=NONE
-  hi EndOfBuffer guibg=NONE ctermbg=NONE
-  ]]
-end
-
-local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
-if not status_ok then
-  vim.notify('colorscheme ' .. colorscheme .. ' not found!')
-  return
-end
