@@ -272,6 +272,9 @@ local plugins = {
   -- JavaScript interactive scratchpad
   ['metakirby5/codi.vim'] = {cmd = {'Codi', 'Codi!', 'Codi!!'}},
 
+  -- Markdown
+  ['preservim/vim-markdown'] = {},
+
   -- Markdown live preview
   ['iamcco/markdown-preview.nvim'] = {
     ft = {'markdown', 'vimwiki'},
