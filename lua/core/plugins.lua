@@ -267,7 +267,7 @@ local plugins = {
   },
 
   -- AI based auto completion
-  ['github/copilot.vim'] = {},
+  ['github/copilot.vim'] = {config = function() require'configs.copilot'.config() end},
 
   -- Find and replace enhancer
   ['windwp/nvim-spectre'] = {event = {'VimEnter'}},
