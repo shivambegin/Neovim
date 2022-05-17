@@ -21,7 +21,7 @@ end
 local function set_keymappings(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = 'Hover symbol details', buffer = bufnr})
   vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, {desc = 'LSP code action', buffer = bufnr})
-  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_sync, {desc = 'Format code', buffer = bufnr})
+  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting_seq_sync, {desc = 'Format code', buffer = bufnr})
   vim.keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help, {desc = 'Signature help', buffer = bufnr})
   vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {desc = 'Rename current symbol', buffer = bufnr})
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {desc = 'Declaration of current symbol', buffer = bufnr})
@@ -51,6 +51,7 @@ function M.config()
     'sqlls',
     'svelte',
     'volar',
+    'eslint',
   }
 
   -- Floating border
@@ -75,6 +76,7 @@ function M.config()
     client.resolved_capabilities.document_formatting = false
 
     if (client.name == 'null-ls') then client.resolved_capabilities.document_formatting = true end
+    if (client.name == 'eslint') then client.resolved_capabilities.document_formatting = true end
 
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.api.nvim_create_user_command('Format', vim.lsp.buf.formatting, {})

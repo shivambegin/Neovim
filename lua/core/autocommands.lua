@@ -4,7 +4,7 @@ vim.api.nvim_create_augroup('bufcheck', {clear = true})
 
 -- Format on save
 vim.api.nvim_create_autocmd(
-  'BufWritePre', {group = 'bufcheck', pattern = '*', callback = function() vim.lsp.buf.formatting_sync() end}
+  'BufWritePre', {group = 'bufcheck', pattern = '*', callback = function() vim.lsp.buf.formatting_seq_sync() end}
 )
 
 -- highlight yanks
