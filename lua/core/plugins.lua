@@ -80,7 +80,10 @@ local plugins = {
   -- Conetxt based commenting
   ['JoosepAlviste/nvim-ts-context-commentstring'] = {after = 'nvim-treesitter'},
 
+  -- Treesitter based text objects
   ['nvim-treesitter/nvim-treesitter-textobjects'] = {after = 'nvim-treesitter'},
+
+  -- Hightligh definition adn current scope, smart rename and navigation
   ['nvim-treesitter/nvim-treesitter-refactor'] = {after = 'nvim-treesitter'},
 
   -- Navigate to matching text
@@ -177,6 +180,12 @@ local plugins = {
     after = 'telescope.nvim',
     run = 'make',
     config = function() require('telescope').load_extension 'fzf' end,
+  },
+
+  -- Lsp diagnostics,references in quickfix list
+  ['folke/lsp-trouble.nvim'] = {
+    config = function() require('configs.trouble').config() end,
+    cmd = {'LspTrouble', 'TroubleToggle'},
   },
 
   -- Git

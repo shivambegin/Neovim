@@ -191,6 +191,16 @@ map('x', 'ga', ':EasyAlign<CR>', {desc = 'Align text (EasiAlign pending mode)'})
 -- Markdown Preview
 map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', {desc = 'Open/Toggle markdown preview'})
 
+-- Trouble
+map('n', '<leader>xx', ':TroubleToggle<CR>', {desc = 'Toggle quickfix list'})
+map('n', '<leader>xi', ':TroubleToggle lsp_implementations<CR>', {desc = 'LSP implementation in quickfix list'})
+map('n', '<leader>xr', ':TroubleToggle lsp_references<CR>', {desc = 'LSP references in quickfix list'})
+map('n', '<leader>xD', ':TroubleToggle workspace_diagnostics<CR>', {desc = 'Workspace diagnostics in quickfix'})
+map('n', '<leader>xd', ':TroubleToggle document_diagnostics<CR>', {desc = 'Document diagnostics in quickfix'})
+map('n', '<leader>xq', ':TroubleToggle quickfix<CR>', {desc = 'Open quickfix list'})
+map('n', '<leader>xl', ':TroubleToggle loclist<CR>', {desc = 'Open location list'})
+map('n', '<leader>xt', ':TroubleToggle telescope<CR>', {desc = 'Open quickfix list in Telescope'})
+
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})
