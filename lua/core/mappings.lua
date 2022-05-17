@@ -102,6 +102,7 @@ map('n', '<leader>c', '<cmd>Bdelete!<CR>', {desc = 'Close buffer (vim-bbye)'})
 
 -- Telescope
 map('n', '<C-p>', ':Telescope find_files<CR>', {desc = 'Find files (Telescope)'})
+map('n', '<leader>fg', ':Telescope git_files<CR>', {desc = 'Find git files (Telescope)'})
 map('n', '<leader>fw', ':Telescope live_grep<CR>', {desc = 'Live grep (Telescope)'})
 map('n', '<leader>gt', ':Telescope git_status<CR>', {desc = 'Git status (Telescope)'})
 map('n', '<leader>gb', ':Telescope git_branches<CR>', {desc = 'Git branches (Telescope)'})
