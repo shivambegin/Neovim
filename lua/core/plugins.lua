@@ -14,9 +14,7 @@ local plugins = {
   ['nvim-lua/plenary.nvim'] = {},
 
   -- -- Colorscheme
-  -- -- 'folke/tokyonight.nvim',
-  ['rose-pine/neovim'] = {as = 'rose-pine', tag = 'v1.*', config = function() vim.cmd('colorscheme rose-pine') end},
-  -- -- {'shaunsingh/nord.nvim'},
+  ['folke/tokyonight.nvim'] = {},
 
   -- Indent detection
   ['Darazaki/indent-o-matic'] = {
@@ -70,7 +68,7 @@ local plugins = {
 
   -- Statusline
   ['feline-nvim/feline.nvim'] = {
-    after = {'nvim-web-devicons', 'nvim-gps'},
+    after = {'nvim-web-devicons', 'nvim-gps', 'tokyonight.nvim'},
     config = function() require('configs.feline').config() end,
   },
 
