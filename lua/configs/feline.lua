@@ -4,12 +4,15 @@ local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 local gps = require('nvim-gps')
 
+local tokyonight_colors_loaded, tokyonight_colors = pcall(require, 'tokyonight.colors')
+
 local force_inactive = {filetypes = {}, buftypes = {}, bufnames = {}}
 
 local components = {active = {{}, {}, {}}, inactive = {{}, {}, {}}}
 
 local colors = {
   bg = '#282828',
+  fg = '#a89984',
   black = '#282828',
   yellow = '#d8a657',
   cyan = '#89b482',
@@ -19,10 +22,27 @@ local colors = {
   violet = '#d3869b',
   magenta = '#c14a4a',
   white = '#a89984',
-  fg = '#a89984',
   skyblue = '#7daea3',
   red = '#ea6962',
 }
+
+if tokyonight_colors_loaded then
+  local tokyonight_colors = tokyonight_colors.setup {}
+
+  colors.bg = tokyonight_colors.bg_statusline
+  colors.fg = tokyonight_colors.fg
+  colors.black = tokyonight_colors.bg_dark
+  colors.yellow = tokyonight_colors.yellow
+  colors.cyan = tokyonight_colors.cyan
+  colors.oceanblue = tokyonight_colors.blue2
+  colors.green = tokyonight_colors.green
+  colors.orange = tokyonight_colors.orange
+  colors.violet = tokyonight_colors.purple
+  colors.magenta = tokyonight_colors.magenta2
+  colors.white = tokyonight_colors.fg_dark
+  colors.skyblue = tokyonight_colors.blue1
+  colors.red = tokyonight_colors.error
+end
 
 local vi_mode_colors = {
   NORMAL = 'green',
