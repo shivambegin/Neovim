@@ -6,7 +6,10 @@ function M.config()
   if not cmp_status_ok then return end
 
   local snip_status_ok, luasnip = pcall(require, 'luasnip')
-  if not snip_status_ok then return end
+  if not snip_status_ok then
+    vim.notify('luasnip not found')
+    return
+  end
 
   require('luasnip/loaders/from_vscode').lazy_load()
 
@@ -76,10 +79,17 @@ function M.config()
             luasnip.expand()
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
+            -- NOTE: this prevents coipilot to expand if there is any text before cursor
+            -- elseif has_words_before() then
+            --   print('has words before')
+            --   cmp.complete()
           else
-            fallback()
+            local copilot_keys = vim.fn['copilot#Accept']()
+            if copilot_keys ~= '' then
+              vim.api.nvim_feedkeys(copilot_keys, 'i', true)
+            else
+              fallback()
+            end
           end
         end, {'i', 's'}
       ),
