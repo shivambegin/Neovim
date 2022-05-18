@@ -5,11 +5,11 @@ function M.config()
   if not present then return end
 
   notify.setup {
-    stages = 'fade',
+    stages = 'fade_in_slide_out',
     on_open = nil,
     on_close = nil,
     render = 'default',
-    timeout = 5000,
+    timeout = 2000,
     max_width = nil,
     max_height = nil,
     background_colour = 'Normal',
