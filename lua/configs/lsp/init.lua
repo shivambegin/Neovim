@@ -52,6 +52,7 @@ function M.config()
     'svelte',
     'volar',
     'eslint',
+    'tailwindcss',
   }
 
   -- Floating border
