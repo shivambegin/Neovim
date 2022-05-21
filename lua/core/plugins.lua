@@ -180,6 +180,15 @@ local plugins = {
     config = function() require('telescope').load_extension 'fzf' end,
   },
 
+  -- Find and insert emoji
+  ['nvim-telescope/telescope-symbols.nvim'] = {after = 'telescope.nvim'},
+
+  -- Preview media files inside Telescope panel
+  ['nvim-telescope/telescope-media-files.nvim'] = {
+    after = 'telescope.nvim',
+    config = function() require('telescope').load_extension 'media_files' end,
+  },
+
   -- Lsp diagnostics,references in quickfix list
   ['folke/lsp-trouble.nvim'] = {
     config = function() require('configs.trouble').config() end,
