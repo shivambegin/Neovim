@@ -22,6 +22,7 @@ M.config = function(on_attach)
       formatting.prettierd.with {extra_filetypes = {'svelte'}},
       formatting.lua_format,
       formatting.gofmt,
+      formatting.rustfmt,
 
       code_actions.eslint_d.with {condition = with_root_file {'.eslintrc', '.eslintrc.js', '.eslintrc.json'}},
       code_actions.gitsigns,

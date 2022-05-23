@@ -55,6 +55,7 @@ function M.config()
     'volar',
     'eslint',
     'tailwindcss',
+    'rust_analyzer',
   }
 
   -- Floating border
