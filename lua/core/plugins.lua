@@ -69,7 +69,7 @@ local plugins = {
 
   -- Statusline
   ['feline-nvim/feline.nvim'] = {
-    after = {'nvim-web-devicons', 'nvim-gps', 'tokyonight.nvim'},
+    after = {'nvim-web-devicons', 'nvim-gps'},
     config = function() require('configs.feline').config() end,
   },
 
