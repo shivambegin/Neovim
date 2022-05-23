@@ -14,7 +14,8 @@ local plugins = {
   ['nvim-lua/plenary.nvim'] = {},
 
   -- -- Colorscheme
-  ['folke/tokyonight.nvim'] = {},
+  -- ['folke/tokyonight.nvim'] = {},
+  ['sainnhe/everforest'] = {},
 
   -- Indent detection
   ['Darazaki/indent-o-matic'] = {
