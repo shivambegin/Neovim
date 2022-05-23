@@ -293,6 +293,19 @@ local plugins = {
 
   -- Time tracking
   ['wakatime/vim-wakatime'] = {},
+
+  ['nvim-neorg/neorg'] = {
+    requires = {
+      'nvim-cmp',
+      'nvim-lua/plenary.nvim',
+      'max397574/neorg-contexts',
+      'esquires/neorg-gtd-project-tags',
+      'max397574/neorg-kanban',
+      'nvim-neorg/neorg-telescope',
+    },
+    config = function() require('configs.neorg').config() end,
+  },
+
 }
 
 -- Automatically install packer
