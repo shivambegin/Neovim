@@ -106,7 +106,7 @@ local plugins = {
   },
 
   -- Snippet collection
-  ['rafamadriz/friendly-snippets'] = {event = 'InsertEnter'},
+  ['rafamadriz/friendly-snippets'] = {},
 
   -- Snippet engine
   ['L3MON4D3/LuaSnip'] = {after = 'friendly-snippets', config = function() require('configs.luasnip').config() end},
@@ -304,6 +304,7 @@ local plugins = {
       'nvim-neorg/neorg-telescope',
     },
     config = function() require('configs.neorg').config() end,
+    after = {'nvim-treesitter', 'nvim-cmp'},
   },
 
 }
