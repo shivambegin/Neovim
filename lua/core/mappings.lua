@@ -126,6 +126,7 @@ map('n', '<leader>lD', ':Telescope diagnostics<CR>', {desc = 'Workspace diagnost
 map('n', '<Leader>fR', ':Telescope resume<CR>', {desc = 'Resume last search'})
 map('n', '<leader>:', ':Telescope command_history<CR>', {desc = 'Find command history'})
 map('n', '<leader>/', ':Telescope search_history<CR>', {desc = 'Find search history'})
+map('n', '<leader>is', ':Telescope symbols<CR>', {desc = 'Insert symbols'})
 map('n', '<leader>fn', function() require'configs.telescope'.find_notes() end, {desc = 'Find notes'})
 map('n', '<leader>fN', function() require'configs.telescope'.grep_notes() end, {desc = 'Search in notes'})
 map('n', '<leader>on', function() require'configs.telescope'.edit_neovim() end, {desc = 'Edit neovim config'})
@@ -204,10 +205,10 @@ map('n', '<leader>xt', ':TroubleToggle telescope<CR>', {desc = 'Open quickfix li
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], {})
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], {})
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], {})
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], {})
 end
 
 augroup('TermMappings', {})
