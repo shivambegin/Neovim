@@ -158,11 +158,7 @@ local plugins = {
   },
 
   -- Fuzyy finder
-  ['nvim-telescope/telescope.nvim'] = {
-    module = 'telescope',
-    cmd = 'Telescope',
-    config = function() require('configs.telescope').config() end,
-  },
+  ['nvim-telescope/telescope.nvim'] = {config = function() require('configs.telescope').config() end},
 
   ['nvim-telescope/telescope-project.nvim'] = {
     after = 'telescope.nvim',
