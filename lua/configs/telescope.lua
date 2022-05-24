@@ -93,4 +93,34 @@ function M.config()
   }
 end
 
+function M.edit_neovim()
+  require('telescope.builtin').find_files {
+    prompt_title = ' Neovim configs',
+    path_display = {'smart'},
+    cwd = '~/.config/nvim/',
+    layout_strategy = 'horizontal',
+    layout_config = {preview_width = 0.65, width = 0.75},
+  }
+end
+
+function M.find_notes()
+  require('telescope.builtin').find_files {
+    prompt_title = ' Find Notes',
+    path_display = {'smart'},
+    cwd = '~/Dropbox/notes/',
+    layout_strategy = 'horizontal',
+    layout_config = {preview_width = 0.65, width = 0.75},
+  }
+end
+
+function M.grep_notes()
+  local opts = {}
+  opts.hidden = true
+  opts.search_dirs = {'~/Dropbox/notes/'}
+  opts.prompt_prefix = '   '
+  opts.prompt_title = ' Grep Notes'
+  opts.path_display = {'smart'}
+  require('telescope.builtin').live_grep(opts)
+end
+
 return M

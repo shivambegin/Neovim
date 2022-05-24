@@ -1,3 +1,4 @@
+local Job = require 'plenary.job'
 local M = {}
 
 M.user_terminals = {}
@@ -6,7 +7,7 @@ function M.add_cmp_source(source, priority)
   if type(priority) ~= 'number' then priority = 1000 end
 
   local priority = ({nvim_lsp = 1000, luasnip = 750, buffer = 500, path = 250})[source]
-  if  priority == nil then priority = 250 end
+  if priority == nil then priority = 250 end
 
   local cmp_avail, cmp = pcall(require, 'cmp')
   if cmp_avail then
@@ -43,6 +44,19 @@ end
 
 function M.vim_opts(options)
   for scope, table in pairs(options) do for setting, value in pairs(table) do vim[scope][setting] = value end end
+end
+
+function M.get_os_command_output(cmd, cwd)
+  if type(cmd) ~= 'table' then
+    print 'Utils: [get_os_command_output]: cmd has to be a table'
+    return {}
+  end
+  local command = table.remove(cmd, 1)
+  local stderr = {}
+  local stdout, ret = Job:new(
+    {command = command, args = cmd, cwd = cwd, on_stderr = function(_, data) table.insert(stderr, data) end}
+  ):sync()
+  return stdout, ret, stderr
 end
 
 return M

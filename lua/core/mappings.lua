@@ -79,7 +79,7 @@ map('n', '<leader>pu', '<cmd>PackerUpdate<cr>', {desc = 'Update packer plugins'}
 
 -- NeoTree
 map('n', '<leader>e', ':Neotree toggle<CR>')
-map('n', '<leader>o', ':Neotree focus<CR>')
+-- map('n', '<leader>o', ':Neotree focus<CR>')
 
 -- Bufferline
 map('n', '<S-l>', '<cmd>BufferLineCycleNext<cr>', {desc = 'Go to next buffer (bufferline)'})
@@ -126,6 +126,9 @@ map('n', '<leader>lD', ':Telescope diagnostics<CR>', {desc = 'Workspace diagnost
 map('n', '<Leader>fR', ':Telescope resume<CR>', {desc = 'Resume last search'})
 map('n', '<leader>:', ':Telescope command_history<CR>', {desc = 'Find command history'})
 map('n', '<leader>/', ':Telescope search_history<CR>', {desc = 'Find search history'})
+map('n', '<leader>fn', function() require'configs.telescope'.find_notes() end, {desc = 'Find notes'})
+map('n', '<leader>fN', function() require'configs.telescope'.grep_notes() end, {desc = 'Search in notes'})
+map('n', '<leader>on', function() require'configs.telescope'.edit_neovim() end, {desc = 'Edit neovim config'})
 
 -- Comment
 map('n', '<C-/>', function() require('Comment.api').toggle_current_linewise() end, {desc = 'Comment/uncomment code'})
