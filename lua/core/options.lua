@@ -1,18 +1,18 @@
 local options = {
-	  opt = {
-    backspace = vim.opt.backspace + { "nostop" }, -- Don't stop backspace at insert
-    clipboard = "unnamedplus", -- Connection to the system clipboard
-    completeopt = { "menuone", "noselect" }, -- Options for insert mode completion
+  opt = {
+    backspace = vim.opt.backspace + {'nostop'}, -- Don't stop backspace at insert
+    clipboard = 'unnamedplus', -- Connection to the system clipboard
+    completeopt = {'menuone', 'noselect'}, -- Options for insert mode completion
     copyindent = true, -- Copy the previous indentation on autoindenting
     cursorline = true, -- Highlight the text line of the cursor
     expandtab = true, -- Enable the use of space in tab
-    fileencoding = "utf-8", -- File content encoding for the buffer
-    fillchars = { eob = " " }, -- Disable `~` on nonexistent lines
+    fileencoding = 'utf-8', -- File content encoding for the buffer
+    fillchars = {eob = ' '}, -- Disable `~` on nonexistent lines
     history = 100, -- Number of commands to remember in a history table
     ignorecase = true, -- Case insensitive searching
     laststatus = 3, -- global statusline
     lazyredraw = true, -- lazily redraw screen
-    mouse = "a", -- Enable mouse support
+    mouse = 'a', -- Enable mouse support
     number = true, -- Show numberline
     preserveindent = true, -- Preserve indent structure as much as possible
     pumheight = 10, -- Height of the pop up menu
@@ -21,9 +21,9 @@ local options = {
     shiftwidth = 2, -- Number of space inserted for indentation
     showmode = false, -- Disable showing modes in command line
     sidescrolloff = 2, -- Number of columns to keep at the sides of the cursor
-    signcolumn = "yes", -- Always show the sign column
+    signcolumn = 'yes', -- Always show the sign column
     smartcase = true, -- Case sensitivie searching
-    smartindent = true,  -- Smart code indentation
+    smartindent = true, -- Smart code indentation
     splitbelow = true, -- Splitting a new window below the current one
     splitright = true, -- Splitting a new window at the right of the current one
     swapfile = false, -- Disable use of swapfile for the buffer
@@ -40,7 +40,7 @@ local options = {
     do_filetype_lua = 1, -- use filetype.lua
     did_load_filetypes = 0, -- don't use filetype.vim
     highlighturl_enabled = true, -- highlight URLs by default
-    mapleader = " ", -- set leader key
+    mapleader = ' ', -- set leader key
     zipPlugin = false, -- disable zip
     load_black = false, -- disable black
     loaded_2html_plugin = true, -- disable 2html
@@ -62,12 +62,8 @@ local options = {
   },
 }
 
-function setOptions(options) 
-  for scope, table in pairs(options) do
-    for setting, value in pairs(table) do
-      vim[scope][setting] = value
-    end
-  end
+function setOptions(options)
+  for scope, table in pairs(options) do for setting, value in pairs(table) do vim[scope][setting] = value end end
 end
 
 setOptions(options)

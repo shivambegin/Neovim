@@ -4,12 +4,11 @@ local plugins = {
   -- Plugin manager
   ['wbthomason/packer.nvim'] = {},
 
-
   -- An implementation of the Popup API from vim in Neovim
   ['nvim-lua/popup.nvim'] = {},
 
   -- Useful lua functions used ny lots of plugins
-  ['nvim-lua/plenary.nvim'] = { module = 'plenary' },
+  ['nvim-lua/plenary.nvim'] = {module = 'plenary'},
 
   -- -- Colorscheme
   -- ['folke/tokyonight.nvim'] = {},
@@ -29,6 +28,24 @@ local plugins = {
     cmd = 'NvimTreeToggle',
     requires = {'kyazdani42/nvim-web-devicons'},
     config = function() require('configs.nvim-tree').config() end,
+  },
+
+  -- Built-in LSP
+  ['neovim/nvim-lspconfig'] = {event = 'VimEnter'},
+
+  -- LSP installer
+  ['williamboman/nvim-lsp-installer'] = {
+    after = 'nvim-lspconfig',
+    config = function()
+      require('configs.lsp.lsp-installer')
+      require('configs.lsp').config()
+    end,
+  },
+
+  -- Formattign and Linting
+  ['jose-elias-alvarez/null-ls.nvim'] = {
+    event = {'BufRead', 'BufNewFile'},
+    config = function() require('configs.null-ls').config() end,
   },
 
 }
