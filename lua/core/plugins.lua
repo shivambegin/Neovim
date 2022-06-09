@@ -188,6 +188,9 @@ local plugins = {
     },
   },
 
+  -- Time tracking
+  ['wakatime/vim-wakatime'] = {event = 'VimEnter'},
+
 }
 
 -- Automatically install packer
