@@ -71,6 +71,16 @@ function M.config()
       -- Accept currently selected item. If none selected, `select` first item.
       -- Set `select` to `false` to only confirm explicitly selected items.
       ['<CR>'] = cmp.mapping.confirm {select = true},
+      ['<C-n>'] = cmp.mapping(
+        function(fallback)
+          local copilot_keys = vim.fn['copilot#Accept']()
+          if copilot_keys ~= '' then
+            vim.api.nvim_feedkeys(copilot_keys, 'i', true)
+          else
+            fallback()
+          end
+        end
+      ),
       ['<Tab>'] = cmp.mapping(
         function(fallback)
           if cmp.visible() then
@@ -84,12 +94,12 @@ function M.config()
             --   print('has words before')
             --   cmp.complete()
           else
-            local copilot_keys = vim.fn['copilot#Accept']()
-            if copilot_keys ~= '' then
-              vim.api.nvim_feedkeys(copilot_keys, 'i', true)
-            else
-              fallback()
-            end
+            -- local copilot_keys = vim.fn['copilot#Accept']()
+            -- if copilot_keys ~= '' then
+            --   vim.api.nvim_feedkeys(copilot_keys, 'i', true)
+            -- else
+            fallback()
+            -- end
           end
         end, {'i', 's'}
       ),
