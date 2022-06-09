@@ -91,6 +91,33 @@ local plugins = {
     config = function() require('configs.nvim-treesitter').config() end,
   },
 
+  -- Snippet collection
+  ['rafamadriz/friendly-snippets'] = {},
+
+  -- Snippet engine
+  ['L3MON4D3/LuaSnip'] = {after = 'friendly-snippets', config = function() require('configs.luasnip').config() end},
+
+  -- Completion engine
+  ['hrsh7th/nvim-cmp'] = {after = 'LuaSnip', config = function() require('configs.nvim-cmp').config() end},
+
+  -- Snippet completion source
+  ['saadparwaiz1/cmp_luasnip'] = {
+    after = 'nvim-cmp',
+    config = function() require'core.utils'.add_cmp_source('luasnip', 399) end,
+  },
+
+  -- Buffer completion source
+  ['hrsh7th/cmp-buffer'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'buffer' end},
+
+  -- Path completion source
+  ['hrsh7th/cmp-path'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'path' end},
+
+  -- LSP completion source
+  ['hrsh7th/cmp-nvim-lsp'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'nvim_lsp' end},
+
+  -- LSP Neovim API completion source
+  ['hrsh7th/cmp-nvim-lua'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'nvim_lua' end},
+
 }
 
 -- Automatically install packer
