@@ -191,6 +191,9 @@ local plugins = {
   -- Time tracking
   ['wakatime/vim-wakatime'] = {event = 'VimEnter'},
 
+  -- AI based auto completion
+  ['github/copilot.vim'] = {event = {'InsertEnter'}, config = function() require'configs.copilot'.config() end},
+
 }
 
 -- Automatically install packer
