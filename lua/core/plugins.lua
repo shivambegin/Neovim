@@ -118,6 +118,76 @@ local plugins = {
   -- LSP Neovim API completion source
   ['hrsh7th/cmp-nvim-lua'] = {after = 'nvim-cmp', config = function() require'core.utils'.add_cmp_source 'nvim_lua' end},
 
+  -- Repeat plugin maps with "."
+  ['tpope/vim-repeat'] = {event = {'BufNewFile', 'BufReadPost'}},
+
+  -- Auto pairs
+  ['windwp/nvim-autopairs'] = {event = {'InsertEnter'}, config = function() require('configs.autopairs').config() end},
+
+  -- Markdown
+  ['preservim/vim-markdown'] = {ft = {'markdown'}},
+
+  -- Markdown live preview
+  ['iamcco/markdown-preview.nvim'] = {
+    ft = {'markdown', 'vimwiki'},
+    run = 'cd app && yarn install',
+    config = function() vim.cmd [[ let g:mkdp_filetypes = ['markdown', 'vimwiki'] ]] end,
+  },
+
+  -- Surround textobjects easily
+  ['tpope/vim-surround'] = {event = 'BufRead'},
+
+  -- Align texts
+  ['junegunn/vim-easy-align'] = {cmd = {'EasyAlign'}},
+
+  -- Move around the whole buffer
+  ['ggandor/lightspeed.nvim'] = {event = {'VimEnter'}},
+
+  -- Commenting
+  ['numToStr/Comment.nvim'] = {
+    module = {'Comment', 'Comment.api'},
+    -- event = {'BufRead', 'BufNewFile'},
+    keys = {'gc', 'gb', 'g<', 'g>'},
+    config = function() require('configs.comment').config() end,
+  },
+
+  -- Terminal
+  ['akinsho/nvim-toggleterm.lua'] = {
+    cmd = 'ToggleTerm',
+    module = {'toggleterm', 'toggleterm.terminal'},
+    config = function() require('configs.nvim-toggleterm').config() end,
+  },
+
+  ['lewis6991/gitsigns.nvim'] = {
+    event = {'BufRead', 'BufNewFile'},
+    config = function() require('configs.gitsigns').config() end,
+  },
+
+  -- Color highlighting
+  ['norcalli/nvim-colorizer.lua'] = {
+    event = {'BufRead', 'BufNewFile'},
+    config = function() require('colorizer').setup() end,
+  },
+
+  -- Git
+  ['tpope/vim-fugitive'] = {
+    cmd = {
+      'G',
+      'Git',
+      'Gdiff',
+      'Gclog',
+      'Ggrep',
+      'Gread',
+      'Gwrite',
+      'GDelete',
+      'GBrowser',
+      'Gdiffsplit',
+      'Gvdiffsplit',
+      'Gfetch',
+      'Gfetch',
+    },
+  },
+
 }
 
 -- Automatically install packer

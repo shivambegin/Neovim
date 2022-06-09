@@ -113,3 +113,55 @@ map('n', '<leader>is', ':Telescope symbols<CR>', {desc = 'Insert symbols'})
 map('n', '<leader>fn', function() require'configs.telescope'.find_notes() end, {desc = 'Find notes'})
 map('n', '<leader>fN', function() require'configs.telescope'.grep_notes() end, {desc = 'Search in notes'})
 map('n', '<leader>on', function() require'configs.telescope'.edit_neovim() end, {desc = 'Edit neovim config'})
+
+-- Comment
+map('n', '<C-/>', function() require('Comment.api').toggle_current_linewise() end, {desc = 'Comment/uncomment code'})
+map(
+  'v', '<C-/>', '<esc><cmd>lua require(\'Comment.api\').toggle_linewise_op(vim.fn.visualmode())<CR>',
+  {desc = 'Comment/uncomment in visual mode'}
+)
+
+-- Terminal
+map('n', '<C-\\>', '<cmd>ToggleTerm<CR>', {desc = 'Toggle terminal'})
+map('n', '<leader>tn', function() utils.toggle_term_cmd 'node' end, {desc = 'Open node in terminal'})
+map('n', '<leader>tu', function() utils.toggle_term_cmd 'ncdu' end, {desc = 'Open ncdu in terminal'})
+map('n', '<leader>tt', function() utils.toggle_term_cmd 'htop' end, {desc = 'Open htop in terminal'})
+map('n', '<leader>tp', function() utils.toggle_term_cmd 'python' end, {desc = 'Open python in terminal'})
+map('n', '<leader>tl', function() utils.toggle_term_cmd 'lazygit' end, {desc = 'Open lazygit in terminal'})
+map('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', {desc = 'Open floating terminal'})
+map('n', '<leader>th', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', {desc = 'Open terminal in horizontal pane'})
+map('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<cr>', {desc = 'Open terminal in vertical pane'})
+
+-- Git (fugitive)
+map('n', '<leader>gg', ':Git<CR>', {desc = 'Open git (fugitive)'})
+
+-- GitSigns
+map('n', ']h', function() require('gitsigns').next_hunk() end, {desc = 'Go to next git hunk'})
+map('n', '[h', function() require('gitsigns').prev_hunk() end, {desc = 'Go to previous git hunk'})
+map('n', '<leader>gl', function() require('gitsigns').blame_line() end, {desc = 'Git blame line'})
+map('n', '<leader>gp', function() require('gitsigns').preview_hunk() end, {desc = 'Git preview hunk'})
+map('n', '<leader>gh', function() require('gitsigns').reset_hunk() end, {desc = 'Git reset hunk'})
+map('n', '<leader>gr', function() require('gitsigns').reset_buffer() end, {desc = 'Git reset buffer'})
+map('n', '<leader>gs', function() require('gitsigns').stage_hunk() end, {desc = 'Git stage hunk'})
+map('n', '<leader>gu', function() require('gitsigns').undo_stage_hunk() end, {desc = 'Git undow staged hunk'})
+map('n', '<leader>gd', function() require('gitsigns').diffthis() end, {desc = 'Git diff current buffer'})
+
+-- EasiAlign
+map('n', 'ga', ':EasyAlign<CR>', {desc = 'Align text  (EasiAlign normal mode)'})
+map('v', 'ga', ':EasyAlign<CR>', {desc = 'Align text  (EasyAlign visual mode)'})
+map('x', 'ga', ':EasyAlign<CR>', {desc = 'Align text (EasiAlign pending mode)'})
+
+-- Markdown Preview
+map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', {desc = 'Open/Toggle markdown preview'})
+
+function _G.set_terminal_keymaps()
+  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
+  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], {})
+end
+
+augroup('TermMappings', {})
+cmd('TermOpen', {desc = 'Set terminal keymaps', group = 'TermMappings', callback = _G.set_terminal_keymaps})
