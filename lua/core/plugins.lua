@@ -62,6 +62,35 @@ local plugins = {
     config = function() require('telescope').load_extension 'fzf' end,
   },
 
+  -- Auto close tag
+  ['windwp/nvim-ts-autotag'] = {after = 'nvim-treesitter'},
+
+  -- Conetxt based commenting
+  ['JoosepAlviste/nvim-ts-context-commentstring'] = {after = 'nvim-treesitter'},
+
+  -- Treesitter based text objects
+  ['nvim-treesitter/nvim-treesitter-textobjects'] = {after = 'nvim-treesitter'},
+
+  -- Hightligh definition and current scope, smart rename and navigation
+  ['nvim-treesitter/nvim-treesitter-refactor'] = {after = 'nvim-treesitter'},
+
+  -- Syntax highlighting
+  ['nvim-treesitter/nvim-treesitter'] = {
+    run = ':TSUpdate',
+    event = {'BufRead', 'BufNewFile'},
+    cmd = {
+      'TSInstall',
+      'TSInstallInfo',
+      'TSInstallSync',
+      'TSUninstall',
+      'TSUpdate',
+      'TSUpdateSync',
+      'TSDisableAll',
+      'TSEnableAll',
+    },
+    config = function() require('configs.nvim-treesitter').config() end,
+  },
+
 }
 
 -- Automatically install packer
