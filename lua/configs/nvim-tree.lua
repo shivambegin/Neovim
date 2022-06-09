@@ -84,7 +84,7 @@ function M.config()
       show_on_dirs = false,
       icons = {hint = '', info = '', warning = '', error = ''},
     },
-    filters = {dotfiles = false, custom = {'.git', 'node_modules'}, exclude = {}},
+    filters = {dotfiles = false, custom = {'^\\.git$', 'node_modules'}, exclude = {}},
     filesystem_watchers = {enable = false, interval = 100},
     git = {enable = true, ignore = true, timeout = 400},
     actions = {
