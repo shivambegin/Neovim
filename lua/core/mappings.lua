@@ -66,3 +66,20 @@ map('n', '<Leader>lo', ':lopen<CR>', {desc = 'Open location list'})
 map('n', '<Leader>lc', ':lclose<CR>', {desc = 'Close location list'})
 map('n', '<Leader>ln', ':lnext<CR>', {desc = 'Next location list item'})
 map('n', '<Leader>lp', ':lprev<CR>', {desc = 'Previous location list item'})
+
+-------------------------------------------------------------------------
+--                               PLUGINS
+-------------------------------------------------------------------------
+
+-- Packer
+map('n', '<leader>pc', '<cmd>PackerCompile<cr>', {desc = 'Packer compile'})
+map('n', '<leader>pi', '<cmd>PackerInstall<cr>', {desc = 'Install packer plugins'})
+map('n', '<leader>ps', '<cmd>PackerSync<cr>', {desc = 'Sync packer plugins'})
+map('n', '<leader>pS', '<cmd>PackerStatus<cr>', {desc = 'Packer status'})
+map('n', '<leader>pu', '<cmd>PackerUpdate<cr>', {desc = 'Update packer plugins'})
+
+-- Nvim-tree
+map('n', '<leader>e', ':NvimTreeToggle<CR>')
+
+-- bufdelete.nvim
+map('n', '<leader>c', '<cmd>Bdelete!<CR>', {desc = 'Close buffer (vim-bbye)'})
