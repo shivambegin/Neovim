@@ -48,6 +48,20 @@ local plugins = {
     config = function() require('configs.null-ls').config() end,
   },
 
+  -- Fuzzy finder
+  ['nvim-telescope/telescope.nvim'] = {
+    cmd = 'Telescope',
+    module = 'telescope',
+    config = function() require('configs.telescope').config() end,
+  },
+
+  -- Fuzzy finder syntax support
+  ['nvim-telescope/telescope-fzf-native.nvim'] = {
+    after = 'telescope.nvim',
+    run = 'make',
+    config = function() require('telescope').load_extension 'fzf' end,
+  },
+
 }
 
 -- Automatically install packer
