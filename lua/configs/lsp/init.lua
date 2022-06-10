@@ -5,7 +5,7 @@ local M = {}
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
@@ -77,10 +77,10 @@ function M.config()
 
   local on_attach = function(client, bufnr)
 
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
 
-    if (client.name == 'null-ls') then client.resolved_capabilities.document_formatting = true end
-    if (client.name == 'eslint') then client.resolved_capabilities.document_formatting = true end
+    if (client.name == 'null-ls') then client.server_capabilities.document_formatting = true end
+    if (client.name == 'eslint') then client.server_capabilities.document_formatting = true end
 
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.formatting_seq_sync(nil, 5000) end, {})
