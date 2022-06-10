@@ -35,6 +35,7 @@ local options = {
     updatetime = 300, -- Length of time to wait before triggering the plugin
     wrap = false, -- Disable wrapping of lines longer than the width of window
     writebackup = false, -- Disable making a backup before overwriting a file
+    winbar = '%m %f', -- Statusline
   },
   g = {
     do_filetype_lua = 1, -- use filetype.lua
