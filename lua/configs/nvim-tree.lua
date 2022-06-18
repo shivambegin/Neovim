@@ -16,7 +16,7 @@ function M.config()
     sort_by = 'name',
     update_cwd = false,
     reload_on_bufenter = false,
-    respect_buf_cwd = false,
+    respect_buf_cwd = true,
     view = {
       adaptive_size = false,
       centralize_selection = false,
@@ -76,7 +76,7 @@ function M.config()
       special_files = {'Cargo.toml', 'Makefile', 'README.md', 'readme.md'},
     },
     hijack_directories = {enable = true, auto_open = true},
-    update_focused_file = {enable = false, update_cwd = false, ignore_list = {}},
+    update_focused_file = {enable = true, update_cwd = false, ignore_list = {}},
     ignore_ft_on_setup = {},
     system_open = {cmd = '', args = {}},
     diagnostics = {
