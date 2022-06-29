@@ -77,6 +77,87 @@ local function set_keymappings(client, bufnr)
   vim.keymap.set('n', 'go', vim.diagnostic.open_float, { desc = 'Hover diagnostics', buffer = bufnr })
 end
 
+local function set_signs()
+  local signs = {
+    { name = 'DiagnosticSignError', text = '' },
+    { name = 'DiagnosticSignWarn', text = '' },
+    { name = 'DiagnosticSignHint', text = '' },
+    { name = 'DiagnosticSignInfo', text = '' },
+  }
+
+  for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
+  end
+
+  ---custom namespace
+  local ns = vim.api.nvim_create_namespace 'severe-diagnostics'
+
+  ---reference to the original handler
+  local orig_signs_handler = vim.diagnostic.handlers.signs
+
+  ---Overriden diagnostics signs helper to only show the single most relevant sign
+  ---@see `:h diagnostic-handlers`
+  vim.diagnostic.handlers.signs = {
+    show = function(_, bufnr, _, opts)
+      -- get all diagnostics from the whole buffer rather
+      -- than just the diagnostics passed to the handler
+      local diagnostics = vim.diagnostic.get(bufnr)
+
+      local filtered_diagnostics = require('core.utils').filter_diagnostics(diagnostics)
+
+      -- pass the filtered diagnostics (with the
+      -- custom namespace) to the original handler
+      orig_signs_handler.show(ns, bufnr, filtered_diagnostics, opts)
+    end,
+
+    hide = function(_, bufnr)
+      orig_signs_handler.hide(ns, bufnr)
+    end,
+  }
+end
+
+local function set_handlers()
+  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+  vim.lsp.handlers['textDocument/definition'] = goto_definition 'split'
+end
+
+local function set_diagnostic()
+  -- Prefix diagnostic virtual text
+  vim.diagnostic.config {
+    virtual_text = { source = 'always', prefix = ' ', spacing = 6 },
+    float = { header = false, source = 'always' },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+  }
+end
+
+local function set_servers()
+  local servers = {
+    'sumneko_lua',
+    'cssls',
+    'html',
+    'emmet_ls',
+    'jsonls',
+    'yamlls',
+    'dockerls',
+    'tsserver',
+    'gopls',
+    'diagnosticls',
+    'sqlls',
+    'svelte',
+    'volar',
+    'eslint',
+    'tailwindcss',
+    'rust',
+  }
+
+  for _, server in ipairs(servers) do
+    require('configs.lsp.servers.' .. server).setup(M.on_attach, M.capabilities())
+  end
+end
+
 function M.on_attach(client, bufnr)
   client.server_capabilities.document_formatting = false
 
@@ -114,25 +195,6 @@ function M.capabilities()
 end
 
 function M.config()
-  local servers = {
-    'sumneko_lua',
-    'cssls',
-    'html',
-    'emmet_ls',
-    'jsonls',
-    'yamlls',
-    'dockerls',
-    'tsserver',
-    'gopls',
-    'diagnosticls',
-    'sqlls',
-    'svelte',
-    'volar',
-    'eslint',
-    'tailwindcss',
-    'rust',
-  }
-
   -- Floating border
   local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
   function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -141,38 +203,12 @@ function M.config()
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
   end
 
-  local signs = {
-    { name = 'DiagnosticSignError', text = '' },
-    { name = 'DiagnosticSignWarn', text = '' },
-    { name = 'DiagnosticSignHint', text = '' },
-    { name = 'DiagnosticSignInfo', text = '' },
-  }
-
-  for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
-  end
-
-  local had_lspconfig = pcall(require, 'lspconfig')
-  if had_lspconfig then
-    for _, server in ipairs(servers) do
-      require('configs.lsp.servers.' .. server).setup(M.on_attach, M.capabilities())
-    end
-
-    -- Prefix diagnostic virtual text
-    vim.diagnostic.config {
-      virtual_text = { source = 'always', prefix = ' ', spacing = 6 },
-      float = { header = false, source = 'always' },
-      signs = true,
-      underline = true,
-      update_in_insert = false,
-    }
-
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-      vim.lsp.handlers.signature_help,
-      { border = 'rounded' }
-    )
-    vim.lsp.handlers['textDocument/definition'] = goto_definition 'split'
+  local lspconfig_ok = pcall(require, 'lspconfig')
+  if lspconfig_ok then
+    set_signs()
+    set_diagnostic()
+    set_servers()
+    set_handlers()
   end
 end
 
