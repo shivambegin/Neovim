@@ -89,7 +89,7 @@ function M.config()
       },
     },
     pickers = {help_tags = {preview = true, layout_config = {height = 0.8, width = 0.8}}},
-    extensions = {},
+    extensions = {['ui-select'] = {require('telescope.themes').get_dropdown {}}},
   }
 end
 
