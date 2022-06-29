@@ -3,17 +3,22 @@ if not status_ok then return end
 
 local M = {}
 
-local function lsp_highlight_document(client)
+local function lsp_highlight_document(client, bufnr)
   -- Set autocommands conditional on server_capabilities
-  if client.server_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]], false
+  if client.server_capabilities.documentHighlightProvider then
+    vim.cmd [[
+    hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+    hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+  ]]
+    vim.api.nvim_create_augroup('lsp_document_highlight', {clear = false})
+    vim.api.nvim_clear_autocmds({buffer = bufnr, group = 'lsp_document_highlight'})
+    vim.api.nvim_create_autocmd(
+      {'CursorHold', 'CursorHoldI'},
+      {group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.document_highlight}
+    )
+    vim.api.nvim_create_autocmd(
+      'CursorMoved', {group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.clear_references}
     )
   end
 end
@@ -113,7 +118,7 @@ function M.config()
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format() end, {})
 
-    lsp_highlight_document(client)
+    lsp_highlight_document(client, bufnr)
     set_keymappings(client, bufnr)
   end
 
@@ -139,12 +144,11 @@ function M.config()
       virtual_text = {source = 'always', prefix = ' ', spacing = 6},
       float = {header = false, source = 'always'},
       signs = true,
-      underline = false,
+      underline = true,
       update_in_insert = false,
     }
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
-
     vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'})
     vim.lsp.handlers['textDocument/definition'] = goto_definition('split')
 
