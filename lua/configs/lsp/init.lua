@@ -21,9 +21,7 @@ end
 local function set_keymappings(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = 'Hover symbol details', buffer = bufnr})
   vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, {desc = 'LSP code action', buffer = bufnr})
-  vim.keymap.set(
-    'n', '<leader>lf', function() vim.lsp.buf.formatting_seq_sync(nil, 5000) end, {desc = 'Format code', buffer = bufnr}
-  )
+  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format() end, {desc = 'Format code', buffer = bufnr})
   vim.keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help, {desc = 'Signature help', buffer = bufnr})
   vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {desc = 'Rename current symbol', buffer = bufnr})
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {desc = 'Declaration of current symbol', buffer = bufnr})
@@ -83,7 +81,7 @@ function M.config()
     if (client.name == 'eslint') then client.server_capabilities.document_formatting = true end
 
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.formatting_seq_sync(nil, 5000) end, {})
+    vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format() end, {})
 
     lsp_highlight_document(client)
     set_keymappings(client, bufnr)
