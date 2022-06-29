@@ -4,9 +4,11 @@ M.setup = function(on_attach, capabilities)
 
   lspconfig.emmet_ls.setup {
     on_attach = on_attach,
-    flags = {debounce_text_changes = 150},
+    flags = { debounce_text_changes = 150 },
     capabilities = capabilities,
-    root_dir = function() return vim.loop.cwd() end,
+    root_dir = function()
+      return vim.loop.cwd()
+    end,
   }
 end
 

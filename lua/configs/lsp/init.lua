@@ -1,5 +1,7 @@
 local status_ok, _ = pcall(require, 'lspconfig')
-if not status_ok then return end
+if not status_ok then
+  return
+end
 
 local M = {}
 
@@ -12,20 +14,21 @@ local function lsp_highlight_document(client, bufnr)
     hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
   ]]
     vim.api.nvim_create_augroup('lsp_document_highlight', { clear = false })
-    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = 'lsp_document_highlight' })
+    vim.api.nvim_clear_autocmds { buffer = bufnr, group = 'lsp_document_highlight' }
     vim.api.nvim_create_autocmd(
       { 'CursorHold', 'CursorHoldI' },
       { group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.document_highlight }
     )
     vim.api.nvim_create_autocmd(
-      'CursorMoved', { group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.clear_references }
+      'CursorMoved',
+      { group = 'lsp_document_highlight', buffer = bufnr, callback = vim.lsp.buf.clear_references }
     )
   end
 end
 
 local function goto_definition(split_cmd)
   local util = vim.lsp.util
-  local log = require('vim.lsp.log')
+  local log = require 'vim.lsp.log'
   local api = vim.api
 
   -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
@@ -35,15 +38,17 @@ local function goto_definition(split_cmd)
       return nil
     end
 
-    if split_cmd then vim.cmd(split_cmd) end
+    if split_cmd then
+      vim.cmd(split_cmd)
+    end
 
     if vim.tbl_islist(result) then
       util.jump_to_location(result[1])
 
       if #result > 1 then
         util.set_qflist(util.locations_to_items(result))
-        api.nvim_command('copen')
-        api.nvim_command('wincmd p')
+        api.nvim_command 'copen'
+        api.nvim_command 'wincmd p'
       end
     else
       util.jump_to_location(result)
@@ -56,7 +61,9 @@ end
 local function set_keymappings(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover symbol details', buffer = bufnr })
   vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'LSP code action', buffer = bufnr })
-  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format() end, { desc = 'Format code', buffer = bufnr })
+  vim.keymap.set('n', '<leader>lf', function()
+    vim.lsp.buf.format()
+  end, { desc = 'Format code', buffer = bufnr })
   vim.keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help, { desc = 'Signature help', buffer = bufnr })
   vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = 'Rename current symbol', buffer = bufnr })
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Declaration of current symbol', buffer = bufnr })
@@ -71,14 +78,19 @@ local function set_keymappings(client, bufnr)
 end
 
 function M.on_attach(client, bufnr)
-
   client.server_capabilities.document_formatting = false
 
-  if (client.name == 'null-ls') then client.server_capabilities.document_formatting = true end
-  if (client.name == 'eslint') then client.server_capabilities.document_formatting = true end
+  if client.name == 'null-ls' then
+    client.server_capabilities.document_formatting = true
+  end
+  if client.name == 'eslint' then
+    client.server_capabilities.document_formatting = true
+  end
 
   vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format() end, {})
+  vim.api.nvim_create_user_command('Format', function()
+    vim.lsp.buf.format()
+  end, {})
 
   lsp_highlight_document(client, bufnr)
   set_keymappings(client, bufnr)
@@ -102,7 +114,6 @@ function M.capabilities()
 end
 
 function M.config()
-
   local servers = {
     'sumneko_lua',
     'cssls',
@@ -136,7 +147,9 @@ function M.config()
     { name = 'DiagnosticSignInfo', text = '' },
   }
 
-  for _, sign in ipairs(signs) do vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' }) end
+  for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
+  end
 
   local had_lspconfig = pcall(require, 'lspconfig')
   if had_lspconfig then
@@ -154,9 +167,11 @@ function M.config()
     }
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
-    vim.lsp.handlers['textDocument/definition'] = goto_definition('split')
-
+    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+      vim.lsp.handlers.signature_help,
+      { border = 'rounded' }
+    )
+    vim.lsp.handlers['textDocument/definition'] = goto_definition 'split'
   end
 end
 

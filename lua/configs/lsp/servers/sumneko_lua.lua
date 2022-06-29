@@ -2,8 +2,8 @@ local M = {}
 
 local settings = {
   Lua = {
-    runtime = {version = 'LuaJIT'},
-    diagnostics = {globals = {'vim', 'use', 'describe', 'it', 'assert', 'before_each', 'after_each'}},
+    runtime = { version = 'LuaJIT' },
+    diagnostics = { globals = { 'vim', 'use', 'describe', 'it', 'assert', 'before_each', 'after_each' } },
     disable = {
       'lowercase-global',
       'undefined-global',
@@ -25,7 +25,7 @@ M.setup = function(on_attach, capabilities)
       on_attach(client, bufnr)
     end,
     settings = settings,
-    flags = {debounce_text_changes = 150},
+    flags = { debounce_text_changes = 150 },
     capabilities = capabilities,
   }
 end

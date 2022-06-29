@@ -2,15 +2,17 @@ local M = {}
 
 function M.config()
   local status_ok, npairs = pcall(require, 'nvim-autopairs')
-  if not status_ok then return end
+  if not status_ok then
+    return
+  end
 
   npairs.setup {
     check_ts = true,
-    ts_config = {lua = {'string', 'source'}, javascript = {'string', 'template_string'}, java = false},
-    disable_filetype = {'TelescopePrompt', 'spectre_panel'},
+    ts_config = { lua = { 'string', 'source' }, javascript = { 'string', 'template_string' }, java = false },
+    disable_filetype = { 'TelescopePrompt', 'spectre_panel' },
     fast_wrap = {
       map = '<M-e>',
-      chars = {'{', '[', '(', '"', '\''},
+      chars = { '{', '[', '(', '"', "'" },
       pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
       offset = 0, -- Offset from pattern match
       end_key = '$',
@@ -23,9 +25,8 @@ function M.config()
 
   local cmp_status_ok, cmp = pcall(require, 'cmp')
   if cmp_status_ok then
-    cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done {map_char = {tex = ''}})
+    cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done { map_char = { tex = '' } })
   end
-
 end
 
 return M

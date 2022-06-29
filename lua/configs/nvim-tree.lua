@@ -1,8 +1,7 @@
 local M = {}
 
 function M.config()
-
-  require'nvim-tree'.setup {
+  require('nvim-tree').setup {
     auto_reload_on_write = true,
     create_in_closed_folder = false,
     disable_netrw = false,
@@ -42,13 +41,13 @@ function M.config()
       full_name = false,
       highlight_opened_files = 'none',
       root_folder_modifier = ':~',
-      indent_markers = {enable = false, icons = {corner = '└ ', edge = '│ ', item = '│ ', none = '  '}},
+      indent_markers = { enable = false, icons = { corner = '└ ', edge = '│ ', item = '│ ', none = '  ' } },
       icons = {
         webdev_colors = true,
         git_placement = 'before',
         padding = ' ',
         symlink_arrow = ' ➛ ',
-        show = {file = true, folder = true, folder_arrow = true, git = true},
+        show = { file = true, folder = true, folder_arrow = true, git = true },
         glyphs = {
           default = '',
           symlink = '',
@@ -73,24 +72,24 @@ function M.config()
           },
         },
       },
-      special_files = {'Cargo.toml', 'Makefile', 'README.md', 'readme.md'},
+      special_files = { 'Cargo.toml', 'Makefile', 'README.md', 'readme.md' },
     },
-    hijack_directories = {enable = true, auto_open = true},
-    update_focused_file = {enable = true, update_cwd = false, ignore_list = {}},
+    hijack_directories = { enable = true, auto_open = true },
+    update_focused_file = { enable = true, update_cwd = false, ignore_list = {} },
     ignore_ft_on_setup = {},
-    system_open = {cmd = '', args = {}},
+    system_open = { cmd = '', args = {} },
     diagnostics = {
       enable = false,
       show_on_dirs = false,
-      icons = {hint = '', info = '', warning = '', error = ''},
+      icons = { hint = '', info = '', warning = '', error = '' },
     },
-    filters = {dotfiles = false, custom = {'^\\.git$', 'node_modules'}, exclude = {}},
-    filesystem_watchers = {enable = false, interval = 100},
-    git = {enable = true, ignore = true, timeout = 400},
+    filters = { dotfiles = false, custom = { '^\\.git$', 'node_modules' }, exclude = {} },
+    filesystem_watchers = { enable = false, interval = 100 },
+    git = { enable = true, ignore = true, timeout = 400 },
     actions = {
       use_system_clipboard = true,
-      change_dir = {enable = true, global = false, restrict_above_cwd = false},
-      expand_all = {max_folder_discovery = 300},
+      change_dir = { enable = true, global = false, restrict_above_cwd = false },
+      expand_all = { max_folder_discovery = 300 },
       open_file = {
         quit_on_open = false,
         resize_window = true,
@@ -98,15 +97,15 @@ function M.config()
           enable = true,
           chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
           exclude = {
-            filetype = {'notify', 'packer', 'qf', 'diff', 'fugitive', 'fugitiveblame'},
-            buftype = {'nofile', 'terminal', 'help'},
+            filetype = { 'notify', 'packer', 'qf', 'diff', 'fugitive', 'fugitiveblame' },
+            buftype = { 'nofile', 'terminal', 'help' },
           },
         },
       },
-      remove_file = {close_window = true},
+      remove_file = { close_window = true },
     },
-    trash = {cmd = 'gio trash', require_confirm = true},
-    live_filter = {prefix = '[FILTER]: ', always_show_folders = true},
+    trash = { cmd = 'gio trash', require_confirm = true },
+    live_filter = { prefix = '[FILTER]: ', always_show_folders = true },
     log = {
       enable = false,
       truncate = false,
@@ -121,7 +120,6 @@ function M.config()
       },
     },
   }
-
 end
 
 return M

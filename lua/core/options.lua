@@ -1,13 +1,13 @@
 local options = {
   opt = {
-    backspace = vim.opt.backspace + {'nostop'}, -- Don't stop backspace at insert
+    backspace = vim.opt.backspace + { 'nostop' }, -- Don't stop backspace at insert
     clipboard = 'unnamedplus', -- Connection to the system clipboard
-    completeopt = {'menuone', 'noselect'}, -- Options for insert mode completion
+    completeopt = { 'menuone', 'noselect' }, -- Options for insert mode completion
     copyindent = true, -- Copy the previous indentation on autoindenting
     cursorline = true, -- Highlight the text line of the cursor
     expandtab = true, -- Enable the use of space in tab
     fileencoding = 'utf-8', -- File content encoding for the buffer
-    fillchars = {eob = ' '}, -- Disable `~` on nonexistent lines
+    fillchars = { eob = ' ' }, -- Disable `~` on nonexistent lines
     history = 100, -- Number of commands to remember in a history table
     ignorecase = true, -- Case insensitive searching
     laststatus = 3, -- global statusline
@@ -63,8 +63,8 @@ local options = {
   },
 }
 
-function setOptions(options)
-  for scope, table in pairs(options) do for setting, value in pairs(table) do vim[scope][setting] = value end end
+for scope, table in pairs(options) do
+  for setting, value in pairs(table) do
+    vim[scope][setting] = value
+  end
 end
-
-setOptions(options)

@@ -1,7 +1,9 @@
 local status_ok, feline = pcall(require, 'feline')
-if not status_ok then return end
+if not status_ok then
+  return
+end
 
-print('feline loaded')
+print 'feline loaded'
 local C = require 'core.colors'
 local hl = require('core.status').hl
 local provider = require('core.status').provider

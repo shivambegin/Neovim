@@ -13,7 +13,9 @@ P = function(v)
   return v
 end
 
-RELOAD = function(...) return reloader(...) end
+RELOAD = function(...)
+  return reloader(...)
+end
 
 R = function(name)
   RELOAD(name)

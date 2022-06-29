@@ -8,9 +8,8 @@ function M.config()
       open_mapping = [[<c-\>]],
       shading_factor = 2,
       direction = 'float',
-      float_opts = {border = 'curved', highlights = {border = 'Normal', background = 'Normal'}},
+      float_opts = { border = 'curved', highlights = { border = 'Normal', background = 'Normal' } },
     }
-
   end
 end
 

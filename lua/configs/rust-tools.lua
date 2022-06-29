@@ -1,9 +1,8 @@
-local lsp_handlers = require('configs.lsp')
-local M = {};
-local rust_tools = require('rust-tools');
+local lsp_handlers = require 'configs.lsp'
+local M = {}
+local rust_tools = require 'rust-tools'
 
 function M.config()
-
   local opts = {
     tools = { -- rust-tools options
       -- automatically set inlay hints (type hints)

@@ -2,25 +2,29 @@ local M = {}
 
 function M.config()
   local status_ok, telescope = pcall(require, 'telescope')
-  if not status_ok then return end
+  if not status_ok then
+    return
+  end
 
   local actions = require 'telescope.actions'
 
   local notify_present, _ = pcall(require, 'notify')
-  if notify_present then telescope.load_extension 'notify' end
+  if notify_present then
+    telescope.load_extension 'notify'
+  end
 
   telescope.setup {
     defaults = {
 
       prompt_prefix = ' ',
       selection_caret = '❯ ',
-      path_display = {'truncate'},
+      path_display = { 'truncate' },
       selection_strategy = 'reset',
       sorting_strategy = 'ascending',
       layout_strategy = 'horizontal',
       layout_config = {
-        horizontal = {prompt_position = 'top', preview_width = 0.55, results_width = 0.8},
-        vertical = {mirror = false},
+        horizontal = { prompt_position = 'top', preview_width = 0.55, results_width = 0.8 },
+        vertical = { mirror = false },
         width = 0.87,
         height = 0.80,
         preview_cutoff = 120,
@@ -88,38 +92,38 @@ function M.config()
         },
       },
     },
-    pickers = {help_tags = {preview = true, layout_config = {height = 0.8, width = 0.8}}},
-    extensions = {['ui-select'] = {require('telescope.themes').get_dropdown {}}},
+    pickers = { help_tags = { preview = true, layout_config = { height = 0.8, width = 0.8 } } },
+    extensions = { ['ui-select'] = { require('telescope.themes').get_dropdown {} } },
   }
 end
 
 function M.edit_neovim()
   require('telescope.builtin').find_files {
     prompt_title = ' Neovim configs',
-    path_display = {'smart'},
+    path_display = { 'smart' },
     cwd = '~/.config/nvim/',
     layout_strategy = 'horizontal',
-    layout_config = {preview_width = 0.65, width = 0.75},
+    layout_config = { preview_width = 0.65, width = 0.75 },
   }
 end
 
 function M.find_notes()
   require('telescope.builtin').find_files {
     prompt_title = ' Find Notes',
-    path_display = {'smart'},
+    path_display = { 'smart' },
     cwd = '~/Dropbox/notes/',
     layout_strategy = 'horizontal',
-    layout_config = {preview_width = 0.65, width = 0.75},
+    layout_config = { preview_width = 0.65, width = 0.75 },
   }
 end
 
 function M.grep_notes()
   local opts = {}
   opts.hidden = true
-  opts.search_dirs = {'~/Dropbox/notes/'}
+  opts.search_dirs = { '~/Dropbox/notes/' }
   opts.prompt_prefix = '   '
   opts.prompt_title = ' Grep Notes'
-  opts.path_display = {'smart'}
+  opts.path_display = { 'smart' }
   require('telescope.builtin').live_grep(opts)
 end
 

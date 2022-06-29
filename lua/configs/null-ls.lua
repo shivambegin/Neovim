@@ -1,10 +1,14 @@
 local ok, null_ls = pcall(require, 'null-ls')
 
-if not ok then return end
+if not ok then
+  return
+end
 
 local with_root_file = function(...)
-  local files = {...}
-  return function(utils) return utils.root_has_file(files) end
+  local files = { ... }
+  return function(utils)
+    return utils.root_has_file(files)
+  end
 end
 
 local formatting = null_ls.builtins.formatting
@@ -15,16 +19,16 @@ local M = {}
 M.config = function(on_attach)
   null_ls.setup {
     sources = {
-      diagnostics.eslint_d.with {condition = with_root_file {'.eslintrc', '.eslintrc.js', '.eslintrc.json'}},
+      diagnostics.eslint_d.with { condition = with_root_file { '.eslintrc', '.eslintrc.js', '.eslintrc.json' } },
       -- diagnostics.markdownlint,
       diagnostics.yamllint,
 
-      formatting.prettierd.with {extra_filetypes = {'svelte'}},
-      formatting.lua_format,
+      formatting.prettierd.with { extra_filetypes = { 'svelte' } },
+      formatting.stylua,
       formatting.gofmt,
       formatting.rustfmt,
 
-      code_actions.eslint_d.with {condition = with_root_file {'.eslintrc', '.eslintrc.js', '.eslintrc.json'}},
+      code_actions.eslint_d.with { condition = with_root_file { '.eslintrc', '.eslintrc.js', '.eslintrc.json' } },
       code_actions.gitsigns,
     },
     on_attach = on_attach,

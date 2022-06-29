@@ -4,7 +4,7 @@ M.setup = function(on_attach, capabilities)
 
   lspconfig.diagnosticls.setup {
     on_attach = on_attach,
-    flags = {debounce_text_changes = 150},
+    flags = { debounce_text_changes = 150 },
     capabilities = capabilities,
   }
 end
