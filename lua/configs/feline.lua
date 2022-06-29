@@ -3,7 +3,6 @@ if not status_ok then
   return
 end
 
-print 'feline loaded'
 local C = require 'core.colors'
 local hl = require('core.status').hl
 local provider = require('core.status').provider
