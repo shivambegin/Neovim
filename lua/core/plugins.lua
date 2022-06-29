@@ -194,10 +194,7 @@ local plugins = {
 
   -- Rust
   ['simrat39/rust-tools.nvim'] = {
-    after = 'nvim-lspconfig',
-    config = function()
-      require('configs.rust-tools').config()
-    end,
+    module = 'rust-tools',
   },
 
   -- Surround textobjects easily

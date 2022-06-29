@@ -130,6 +130,7 @@ function M.config()
     'volar',
     'eslint',
     'tailwindcss',
+    'rust',
   }
 
   -- Floating border

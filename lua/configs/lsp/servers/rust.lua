@@ -2,7 +2,7 @@ local lsp_handlers = require 'configs.lsp'
 local M = {}
 local rust_tools = require 'rust-tools'
 
-function M.config()
+function M.setup()
   local opts = {
     tools = { -- rust-tools options
       -- automatically set inlay hints (type hints)
@@ -177,6 +177,13 @@ function M.config()
       standalone = true,
       on_attach = lsp_handlers.on_attach,
       capabilities = lsp_handlers.capabilities(),
+      settings = {
+        ['rust-analyzer'] = {
+          checkOnSave = {
+            command = 'clippy',
+          },
+        },
+      },
     }, -- rust-analyer options
 
     -- debugging stuff
