@@ -276,6 +276,14 @@ local plugins = {
       require 'configs.feline'
     end,
   },
+
+  ['christianchiarulli/nvim-gps'] = {
+    branch = 'text_hl',
+    after = 'nvim-treesitter',
+    config = function()
+      require('configs.gps').config()
+    end,
+  },
 }
 
 -- Automatically install packer
