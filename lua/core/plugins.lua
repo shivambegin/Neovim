@@ -42,7 +42,6 @@ local plugins = {
     after = 'nvim-lspconfig',
     config = function()
       require 'configs.lsp.lsp-installer'
-      require('configs.lsp').config()
     end,
   },
 

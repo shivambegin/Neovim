@@ -1,8 +1,3 @@
-local status_ok, _ = pcall(require, 'lspconfig')
-if not status_ok then
-  return
-end
-
 local M = {}
 
 local function lsp_highlight_document(client, bufnr)
@@ -26,7 +21,7 @@ local function lsp_highlight_document(client, bufnr)
   end
 end
 
-local function goto_definition(split_cmd)
+local function lsp_goto_definition(split_cmd)
   local util = vim.lsp.util
   local log = require 'vim.lsp.log'
   local api = vim.api
@@ -58,7 +53,7 @@ local function goto_definition(split_cmd)
   return handler
 end
 
-local function set_keymappings(client, bufnr)
+local function lsp_set_keymappings(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover symbol details', buffer = bufnr })
   vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'LSP code action', buffer = bufnr })
   vim.keymap.set('n', '<leader>lf', function()
@@ -77,7 +72,7 @@ local function set_keymappings(client, bufnr)
   vim.keymap.set('n', 'go', vim.diagnostic.open_float, { desc = 'Hover diagnostics', buffer = bufnr })
 end
 
-local function set_signs()
+function M.lsp_set_signs()
   local signs = {
     { name = 'DiagnosticSignError', text = '' },
     { name = 'DiagnosticSignWarn', text = '' },
@@ -116,13 +111,13 @@ local function set_signs()
   }
 end
 
-local function set_handlers()
+function M.lsp_set_handlers()
   vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
   vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
-  vim.lsp.handlers['textDocument/definition'] = goto_definition 'split'
+  vim.lsp.handlers['textDocument/definition'] = lsp_goto_definition 'split'
 end
 
-local function set_diagnostic()
+function M.lsp_set_diagnostic()
   -- Prefix diagnostic virtual text
   vim.diagnostic.config {
     virtual_text = { source = 'always', prefix = ' ', spacing = 6 },
@@ -131,31 +126,6 @@ local function set_diagnostic()
     underline = true,
     update_in_insert = false,
   }
-end
-
-local function set_servers()
-  local servers = {
-    'sumneko_lua',
-    'cssls',
-    'html',
-    'emmet_ls',
-    'jsonls',
-    'yamlls',
-    'dockerls',
-    'tsserver',
-    'gopls',
-    'diagnosticls',
-    'sqlls',
-    'svelte',
-    'volar',
-    'eslint',
-    'tailwindcss',
-    'rust',
-  }
-
-  for _, server in ipairs(servers) do
-    require('configs.lsp.servers.' .. server).setup(M.on_attach, M.capabilities())
-  end
 end
 
 function M.on_attach(client, bufnr)
@@ -174,42 +144,20 @@ function M.on_attach(client, bufnr)
   end, {})
 
   lsp_highlight_document(client, bufnr)
-  set_keymappings(client, bufnr)
+  lsp_set_keymappings(client, bufnr)
 end
 
-function M.capabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.preselectSupport = true
-  capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-  capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-  capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-  capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-  capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-  capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = { 'documentation', 'detail', 'additionalTextEdits' },
-  }
-
-  return capabilities
-end
-
-function M.config()
-  -- Floating border
-  local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-  function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or { { ' ', 'FloatBorder' } }
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-  end
-
-  local lspconfig_ok = pcall(require, 'lspconfig')
-  if lspconfig_ok then
-    set_signs()
-    set_diagnostic()
-    set_servers()
-    set_handlers()
-  end
-end
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities.textDocument.completion.completionItem.preselectSupport = true
+M.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+M.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+M.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+M.capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+M.capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+M.capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = { 'documentation', 'detail', 'additionalTextEdits' },
+}
 
 return M
