@@ -204,6 +204,15 @@ map('x', 'ga', ':EasyAlign<CR>', { desc = 'Align text (EasiAlign pending mode)' 
 -- Markdown Preview
 map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'Open/Toggle markdown preview' })
 
+-- Rust tools
+
+map('n', '<leader>rh', ':RustToggleInlayHints<CR>', { desc = 'Toggle inlay hinsts (Rust)' })
+map('n', '<leader>rr', ':RustRun<CR>', { desc = 'Run Code (Rust)' })
+map('n', '<leader>R', ':RustRunnables<CR>', { desc = 'Open runables popup (Rust)' })
+map('n', '<leader>rm', ':RustExpandMacro<CR>', { desc = 'Expand macro (Rust)' })
+map('n', '<leader>rp', ':RustParentModule<CR>', { desc = 'Go to parent macor (rust)' })
+map('n', '<leader>rd', ':RustDebuggables<CR>', { desc = 'Open debuggables (Rust)' })
+
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})

@@ -18,10 +18,14 @@ function M.setup()
         parameter_hints_prefix = ' ',
         other_hints_prefix = ' ',
       },
+      hover_actions = {
+        auto_focus = true,
+      },
     },
     server = {
       on_attach = lsp_handlers.on_attach,
       capabilities = lsp_handlers.capabilities,
+      standalone = true,
       settings = {
         ['rust-analyzer'] = {
           lens = {
