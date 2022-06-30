@@ -284,6 +284,14 @@ local plugins = {
       require('configs.gps').config()
     end,
   },
+
+  ['lukas-reineke/indent-blankline.nvim'] = {
+    after = 'nvim-treesitter',
+    event = { 'BufRead', 'BufNewFile' },
+    config = function()
+      require('configs.indent-blankline').config()
+    end,
+  },
 }
 
 -- Automatically install packer
