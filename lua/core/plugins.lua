@@ -16,7 +16,6 @@ local plugins = {
 
   -- Icons
   ['kyazdani42/nvim-web-devicons'] = {
-    event = 'VimEnter',
     config = function()
       require('configs.nvim-web-devicons').config()
     end,
