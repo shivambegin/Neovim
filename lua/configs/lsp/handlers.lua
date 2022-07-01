@@ -114,7 +114,7 @@ end
 function M.lsp_set_handlers()
   vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
   vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
-  vim.lsp.handlers['textDocument/definition'] = lsp_goto_definition 'split'
+  -- vim.lsp.handlers['textDocument/definition'] = lsp_goto_definition 'split'
 end
 
 function M.lsp_set_diagnostic()
