@@ -1,12 +1,13 @@
 local M = {}
+local colors = require 'core.colors'
 
 local function lsp_highlight_document(client, bufnr)
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.documentHighlightProvider then
     vim.cmd [[
-    hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-    hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+    hi! LspReferenceRead cterm=bold ctermbg=red guibg=#787e87
+    hi! LspReferenceText cterm=bold ctermbg=red guibg=#787e87
+    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#787e87
   ]]
     vim.api.nvim_create_augroup('lsp_document_highlight', { clear = false })
     vim.api.nvim_clear_autocmds { buffer = bufnr, group = 'lsp_document_highlight' }
