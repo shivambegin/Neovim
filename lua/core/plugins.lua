@@ -291,6 +291,13 @@ local plugins = {
       require('configs.indent-blankline').config()
     end,
   },
+
+  ['ThePrimeagen/harpoon'] = {
+    event = { 'BufRead', 'BufNewFile' },
+    config = function()
+      require('configs.harpoon').config()
+    end,
+  },
 }
 
 -- Automatically install packer

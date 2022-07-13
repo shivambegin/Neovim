@@ -213,6 +213,18 @@ map('n', '<leader>rm', ':RustExpandMacro<CR>', { desc = 'Expand macro (Rust)' })
 map('n', '<leader>rp', ':RustParentModule<CR>', { desc = 'Go to parent macor (rust)' })
 map('n', '<leader>rd', ':RustDebuggables<CR>', { desc = 'Open debuggables (Rust)' })
 
+-- Harpoon
+map('n', '<leader>hf', ':lua require("harpoon.mark").add_file()<CR>', { desc = 'Add file to harpoon' })
+map('n', '<leader>hu', ':lua require("harpoon.ui").toggle_quick_menu()', { desc = 'Toggle harpoon quick menu' })
+map('n', '<M-l>', ':lua require("harpoon.ui").nav_next()<CR>', { desc = 'Next harpoon mark' })
+map('n', '<M-h>', ':lua require("harpoon.ui").nav_prev()<CR>', { desc = 'Preivous Harpoon mark' })
+
+for i = 1, 5 do
+  map('n', '<leader>' .. i, function()
+    return require('harpoon.ui').nav_file(i)
+  end)
+end
+
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})
