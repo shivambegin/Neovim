@@ -8,9 +8,8 @@ function M.add_cmp_source(source, priority)
     priority = 1000
   end
 
-  local source_priority = ({ nvim_lsp = 1000, luasnip = 750, buffer = 500, path = 250 })[source]
   if priority == nil then
-    priority = ({ nvim_lsp = 1000, luasnip = 750, buffer = 500, path = 250 })[source]
+    priority = ({ luasnip = 1000, nvim_lsp = 900, buffer = 500, path = 250 })[source]
   end
 
   local cmp_avail, cmp = pcall(require, 'cmp')
@@ -68,15 +67,15 @@ function M.get_os_command_output(cmd, cwd)
   local command = table.remove(cmd, 1)
   local stderr = {}
   local stdout, ret = Job
-    :new({
-      command = command,
-      args = cmd,
-      cwd = cwd,
-      on_stderr = function(_, data)
-        table.insert(stderr, data)
-      end,
-    })
-    :sync()
+      :new({
+        command = command,
+        args = cmd,
+        cwd = cwd,
+        on_stderr = function(_, data)
+          table.insert(stderr, data)
+        end,
+      })
+      :sync()
   return stdout, ret, stderr
 end
 

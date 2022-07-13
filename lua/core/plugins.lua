@@ -10,6 +10,8 @@ local plugins = {
   -- Useful lua functions used ny lots of plugins
   ['nvim-lua/plenary.nvim'] = { module = 'plenary' },
 
+  ['nathom/filetype.nvim'] = {},
+
   -- -- Colorscheme
   -- ['folke/tokyonight.nvim'] = {},
   ['sainnhe/everforest'] = {},
@@ -167,6 +169,22 @@ local plugins = {
     end,
   },
 
+  ['davidsierradz/cmp-conventionalcommits'] = {
+    after = 'nvim-cmp',
+    config = function()
+      require('core.utils').add_cmp_source 'conventionalcommits'
+    end,
+  },
+
+  ['petertriho/cmp-git'] = {
+    requires = { 'nvim-lua/plenary.nvim' },
+    after = 'nvim-cmp',
+    config = function()
+      require('core.utils').add_cmp_source 'git'
+      require('cmp_git').setup()
+    end,
+  },
+
   -- Repeat plugin maps with "."
   ['tpope/vim-repeat'] = { event = { 'BufNewFile', 'BufReadPost' } },
 
@@ -260,14 +278,6 @@ local plugins = {
   -- Time tracking
   ['wakatime/vim-wakatime'] = { event = 'VimEnter' },
 
-  -- AI based auto completion
-  ['github/copilot.vim'] = {
-    event = { 'InsertEnter' },
-    config = function()
-      require('configs.copilot').config()
-    end,
-  },
-
   -- Statusline
   ['feline-nvim/feline.nvim'] = {
     after = 'nvim-web-devicons',
@@ -296,6 +306,7 @@ local plugins = {
     event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('configs.harpoon').config()
+      require('telescope').load_extension 'harpoon'
     end,
   },
 }

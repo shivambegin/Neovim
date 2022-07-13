@@ -214,10 +214,10 @@ map('n', '<leader>rp', ':RustParentModule<CR>', { desc = 'Go to parent macor (ru
 map('n', '<leader>rd', ':RustDebuggables<CR>', { desc = 'Open debuggables (Rust)' })
 
 -- Harpoon
-map('n', '<leader>hf', ':lua require("harpoon.mark").add_file()<CR>', { desc = 'Add file to harpoon' })
-map('n', '<leader>hu', ':lua require("harpoon.ui").toggle_quick_menu()', { desc = 'Toggle harpoon quick menu' })
-map('n', '<M-l>', ':lua require("harpoon.ui").nav_next()<CR>', { desc = 'Next harpoon mark' })
-map('n', '<M-h>', ':lua require("harpoon.ui").nav_prev()<CR>', { desc = 'Preivous Harpoon mark' })
+map('n', '<C-h>h', ':lua require("harpoon.mark").add_file()<CR>', { desc = 'Add file to harpoon' })
+map('n', '<C-h>u', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { desc = 'Toggle harpoon quick menu' })
+map('n', '<M-k>', ':lua require("harpoon.ui").nav_next()<CR>', { desc = 'Next harpoon mark' })
+map('n', '<M-j>', ':lua require("harpoon.ui").nav_prev()<CR>', { desc = 'Preivous Harpoon mark' })
 
 for i = 1, 5 do
   map('n', '<leader>' .. i, function()
@@ -226,8 +226,8 @@ for i = 1, 5 do
 end
 
 function _G.set_terminal_keymaps()
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
-  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
+  -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})
   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], {})
   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], {})
   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], {})
