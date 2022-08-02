@@ -36,6 +36,10 @@ local options = {
     wrap = false, -- Disable wrapping of lines longer than the width of window
     writebackup = false, -- Disable making a backup before overwriting a file
     winbar = '%m %f', -- Statusline
+    foldlevelstart = 99,
+    foldlevel = 3,
+    foldmethod = 'expr',
+    foldexpr = 'nvim_treesitter#foldexpr()',
   },
   g = {
     do_filetype_lua = 1, -- use filetype.lua
