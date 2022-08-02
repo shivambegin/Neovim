@@ -225,6 +225,9 @@ for i = 1, 5 do
   end)
 end
 
+-- vim-doge
+map('n', '<leader>dg', ':DogeGenerate<Cr>', { desc = 'Generate documentation for code' })
+
 function _G.set_terminal_keymaps()
   -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
   -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], {})

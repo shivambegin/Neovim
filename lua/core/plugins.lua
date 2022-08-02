@@ -110,6 +110,16 @@ local plugins = {
     end,
   },
 
+  -- Documentation
+  ['kkoomen/vim-doge'] = {
+    run = function()
+      vim.fn['dodge#install']()
+    end,
+    config = function()
+      vim.g.doge_enable_mappings = 0
+    end,
+  },
+
   -- Snippet collection
   ['rafamadriz/friendly-snippets'] = {},
 
