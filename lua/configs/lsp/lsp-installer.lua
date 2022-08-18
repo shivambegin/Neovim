@@ -23,6 +23,7 @@ local servers = {
   'tailwindcss',
   'graphql',
   'rust_analyzer',
+  'marksman',
 }
 
 lsp_installer.setup {
