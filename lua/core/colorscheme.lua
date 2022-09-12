@@ -1,23 +1,41 @@
 local transparent_background = false
-local colorscheme = 'everforest' -- everforest
+local colorscheme = 'catppuccin' -- catppuccin
 
--- everforest
+-- catppuccin
 
-vim.g.everforest_background = 'hard' -- soft, medium, hard
-vim.g.everforest_better_performance = 1
-vim.g.everforest_enable_italic = 1
-vim.g.everforest_disable_italic_comment = 0
-vim.g.everforest_diagnostic_text_highlight = 1
-vim.g.everforest_diagnostic_line_highlight = 1
-vim.g.everforest_diagnostic_virtual_text = 'colored' -- grey, colored
--- vim.g.everforest_current_word = 'grey bakcground' -- bold, underline, italic, grey background
+vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
 
-vim.g.everforest_cursor = 'auto' -- auto,red,orange,yellow,'green,aqua,blue,purple'
-vim.g.everforest_transparent_background = 0 -- 0,1,2
-vim.g.everforest_sign_column_background = 'default' -- default, none
-vim.g.everforest_spell_foreground = 'colored' -- none, colored
-vim.g.everforest_ui_contrast = 'low' -- low, high
-vim.g.everforest_show_eob = 1
+require('catppuccin').setup {
+  transparent_background = transparent_background,
+  compile = {
+    enabled = true,
+    path = vim.fn.stdpath 'cache' .. '/catppuccin',
+  },
+  dim_inactive = {
+    enabled = false,
+    shade = 'dark',
+    percentage = 0.15,
+  },
+  styles = {
+    comments = { 'italic' },
+    conditionals = { 'italic' },
+    loops = {},
+    functions = { 'bold' },
+    keywords = { 'italic' },
+    strings = {},
+    variables = {},
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = {},
+    operators = {},
+  },
+  integrations = {
+    -- For various plugins integrations see https://github.com/catppuccin/nvim#integrations
+  },
+  color_overrides = {},
+  highlight_overrides = {},
+}
 
 if transparent_background then
   vim.cmd [[

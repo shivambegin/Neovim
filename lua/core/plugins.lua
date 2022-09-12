@@ -12,9 +12,10 @@ local plugins = {
 
   ['nathom/filetype.nvim'] = {},
 
-  -- -- Colorscheme
-  -- ['folke/tokyonight.nvim'] = {},
-  ['sainnhe/everforest'] = {},
+  -- Colorscheme
+  ['catppuccin/nvim'] = {
+    as = 'catppuccin',
+  },
 
   -- Icons
   ['kyazdani42/nvim-web-devicons'] = {
