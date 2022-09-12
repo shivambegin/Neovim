@@ -8,7 +8,7 @@ local plugins = {
   ['nvim-lua/popup.nvim'] = {},
 
   -- Useful lua functions used ny lots of plugins
-  ['nvim-lua/plenary.nvim'] = { module = 'plenary' },
+  ['nvim-lua/plenary.nvim'] = {},
 
   ['nathom/filetype.nvim'] = {},
 
