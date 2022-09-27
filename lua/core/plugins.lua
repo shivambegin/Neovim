@@ -325,6 +325,7 @@ local plugins = {
 -- Automatically install packer
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
+  print 'Installing packer.nvim...'
   PACKER_BOOTSTRAP = fn.system {
     'git',
     'clone',
@@ -334,7 +335,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     install_path,
   }
   print 'Installing packer close and reopen Neovim...'
-  vim.cmd [[packadd packer.nvim]]
+  vim.cmd [[packadd! packer.nvim]]
 end
 
 -- Use a protected call so we don't error out on first use
