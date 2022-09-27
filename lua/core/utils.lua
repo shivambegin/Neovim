@@ -1,4 +1,3 @@
-local Job = require 'plenary.job'
 local M = {}
 
 M.user_terminals = {}
@@ -60,6 +59,13 @@ function M.vim_opts(options)
 end
 
 function M.get_os_command_output(cmd, cwd)
+
+local no_okay, Job = pacall (require 'plenary.job')
+
+if not_okay then 
+  return
+end
+
   if type(cmd) ~= 'table' then
     print 'Utils: [get_os_command_output]: cmd has to be a table'
     return {}
