@@ -60,7 +60,7 @@ local plugins = {
     cmd = 'Telescope',
     module = 'telescope',
     config = function()
-      require('configs.telescope').config()
+      require 'configs.telescope'
     end,
   },
 

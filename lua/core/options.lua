@@ -42,7 +42,7 @@ local options = {
     foldexpr = 'nvim_treesitter#foldexpr()',
   },
   g = {
-    do_filetype_lua = 1, -- use filetype.lua
+    do_filetype_lua = 1, -- use filetype.lua plugin
     did_load_filetypes = 0, -- don't use filetype.vim
     highlighturl_enabled = true, -- highlight URLs by default
     mapleader = ' ', -- set leader key
