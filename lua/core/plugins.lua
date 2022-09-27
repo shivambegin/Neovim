@@ -239,9 +239,6 @@ local plugins = {
   -- Align texts
   ['junegunn/vim-easy-align'] = { cmd = { 'EasyAlign' } },
 
-  -- Move around the whole buffer
-  ['ggandor/lightspeed.nvim'] = { event = { 'VimEnter' } },
-
   -- Commenting
   ['numToStr/Comment.nvim'] = {
     module = { 'Comment', 'Comment.api' },
@@ -303,14 +300,6 @@ local plugins = {
     after = 'nvim-web-devicons',
     config = function()
       require 'configs.feline'
-    end,
-  },
-
-  ['christianchiarulli/nvim-gps'] = {
-    branch = 'text_hl',
-    after = 'nvim-treesitter',
-    config = function()
-      require('configs.gps').config()
     end,
   },
 
