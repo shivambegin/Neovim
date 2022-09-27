@@ -273,6 +273,13 @@ local plugins = {
     end,
   },
 
+  ['LiquidFun/vim-comment-banners'] = {
+    event = { 'BufRead', 'BufNewFile' },
+    config = function()
+      require 'configs.vim-comment-banners'
+    end,
+  },
+
   -- Git
   ['tpope/vim-fugitive'] = {
     cmd = {
