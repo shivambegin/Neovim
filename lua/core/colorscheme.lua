@@ -1,7 +1,14 @@
 local transparent_background = false
 local colorscheme = 'catppuccin' -- catppuccin
 
+
+
 -- catppuccin
+local status_ok, catppuccin = pcall(require, 'catppuccin')
+
+if not status_ok then 
+  return nil 
+end
 
 vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
 
