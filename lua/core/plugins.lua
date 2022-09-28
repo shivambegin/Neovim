@@ -39,9 +39,6 @@ local plugins = {
     end,
   },
 
-  -- Better buffer closing
-  ['famiu/bufdelete.nvim'] = { cmd = { 'Bdelete', 'Bwipeout' } },
-
   -- ===========================================================================
   -- ====================== Treesitter: Better Highlights ======================
   -- ===========================================================================
@@ -68,13 +65,6 @@ local plugins = {
   ['JoosepAlviste/nvim-ts-context-commentstring'] = { after = 'nvim-treesitter' },
   ['nvim-treesitter/nvim-treesitter-textobjects'] = { after = 'nvim-treesitter' },
   ['nvim-treesitter/nvim-treesitter-refactor'] = { after = 'nvim-treesitter' },
-  ['windwp/nvim-autopairs'] = {
-    after = 'nvim-treesitter',
-    event = { 'InsertEnter' },
-    config = function()
-      require('configs.autopairs').config()
-    end,
-  },
   ['nvim-treesitter/nvim-treesitter-context'] = {
     after = 'nvim-treesitter',
     config = function()
@@ -82,14 +72,6 @@ local plugins = {
     end,
   },
   ['windwp/nvim-ts-autotag'] = { after = 'nvim-treesitter' },
-
-  ['lukas-reineke/indent-blankline.nvim'] = {
-    after = 'nvim-treesitter',
-    event = { 'BufRead', 'BufNewFile' },
-    config = function()
-      require('configs.indent-blankline').config()
-    end,
-  },
 
   -- ===========================================================================
   -- =========================== Editor UI Niceties ============================
@@ -175,8 +157,14 @@ local plugins = {
   -- =========================== Editing to the MOON ===========================
   -- ===========================================================================
 
+  ['echasnovski/mini.nvim'] = {
+    config = function()
+      require 'configs.mini'
+    end,
+  },
+
   ['LiquidFun/vim-comment-banners'] = {
-    event = { 'BufRead', 'BufNewFile' },
+    event = { 'InsertEnter' },
     config = function()
       require 'configs.vim-comment-banners'
     end,
@@ -192,22 +180,6 @@ local plugins = {
     end,
     config = function()
       vim.g.doge_enable_mappings = 0
-    end,
-  },
-
-  -- Surround textobjects easily
-  ['tpope/vim-surround'] = { event = 'BufRead' },
-
-  -- Align texts
-  ['junegunn/vim-easy-align'] = { cmd = { 'EasyAlign' } },
-
-  -- Commenting
-  ['numToStr/Comment.nvim'] = {
-    module = { 'Comment', 'Comment.api' },
-    -- event = {'BufRead', 'BufNewFile'},
-    keys = { 'gc', 'gb', 'g<', 'g>' },
-    config = function()
-      require('configs.comment').config()
     end,
   },
 

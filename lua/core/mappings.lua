@@ -85,9 +85,6 @@ map('n', '<leader>pu', '<cmd>PackerUpdate<cr>', { desc = 'Update packer plugins'
 -- Nvim-tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>')
 
--- bufdelete.nvim
-map('n', '<leader>c', '<cmd>Bdelete!<CR>', { desc = 'Close buffer (vim-bbye)' })
-
 -- Comment
 map('n', '<C-/>', function()
   require('Comment.api').toggle_current_linewise()
