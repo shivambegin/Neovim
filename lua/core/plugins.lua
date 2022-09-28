@@ -22,7 +22,7 @@ local plugins = {
   -- Icons
   ['kyazdani42/nvim-web-devicons'] = {
     config = function()
-      require('configs.nvim-web-devicons').config()
+      require('nvim-web-devicons').setup()
     end,
   },
 

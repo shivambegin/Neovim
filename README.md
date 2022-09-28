@@ -6,4 +6,5 @@
 - [ ] Add keybindings to resize, maximize split window
 - [ ] [Harpoon](https://github.com/ThePrimeagen/harpoon)
 - [ ] [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- [ ] Vscode like sticky scroll feature ( check ThePrimeagen dotfiles)
+- [x] Vscode like sticky scroll feature ( check ThePrimeagen dotfiles)
+- [ ] mini.nvim configuration
