@@ -1,24 +1,26 @@
 local map = vim.keymap.set
 local cmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
+local utils = require 'core.utils'
 
 -- Remap space as leader key
 map('', '<Space>', '<Nop>')
 vim.g.mapleader = ' '
 
--- General
--- map('n', '<leader>ts', ':set spell!<CR>') -- Toggle spell check
+-- ==========================================================================
+-- ================================ GENERAL =================================
+-- ==========================================================================
+
+map('n', '<leader>ts', ':set spell!<CR>') -- Toggle spell check
 map('n', 'n', 'nzzzv') -- keep the cursor centered when doing 'n'
 map('n', 'N', 'Nzzzv') -- keep the cursor centered when doing 'N'
 map('n', 'J', 'mzJ`z') -- keep the cursor in same position when joining lines
 map('n', 'cn', '*``cgn') -- change next match by pressing dot (.)
 map('n', 'cN', '*``cgN') -- change previous match by pressing dot (.)
 map('n', '<leader>vp', '`[v`]<CR>', { desc = 'Select pasted text' })
--- map('v', '<leader>p', '"_dP') -- delete into black hole and past last yank
+map('v', '<leader>p', '"_dP') -- delete into black hole and past last yank
 map('n', '<leader>Y', 'gg"+yG', { desc = 'Copy whole buffer' })
 map('n', '<leader>V', 'ggVG', { desc = 'Select whole buffer' })
--- map('n', '<leader>D', 'gg"_dG') -- delete into black hole register
--- map('v', '<leader>D', '"_d') -- delete into black hole register
 map('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
 map('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
 map(
@@ -28,6 +30,11 @@ map(
   { desc = 'Replace word under cursor with register "0" content globally' }
 )
 map('n', '<leader>h', '<cmd>nohlsearch<CR>', { desc = 'Hide highlights' })
+
+-- Use operator pending mode to visually select the whole buffer
+-- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
+map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
+map('x', 'A', ':<C-U>normal! ggVG<CR>')
 
 -- Better window management
 map('n', '<C-h>', '<C-w>h', { desc = 'Move to left split' })
@@ -71,9 +78,9 @@ map('n', '<Leader>lc', ':lclose<CR>', { desc = 'Close location list' })
 map('n', '<Leader>ln', ':lnext<CR>', { desc = 'Next location list item' })
 map('n', '<Leader>lp', ':lprev<CR>', { desc = 'Previous location list item' })
 
--------------------------------------------------------------------------
---                               PLUGINS
--------------------------------------------------------------------------
+-- ===========================================================================
+-- ================================= PLUGINS =================================
+-- ===========================================================================
 
 -- Packer
 map('n', '<leader>pc', '<cmd>PackerCompile<cr>', { desc = 'Packer compile' })
@@ -85,16 +92,46 @@ map('n', '<leader>pu', '<cmd>PackerUpdate<cr>', { desc = 'Update packer plugins'
 -- Nvim-tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>')
 
--- Comment
-map('n', '<C-/>', function()
-  require('Comment.api').toggle_current_linewise()
-end, { desc = 'Comment/uncomment code' })
-map(
-  'v',
-  '<C-/>',
-  "<esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
-  { desc = 'Comment/uncomment in visual mode' }
-)
+-- Git (fugitive)
+map('n', '<leader>gg', ':Git<CR>', { desc = 'Open git (fugitive)' })
+
+-- GitSigns
+map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+map('n', ']c', ':Gitsigns next_hunk<CR>', { desc = 'Go to next git hunk' })
+map('n', '[c', ':Gitsigns prev_hunk<CR>', { desc = 'Go to previous git hunk' })
+map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>', { desc = 'Git stage hunk' })
+map({ 'n', 'v' }, '<leader>hS', ':Gitsigns stage_buffer<CR>', { desc = 'Git stage buffer' })
+map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = 'Git reset hunk' })
+map({ 'n', 'v' }, '<leader>hR', ':Gitsigns reset_buffer<CR>', { desc = 'Git reset buffer' })
+map('n', '<leader>hp', ':Gitsigns preview_hunk<CR>', { desc = 'Git preview hunk' })
+map('n', '<leader>hb', ':Gitsigns blame_line {full = true}<CR>', { desc = 'Git blame line' })
+map('n', '<leader>hu', ':Gitsigns undo_stage_hunk<CR>', { desc = 'Git undow staged hunk' })
+map('n', '<leader>hd', ':Gitsigns diffthis<CR>', { desc = 'Git diff current buffer' })
+map('n', '<leader>hD', ':Gitsigns diffthis "~"<CR>', { desc = 'Git diff current buffer' })
+
+-- Markdown Preview
+map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'Open/Toggle markdown preview' })
+
+-- Rust tools
+map('n', '<leader>rh', ':RustToggleInlayHints<CR>', { desc = 'Toggle inlay hinsts (Rust)' })
+map('n', '<leader>rr', ':RustRun<CR>', { desc = 'Run Code (Rust)' })
+map('n', '<leader>R', ':RustRunnables<CR>', { desc = 'Open runables popup (Rust)' })
+map('n', '<leader>rm', ':RustExpandMacro<CR>', { desc = 'Expand macro (Rust)' })
+map('n', '<leader>rp', ':RustParentModule<CR>', { desc = 'Go to parent macor (rust)' })
+map('n', '<leader>rd', ':RustDebuggables<CR>', { desc = 'Open debuggables (Rust)' })
+
+-- Harpoon
+map('n', '<leader>a', ':lua require("harpoon.mark").add_file()<CR>', { desc = 'Add file to harpoon' })
+map('n', '<leader>u', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { desc = 'Toggle harpoon quick menu' })
+
+for i = 1, 5 do
+  map('n', '<leader>' .. i, function()
+    return require('harpoon.ui').nav_file(i)
+  end)
+end
+
+-- vim-doge
+map('n', '<leader>dg', ':DogeGenerate<Cr>', { desc = 'Generate documentation for code' })
 
 -- Terminal
 map('n', '<C-\\>', '<cmd>ToggleTerm<CR>', { desc = 'Toggle terminal' })
@@ -121,70 +158,6 @@ map(
   { desc = 'Open terminal in horizontal pane' }
 )
 map('n', '<leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<cr>', { desc = 'Open terminal in vertical pane' })
-
--- Git (fugitive)
-map('n', '<leader>gg', ':Git<CR>', { desc = 'Open git (fugitive)' })
-
--- GitSigns
-map('n', ']h', function()
-  require('gitsigns').next_hunk()
-end, { desc = 'Go to next git hunk' })
-map('n', '[h', function()
-  require('gitsigns').prev_hunk()
-end, { desc = 'Go to previous git hunk' })
-map('n', '<leader>gl', function()
-  require('gitsigns').blame_line()
-end, { desc = 'Git blame line' })
-map('n', '<leader>gp', function()
-  require('gitsigns').preview_hunk()
-end, { desc = 'Git preview hunk' })
-map('n', '<leader>gh', function()
-  require('gitsigns').reset_hunk()
-end, { desc = 'Git reset hunk' })
-map('n', '<leader>gr', function()
-  require('gitsigns').reset_buffer()
-end, { desc = 'Git reset buffer' })
-map('n', '<leader>gs', function()
-  require('gitsigns').stage_hunk()
-end, { desc = 'Git stage hunk' })
-map('n', '<leader>gu', function()
-  require('gitsigns').undo_stage_hunk()
-end, { desc = 'Git undow staged hunk' })
-map('n', '<leader>gd', function()
-  require('gitsigns').diffthis()
-end, { desc = 'Git diff current buffer' })
-
--- EasiAlign
-map('n', 'ga', ':EasyAlign<CR>', { desc = 'Align text  (EasiAlign normal mode)' })
-map('v', 'ga', ':EasyAlign<CR>', { desc = 'Align text  (EasyAlign visual mode)' })
-map('x', 'ga', ':EasyAlign<CR>', { desc = 'Align text (EasiAlign pending mode)' })
-
--- Markdown Preview
-map('n', '<leader>tm', ':MarkdownPreviewToggle<CR>', { desc = 'Open/Toggle markdown preview' })
-
--- Rust tools
-
-map('n', '<leader>rh', ':RustToggleInlayHints<CR>', { desc = 'Toggle inlay hinsts (Rust)' })
-map('n', '<leader>rr', ':RustRun<CR>', { desc = 'Run Code (Rust)' })
-map('n', '<leader>R', ':RustRunnables<CR>', { desc = 'Open runables popup (Rust)' })
-map('n', '<leader>rm', ':RustExpandMacro<CR>', { desc = 'Expand macro (Rust)' })
-map('n', '<leader>rp', ':RustParentModule<CR>', { desc = 'Go to parent macor (rust)' })
-map('n', '<leader>rd', ':RustDebuggables<CR>', { desc = 'Open debuggables (Rust)' })
-
--- Harpoon
-map('n', '<C-h>h', ':lua require("harpoon.mark").add_file()<CR>', { desc = 'Add file to harpoon' })
-map('n', '<C-h>u', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { desc = 'Toggle harpoon quick menu' })
-map('n', '<M-k>', ':lua require("harpoon.ui").nav_next()<CR>', { desc = 'Next harpoon mark' })
-map('n', '<M-j>', ':lua require("harpoon.ui").nav_prev()<CR>', { desc = 'Preivous Harpoon mark' })
-
-for i = 1, 5 do
-  map('n', '<leader>' .. i, function()
-    return require('harpoon.ui').nav_file(i)
-  end)
-end
-
--- vim-doge
-map('n', '<leader>dg', ':DogeGenerate<Cr>', { desc = 'Generate documentation for code' })
 
 function _G.set_terminal_keymaps()
   -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], {})
