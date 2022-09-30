@@ -190,15 +190,6 @@ local plugins = {
         end,
     },
 
-    -- Terminal
-    ['akinsho/nvim-toggleterm.lua'] = {
-        cmd = 'ToggleTerm',
-        module = { 'toggleterm', 'toggleterm.terminal' },
-        config = function()
-            require('configs.nvim-toggleterm').config()
-        end,
-    },
-
     ['ThePrimeagen/harpoon'] = {
         event = { 'BufRead', 'BufNewFile' },
         config = function()
