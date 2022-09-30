@@ -8,4 +8,9 @@ require('mini.align').setup() -- aling text
 require('mini.comment').setup() -- comment / uncomment
 require('mini.pairs').setup() -- auto create pairs
 
-map('n', '<leader>x', require('mini.bufremove').delete, { desc = 'Close current buffer' })
+map(
+    'n',
+    '<leader>x',
+    require('mini.bufremove').delete,
+    { desc = 'Close current buffer' }
+)
