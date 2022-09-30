@@ -7,16 +7,12 @@ local utils = require 'core.utils'
 -- ================================ GENERAL =================================
 -- ==========================================================================
 
-map('n', '<leader>ts', ':set spell!<CR>') -- Toggle spell check
 map('n', 'n', 'nzzzv') -- keep the cursor centered when doing 'n'
 map('n', 'N', 'Nzzzv') -- keep the cursor centered when doing 'N'
-map('n', 'J', 'mzJ`z') -- keep the cursor in same position when joining lines
-map('n', 'cn', '*``cgn') -- change next match by pressing dot (.)
-map('n', 'cN', '*``cgN') -- change previous match by pressing dot (.)
+map('n', 'J', 'mzJ`z', { desc = 'Join line without moving the cursor' })
+map('n', 'cn', '*``cgn', { desc = 'Change next match by pressing dot (.)' })
+map('n', 'cN', '*``cgN', { desc = 'Change previous match by pressing dot (.)' })
 map('n', '<leader>vp', '`[v`]<CR>', { desc = 'Select pasted text' })
-map('v', '<leader>p', '"_dP') -- delete into black hole and past last yank
-map('n', '<leader>Y', 'gg"+yG', { desc = 'Copy whole buffer' })
-map('n', '<leader>V', 'ggVG', { desc = 'Select whole buffer' })
 map('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
 map('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
 map(
@@ -25,7 +21,24 @@ map(
     ':%s/<C-R><C-W>/<C-R>0/g<CR>',
     { desc = 'Replace word under cursor with register "0" content globally' }
 )
-map('n', '<leader>h', '<cmd>nohlsearch<CR>', { desc = 'Hide highlights' })
+
+map('n', '<leader>ts', ':set spell!<CR>', { desc = 'Toggle spell check' })
+map(
+    'n',
+    '<leader>th',
+    ':set hlsearch!<CR>',
+    { desc = 'Toggle highlights (hlsearch)' }
+)
+
+map(
+    'v',
+    '<leader>p',
+    '"_dP',
+    { desc = 'Delete into black hole and past last yank' }
+)
+map({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
+map({ 'n', 'v' }, '<leader>P', '"+p', { desc = 'Paste from system clipboard' })
+
 
 -- Use operator pending mode to visually select the whole buffer
 -- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
@@ -87,6 +100,9 @@ map(
 -- remap("n", "<A-o>", ":copen<CR>") -- open quickfix
 map('n', '<A-j>', ':cnext<CR>', { desc = 'Next quickfix item' })
 map('n', '<A-k>', ':cprev<CR>', { desc = 'previous quickfix item' })
+
+map('n', '<leader>SS', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+
 
 -- LocationList
 map('n', '<Leader>lo', ':lopen<CR>', { desc = 'Open location list' })
@@ -243,4 +259,66 @@ map(
     ':DogeGenerate<Cr>',
     { desc = 'Generate documentation for code' }
 )
+
+-- Telescope
+
+map('n', '<leader>H', ':Telescope help_tags<CR>', { desc = 'help tags' })
+map('n', '<C-P>', function()
+    local ok = pcall(require('telescope.builtin').git_files, { show_untracked = true })
+    if not ok then
+        require 'telescope.builtin'.find_files()
+    end
+end)
+map(
+    'n',
+    '<leader>fw',
+    ':Telescope live_grep<CR>',
+    { desc = 'Live grep (Telescope)' }
+)
+map('n', '<leader>fW', function()
+    require('telescope.builtin').grep_string { search = vim.fn.expand '<cword>' }
+end, { desc = 'Grep string (Telescope)' })
+map(
+    'n',
+    '<leader>fs',
+    ':Telescope git_status<CR>',
+    { desc = 'Git status (Telescope)' }
+)
+map('n', '<leader>ff', ':Telescope buffers<CR>', { desc = 'Buffer list' })
+map(
+    'n',
+    '<Leader>fl',
+    ':Telescope current_buffer_fuzzy_find<CR>',
+    { desc = 'Find  in current buffer' }
+)
+map('n', '<leader>fo', ':Telescope oldfiles<CR>', { desc = 'Find old files' })
+map(
+    'n',
+    '<leader>ls',
+    ':Telescope lsp_document_symbols<CR>',
+    { desc = 'LSP document symbols' }
+)
+map(
+    'n',
+    '<leader>ld',
+    ':Telescope diagnostics<CR>',
+    { desc = 'Workspace diagnostics' }
+)
+map('n', '<Leader>fr', ':Telescope resume<CR>', { desc = 'Resume last search' })
+map(
+    'n',
+    '<leader>:',
+    ':Telescope command_history<CR>',
+    { desc = 'Find command history' }
+)
+map(
+    'n',
+    '<leader>/',
+    ':Telescope search_history<CR>',
+    { desc = 'Find search history' }
+)
+map('n', '<leader>fc', ':Telescope commands<CR>', { desc = 'Find commands' })
+map('n', '<leader>fh', ':Telescope help_tags<CR>', { desc = 'Find help tags' })
+map('n', '<leader>fk', ':Telescope keymaps<CR>', { desc = 'Find key mappings' })
+map('n', '<leader>fn', ':lua require("configs.telescope").find_notes()<CR>', { desc = 'Find personal notes' })
 
