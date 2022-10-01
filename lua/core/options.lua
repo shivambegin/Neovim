@@ -42,12 +42,10 @@ local options = {
         foldlevel = 3,
         foldmethod = 'expr',
         foldexpr = 'nvim_treesitter#foldexpr()',
-        cmdheight = 1,
+        cmdheight = 0,
         colorcolumn = '80',
     },
     g = {
-        do_filetype_lua = 1, -- use filetype.lua plugin
-        did_load_filetypes = 0, -- don't use filetype.vim
         highlighturl_enabled = true, -- highlight URLs by default
         mapleader = ' ', -- set leader key
         zipPlugin = false, -- disable zip
