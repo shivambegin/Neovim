@@ -99,7 +99,7 @@ function M.config()
         ignore_ft_on_setup = {},
         system_open = { cmd = '', args = {} },
         diagnostics = {
-            enable = true,
+            enable = false,
             show_on_dirs = true,
             icons = {
                 hint = '',
