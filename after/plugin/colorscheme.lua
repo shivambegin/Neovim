@@ -1,4 +1,4 @@
-local transparent_background = false
+local settings = require 'core.settings'
 local colorscheme = 'catppuccin' -- catppuccin
 
 -- catppuccin
@@ -10,8 +10,8 @@ end
 
 vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
 
-require('catppuccin').setup {
-    transparent_background = transparent_background,
+catppuccin.setup {
+    transparent_background = settings.transparent_background,
     compile = {
         enabled = true,
         path = vim.fn.stdpath 'cache' .. '/catppuccin',
@@ -42,7 +42,7 @@ require('catppuccin').setup {
     highlight_overrides = {},
 }
 
-if transparent_background then
+if settings.transparent_background then
     vim.cmd [[
   hi Normal guibg=NONE ctermbg=NONE
   hi LineNr guibg=NONE ctermbg=NONE
@@ -51,8 +51,8 @@ if transparent_background then
   ]]
 end
 
-local status_ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
-if not status_ok then
+local colorscheme_loaded, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
+if not colorscheme_loaded then
     vim.notify('colorscheme ' .. colorscheme .. ' not found!')
     return
 end
