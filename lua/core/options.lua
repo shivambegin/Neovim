@@ -45,8 +45,11 @@ local options = {
         foldlevel = 3,
         foldmethod = 'expr',
         foldexpr = 'nvim_treesitter#foldexpr()',
-        cmdheight = 0,
-        colorcolumn = '80',
+        cmdheight = 1,
+        spelllang = 'en',
+        spell = true,
+
+        -- colorcolumn = '80',
     },
     g = {
         highlighturl_enabled = true, -- highlight URLs by default
@@ -75,10 +78,6 @@ local options = {
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append 'c'
 vim.g.mapleader = ' '
-
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
 
 for scope, table in pairs(options) do
     for setting, value in pairs(table) do

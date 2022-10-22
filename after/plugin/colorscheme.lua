@@ -1,45 +1,44 @@
 local settings = require 'core.settings'
-local colorscheme = 'catppuccin' -- catppuccin
+local colorscheme = 'nightfox'
+-- nightfox dayfox dawnfox nordfox duskfox terafox
 
--- catppuccin
-local status_ok, catppuccin = pcall(require, 'catppuccin')
-
-if not status_ok then
-    return nil
+local ok, nightfox = pcall(require, 'nightfox')
+if not ok then
+    return
 end
 
-vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
-
-catppuccin.setup {
-    transparent_background = settings.transparent_background,
-    compile = {
-        enabled = true,
-        path = vim.fn.stdpath 'cache' .. '/catppuccin',
+nightfox.setup {
+    options = {
+        -- Compiled file's destination location
+        compile_path = vim.fn.stdpath 'cache' .. '/nightfox',
+        compile_file_suffix = '_compiled', -- Compiled file suffix
+        transparent = settings.transparent_background, -- Disable setting background
+        terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+        dim_inactive = false, -- Non focused panes set to alternative background
+        styles = { -- Style to be applied to different syntax groups
+            comments = 'italic', -- Value is any valid attr-list value `:help attr-list`
+            conditionals = 'italic',
+            constants = 'italic,bold',
+            functions = 'bold',
+            keywords = 'italic',
+            numbers = 'NONE',
+            operators = 'NONE',
+            strings = 'NONE',
+            types = 'italic',
+            variables = 'NONE',
+        },
+        inverse = { -- Inverse highlight for different types
+            match_paren = true,
+            visual = false,
+            search = false,
+        },
+        modules = { -- List of various plugins and additional options
+            -- ...
+        },
     },
-    dim_inactive = {
-        enabled = false,
-        shade = 'dark',
-        percentage = 0.15,
-    },
-    styles = {
-        comments = { 'italic' },
-        conditionals = { 'italic' },
-        loops = {},
-        functions = { 'bold' },
-        keywords = { 'italic' },
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
-    },
-    integrations = {
-        -- For various plugins integrations see https://github.com/catppuccin/nvim#integrations
-    },
-    color_overrides = {},
-    highlight_overrides = {},
+    palettes = {},
+    specs = {},
+    groups = {},
 }
 
 if settings.transparent_background then

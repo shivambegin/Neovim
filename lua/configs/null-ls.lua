@@ -19,13 +19,13 @@ local M = {}
 M.config = function(on_attach)
     null_ls.setup {
         sources = {
-            diagnostics.eslint_d.with {
-                condition = with_root_file {
-                    '.eslintrc',
-                    '.eslintrc.js',
-                    '.eslintrc.json',
-                },
-            },
+            -- diagnostics.eslint_d.with {
+            --     condition = with_root_file {
+            --         '.eslintrc',
+            --         '.eslintrc.js',
+            --         '.eslintrc.json',
+            --     },
+            -- },
             -- diagnostics.markdownlint,
             diagnostics.yamllint,
 
@@ -34,13 +34,13 @@ M.config = function(on_attach)
             formatting.gofmt,
             formatting.rustfmt,
 
-            code_actions.eslint_d.with {
-                condition = with_root_file {
-                    '.eslintrc',
-                    '.eslintrc.js',
-                    '.eslintrc.json',
-                },
-            },
+            -- code_actions.eslint_d.with {
+            --     condition = with_root_file {
+            --         '.eslintrc',
+            --         '.eslintrc.js',
+            --         '.eslintrc.json',
+            --     },
+            -- },
             code_actions.gitsigns,
         },
         on_attach = on_attach,

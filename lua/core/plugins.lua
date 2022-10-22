@@ -26,9 +26,7 @@ local plugins = {
     },
 
     -- Colorscheme
-    ['catppuccin/nvim'] = {
-        as = 'catppuccin',
-    },
+    ['EdenEast/nightfox.nvim'] = {},
 
     -- Statusline
     ['feline-nvim/feline.nvim'] = {
@@ -246,7 +244,7 @@ local plugins = {
         -- after = 'nvim-cmp',
         event = { 'InsertEnter' },
         config = function()
-            require('core.utils').add_cmp_source('luasnip', 399)
+            require('core.utils').add_cmp_source('luasnip', 1000)
         end,
     },
 
@@ -305,20 +303,18 @@ local plugins = {
             require('cmp_git').setup()
         end,
     },
+
     ['hrsh7th/cmp-cmdline'] = {
         -- after = 'nvim-cmp',
         event = { 'CmdlineEnter' },
-        config = function()
-            require('core.utils').add_cmp_source 'cmdline'
-        end,
     },
 
-    ['github/copilot.vim'] = {
+    ['zbirenbaum/copilot.lua'] = {
         event = 'InsertEnter',
         config = function()
-            vim.g.copilot_no_tab_map = true
-            vim.g.copilot_assume_mapped = true
-            vim.g.copilot_tab_fallback = ''
+            vim.schedule(function()
+                require 'configs.copilot'
+            end)
         end,
     },
 

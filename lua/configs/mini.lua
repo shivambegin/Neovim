@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-require('mini.ai').setup() -- create textobjects
+-- require('mini.ai').setup() -- create textobjects
 require('mini.bufremove').setup() -- remove buffer without affecting layout
 -- require('mini.indentscope').setup() -- Visualize and operate on indent scope
 require('mini.surround').setup() -- Fast and feature-rich surround plugin

@@ -81,8 +81,8 @@ function M.config()
         textobjects = {
             swap = {
                 enable = true,
-                swap_next = { [']s'] = '@parameter.inner' },
-                swap_previous = { ['[s'] = '@parameter.inner' },
+                -- swap_next = { [']s'] = '@parameter.inner' },
+                -- swap_previous = { ['[s'] = '@parameter.inner' },
             },
             move = {
                 enable = true,

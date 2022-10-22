@@ -30,15 +30,8 @@ map(
     { desc = 'Toggle highlights (hlsearch)' }
 )
 
-map(
-    'v',
-    '<leader>p',
-    '"_dP',
-    { desc = 'Delete into black hole and past last yank' }
-)
 map({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
-map({ 'n', 'v' }, '<leader>P', '"+p', { desc = 'Paste from system clipboard' })
-
+map({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
 -- Use operator pending mode to visually select the whole buffer
 -- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
@@ -103,7 +96,6 @@ map('n', '<A-k>', ':cprev<CR>', { desc = 'previous quickfix item' })
 
 map('n', '<leader>SS', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
-
 -- LocationList
 map('n', '<Leader>lo', ':lopen<CR>', { desc = 'Open location list' })
 map('n', '<Leader>lc', ':lclose<CR>', { desc = 'Close location list' })
@@ -113,23 +105,6 @@ map('n', '<Leader>lp', ':lprev<CR>', { desc = 'Previous location list item' })
 -- ===========================================================================
 -- ================================= PLUGINS =================================
 -- ===========================================================================
-
--- Packer
-map('n', '<leader>pc', '<cmd>PackerCompile<cr>', { desc = 'Packer compile' })
-map(
-    'n',
-    '<leader>pi',
-    '<cmd>PackerInstall<cr>',
-    { desc = 'Install packer plugins' }
-)
-map('n', '<leader>ps', '<cmd>PackerSync<cr>', { desc = 'Sync packer plugins' })
-map('n', '<leader>pS', '<cmd>PackerStatus<cr>', { desc = 'Packer status' })
-map(
-    'n',
-    '<leader>pu',
-    '<cmd>PackerUpdate<cr>',
-    { desc = 'Update packer plugins' }
-)
 
 -- Nvim-tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>')
@@ -263,12 +238,7 @@ map(
 -- Telescope
 
 map('n', '<leader>H', ':Telescope help_tags<CR>', { desc = 'help tags' })
-map('n', '<C-P>', function()
-    local ok = pcall(require('telescope.builtin').git_files, { show_untracked = true })
-    if not ok then
-        require 'telescope.builtin'.find_files()
-    end
-end)
+map('n', '<C-P>', ':Telescope find_files<Cr>', { desc = 'Find files' })
 map(
     'n',
     '<leader>fw',
@@ -320,5 +290,9 @@ map(
 map('n', '<leader>fc', ':Telescope commands<CR>', { desc = 'Find commands' })
 map('n', '<leader>fh', ':Telescope help_tags<CR>', { desc = 'Find help tags' })
 map('n', '<leader>fk', ':Telescope keymaps<CR>', { desc = 'Find key mappings' })
-map('n', '<leader>fn', ':lua require("configs.telescope").find_notes()<CR>', { desc = 'Find personal notes' })
-
+map(
+    'n',
+    '<leader>fn',
+    ':lua require("configs.telescope").find_notes()<CR>',
+    { desc = 'Find personal notes' }
+)
