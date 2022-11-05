@@ -296,3 +296,94 @@ map(
     ':lua require("configs.telescope").find_notes()<CR>',
     { desc = 'Find personal notes' }
 )
+
+-- LSP
+
+map('n', '<leader>lf', function()
+    vim.lsp.buf.format()
+end, { desc = 'Format code' })
+
+map('n', '<leader>lh', vim.lsp.buf.signature_help, { desc = 'Signature help' })
+
+map(
+    'n',
+    'gD',
+    vim.lsp.buf.declaration,
+    { desc = 'Declaration of current symbol' }
+)
+
+map(
+    'n',
+    'gi',
+    vim.lsp.buf.implementation,
+    { desc = 'Implementation of current symbol' }
+)
+
+-- Lspsaga
+map('n', 'gh', ':Lspsaga lsp_finder<CR>', { desc = 'LSP finder' })
+map('n', 'K', ':Lspsaga hover_doc<CR>', { desc = 'Hover doc' })
+map('n', 'gd', ':Lspsaga peek_definition<CR>', { desc = 'Preview definition' })
+
+map({ 'v', 'n' }, 'ca', ':Lspsaga code_action<CR>', { desc = 'Code action' })
+
+map('n', '<leader>lr', ':Lspsaga rename<CR>', { desc = 'Rename' })
+
+-- Show line diagnostics
+map(
+    'n',
+    'ld',
+    '<cmd>Lspsaga show_line_diagnostics<CR>',
+    { desc = 'Show line diagnostics' }
+)
+
+map(
+    'n',
+    'cd',
+    '<cmd>Lspsaga show_cursor_diagnostics<CR>',
+    { desc = 'Show diagnostics under cursor' }
+)
+
+-- Jump to diagnostics
+map(
+    'n',
+    ']d',
+    '<cmd>Lspsaga diagnostic_jump_next<CR>',
+    { desc = 'Jump to previous diagnostic' }
+)
+
+map(
+    'n',
+    '[d',
+    '<cmd>Lspsaga diagnostic_jump_prev<CR>',
+    { desc = 'Jump to next diagnostic' }
+)
+
+-- Only jump to error
+map('n', '[e', function()
+    require('lspsaga.diagnostic').goto_prev {
+        severity = vim.diagnostic.severity.ERROR,
+    }
+end, { desc = 'Jump to previous error' })
+
+map('n', ']e', function()
+    require('lspsaga.diagnostic').goto_next {
+        severity = vim.diagnostic.severity.ERROR,
+    }
+end, { desc = 'Jump to next error' })
+
+map('n', '<leader>to', '<cmd>LSoutlineToggle<CR>', { desc = 'Toggle outline' })
+
+-- Float terminal
+map(
+    'n',
+    '<A-d>',
+    '<cmd>Lspsaga open_floaterm<CR>',
+    { desc = ' Open float terminal' }
+)
+-- close floaterm
+map(
+    't',
+    '<A-d>',
+    [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]],
+    { desc = 'Close float terminal' }
+)

@@ -47,7 +47,7 @@ local options = {
         foldexpr = 'nvim_treesitter#foldexpr()',
         cmdheight = 1,
         spelllang = 'en',
-        spell = true,
+        spell = false,
 
         -- colorcolumn = '80',
     },

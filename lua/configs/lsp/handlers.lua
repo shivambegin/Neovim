@@ -14,22 +14,16 @@ local function lsp_highlight_document(client, bufnr)
             buffer = bufnr,
             group = 'lsp_document_highlight',
         }
-        vim.api.nvim_create_autocmd(
-            { 'CursorHold', 'CursorHoldI' },
-            {
-                group = 'lsp_document_highlight',
-                buffer = bufnr,
-                callback = vim.lsp.buf.document_highlight,
-            }
-        )
-        vim.api.nvim_create_autocmd(
-            'CursorMoved',
-            {
-                group = 'lsp_document_highlight',
-                buffer = bufnr,
-                callback = vim.lsp.buf.clear_references,
-            }
-        )
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            group = 'lsp_document_highlight',
+            buffer = bufnr,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd('CursorMoved', {
+            group = 'lsp_document_highlight',
+            buffer = bufnr,
+            callback = vim.lsp.buf.clear_references,
+        })
     end
 end
 
@@ -63,90 +57,6 @@ local function lsp_goto_definition(split_cmd)
     end
 
     return handler
-end
-
-local function lsp_set_keymappings(client, bufnr)
-    vim.keymap.set(
-        'n',
-        'K',
-        vim.lsp.buf.hover,
-        { desc = 'Hover symbol details', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>la',
-        vim.lsp.buf.code_action,
-        { desc = 'LSP code action', buffer = bufnr }
-    )
-    vim.keymap.set('n', '<leader>lf', function()
-        vim.lsp.buf.format()
-    end, { desc = 'Format code', buffer = bufnr })
-    vim.keymap.set(
-        'n',
-        '<leader>lh',
-        vim.lsp.buf.signature_help,
-        { desc = 'Signature help', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>lr',
-        vim.lsp.buf.rename,
-        { desc = 'Rename current symbol', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        'gD',
-        vim.lsp.buf.declaration,
-        { desc = 'Declaration of current symbol', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        'gI',
-        vim.lsp.buf.implementation,
-        { desc = 'Implementation of current symbol', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        'gd',
-        vim.lsp.buf.definition,
-        { desc = 'Show the definition of current symbol', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        'gr',
-        vim.lsp.buf.references,
-        { desc = 'References of current symbol', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        '<leader>ld',
-        vim.diagnostic.open_float,
-        { desc = 'Hover diagnostics', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        '[d',
-        vim.diagnostic.goto_prev,
-        { desc = 'Previous diagnostic', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        ']d',
-        vim.diagnostic.goto_next,
-        { desc = 'Next diagnostic', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        'gl',
-        vim.diagnostic.open_float,
-        { desc = 'Hover diagnostics', buffer = bufnr }
-    )
-    vim.keymap.set(
-        'n',
-        'go',
-        vim.diagnostic.open_float,
-        { desc = 'Hover diagnostics', buffer = bufnr }
-    )
 end
 
 function M.lsp_set_signs()
@@ -227,7 +137,6 @@ function M.on_attach(client, bufnr)
     end, {})
 
     lsp_highlight_document(client, bufnr)
-    lsp_set_keymappings(client, bufnr)
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()

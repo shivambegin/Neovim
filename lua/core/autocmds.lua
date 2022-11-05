@@ -62,16 +62,3 @@ autocmd({ 'BufWritePre' }, {
     pattern = '*',
     command = '%s/\\s\\+$//e',
 })
-
-autocmd({
-    'CursorMoved',
-    'BufWinEnter',
-    'BufFilePost',
-    'InsertEnter',
-    'BufWritePost',
-}, {
-    group = custom_group,
-    callback = function()
-        require('core.winbar').get_winbar()
-    end,
-})

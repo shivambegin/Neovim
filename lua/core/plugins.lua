@@ -74,6 +74,9 @@ local plugins = {
         end,
     },
     ['windwp/nvim-ts-autotag'] = { after = 'nvim-treesitter' },
+    ['andymass/vim-matchup'] = {
+        event = 'InsertEnter',
+    },
 
     -- ===========================================================================
     -- =========================== Editor UI Niceties ============================
@@ -207,6 +210,12 @@ local plugins = {
         after = 'nvim-lspconfig',
         config = function()
             require 'configs.lsp.lsp-installer'
+        end,
+    },
+    ['glepnir/lspsaga.nvim'] = {
+        after = 'nvim-lspconfig',
+        config = function()
+            require 'configs.lspsaga'
         end,
     },
 

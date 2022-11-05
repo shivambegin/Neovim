@@ -54,7 +54,7 @@ function M.config()
         indent = { enable = true, disable = { 'yaml' } },
         autotag = { enable = true },
         autopairs = { enable = true },
-        context_commentstring = { enable = true, enable_autocmd = false },
+        context_commentstring = { enable = true, enable_autocmd = true },
         incremental_selection = {
             enable = true,
             keymaps = {
