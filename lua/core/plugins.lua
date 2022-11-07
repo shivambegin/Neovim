@@ -182,9 +182,7 @@ local plugins = {
     -- Documentation
     ['kkoomen/vim-doge'] = {
         event = { 'InsertEnter' },
-        run = function()
-            vim.fn['dodge#install']()
-        end,
+        run = ':call doge#install()',
         config = function()
             vim.g.doge_enable_mappings = 0
         end,
