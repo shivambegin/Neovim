@@ -20,7 +20,7 @@ copilot.setup {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-            accept = '<M-l>',
+            accept = '<C-j>',
             next = '<M-]>',
             prev = '<M-[>',
             dismiss = '<C-]>',
