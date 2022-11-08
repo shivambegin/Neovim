@@ -96,10 +96,10 @@ feline.setup {
                 },
             },
             {
-                {
-                    provider = provider.lsp_progress,
-                    enabled = conditional.bar_width(),
-                },
+                -- {
+                --     provider = provider.lsp_progress,
+                --     enabled = conditional.bar_width(),
+                -- },
                 {
                     provider = provider.lsp_client_names(true),
                     short_provider = provider.lsp_client_names(),
@@ -124,8 +124,6 @@ feline.setup {
                     provider = 'scroll_bar',
                     hl = hl.fg('TypeDef', { fg = C.yellow }),
                 },
-                { provider = provider.spacer(2) },
-                { provider = provider.spacer(), hl = hl.mode() },
             },
         },
     },

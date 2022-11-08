@@ -86,15 +86,15 @@ map('v', 'K', ":m '<-2<CR>gv=gv", { desc = '(V) Move selection down' })
 -- Quickfix
 map(
     'n',
-    '<A-q>',
-    ':lua require("utils").toggle_qf()<CR>',
+    '<leader>tq',
+    ':lua require("core.utils").toggle_qf()<CR>',
     { desc = 'Toggle quickfix list' }
 )
--- remap("n", "<A-o>", ":copen<CR>") -- open quickfix
 map('n', '<A-j>', ':cnext<CR>', { desc = 'Next quickfix item' })
 map('n', '<A-k>', ':cprev<CR>', { desc = 'previous quickfix item' })
 
-map('n', '<leader>SS', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+map('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+map('v', '<leader>s', ':s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
 -- LocationList
 map('n', '<Leader>lo', ':lopen<CR>', { desc = 'Open location list' })
@@ -324,7 +324,12 @@ map('n', 'gh', ':Lspsaga lsp_finder<CR>', { desc = 'LSP finder' })
 map('n', 'K', ':Lspsaga hover_doc<CR>', { desc = 'Hover doc' })
 map('n', 'gd', ':Lspsaga peek_definition<CR>', { desc = 'Preview definition' })
 
-map({ 'v', 'n' }, 'ca', ':Lspsaga code_action<CR>', { desc = 'Code action' })
+map(
+    { 'v', 'n' },
+    '<leader>la',
+    ':Lspsaga code_action<CR>',
+    { desc = 'Code action' }
+)
 
 map('n', '<leader>lr', ':Lspsaga rename<CR>', { desc = 'Rename' })
 

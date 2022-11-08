@@ -14,27 +14,25 @@ nightfox.setup {
         compile_file_suffix = '_compiled', -- Compiled file suffix
         transparent = settings.transparent_background, -- Disable setting background
         terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-        dim_inactive = false, -- Non focused panes set to alternative background
+        dim_inactive = true, -- Non focused panes set to alternative background
         styles = { -- Style to be applied to different syntax groups
             comments = 'italic', -- Value is any valid attr-list value `:help attr-list`
             conditionals = 'italic',
             constants = 'italic,bold',
-            functions = 'bold',
+            functions = 'italic,bold',
             keywords = 'italic',
             numbers = 'NONE',
-            operators = 'NONE',
+            operators = 'bold',
             strings = 'NONE',
             types = 'italic',
             variables = 'NONE',
         },
         inverse = { -- Inverse highlight for different types
-            match_paren = true,
+            match_paren = false,
             visual = false,
             search = false,
         },
-        modules = { -- List of various plugins and additional options
-            -- ...
-        },
+        modules = {},
     },
     palettes = {},
     specs = {},
