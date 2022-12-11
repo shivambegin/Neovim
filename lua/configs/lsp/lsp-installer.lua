@@ -24,6 +24,7 @@ local servers = {
     'graphql',
     'rust_analyzer',
     'marksman',
+    'denols',
 }
 
 lsp_installer.setup {
