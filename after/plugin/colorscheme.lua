@@ -1,4 +1,4 @@
-local settings = require 'core.settings'
+local settings = require 'amahmod.core.settings'
 local colorscheme = 'nightfox'
 -- nightfox dayfox dawnfox nordfox duskfox terafox
 

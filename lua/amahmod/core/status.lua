@@ -1,5 +1,5 @@
 local M = { hl = {}, provider = {}, conditional = {} }
-local C = require 'core.colors'
+local C = require 'amahmod.core.colors'
 
 local function hl_by_name(name)
     return string.format(
@@ -30,7 +30,7 @@ end
 local function null_ls_sources(filetype, source)
     local methods_avail, methods = pcall(require, 'null-ls.methods')
     return methods_avail
-            and null_ls_providers(filetype)[methods.internal[source]]
+        and null_ls_providers(filetype)[methods.internal[source]]
         or {}
 end
 
@@ -89,7 +89,7 @@ function M.hl.mode(base)
             vim.tbl_deep_extend(
                 'force',
                 type(lualine_opts) == 'table' and lualine_opts
-                    or { fg = C.bg_1, bg = M.modes[vim.fn.mode()][3] },
+                or { fg = C.bg_1, bg = M.modes[vim.fn.mode()][3] },
                 base or {}
             )
         )
@@ -99,17 +99,17 @@ end
 function M.provider.lsp_progress()
     local Lsp = vim.lsp.util.get_progress_messages()[1]
     return Lsp
-            and string.format(
-                ' %%<%s %s %s (%s%%%%) ',
-                ((Lsp.percentage or 0) >= 70 and { '', '', '' } or {
-                    '',
-                    '',
-                    '',
-                })[math.floor(vim.loop.hrtime() / 12e7) % 3 + 1],
-                Lsp.title or '',
-                Lsp.message or '',
-                Lsp.percentage or 0
-            )
+        and string.format(
+            ' %%<%s %s %s (%s%%%%) ',
+            ((Lsp.percentage or 0) >= 70 and { '', '', '' } or {
+                '',
+                '',
+                '',
+            })[math.floor(vim.loop.hrtime() / 12e7) % 3 + 1],
+            Lsp.title or '',
+            Lsp.message or '',
+            Lsp.percentage or 0
+        )
         or ''
 end
 
@@ -151,9 +151,9 @@ function M.conditional.git_changed()
     local git_status = vim.b.gitsigns_status_dict
     return git_status
         and (git_status.added or 0)
-                + (git_status.removed or 0)
-                + (git_status.changed or 0)
-            > 0
+        + (git_status.removed or 0)
+        + (git_status.changed or 0)
+        > 0
 end
 
 function M.conditional.has_filetype()
@@ -166,8 +166,8 @@ function M.conditional.bar_width(n)
     return function()
         return (
             vim.opt.laststatus:get() == 3 and vim.opt.columns:get()
-            or vim.fn.winwidth(0)
-        ) > (n or 80)
+                or vim.fn.winwidth(0)
+            ) > (n or 80)
     end
 end
 

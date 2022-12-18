@@ -33,7 +33,7 @@ local plugins = {
         event = 'VimEnter',
         after = 'nvim-web-devicons',
         config = function()
-            require 'configs.feline'
+            require 'amahmod.configs.feline'
         end,
     },
 
@@ -56,7 +56,7 @@ local plugins = {
             'TSEnableAll',
         },
         config = function()
-            require('configs.nvim-treesitter').config()
+            require('amahmod.configs.nvim-treesitter').config()
         end,
     },
 
@@ -70,7 +70,7 @@ local plugins = {
     ['nvim-treesitter/nvim-treesitter-context'] = {
         after = 'nvim-treesitter',
         config = function()
-            require 'configs.nvim-treesitter-context'
+            require 'amahmod.configs.nvim-treesitter-context'
         end,
     },
     ['windwp/nvim-ts-autotag'] = { after = 'nvim-treesitter' },
@@ -93,7 +93,7 @@ local plugins = {
     ['lewis6991/gitsigns.nvim'] = {
         event = { 'BufRead', 'BufNewFile' },
         config = function()
-            require('configs.gitsigns').config()
+            require('amahmod.configs.gitsigns').config()
         end,
     },
 
@@ -130,7 +130,7 @@ local plugins = {
         cmd = 'NvimTreeToggle',
         requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
-            require('configs.nvim-tree').config()
+            require('amahmod.configs.nvim-tree').config()
         end,
     },
 
@@ -138,7 +138,7 @@ local plugins = {
         cmd = 'Telescope',
         module = 'telescope',
         config = function()
-            require 'configs.telescope'
+            require 'amahmod.configs.telescope'
         end,
     },
 
@@ -165,14 +165,14 @@ local plugins = {
     ['echasnovski/mini.nvim'] = {
         event = 'BufRead',
         config = function()
-            require 'configs.mini'
+            require 'amahmod.configs.mini'
         end,
     },
 
     ['LiquidFun/vim-comment-banners'] = {
         event = { 'InsertEnter' },
         config = function()
-            require 'configs.vim-comment-banners'
+            require 'amahmod.configs.vim-comment-banners'
         end,
     },
 
@@ -191,7 +191,7 @@ local plugins = {
     ['ThePrimeagen/harpoon'] = {
         event = { 'BufRead', 'BufNewFile' },
         config = function()
-            require('configs.harpoon').config()
+            require('amahmod.configs.harpoon').config()
             require('telescope').load_extension 'harpoon'
         end,
     },
@@ -207,13 +207,13 @@ local plugins = {
     ['williamboman/nvim-lsp-installer'] = {
         after = 'nvim-lspconfig',
         config = function()
-            require 'configs.lsp.lsp-installer'
+            require 'amahmod.configs.lsp.lsp-installer'
         end,
     },
     ['glepnir/lspsaga.nvim'] = {
         after = 'nvim-lspconfig',
         config = function()
-            require 'configs.lspsaga'
+            require 'amahmod.configs.lspsaga'
         end,
     },
 
@@ -221,7 +221,7 @@ local plugins = {
     ['jose-elias-alvarez/null-ls.nvim'] = {
         event = { 'BufRead', 'BufNewFile' },
         config = function()
-            require('configs.null-ls').config()
+            require('amahmod.configs.null-ls').config()
         end,
     },
 
@@ -234,7 +234,7 @@ local plugins = {
     ['L3MON4D3/LuaSnip'] = {
         after = 'friendly-snippets',
         config = function()
-            require('configs.luasnip').config()
+            require('amahmod.configs.luasnip').config()
         end,
     },
 
@@ -242,7 +242,7 @@ local plugins = {
     ['hrsh7th/nvim-cmp'] = {
         after = 'LuaSnip',
         config = function()
-            require('configs.nvim-cmp').config()
+            require('amahmod.configs.nvim-cmp').config()
         end,
     },
 
@@ -251,7 +251,7 @@ local plugins = {
         -- after = 'nvim-cmp',
         event = { 'InsertEnter' },
         config = function()
-            require('core.utils').add_cmp_source('luasnip', 1000)
+            require('amahmod.core.utils').add_cmp_source('luasnip', 1000)
         end,
     },
 
@@ -260,7 +260,7 @@ local plugins = {
         -- after = 'nvim-cmp',
         event = { 'InsertEnter' },
         config = function()
-            require('core.utils').add_cmp_source 'buffer'
+            require('amahmod.core.utils').add_cmp_source 'buffer'
         end,
     },
 
@@ -269,7 +269,7 @@ local plugins = {
         -- after = 'nvim-cmp',
         event = { 'InsertEnter' },
         config = function()
-            require('core.utils').add_cmp_source 'path'
+            require('amahmod.core.utils').add_cmp_source 'path'
         end,
     },
 
@@ -278,7 +278,7 @@ local plugins = {
         -- after = 'nvim-cmp',
         event = { 'InsertEnter' },
         config = function()
-            require('core.utils').add_cmp_source 'nvim_lsp'
+            require('amahmod.core.utils').add_cmp_source 'nvim_lsp'
         end,
     },
 
@@ -287,7 +287,7 @@ local plugins = {
         -- after = 'nvim-cmp',
         event = { 'InsertEnter' },
         config = function()
-            require('core.utils').add_cmp_source 'nvim_lua'
+            require('amahmod.core.utils').add_cmp_source 'nvim_lua'
         end,
     },
 
@@ -296,7 +296,7 @@ local plugins = {
         event = { 'InsertEnter' },
         ft = 'gitcommit',
         config = function()
-            require('core.utils').add_cmp_source 'conventionalcommits'
+            require('amahmod.core.utils').add_cmp_source 'conventionalcommits'
         end,
     },
 
@@ -306,7 +306,7 @@ local plugins = {
         event = { 'InsertEnter' },
         ft = { 'gitcommit', 'gitrebase' },
         config = function()
-            require('core.utils').add_cmp_source 'git'
+            require('amahmod.core.utils').add_cmp_source 'git'
             require('cmp_git').setup()
         end,
     },
@@ -320,7 +320,7 @@ local plugins = {
         event = 'InsertEnter',
         config = function()
             vim.schedule(function()
-                require 'configs.copilot'
+                require 'amahmod.configs.copilot'
             end)
         end,
     },

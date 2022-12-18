@@ -1,5 +1,5 @@
 local M = {}
-local colors = require 'core.colors'
+local colors = require 'amahmod.core.colors'
 
 local function lsp_highlight_document(client, bufnr)
     -- Set autocommands conditional on server_capabilities
@@ -89,7 +89,7 @@ function M.lsp_set_signs()
             local diagnostics = vim.diagnostic.get(bufnr)
 
             local filtered_diagnostics =
-                require('core.utils').filter_diagnostics(diagnostics)
+            require('amahmod.core.utils').filter_diagnostics(diagnostics)
 
             -- pass the filtered diagnostics (with the
             -- custom namespace) to the original handler
@@ -104,9 +104,9 @@ end
 
 function M.lsp_set_handlers()
     vim.lsp.handlers['textDocument/hover'] =
-        vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+    vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
     vim.lsp.handlers['textDocument/signatureHelp'] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+    vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
     -- vim.lsp.handlers['textDocument/definition'] = lsp_goto_definition 'split'
 end
 
@@ -141,17 +141,17 @@ end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.documentationFormat =
-    { 'markdown', 'plaintext' }
+{ 'markdown', 'plaintext' }
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities.textDocument.completion.completionItem.preselectSupport = true
 M.capabilities.textDocument.completion.completionItem.insertReplaceSupport =
-    true
+true
 M.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
 M.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
 M.capabilities.textDocument.completion.completionItem.commitCharactersSupport =
-    true
+true
 M.capabilities.textDocument.completion.completionItem.tagSupport =
-    { valueSet = { 1 } }
+{ valueSet = { 1 } }
 M.capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = { 'documentation', 'detail', 'additionalTextEdits' },
 }

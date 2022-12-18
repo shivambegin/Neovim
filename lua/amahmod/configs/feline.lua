@@ -3,12 +3,12 @@ if not status_ok then
     return
 end
 
-local settings = require 'core.settings'
+local settings = require 'amahmod.core.settings'
 
-local C = require 'core.colors'
-local hl = require('core.status').hl
-local provider = require('core.status').provider
-local conditional = require('core.status').conditional
+local C = require 'amahmod.core.colors'
+local hl = require('amahmod.core.status').hl
+local provider = require('amahmod.core.status').provider
+local conditional = require('amahmod.core.status').conditional
 
 local theme = hl.group('StatusLine', { fg = C.fg, bg = C.bg_1 })
 

@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 
-local handlers = require 'configs.lsp.handlers'
+local handlers = require 'amahmod.configs.lsp.handlers'
 
 local servers = {
     'sumneko_lua',
@@ -40,7 +40,7 @@ lsp_installer.setup {
 }
 
 for _, server in ipairs(servers) do
-    require('configs.lsp.servers.' .. server).setup(
+    require('amahmod.configs.lsp.servers.' .. server).setup(
         handlers.on_attach,
         handlers.capabilities
     )

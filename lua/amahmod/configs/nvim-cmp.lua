@@ -1,6 +1,6 @@
 local M = {}
 
-local icons = require 'core.icons'
+local icons = require 'amahmod.core.icons'
 
 function M.config()
     local cmp_status_ok, cmp = pcall(require, 'cmp')

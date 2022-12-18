@@ -1,4 +1,4 @@
-local lsp_handlers = require 'configs.lsp.handlers'
+local lsp_handlers = require 'amahmod.configs.lsp.handlers'
 local M = {}
 local rust_tools = require 'rust-tools'
 

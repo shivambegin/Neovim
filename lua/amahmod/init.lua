@@ -1,0 +1,5 @@
+require 'amahmod.core.options'
+require 'amahmod.core.plugins'
+require 'amahmod.core.mappings'
+require 'amahmod.core.autocmds'
+require 'amahmod.core.globals'
