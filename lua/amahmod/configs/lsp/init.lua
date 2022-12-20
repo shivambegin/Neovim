@@ -40,6 +40,40 @@ local define_signs = function()
             { texthl = sign.name, text = sign.text, numhl = '' }
         )
     end
+    ---custom namespace
+    local ns = vim.api.nvim_create_namespace 'severe-diagnostics'
+
+    ---reference to the original handler
+    local orig_signs_handler = vim.diagnostic.handlers.signs
+
+    ---Overriden diagnostics signs helper to only show the single most relevant sign
+    ---@see `:h diagnostic-handlers`
+    vim.diagnostic.handlers.signs = {
+        show = function(_, bufnr, _, opts)
+            -- get all diagnostics from the whole buffer rather
+            -- than just the diagnostics passed to the handler
+            local diagnostics = vim.diagnostic.get(bufnr)
+
+            local filtered_diagnostics =
+                require('amahmod.core.utils').filter_diagnostics(diagnostics)
+
+            -- pass the filtered diagnostics (with the
+            -- custom namespace) to the original handler
+            orig_signs_handler.show(ns, bufnr, filtered_diagnostics, opts)
+        end,
+
+        hide = function(_, bufnr)
+            orig_signs_handler.hide(ns, bufnr)
+        end,
+    }
+end
+
+local update_handlers = function()
+    vim.lsp.handlers['textDocument/hover'] =
+        vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+    vim.lsp.handlers['textDocument/signatureHelp'] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+    -- vim.lsp.handlers['textDocument/definition'] = lsp_goto_definition 'split'
 end
 
 -- Diagnostic keymaps
@@ -112,6 +146,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 define_signs()
+update_handlers()
 mason.setup()
 
 require('mason-lspconfig').setup {
