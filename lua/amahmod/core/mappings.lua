@@ -4,6 +4,10 @@ local map = vim.keymap.set
 -- ================================ GENERAL =================================
 -- ==========================================================================
 
+-- Remap for dealing with word wrap
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 map('n', 'n', 'nzzzv') -- keep the cursor centered when doing 'n'
 map('n', 'N', 'Nzzzv') -- keep the cursor centered when doing 'N'
 map('n', 'J', 'mzJ`z', { desc = 'Join line without moving the cursor' })
@@ -25,6 +29,12 @@ map(
     '<leader>th',
     ':set hlsearch!<CR>',
     { desc = 'Toggle highlights (hlsearch)' }
+)
+map(
+    'n',
+    '<leader>tq',
+    ':lua require("core.utils").toggle_qf()<CR>',
+    { desc = 'Toggle quickfix list' }
 )
 
 map({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
@@ -81,12 +91,6 @@ map('v', 'J', ":m '>+1<CR>gv=gv", { desc = '(V) Move selection up' })
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = '(V) Move selection down' })
 
 -- Quickfix
-map(
-    'n',
-    '<leader>tq',
-    ':lua require("core.utils").toggle_qf()<CR>',
-    { desc = 'Toggle quickfix list' }
-)
 map('n', '<A-j>', ':cnext<CR>', { desc = 'Next quickfix item' })
 map('n', '<A-k>', ':cprev<CR>', { desc = 'previous quickfix item' })
 
