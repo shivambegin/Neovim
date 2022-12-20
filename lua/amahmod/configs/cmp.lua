@@ -8,11 +8,10 @@ function M.config()
         return
     end
 
-    local snip_status_ok, luasnip = pcall(require, 'luasnip')
-    if not snip_status_ok then
-        vim.notify 'luasnip not found'
-    else
-        require('luasnip/loaders/from_vscode').lazy_load()
+    local _, luasnip = pcall(require, 'luasnip')
+    local loader_avail, loader = pcall(require, 'luasnip/loaders/from_vscode')
+    if loader_avail then
+        loader.lazy_load()
     end
 
     local check_backspace = function()
@@ -27,9 +26,7 @@ function M.config()
     cmp.setup {
         snippet = {
             expand = function(args)
-                if snip_status_ok then
-                    luasnip.lsp_expand(args.body)
-                end
+                require('luasnip').lsp_expand(args.body)
             end,
         },
         mapping = {
@@ -45,7 +42,7 @@ function M.config()
             },
             -- Accept currently selected item. If none selected, `select` first item.
             -- Set `select` to `false` to only confirm explicitly selected items.
-            -- ['<CR>'] = cmp.mapping.confirm { select = true },
+            ['<CR>'] = cmp.mapping.confirm { select = false },
             ['<Tab>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
@@ -103,9 +100,6 @@ function M.config()
             { name = 'luasnip' },
             { name = 'buffer' },
             { name = 'path' },
-            { name = 'emoji' },
-            { name = 'tabnine' },
-            { name = 'copilot' },
         },
         confirm_opts = {
             behavior = cmp.ConfirmBehavior.Replace,
