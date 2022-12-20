@@ -1,7 +1,4 @@
 local map = vim.keymap.set
-local cmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
-local utils = require 'amahmod.core.utils'
 
 -- ==========================================================================
 -- ================================ GENERAL =================================
@@ -236,7 +233,6 @@ map(
 )
 
 -- Telescope
-
 map('n', '<leader>H', ':Telescope help_tags<CR>', { desc = 'help tags' })
 map('n', '<C-P>', ':Telescope find_files<Cr>', { desc = 'Find files' })
 map(
@@ -293,6 +289,6 @@ map('n', '<leader>fk', ':Telescope keymaps<CR>', { desc = 'Find key mappings' })
 map(
     'n',
     '<leader>fn',
-    ':lua require("configs.telescope").find_notes()<CR>',
+    ':lua require("amahmod.configs.telescope").find_notes()<CR>',
     { desc = 'Find personal notes' }
 )

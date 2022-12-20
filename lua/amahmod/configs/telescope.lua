@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 
-local finders = require 'telescope.builtin'
+local map = vim.keymap.set
 
 local notify_present, _ = pcall(require, 'notify')
 if notify_present then
@@ -51,9 +51,13 @@ telescope.setup {
     },
 }
 
+-- Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'ui-select')
+
 local M = {}
 
- function M.neovim_config()
+function M.neovim_config()
     require('telescope.builtin').find_files {
         prompt_title = ' Neovim configs',
         path_display = { 'smart' },
@@ -63,7 +67,7 @@ local M = {}
     }
 end
 
- function M.find_notes ()
+function M.find_notes()
     require('telescope.builtin').find_files {
         prompt_title = ' Find Notes',
         path_display = { 'smart' },
@@ -73,7 +77,7 @@ end
     }
 end
 
- function M.grep_notes ()
+function M.grep_notes()
     local opts = {}
     opts.hidden = true
     opts.search_dirs = { '~/.notes/' }
@@ -84,4 +88,3 @@ end
 end
 
 return M
-

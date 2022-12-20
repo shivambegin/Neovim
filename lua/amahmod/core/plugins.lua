@@ -140,22 +140,15 @@ local plugins = {
         config = function()
             require 'amahmod.configs.telescope'
         end,
-    },
-
-    ['nvim-telescope/telescope-ui-select.nvim'] = {
-        after = 'telescope.nvim',
-        config = function()
-            require('telescope').load_extension 'ui-select'
-        end,
+        requires = {
+            'nvim-telescope/telescope-ui-select.nvim',
+        },
     },
 
     -- Fuzzy finder syntax support
     ['nvim-telescope/telescope-fzf-native.nvim'] = {
-        after = 'telescope.nvim',
         run = 'make',
-        config = function()
-            require('telescope').load_extension 'fzf'
-        end,
+        cond = vim.fn.executable 'make' == 1,
     },
 
     -- ===========================================================================
