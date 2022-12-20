@@ -3,8 +3,6 @@ if not status_ok then
     return
 end
 
-local settings = require 'amahmod.core.settings'
-
 local C = require 'amahmod.core.colors'
 local hl = require('amahmod.core.status').hl
 local provider = require('amahmod.core.status').provider
@@ -12,9 +10,7 @@ local conditional = require('amahmod.core.status').conditional
 
 local theme = hl.group('StatusLine', { fg = C.fg, bg = C.bg_1 })
 
-if settings.transparent_background then
-    theme.bg = 'NONE'
-end
+theme.bg = 'NONE'
 
 feline.setup {
     disable = {

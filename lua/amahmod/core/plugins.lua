@@ -26,7 +26,11 @@ local plugins = {
     },
 
     -- Colorscheme
-    ['EdenEast/nightfox.nvim'] = {},
+    -- ['EdenEast/nightfox.nvim'] = {},
+    -- ['folke/tokyonight.nvim'] = {},
+    ['rose-pine/neovim'] = {
+        as = 'rose-pine',
+    },
 
     -- Statusline
     ['feline-nvim/feline.nvim'] = {
