@@ -200,6 +200,7 @@ local plugins = {
     -- ====================== LSP, Completions and Snippets ======================
     -- ===========================================================================
 
+    -- LSP
     ['neovim/nvim-lspconfig'] = {
         event = 'VimEnter',
         requires = {
@@ -211,10 +212,23 @@ local plugins = {
         end,
     },
 
-    ['glepnir/lspsaga.nvim'] = {
-        after = 'nvim-lspconfig',
+    -- Completion
+    ['hrsh7th/nvim-cmp'] = {
+        requires = {
+            -- snippets
+            'L3MON4D3/LuaSnip',
+            'rafamadriz/friendly-snippets',
+            -- cmp completion sources
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-nvim-lua',
+            'davidsierradz/cmp-conventionalcommits',
+            'petertriho/cmp-git',
+            'hrsh7th/cmp-cmdline',
+        },
         config = function()
-            require 'amahmod.configs.lspsaga'
+            require('amahmod.configs.cmp').config()
         end,
     },
 
@@ -224,97 +238,6 @@ local plugins = {
         config = function()
             require('amahmod.configs.null-ls').config()
         end,
-    },
-
-    -- Snippet collection
-    ['rafamadriz/friendly-snippets'] = {
-        event = { 'BufRead', 'BufNewFile' },
-    },
-
-    -- Snippet engine
-    ['L3MON4D3/LuaSnip'] = {
-        after = 'friendly-snippets',
-        config = function()
-            require('amahmod.configs.luasnip').config()
-        end,
-    },
-
-    -- Completion engine
-    ['hrsh7th/nvim-cmp'] = {
-        after = 'LuaSnip',
-        config = function()
-            require('amahmod.configs.nvim-cmp').config()
-        end,
-    },
-
-    -- Snippet completion source
-    ['saadparwaiz1/cmp_luasnip'] = {
-        -- after = 'nvim-cmp',
-        event = { 'InsertEnter' },
-        config = function()
-            require('amahmod.core.utils').add_cmp_source('luasnip', 1000)
-        end,
-    },
-
-    -- Buffer completion source
-    ['hrsh7th/cmp-buffer'] = {
-        -- after = 'nvim-cmp',
-        event = { 'InsertEnter' },
-        config = function()
-            require('amahmod.core.utils').add_cmp_source 'buffer'
-        end,
-    },
-
-    -- Path completion source
-    ['hrsh7th/cmp-path'] = {
-        -- after = 'nvim-cmp',
-        event = { 'InsertEnter' },
-        config = function()
-            require('amahmod.core.utils').add_cmp_source 'path'
-        end,
-    },
-
-    -- LSP completion source
-    ['hrsh7th/cmp-nvim-lsp'] = {
-        -- after = 'nvim-cmp',
-        event = { 'InsertEnter' },
-        config = function()
-            require('amahmod.core.utils').add_cmp_source 'nvim_lsp'
-        end,
-    },
-
-    -- LSP Neovim API completion source
-    ['hrsh7th/cmp-nvim-lua'] = {
-        -- after = 'nvim-cmp',
-        event = { 'InsertEnter' },
-        config = function()
-            require('amahmod.core.utils').add_cmp_source 'nvim_lua'
-        end,
-    },
-
-    ['davidsierradz/cmp-conventionalcommits'] = {
-        -- after = 'nvim-cmp',
-        event = { 'InsertEnter' },
-        ft = 'gitcommit',
-        config = function()
-            require('amahmod.core.utils').add_cmp_source 'conventionalcommits'
-        end,
-    },
-
-    ['petertriho/cmp-git'] = {
-        requires = { 'nvim-lua/plenary.nvim' },
-        -- after = 'nvim-cmp',
-        event = { 'InsertEnter' },
-        ft = { 'gitcommit', 'gitrebase' },
-        config = function()
-            require('amahmod.core.utils').add_cmp_source 'git'
-            require('cmp_git').setup()
-        end,
-    },
-
-    ['hrsh7th/cmp-cmdline'] = {
-        -- after = 'nvim-cmp',
-        event = { 'CmdlineEnter' },
     },
 
     ['zbirenbaum/copilot.lua'] = {

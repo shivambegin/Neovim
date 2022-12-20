@@ -11,10 +11,9 @@ function M.config()
     local snip_status_ok, luasnip = pcall(require, 'luasnip')
     if not snip_status_ok then
         vim.notify 'luasnip not found'
-        return
+    else
+        require('luasnip/loaders/from_vscode').lazy_load()
     end
-
-    require('luasnip/loaders/from_vscode').lazy_load()
 
     local check_backspace = function()
         local col = vim.fn.col '.' - 1
@@ -24,11 +23,14 @@ function M.config()
     vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })
     vim.api.nvim_set_hl(0, 'CmpItemKindTabnine', { fg = '#CA42F0' })
     vim.api.nvim_set_hl(0, 'CmpItemKindEmoji', { fg = '#FDE030' })
+    print 'setup'
 
     cmp.setup {
         snippet = {
             expand = function(args)
-                luasnip.lsp_expand(args.body) -- For `luasnip` users.
+                if snip_status_ok then
+                    luasnip.lsp_expand(args.body)
+                end
             end,
         },
         mapping = {
@@ -44,7 +46,7 @@ function M.config()
             },
             -- Accept currently selected item. If none selected, `select` first item.
             -- Set `select` to `false` to only confirm explicitly selected items.
-            ['<CR>'] = cmp.mapping.confirm { select = true },
+            -- ['<CR>'] = cmp.mapping.confirm { select = true },
             ['<Tab>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
@@ -96,7 +98,16 @@ function M.config()
                 return vim_item
             end,
         },
-        sources = {},
+        sources = {
+            { name = 'nvim_lsp' },
+            { name = 'nvim_lua' },
+            { name = 'luasnip' },
+            { name = 'buffer' },
+            { name = 'path' },
+            { name = 'emoji' },
+            { name = 'tabnine' },
+            { name = 'copilot' },
+        },
         confirm_opts = {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
@@ -107,6 +118,7 @@ function M.config()
     -- Set configuration for specific filetype.
     cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources {
+            { name = 'conventionalcommits' },
             { name = 'cmp_git' },
             { name = 'buffer' },
         },
