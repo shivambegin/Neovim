@@ -200,16 +200,17 @@ local plugins = {
     -- ====================== LSP, Completions and Snippets ======================
     -- ===========================================================================
 
-    -- Built-in LSP
-    ['neovim/nvim-lspconfig'] = { event = 'VimEnter' },
-
-    -- LSP installer
-    ['williamboman/nvim-lsp-installer'] = {
-        after = 'nvim-lspconfig',
+    ['neovim/nvim-lspconfig'] = {
+        event = 'VimEnter',
+        requires = {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+        },
         config = function()
-            require 'amahmod.configs.lsp.lsp-installer'
+            require 'amahmod.configs.lsp'
         end,
     },
+
     ['glepnir/lspsaga.nvim'] = {
         after = 'nvim-lspconfig',
         config = function()
