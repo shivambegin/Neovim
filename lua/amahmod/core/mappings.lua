@@ -228,6 +228,9 @@ for i = 1, 5 do
     end)
 end
 
+-- UndoTree
+map('n', '<leader>U', ':UndotreeToggle<CR>', { desc = 'Toggle undo tree' })
+
 -- vim-doge
 map(
     'n',
