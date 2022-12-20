@@ -196,6 +196,13 @@ local plugins = {
         end,
     },
 
+    ['ggandor/leap.nvim'] = {
+        event = { 'BufRead', 'BufNewFile' },
+        config = function()
+            require('leap').add_default_mappings()
+        end,
+    },
+
     -- ===========================================================================
     -- ====================== LSP, Completions and Snippets ======================
     -- ===========================================================================
