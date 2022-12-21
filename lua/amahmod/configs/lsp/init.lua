@@ -66,6 +66,14 @@ local define_signs = function()
             orig_signs_handler.hide(ns, bufnr)
         end,
     }
+
+    vim.diagnostic.config {
+        virtual_text = { source = 'always', prefix = ' ', spacing = 6 },
+        float = { header = false, source = 'always' },
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+    }
 end
 
 local update_handlers = function()
