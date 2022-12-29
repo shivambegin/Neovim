@@ -200,7 +200,9 @@ local plugins = {
         end,
     },
 
-    ['mbbill/undotree'] = {},
+    ['mbbill/undotree'] = {
+        command = 'UndotreeToggle',
+    },
 
     -- ===========================================================================
     -- ====================== LSP, Completions and Snippets ======================
