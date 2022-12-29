@@ -1,4 +1,5 @@
 local status_ok, mason = pcall(require, 'mason')
+local lspconfig = require 'lspconfig'
 
 if not status_ok then
     return
@@ -172,7 +173,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require('lspconfig').sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -193,5 +194,16 @@ require('lspconfig').sumneko_lua.setup {
             -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = { enable = false },
         },
+    },
+}
+
+lspconfig.denols.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
+    init_options = {
+        enable = true,
+        lint = true,
+        unstable = true,
     },
 }

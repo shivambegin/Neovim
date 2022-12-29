@@ -110,9 +110,6 @@ map('n', '<Leader>lp', ':lprev<CR>', { desc = 'Previous location list item' })
 -- Nvim-tree
 map('n', '<leader>e', ':NvimTreeToggle<CR>')
 
--- Git (fugitive)
-map('n', '<leader>gg', ':Git<CR>', { desc = 'Open git (fugitive)' })
-
 -- GitSigns
 map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 map('n', ']c', ':Gitsigns next_hunk<CR>', { desc = 'Go to next git hunk' })
@@ -251,12 +248,6 @@ map(
 map('n', '<leader>fW', function()
     require('telescope.builtin').grep_string { search = vim.fn.expand '<cword>' }
 end, { desc = 'Grep string (Telescope)' })
-map(
-    'n',
-    '<leader>fs',
-    ':Telescope git_status<CR>',
-    { desc = 'Git status (Telescope)' }
-)
 map('n', '<leader>ff', ':Telescope buffers<CR>', { desc = 'Buffer list' })
 map(
     'n',
@@ -299,3 +290,12 @@ map(
     ':lua require("amahmod.configs.telescope").find_notes()<CR>',
     { desc = 'Find personal notes' }
 )
+
+-- Telescope Git
+map('n', '<leader>gs', ':Telescope git_status<CR>', { desc = 'Git status' })
+map('n', '<leader>gb', ':Telescope git_branches<CR>', { desc = 'Git branches' })
+map('n', '<leader>gc', ':Telescope git_commits<CR>', { desc = 'Git commits' })
+map('n', '<leader>gp', ':Telescope git_bcommits<CR>', { desc = 'Git bcommits' })
+
+-- Git (fugitive)
+map('n', '<leader>gg', ':Git<CR>', { desc = 'Open git (fugitive)' })
