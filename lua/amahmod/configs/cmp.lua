@@ -11,6 +11,9 @@ function M.config()
     local _, luasnip = pcall(require, 'luasnip')
     local loader_avail, loader = pcall(require, 'luasnip/loaders/from_vscode')
     if loader_avail then
+        luasnip.filetype_extend('typescript', { 'javascript' })
+        luasnip.filetype_extend('svelte', { 'javascript', 'typescript' })
+        luasnip.filetype_extend('vue', { 'javascript', 'typescript' })
         loader.lazy_load()
     end
 
@@ -95,9 +98,9 @@ function M.config()
             end,
         },
         sources = {
+            { name = 'luasnip' },
             { name = 'nvim_lsp' },
             { name = 'nvim_lua' },
-            { name = 'luasnip' },
             { name = 'buffer' },
             { name = 'path' },
         },
