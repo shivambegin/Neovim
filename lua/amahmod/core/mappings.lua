@@ -33,7 +33,7 @@ map(
 map(
     'n',
     '<leader>tq',
-    ':lua require("core.utils").toggle_qf()<CR>',
+    ':lua require("amahmod.core.utils").toggle_qf()<CR>',
     { desc = 'Toggle quickfix list' }
 )
 
@@ -91,8 +91,8 @@ map('v', 'J', ":m '>+1<CR>gv=gv", { desc = '(V) Move selection up' })
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = '(V) Move selection down' })
 
 -- Quickfix
-map('n', '<A-j>', ':cnext<CR>', { desc = 'Next quickfix item' })
-map('n', '<A-k>', ':cprev<CR>', { desc = 'previous quickfix item' })
+map('n', '<C-S-j>', ':cnext<CR>', { desc = 'Next quickfix item' })
+map('n', '<C-S-k>', ':cprev<CR>', { desc = 'previous quickfix item' })
 
 map('n', '<leader>S', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 map('v', '<leader>S', ':s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
