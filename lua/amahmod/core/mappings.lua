@@ -1,12 +1,64 @@
 local map = vim.keymap.set
 
+-- Avoid repeating hjkl keys
+-- https://github.com/sabah1994/dotfiles/blob/master/nvim/lua/keyMappings.lua#L10-L58
+local id
+local function avoid_hjkl(mode, mov_keys)
+    for _, key in ipairs(mov_keys) do
+        local count = 0
+        vim.keymap.set(mode, key, function()
+            if count >= 5 then
+                id = vim.notify('Hold it Cowboy!', vim.log.levels.WARN, {
+                    icon = '🤠',
+                    replace = id,
+                    keep = function()
+                        return count >= 5
+                    end,
+                })
+            else
+                count = count + 1
+                -- after 5 seconds decrement
+                vim.defer_fn(function()
+                    count = count - 1
+                end, 5000)
+                return key
+            end
+        end, { expr = true })
+    end
+end
+
+-- Hard mode toggle
+HardMode = false
+function ToggleHardMode()
+    local modes = { 'n', 'v' }
+    local movement_keys = { 'h', 'j', 'k', 'l' }
+    if HardMode then
+        for _, mode in pairs(modes) do
+            for _, m_key in pairs(movement_keys) do
+                vim.api.nvim_del_keymap(mode, m_key)
+            end
+        end
+        vim.notify 'Hard mode OFF'
+    else
+        for _, mode in pairs(modes) do
+            avoid_hjkl(mode, movement_keys)
+        end
+        vim.notify 'Hard mode ON'
+    end
+    HardMode = not HardMode
+end
+
+ToggleHardMode()
+map('n', '<leader>th', ':lua ToggleHardMode()<CR>')
+
 -- ==========================================================================
 -- ================================ GENERAL =================================
 -- ==========================================================================
 
+-- NOTE: disabled for now because of the hard mode
 -- Remap for dealing with word wrap
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 map('n', 'n', 'nzzzv') -- keep the cursor centered when doing 'n'
 map('n', 'N', 'Nzzzv') -- keep the cursor centered when doing 'N'
