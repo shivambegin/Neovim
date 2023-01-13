@@ -1,1 +1,1 @@
-require "amahmod"
+require 'amahmod'
