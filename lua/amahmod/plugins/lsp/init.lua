@@ -36,6 +36,17 @@ return {
                             completion = {
                                 callSnippet = 'Replace',
                             },
+                            diagnostics = {
+                                globals = {
+                                    'vim',
+                                    'use',
+                                    'describe',
+                                    'it',
+                                    'assert',
+                                    'before_each',
+                                    'after_each',
+                                },
+                            },
                         },
                     },
                 },
