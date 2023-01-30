@@ -4,13 +4,13 @@ function M.on_attach(client, buffer)
     local self = M.new(client, buffer)
 
     self:map(
-        '<leader>cd',
+        '<leader>ld',
         vim.diagnostic.open_float,
         { desc = 'Line Diagnostics' }
     )
-    self:map('<leader>cl', 'LspInfo', { desc = 'Lsp Info' })
+    self:map('<leader>li', 'LspInfo', { desc = 'Lsp Info' })
     self:map(
-        '<leader>xd',
+        '<leader>fd',
         'Telescope diagnostics',
         { desc = 'Telescope Diagnostics' }
     )
@@ -60,12 +60,12 @@ function M.on_attach(client, buffer)
         { desc = 'Format Document', has = 'documentFormatting' }
     )
     self:map(
-        '<leader>cf',
+        '<leader>lf',
         format,
         { desc = 'Format Range', mode = 'v', has = 'documentRangeFormatting' }
     )
     self:map(
-        '<leader>cr',
+        '<leader>rn',
         M.rename,
         { expr = true, desc = 'Rename', has = 'rename' }
     )
@@ -100,6 +100,7 @@ end
 
 function M.rename()
     if pcall(require, 'inc_rename') then
+        print 'hi'
         return ':IncRename ' .. vim.fn.expand '<cword>'
     else
         vim.lsp.buf.rename()
