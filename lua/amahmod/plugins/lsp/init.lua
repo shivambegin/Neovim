@@ -142,13 +142,13 @@ return {
             local nls = require 'null-ls'
             return {
                 sources = {
-                    -- nls.builtins.formatting.prettierd,
                     -- formatting
                     nls.builtins.formatting.stylua,
                     nls.builtins.formatting.shfmt,
                     nls.builtins.formatting.prettierd.with {
                         extra_filetypes = { 'svelte' },
                     },
+                    nls.builtins.formatting.rustfmt,
 
                     -- code actions
                     nls.builtins.code_actions.gitsigns,
