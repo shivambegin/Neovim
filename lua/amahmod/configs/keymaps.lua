@@ -23,17 +23,17 @@ map(
     { desc = 'Replace word under cursor with register "0" content globally' }
 )
 
-map('n', '<leader>ts', ':set spell!<CR>', { desc = 'Toggle spell check' })
+map('n', '<leader>ts', '<cmd>set spell!<CR>', { desc = 'Toggle spell check' })
 map(
     'n',
     '<leader>th',
-    ':set hlsearch!<CR>',
+    '<cmd>set hlsearch!<CR>',
     { desc = 'Toggle highlights (hlsearch)' }
 )
 map(
     'n',
     '<leader>tq',
-    ':lua require("amahmod.core.utils").toggle_qf()<CR>',
+    '<cmd>lua require("amahmod.core.utils").toggle_qf()<CR>',
     { desc = 'Toggle quickfix list' }
 )
 
@@ -42,7 +42,7 @@ map({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
 -- Use operator pending mode to visually select the whole buffer
 -- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
-map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
+map('o', 'A', '<cmd><C-U>normal! mzggVG<CR>`z')
 map('x', 'A', ':<C-U>normal! ggVG<CR>')
 
 -- Better window management
@@ -72,16 +72,16 @@ map('n', '<leader>q', '<cmd>q!<CR>', { desc = 'Force quit' })
 map('n', '<leader>Q', '<cmd>wq!<CR>', { desc = 'Force save and  quit' })
 
 -- Buffers
-map('n', '<leader>ba', ':bufdo bd<CR>', { desc = 'close all buffers' })
+map('n', '<leader>ba', '<cmd>bufdo bd<CR>', { desc = 'close all buffers' })
 map(
     'n',
     '<leader>bo',
-    ':w <bar> %bd <bar> e# <bar> bd#<CR>',
+    '<cmd>w <bar> %bd <bar> e# <bar> bd#<CR>',
     { desc = 'Close all buffers except current one' }
 )
 map('n', '<leader>q', '<cmd>q!<CR>', { desc = 'Close buffer/window' })
-map('n', '<S-l>', ':bnext<CR>', { desc = 'Go to next buffer' })
-map('n', '<S-h>', ':bprevious<CR>', { desc = 'Go to previous buffer' })
+map('n', '<S-l>', '<cmd>bnext<CR>', { desc = 'Go to next buffer' })
+map('n', '<S-h>', '<cmd>bprevious<CR>', { desc = 'Go to previous buffer' })
 
 -- Visual --
 -- Stay in indent mode
@@ -91,14 +91,23 @@ map('v', 'J', ":m '>+1<CR>gv=gv", { desc = '(V) Move selection up' })
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = '(V) Move selection down' })
 
 -- Quickfix
-map('n', '<C-S-j>', ':cnext<CR>', { desc = 'Next quickfix item' })
-map('n', '<C-S-k>', ':cprev<CR>', { desc = 'previous quickfix item' })
+map('n', '<C-S-j>', '<cmd>cnext<CR>', { desc = 'Next quickfix item' })
+map('n', '<C-S-k>', '<cmd>cprev<CR>', { desc = 'previous quickfix item' })
 
-map('n', '<leader>S', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
-map('v', '<leader>S', ':s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+map(
+    'n',
+    '<leader>S',
+    '<cmd>%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>'
+)
+map('v', '<leader>S', '<cmd>s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
 -- LocationList
-map('n', '<Leader>lo', ':lopen<CR>', { desc = 'Open location list' })
-map('n', '<Leader>lc', ':lclose<CR>', { desc = 'Close location list' })
-map('n', '<Leader>ln', ':lnext<CR>', { desc = 'Next location list item' })
-map('n', '<Leader>lp', ':lprev<CR>', { desc = 'Previous location list item' })
+map('n', '<Leader>lo', '<cmd>lopen<CR>', { desc = 'Open location list' })
+map('n', '<Leader>lc', '<cmd>lclose<CR>', { desc = 'Close location list' })
+map('n', '<Leader>ln', '<cmd>lnext<CR>', { desc = 'Next location list item' })
+map(
+    'n',
+    '<Leader>lp',
+    '<cmd>lprev<CR>',
+    { desc = 'Previous location list item' }
+)

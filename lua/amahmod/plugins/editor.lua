@@ -13,7 +13,7 @@ return {
         keys = {
             {
                 '<leader>e',
-                ':Neotree toggle<CR>',
+                '<cmd>Neotree toggle<CR>',
                 desc = 'NeoTree Toggle',
             },
         },
@@ -46,7 +46,7 @@ return {
         keys = {
             {
                 '<C-p>',
-                ':Telescope find_files<CR>',
+                '<cmd>Telescope find_files<CR>',
                 desc = 'Find Files (root dir)',
             },
             {
@@ -120,7 +120,7 @@ return {
             },
             {
                 '<leader>/',
-                ':Telescope search_history<cr>',
+                '<cmd>Telescope search_history<cr>',
                 desc = 'Search history',
             },
             {
@@ -218,7 +218,7 @@ return {
             'Gfetch',
         },
         keys = {
-            { '<leader>gg', ':Git<cr>', desc = 'Git status' },
+            { '<leader>gg', '<cmd>Git<cr>', desc = 'Git status' },
         },
     },
 
