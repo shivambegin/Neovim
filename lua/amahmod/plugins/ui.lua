@@ -22,23 +22,6 @@ return {
         },
     },
 
-    -- better vim.ui
-    {
-        'stevearc/dressing.nvim',
-        init = function()
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.select = function(...)
-                require('lazy').load { plugins = { 'dressing.nvim' } }
-                return vim.ui.select(...)
-            end
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.input = function(...)
-                require('lazy').load { plugins = { 'dressing.nvim' } }
-                return vim.ui.input(...)
-            end
-        end,
-    },
-
     -- statusline
     {
         'nvim-lualine/lualine.nvim',
@@ -204,5 +187,39 @@ return {
     'nvim-tree/nvim-web-devicons',
 
     -- ui components
-    'MunifTanjim/nui.nvim',
+    {
+        'folke/noice.nvim',
+        dependencies = {
+            'MunifTanjim/nui.nvim',
+        },
+        opts = {
+            cmdline = {
+                enabled = true,
+            },
+            lsp = {
+                progress = {
+                    enabled = true,
+                    -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
+                    -- See the section on formatting for more details on how to customize.
+                    format = 'lsp_progress',
+                    format_done = 'lsp_progress_done',
+                    throttle = 1000 / 30, -- frequency to update lsp progress message
+                    view = 'mini',
+                },
+            },
+            presets = {
+                bottom_search = true, -- use a classic bottom cmdline for search
+                command_palette = true, -- position the cmdline and popupmenu together
+                long_message_to_split = true, -- long messages will be sent to a split
+                inc_rename = true, -- enables an input dialog for inc-rename.nvim
+                lsp_doc_border = true, -- add a border to hover docs and signature help
+            },
+            routes = {
+                {
+                    view = 'notify',
+                    filter = { event = 'msg_showmode' },
+                },
+            },
+        },
+    },
 }
