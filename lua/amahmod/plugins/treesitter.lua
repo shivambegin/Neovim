@@ -47,11 +47,11 @@ return {
                 'yaml',
             },
             sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-            ignore_install = { '' }, -- List of parsers to ignore installing
+            ignore_install = {}, -- List of parsers to ignore installing
             highlight = {
                 enable = true, -- false will disable the whole extension
                 disable = {}, -- list of language that will be disabled
-                additional_vim_regex_highlighting = true,
+                additional_vim_regex_highlighting = false,
             },
             indent = { enable = false, disable = { 'yaml' } },
             autotag = { enable = true },
@@ -132,14 +132,7 @@ return {
             },
             matchup = { enable = true, disable = { 'c', 'ruby' } },
         },
-        ---@param opts TSConfig
-        config = function(plugin, opts)
-            if plugin.ensure_installed then
-                require('lazyvim.util').deprecate(
-                    'treesitter.ensure_installed',
-                    'treesitter.opts.ensure_installed'
-                )
-            end
+        config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts)
         end,
     },
