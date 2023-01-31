@@ -100,7 +100,6 @@ end
 
 function M.rename()
     if pcall(require, 'inc_rename') then
-        print 'hi'
         return ':IncRename ' .. vim.fn.expand '<cword>'
     else
         vim.lsp.buf.rename()
