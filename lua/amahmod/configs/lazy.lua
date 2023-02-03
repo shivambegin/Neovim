@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
     spec = {
         { import = 'amahmod.plugins' },
+        { import = 'amahmod.plugins/extra/langs' },
     },
     default = {
         lazy = true,
@@ -35,4 +36,3 @@ require('lazy').setup {
         },
     },
 }
-
