@@ -1,4 +1,5 @@
 {
+  "catppuccin": { "branch": "main", "commit": "8769e767f12f5bf0b7d1250ee067088e7054809a" },
   "lazy.nvim": { "branch": "main", "commit": "9b208696e139a404d159963b975a5b90af38439b" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "8238865e1d9c61f1a260c290653f2c419503e0a9" },
   "nui.nvim": { "branch": "main", "commit": "d147222a1300901656f3ebd5b95f91732785a329" },
