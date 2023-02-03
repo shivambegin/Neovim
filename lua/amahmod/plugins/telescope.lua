@@ -118,6 +118,11 @@ return {
                 end,
                 desc = 'Workspace symbols',
             },
+            {
+                '<leader>fr',
+                '<cmd>Telescope resume<cr>',
+                desc = 'Resume last search',
+            },
         },
         opts = {
             defaults = {
