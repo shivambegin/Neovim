@@ -27,12 +27,17 @@ return {
                 marksman = {},
                 cssls = {},
                 jsonls = {},
-                sumneko_lua = {
+                lua_ls = {
                     settings = {
                         Lua = {
                             workspace = {
                                 checkThirdParty = false,
+                                library = vim.api.nvim_get_runtime_file(
+                                    '',
+                                    true
+                                ),
                             },
+                            telemetry = { enable = false },
                             completion = {
                                 callSnippet = 'Replace',
                             },
