@@ -5,6 +5,7 @@ return {
             'JoosepAlviste/nvim-ts-context-commentstring',
             'nvim-treesitter/nvim-treesitter-textobjects',
             'nvim-treesitter/nvim-treesitter-refactor',
+            'windwp/nvim-ts-autotag',
         },
         build = ':TSUpdate',
         event = 'BufReadPost',
