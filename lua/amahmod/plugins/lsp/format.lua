@@ -1,3 +1,4 @@
+local settings = require 'amahmod.configs.settings'
 local M = {}
 
 M.autoformat = true
@@ -30,15 +31,17 @@ end
 
 function M.on_attach(client, buf)
     if client.supports_method 'textDocument/formatting' then
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            group = vim.api.nvim_create_augroup('LspFormat.' .. buf, {}),
-            buffer = buf,
-            callback = function()
-                if M.autoformat then
-                    M.format()
-                end
-            end,
-        })
+        if settings.format_on_save then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                group = vim.api.nvim_create_augroup('LspFormat.' .. buf, {}),
+                buffer = buf,
+                callback = function()
+                    if M.autoformat then
+                        M.format()
+                    end
+                end,
+            })
+        end
     end
 end
 
