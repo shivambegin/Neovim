@@ -33,7 +33,7 @@ map(
 map(
     'n',
     '<leader>tq',
-    '<cmd>lua require("amahmod.core.utils").toggle_qf()<CR>',
+    '<cmd>lua require("amahmod.util").toggle_quickfix()<CR>',
     { desc = 'Toggle quickfix list' }
 )
 
