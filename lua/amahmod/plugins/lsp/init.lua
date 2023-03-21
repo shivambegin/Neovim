@@ -40,7 +40,18 @@ return {
                         },
                     },
                 },
-                gopls = {},
+                gopls = {
+                    settings = {
+                        hints = {
+                            assignVariableTypes = true,
+                            compositeLiteralFields = true,
+                            constantValues = true,
+                            functionTypeParameters = true,
+                            parameterNames = true,
+                            rangeVariableTypes = true,
+                        },
+                    },
+                },
                 diagnosticls = {},
                 sqlls = {},
                 svelte = {},
@@ -48,7 +59,6 @@ return {
                 eslint = {},
                 tailwindcss = {},
                 graphql = {},
-                rust_analyzer = {},
                 marksman = {},
                 cssls = {},
                 jsonls = {},
@@ -167,6 +177,15 @@ return {
         end,
     },
     {
+        'simrat39/rust-tools.nvim',
+        event = 'BufReadPre',
+        config = function()
+            local rt = require 'rust-tools'
+
+            rt.setup {}
+        end,
+    },
+    {
         'lvimuser/lsp-inlayhints.nvim',
         event = 'BufReadPre',
         config = function()
@@ -224,6 +243,7 @@ return {
                         extra_filetypes = { 'svelte' },
                     },
                     nls.builtins.formatting.rustfmt,
+                    nls.builtins.formatting.gofumpt,
 
                     -- code actions
                     nls.builtins.code_actions.gitsigns,
