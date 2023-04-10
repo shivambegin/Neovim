@@ -5,8 +5,8 @@ local map = vim.keymap.set
 -- ==========================================================================
 
 -- Remap for dealing with word wrap
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 map('n', 'n', 'nzzzv') -- keep the cursor centered when doing 'n'
 map('n', 'N', 'Nzzzv') -- keep the cursor centered when doing 'N'
@@ -42,7 +42,7 @@ map({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
 -- Use operator pending mode to visually select the whole buffer
 -- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
-map('o', 'A', '<cmd><C-U>normal! mzggVG<CR>`z')
+map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
 map('x', 'A', ':<C-U>normal! ggVG<CR>')
 
 -- Better window management
@@ -111,4 +111,3 @@ map(
     '<cmd>lprev<CR>',
     { desc = 'Previous location list item' }
 )
-
