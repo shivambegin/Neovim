@@ -1,6 +1,6 @@
 return {
     {
         'andymass/vim-matchup',
-        event = 'VeryLazy',
+        event = 'BufReadPost',
     },
 }
