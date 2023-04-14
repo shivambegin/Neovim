@@ -18,7 +18,7 @@ function M.on_attach(client, buffer)
     self:map('gr', 'Telescope lsp_references', { desc = 'References' })
     self:map('gD', 'Telescope lsp_declarations', { desc = 'Goto Declaration' })
     self:map(
-        'gI',
+        'gi',
         'Telescope lsp_implementations',
         { desc = 'Goto Implementation' }
     )
