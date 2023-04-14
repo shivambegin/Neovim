@@ -1,17 +1,18 @@
+local settings = require 'amahmod.configs.settings'
 return {
     {
-        "catppuccin/nvim",
+        'folke/tokyonight.nvim',
         lazy = false,
-        name = "catppuccin",
         priority = 1000,
-        opts = {
-            flavour = 'macchiato'
+        config = function()
+            local tokyonight = require 'tokyonight'
 
-        },
-        config = function(_, opts)
-            local catppuccin = require 'catppuccin'
-            catppuccin.setup (opts)
-            vim.cmd.colorscheme "catppuccin"
-        end
-    }
+            tokyonight.setup {
+                style = 'night',
+                transparent = settings.transparent_background,
+            }
+
+            vim.cmd.colorscheme 'tokyonight'
+        end,
+    },
 }
