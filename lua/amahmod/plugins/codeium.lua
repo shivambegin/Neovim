@@ -9,13 +9,13 @@ return {
             return vim.fn['codeium#Accept']()
         end, { expr = true })
 
-        map('i', '<C-h>', function()
-            return vim.fn['codeium#CycleCompletions'](2)
-        end, { expr = true })
-
-        map('i', '<C-l>', function()
-            return vim.fn['codeium#CycleCompletions'](-1)
-        end, { expr = true })
+        -- map('i', '<C-h>', function()
+        --     return vim.fn['codeium#CycleCompletions'](2)
+        -- end, { expr = true })
+        --
+        -- map('i', '<C-l>', function()
+        --     return vim.fn['codeium#CycleCompletions'](-1)
+        -- end, { expr = true })
 
         map('i', '<C-p>', function()
             return vim.fn['codeium#Clear']()
