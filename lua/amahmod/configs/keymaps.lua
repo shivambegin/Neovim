@@ -40,11 +40,6 @@ map(
 map({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
 map({ 'n', 'v' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
--- Use operator pending mode to visually select the whole buffer
--- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
-map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
-map('x', 'A', ':<C-U>normal! ggVG<CR>')
-
 -- Better window management
 map('n', '<C-h>', '<C-w>h', { desc = 'Move to left split' })
 map('n', '<C-j>', '<C-w>j', { desc = 'Move to below split' })
