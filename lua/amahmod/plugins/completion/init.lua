@@ -35,6 +35,8 @@ return {
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'petertriho/cmp-git',
+            'davidsierradz/cmp-conventionalcommits',
         },
         config = function()
             local cmp = require 'cmp'
@@ -98,6 +100,17 @@ return {
                     },
                 },
             }
+
+            require('cmp_git').setup {}
+
+            cmp.setup.filetype('gitcommit', {
+                sources = cmp.config.sources({
+                    { name = 'cmp_git' },
+                    { name = 'conventionalcommits' },
+                }, {
+                    { name = 'buffer' },
+                }),
+            })
 
             -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
             cmp.setup.cmdline({ '/', '?' }, {
