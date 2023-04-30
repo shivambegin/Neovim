@@ -81,40 +81,14 @@ return {
             {
                 '<leader>ds',
                 function()
-                    require('telescope.builtin').lsp_document_symbols {
-                        symbols = {
-                            'Class',
-                            'Function',
-                            'Method',
-                            'Constructor',
-                            'Interface',
-                            'Module',
-                            'Struct',
-                            'Trait',
-                            'Field',
-                            'Property',
-                        },
-                    }
+                    require('telescope.builtin').lsp_document_symbols {}
                 end,
                 desc = 'Document symbols',
             },
             {
                 '<leader>dS',
                 function()
-                    require('telescope.builtin').lsp_workspace_symbols {
-                        symbols = {
-                            'Class',
-                            'Function',
-                            'Method',
-                            'Constructor',
-                            'Interface',
-                            'Module',
-                            'Struct',
-                            'Trait',
-                            'Field',
-                            'Property',
-                        },
-                    }
+                    require('telescope.builtin').lsp_workspace_symbols {}
                 end,
                 desc = 'Workspace symbols',
             },
