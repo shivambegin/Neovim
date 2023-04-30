@@ -43,7 +43,7 @@ local options = {
         smarttab = true, -- Insert spaces when tab is pressed
         softtabstop = 4, -- Number of space in a tab
         spell = false,
-        spelllang = 'en',
+        spelllang = { 'en' },
         splitbelow = true, -- Splitting a new window below the current one
         splitkeep = 'screen',
         splitright = true, -- Splitting a new window at the right of the current one
@@ -55,6 +55,7 @@ local options = {
         updatetime = 200, -- Length of time to wait before triggering the plugin
         wildmode = 'longest:full,full', -- Command-line completion mode
         winbar = '%m %f', -- Statusline
+        winminwidth = 5, -- window minimum width
         wrap = false, -- Disable wrapping of lines longer than the width of window
         writebackup = false, -- Disable making a backup before overwriting a file
     },
@@ -62,6 +63,7 @@ local options = {
 
 -- Don't pass messages to |ins-completion-menu|.
 vim.g.mapleader = ' '
+vim.opt.shortmess:append { W = true }
 
 for scope, table in pairs(options) do
     for setting, value in pairs(table) do

@@ -97,7 +97,6 @@ return {
             },
             -- you can do any additional lsp server setup here
             -- return true if you don't want this server to be setup with lspconfig
-            ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
             setup = {
                 -- example to setup with typescript.nvim
                 -- tsserver = function(_, opts)
@@ -108,20 +107,7 @@ return {
                 -- ["*"] = function(server, opts) end,
             },
         },
-        config = function(plugin, opts)
-            if plugin.servers then
-                require('amahmod.util').deprecate(
-                    'lspconfig.servers',
-                    'lspconfig.opts.servers'
-                )
-            end
-            if plugin.setup_server then
-                require('amahmod.util').deprecate(
-                    'lspconfig.setup_server',
-                    'lspconfig.opts.setup[SERVER]'
-                )
-            end
-
+        config = function(_, opts)
             -- setup formatting and keymaps
             require('amahmod.util').on_attach(function(client, buffer)
                 require('amahmod.plugins.lsp.format').on_attach(client, buffer)
@@ -239,17 +225,19 @@ return {
                     -- formatting
                     nls.builtins.formatting.stylua,
                     nls.builtins.formatting.shfmt,
-                    nls.builtins.formatting.prettierd.with {
-                        extra_filetypes = { 'svelte' },
-                    },
+                    -- stylua: ignore
+                    nls.builtins.formatting.prettierd.with { extra_filetypes = { 'svelte' }, },
                     nls.builtins.formatting.rustfmt,
                     nls.builtins.formatting.gofumpt,
 
                     -- code actions
+                    nls.builtins.code_actions.eslint_d,
                     nls.builtins.code_actions.gitsigns,
+                    nls.builtins.code_actions.refactoring,
 
                     -- diagnostic
                     nls.builtins.diagnostics.yamllint,
+                    nls.builtins.diagnostics.commitlint,
                 },
             }
         end,
@@ -268,7 +256,6 @@ return {
                 'shfmt',
             },
         },
-        ---@param opts MasonSettings | {ensure_installed: string[]}
         config = function(plugin, opts)
             if plugin.ensure_installed then
                 require('amahmod.util').deprecate(

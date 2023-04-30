@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 --  ╭──────────────────────────────────────────────────────────╮
---  │              close some filetypes with <q>               │
+--  │              Close some filetypes with <q>               │
 --  ╰──────────────────────────────────────────────────────────╯
 vim.api.nvim_create_autocmd('FileType', {
     group = augroup 'close_with_q',
