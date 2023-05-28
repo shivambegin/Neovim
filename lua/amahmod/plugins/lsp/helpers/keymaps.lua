@@ -53,7 +53,7 @@ function M.on_attach(client, buffer)
         { desc = 'Code Action', mode = { 'n', 'v' }, has = 'codeAction' }
     )
 
-    local format = require('amahmod.plugins.lsp.format').format
+    local format = require('amahmod.plugins.lsp.helpers.format').format
     self:map(
         '<leader>lf',
         format,
