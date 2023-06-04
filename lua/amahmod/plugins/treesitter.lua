@@ -18,7 +18,6 @@ return {
                 'embedded_template',
                 'go',
                 'graphql',
-                'help',
                 'hjson',
                 'html',
                 'http',
