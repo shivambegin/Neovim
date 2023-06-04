@@ -22,7 +22,7 @@ return {
 
                     -- diagnostic
                     nls.builtins.diagnostics.yamllint,
-                    nls.builtins.diagnostics.commitlint,
+                    -- nls.builtins.diagnostics.commitlint,
                 },
             }
         end,
