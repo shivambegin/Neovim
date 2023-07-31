@@ -17,6 +17,7 @@ return {
                         },
                     },
                 },
+                bashls = {},
                 denols = {},
                 yamlls = {},
                 dockerls = {},
