@@ -188,6 +188,8 @@ return {
 
             local servers = opts.servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.workspace.didChangeWatchedFiles.dynamicRegistration =
+                true
 
             require('mason-lspconfig').setup {
                 ensure_installed = vim.tbl_keys(servers),
