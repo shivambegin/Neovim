@@ -50,6 +50,7 @@ local options = {
         winbar = '%m %f', -- Statusline
         wrap = true, -- Disable wrapping of lines longer than the width of window.
         writebackup = false, -- Disable making a backup before overwriting a file
+        lazyredraw = true,
     },
     g = {
         mapleader = ' ', -- set leader key
