@@ -8,14 +8,14 @@ return {
         },
         keys = {
             {
-                '<leader>u',
+                '<leader>hu',
                 function()
                     require('harpoon.ui').toggle_quick_menu()
                 end,
                 desc = 'Harpoon Quick Menu',
             },
             {
-                '<leader>a',
+                '<leader>hm',
                 function()
                     require('harpoon.mark').add_file()
                 end,
@@ -48,13 +48,6 @@ return {
                     require('harpoon.ui').nav_file(4)
                 end,
                 desc = 'Harpoon File 4',
-            },
-            {
-                '<leader>5',
-                function()
-                    require('harpoon.ui').nav_file(5)
-                end,
-                desc = 'Harpoon File 5',
             },
         },
         config = function()

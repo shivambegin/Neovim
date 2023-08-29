@@ -7,7 +7,7 @@ return {
         },
         keys = {
             { '<leader>du', ':DBUIToggle<cr>', desc = 'Toggle DB UI' },
-            { '<leader>df', ':DBUIFindBuffer<cr>', desc = 'DB Find buffer' },
+            { '<leader>db', ':DBUIFindBuffer<cr>', desc = 'DB Find buffer' },
             {
                 '<leader>dr',
                 ':DBUIRenameBuffer<cr>',

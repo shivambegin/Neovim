@@ -167,4 +167,23 @@ function M.conditional.bar_width(n)
     end
 end
 
+local function format_size(size)
+    local units = { 'B', 'KB', 'MB', 'GB' }
+    local index = 1
+    while size >= 1024 and index < #units do
+        size = size / 1024
+        index = index + 1
+    end
+    return string.format('%.2f %s', size, units[index])
+end
+
+function M.active_buffer_size()
+    local current_buffer = vim.api.nvim_get_current_buf()
+    local buffer_lines = vim.api.nvim_buf_line_count(current_buffer)
+    local buffer_content =
+        vim.fn.join(vim.fn.getbufline(current_buffer, 1, buffer_lines))
+    local buffer_size = #buffer_content
+    return format_size(buffer_size)
+end
+
 return M

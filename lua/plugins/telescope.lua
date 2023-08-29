@@ -16,7 +16,12 @@ return {
                 desc = 'Find Files (root dir)',
             },
             {
-                '<leader>fw',
+                '<leader>ff',
+                '<cmd>Telescope current_buffer_fuzzy_find<cr>',
+                desc = 'Buffer',
+            },
+            {
+                '<leader>fg',
                 '<cmd>Telescope live_grep<CR>',
                 desc = 'Find in Files (Grep)',
             },
@@ -29,44 +34,18 @@ return {
                 desc = 'commits',
             },
             { '<leader>gs', '<cmd>Telescope git_status<CR>', desc = 'status' },
+            { '<leader>fc', '<cmd>Telescope commands<cr>', desc = 'Commands' },
             {
-                '<leader>ha',
-                '<cmd>Telescope autocommands<cr>',
-                desc = 'Auto Commands',
-            },
-            { '<leader>hc', '<cmd>Telescope commands<cr>', desc = 'Commands' },
-            {
-                '<leader>hf',
-                '<cmd>Telescope filetypes<cr>',
-                desc = 'File Types',
-            },
-            {
-                '<leader>hh',
+                '<leader>fh',
                 '<cmd>Telescope help_tags<cr>',
                 desc = 'Help Pages',
             },
-            { '<leader>hk', '<cmd>Telescope keymaps<cr>', desc = 'Key Maps' },
+            { '<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Key Maps' },
+            { '<leader>fm', '<cmd>Telescope marks<cr>', desc = 'Key Maps' },
             {
-                '<leader>hm',
+                '<leader>fM',
                 '<cmd>Telescope man_pages<cr>',
                 desc = 'Man Pages',
-            },
-            { '<leader>ht', '<cmd>Telescope builtin<cr>', desc = 'Telescope' },
-            {
-                '<leader>sb',
-                '<cmd>Telescope current_buffer_fuzzy_find<cr>',
-                desc = 'Buffer',
-            },
-            {
-                '<leader>sc',
-                '<cmd>Telescope command_history<cr>',
-                desc = 'Command History',
-            },
-            { '<leader>fm', '<cmd>Telescope marks<cr>', desc = 'Jump to Mark' },
-            {
-                '<leader>,',
-                '<cmd>Telescope buffers show_all_buffers=true<cr>',
-                desc = 'Switch Buffer',
             },
             {
                 '<leader>:',
@@ -86,14 +65,14 @@ return {
                 desc = 'Document symbols',
             },
             {
-                '<leader>dS',
+                '<leader>ws',
                 function()
                     require('telescope.builtin').lsp_workspace_symbols {}
                 end,
                 desc = 'Workspace symbols',
             },
             {
-                '<leader>fr',
+                '<leader>tr',
                 '<cmd>Telescope resume<cr>',
                 desc = 'Resume last search',
             },

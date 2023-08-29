@@ -8,15 +8,14 @@ function M.on_attach(client, buffer)
         vim.diagnostic.open_float,
         { desc = 'Line Diagnostics' }
     )
-    self:map('<leader>li', 'LspInfo', { desc = 'Lsp Info' })
     self:map(
         '<leader>fd',
         'Telescope diagnostics',
         { desc = 'Telescope Diagnostics' }
     )
+
     self:map('gd', 'Telescope lsp_definitions', { desc = 'Goto Definition' })
     self:map('gr', 'Telescope lsp_references', { desc = 'References' })
-    self:map('gD', 'Telescope lsp_declarations', { desc = 'Goto Declaration' })
     self:map(
         'gi',
         'Telescope lsp_implementations',
@@ -26,6 +25,18 @@ function M.on_attach(client, buffer)
         'gt',
         'Telescope lsp_type_definitions',
         { desc = 'Goto Type Definition' }
+    )
+
+    self:map(
+        '<leader>lc',
+        'Telescope lsp_incoming_calls',
+        { desc = 'Incoming calls' }
+    )
+
+    self:map(
+        '<leader>lo',
+        'Telescope lsp_outgoing_calls',
+        { desc = 'Outgoing calls' }
     )
     self:map('K', vim.lsp.buf.hover, { desc = 'Hover' })
     self:map(

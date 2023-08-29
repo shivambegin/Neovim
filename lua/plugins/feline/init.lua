@@ -8,8 +8,9 @@ return {
             local colors = require 'plugins.feline.colors'
             local hl = require('plugins.feline.helpers').hl
             local pp = require('plugins.feline.helpers').provider
-            local conditional =
-                require('plugins.feline.helpers').conditional
+            local conditional = require('plugins.feline.helpers').conditional
+            local buffer_size =
+                require('plugins.feline.helpers').active_buffer_size
 
             local theme =
                 hl.group('StatusLine', { fg = colors.fg, bg = colors.bg_1 })
@@ -146,6 +147,15 @@ return {
                             { provider = 'position' },
                             { provider = pp.spacer(2) },
                             { provider = 'line_percentage' },
+                            { provider = pp.spacer() },
+                            {
+                                left_sep = pp.spacer(),
+                                right_sep = pp.spacer(),
+                                enabled = true,
+                                provider = function()
+                                    return buffer_size()
+                                end,
+                            },
                             { provider = pp.spacer() },
                             {
                                 provider = 'scroll_bar',

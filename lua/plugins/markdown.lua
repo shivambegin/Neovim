@@ -10,7 +10,7 @@ return {
         ft = { 'markdown' },
         keys = {
             {
-                '<leader>tm',
+                '<leader>mp',
                 '<cmd>MarkdownPreviewToggle<CR>',
                 { desc = 'toggle markdown preview', noremap = true },
             },
