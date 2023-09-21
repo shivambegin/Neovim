@@ -28,7 +28,7 @@ return {
                 },
             },
             window = {
-                position = 'right',
+                position = 'left',
                 width = 30,
                 mappings = {
                     ['o'] = 'open',
