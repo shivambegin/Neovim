@@ -119,8 +119,6 @@ return {
                                 ),
                                 icon = '  ',
                             },
-                        },
-                        {
                             -- {
                             --     provider = provider.lsp_progress,
                             --     enabled = conditional.bar_width(),
