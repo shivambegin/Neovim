@@ -5,7 +5,7 @@ return {
         local map = vim.keymap.set
         vim.g.codeium_disable_bindings = 1
 
-        map('i', '<C-j>', function()
+        map('i', '<C-a>', function()
             return vim.fn['codeium#Accept']()
         end, { expr = true })
 
@@ -17,7 +17,7 @@ return {
         --     return vim.fn['codeium#CycleCompletions'](-1)
         -- end, { expr = true })
 
-        map('i', '<C-p>', function()
+        map('i', '<C-c>', function()
             return vim.fn['codeium#Clear']()
         end, { expr = true })
         -- vim.keymap.set("i", "<C-k>", function() return vim.fn["codeium#Complete"]() end, { expr = true })

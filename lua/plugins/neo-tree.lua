@@ -9,7 +9,7 @@ return {
         cmd = 'Neotree',
         keys = {
             {
-                '<leader>e',
+                '<leader>t',
                 '<cmd>Neotree toggle<CR>',
                 desc = 'NeoTree Toggle',
             },

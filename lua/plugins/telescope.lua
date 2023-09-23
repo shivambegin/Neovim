@@ -11,7 +11,7 @@ return {
         cmd = 'Telescope',
         keys = {
             {
-                '<C-p>',
+                '<C-t>',
                 '<cmd>Telescope find_files<CR>',
                 desc = 'Find Files (root dir)',
             },
@@ -83,7 +83,7 @@ return {
                 selection_caret = icons.ui.Forward .. ' ',
                 mappings = {
                     i = {
-                        ['<c-t>'] = function(...)
+                        ['<C-p>'] = function(...)
                             return require('trouble.providers.telescope').open_with_trouble(
                                 ...
                             )
