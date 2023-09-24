@@ -51,8 +51,8 @@ return {
                 ColorColumn = { bg = 'highlight_low' },
 
                 -- Blend colours against the "base" background
-                CursorLine = { bg = 'foam', blend = 10 },
-                StatusLine = { fg = 'pine', bg = 'love', blend = 10 },
+                CursorLine = { bg = 'none', blend = 10 },
+                StatusLine = { fg = 'pine', bg = 'none', blend = 10 },
 
                 -- By default each group adds to the existing config.
                 -- If you only want to set what is written in this config exactly,
