@@ -65,6 +65,9 @@ return {
                 TelescopeResultsNormal = { fg = 'subtle', bg = 'none' },
                 TelescopeSelection = { fg = 'text', bg = 'base' },
                 TelescopeSelectionCaret = { fg = 'rose', bg = 'rose' },
+                require("notify").setup({
+                    background_colour = "#000000",
+                  })
             },
         }
 
