@@ -219,5 +219,8 @@ return {
         "nvim-tree/nvim-web-devicons",
         "akinsho/bufferline.nvim"
     },
-	opts = lualineConfig,
+	opts = {
+		lualineConfig,
+		transparent = true
+	}
 }
