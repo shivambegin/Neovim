@@ -3,5 +3,9 @@ return {
     -- require 'plugins.theme.solarized',
     -- require 'plugins.theme.kanagawa'
     -- require 'plugins.theme.everforest',
-    require 'plugins.theme.rosepine',
+    -- require 'plugins.theme.rosepine',
+    require 'plugins.theme.synthwave84',
+    require("notify").setup({
+        background_colour = "#000000",
+    })
 }
