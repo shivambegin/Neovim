@@ -6,7 +6,6 @@ return {
         "akinsho/bufferline.nvim"
     },
 	opts = {
-		lualineConfig,
 		transparent = true
 	},
 	config = function ()
@@ -185,7 +184,7 @@ ins_left {
     return msg
   end,
   icon = ' LSP:',
-  color = { fg = '#ffffff', gui = 'bold' },
+  color = { fg = '#f5f232', gui = 'bold' },
 }
 
 -- Add components to right sections
@@ -193,7 +192,7 @@ ins_right {
   'o:encoding', -- option component same as &encoding in viml
   fmt = string.upper, -- I'm not sure why it's upper case either ;)
   cond = conditions.hide_in_width,
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.red, gui = 'bold' },
 }
 
 ins_right {
