@@ -5,7 +5,7 @@ return {
         priority = 1000,
         config = function ()
          local fm = require 'fluoromachine'
-         function overrides(c)
+         local function overrides(c)
             return {
              TelescopeResultsBorder = { fg = c.alt_bg, bg = c.alt_bg },
              TelescopeResultsNormal = { bg = c.alt_bg },
@@ -18,13 +18,17 @@ return {
 
          fm.setup {
             glow = true,
-            theme = 'retrowave',
+            theme = 'delta',
             transparent = 'full',
             overrides = overrides,
             colors = function(_, d)
                 return {
                   bg = '#00ffffff',
-                  alt_bg = '#001900',
+                  alt_bg = d('#190920', 20),
+                  fg = d('#bbc2cf'),
+                  comment = d('#008080'),
+                  -- purple = '#9457e4',
+                  blue = '#51afef',
                   cyan = '#49eaff',
                   red = '#ff1e34',
                   yellow = '#ffe756',
