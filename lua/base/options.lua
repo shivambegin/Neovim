@@ -48,7 +48,7 @@ local options = {
         updatetime = 20, -- Length of time to wait before triggering the plugin
         virtualedit = 'block', -- allow going past end of line in visual block mode
         winbar = '%m %f', -- Statusline
-        wrap = true, -- Disable wrapping of lines longer than the width of window.
+        wrap = false, -- Disable wrapping of lines longer than the width of window.
         writebackup = false, -- Disable making a backup before overwriting a file
         lazyredraw = false,
     },
