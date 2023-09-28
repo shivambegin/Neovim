@@ -6,7 +6,7 @@ return{
 dracula.setup({
   -- customize dracula color palette
   colors = {
-    bg = "#000000",
+    bg = "#00ffffff",
     fg = "#F8F8F2",
     selection = "#44475A",
     comment = "#6272A4",
@@ -41,6 +41,7 @@ dracula.setup({
   italic_comment = true, -- default false
   -- overrides the default highlights with table see `:h synIDattr`
   overrides = {},
+
   -- You can use overrides as table like this
   -- overrides = {
   --   NonText = { fg = "white" }, -- set NonText fg to white

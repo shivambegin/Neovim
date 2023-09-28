@@ -26,7 +26,7 @@ return {
                 end,
             }
 
-            vim.cmd.colorscheme 'NeoSolarized'
+            -- vim.cmd.colorscheme 'NeoSolarized'
         end,
     },
     -- {

@@ -38,7 +38,7 @@ return {
                 groups = {},
             }
 
-            vim.cmd.colorscheme 'nordfox'
+            -- vim.cmd.colorscheme 'duskfox'
         end,
     },
 }
