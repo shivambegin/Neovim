@@ -58,7 +58,7 @@ map(
 -- save and quit {{{
 
 -- map('n', '<C-s>', '<cmd>w!<CR>', { desc = 'Force save' })
-map('n', '<leader>s', '<cmd>w<CR>', { desc = 'Save buffer' })
+-- map('n', '<leader>s', '<cmd>w<CR>', { desc = 'Save buffer' })
 map('n', '<leader>q', '<cmd>q!<CR>', { desc = 'Force quit' })
 map('n', '<leader>Q', '<cmd>wq!<CR>', { desc = 'Force save and  quit' })
 -- }}}
@@ -103,8 +103,9 @@ map('n', ']q', '<cmd>cnext<CR>', { desc = 'Next quickfix item' })
 map('n', '[q', '<cmd>cprev<CR>', { desc = 'previous quickfix item' })
 -- stylua: ignore start
 map( 'n', '<leader>tq', '<cmd>lua require("base.utils").toggle_quickfix()<CR>', { desc = 'Toggle quickfix list' })
-map( 'n', '<leader>S', '<cmd>%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left><CR>' )
-map( 'v', '<leader>S', '<cmd>s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left><CR>' )
+-- map( 'n', '<leader>S', '<cmd>%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left><CR>' )
+-- map( 'v', '<leader>S', '<cmd>s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left><CR>' )
+-- conflict keymaps
 -- stylua: ignore end
 
 -- }}}

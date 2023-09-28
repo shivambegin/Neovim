@@ -34,7 +34,7 @@ local options = {
         shiftwidth = 2, -- Number of space inserted for indentation
         showmode = false, -- Disable showing modes in command line
         sidescrolloff = 8, -- Same but for side scrolling.
-        signcolumn = 'yes', -- Always show the sign column
+        signcolumn = 'number', -- Always show the sign column -- Disable sign column
         smartcase = true, -- Case sensitivie searching
         smartindent = true, -- Smarter autoindentation
         splitbelow = true, -- Splitting a new window below the current one
@@ -76,3 +76,4 @@ for scope, table in pairs(options) do
         vim[scope][setting] = value
     end
 end
+

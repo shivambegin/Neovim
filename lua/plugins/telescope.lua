@@ -11,7 +11,8 @@ return {
         cmd = 'Telescope',
         keys = {
             {
-                '<C-t>',
+                -- '<C-t>',
+                '<leader>tt',
                 '<cmd>Telescope find_files<CR>',
                 desc = 'Find Files (root dir)',
             },
