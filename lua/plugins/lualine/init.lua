@@ -107,9 +107,9 @@ ins_left {
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
+      n = colors.ukrainian_blue,
+      i = colors.ukrainian_yellow,
+      v = colors.magenta,
       [''] = colors.blue,
       V = colors.blue,
       c = colors.magenta,
