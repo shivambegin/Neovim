@@ -14,7 +14,7 @@ return{
         middle_mouse_command = nil,
         indicator = {
           icon = "/ ", -- this should be omitted if indicator style is not 'icon'
-          style = "padded_slant",
+          style = "sloped",
         },
         buffer_close_icon = "",
         modified_icon = "●",
@@ -45,7 +45,7 @@ return{
         show_close_icon = true,
         show_tab_indicators = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        separator_style = "/ ",
+        separator_style = "sloped",
         enforce_regular_tabs = false,
         always_show_bufferline = true,
         sort_by = "id",
