@@ -16,9 +16,7 @@ return{
             key = 'e'
           },
           {
-            icon = ' ',
-            icon_hl = '@variable',
-            desc = 'Files',
+            icon = ' ', icon_hl = '@variable', desc = 'Files',
             group = 'Label',
             action = 'Telescope find_files',
             key = 'f',
