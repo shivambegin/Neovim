@@ -1,244 +1,161 @@
 return {
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            'williamboman/mason-lspconfig.nvim',
-            'b0o/SchemaStore.nvim',
-        },
-        event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        opts = {
-            servers = {
-                html = {},
-                emmet_ls = {},
-                rust_analyzer = {
-                    settings = {
-                        diagnostics = {
-                            enable = true,
-                        },
-                    },
-                },
-                bashls = {},
-                denols = {},
-                yamlls = {},
-                dockerls = {},
-                -- tsserver = {
-                --     settings = {
-                --         typescript = {
-                --             inlayHints = {
-                --                 includeInlayParameterNameHints = 'all',
-                --                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                --                 includeInlayFunctionParameterTypeHints = true,
-                --                 includeInlayVariableTypeHints = true,
-                --                 includeInlayPropertyDeclarationTypeHints = true,
-                --                 includeInlayFunctionLikeReturnTypeHints = true,
-                --                 includeInlayEnumMemberValueHints = true,
-                --             },
-                --         },
-                --         javascript = {
-                --             inlayHints = {
-                --                 includeInlayParameterNameHints = 'all',
-                --                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                --                 includeInlayFunctionParameterTypeHints = true,
-                --                 includeInlayVariableTypeHints = true,
-                --                 includeInlayPropertyDeclarationTypeHints = true,
-                --                 includeInlayFunctionLikeReturnTypeHints = true,
-                --                 includeInlayEnumMemberValueHints = true,
-                --             },
-                --         },
-                --     },
-                -- },
-                gopls = {
-                    settings = {
-                        hints = {
-                            assignVariableTypes = true,
-                            compositeLiteralFields = true,
-                            constantValues = true,
-                            functionTypeParameters = true,
-                            parameterNames = true,
-                            rangeVariableTypes = true,
-                        },
-                    },
-                },
-                diagnosticls = {},
-                sqlls = {},
-                -- svelte = {},
-                -- volar = {},
-                eslint = {},
-                -- tailwindcss = {},
-                graphql = {},
-                marksman = {},
-                cssls = {},
-                jsonls = {
-                    -- lazy-load schemastore when needed
-                    -- json schemas
-                    on_new_config = function(new_config)
-                        new_config.settings.json.schemas = new_config.settings.json.schemas
-                            or {}
-                        vim.list_extend(
-                            new_config.settings.json.schemas,
-                            require('schemastore').json.schemas()
-                        )
-                        -- yamlls schemas
-                        new_config.settings.yamlls.schemas = new_config.settings.yamlls.schemas
-                            or {}
-                        vim.list_extend(
-                            new_config.settings.yamlls.schemas,
-                            require('schemastore').yamlls.schemas()
-                        )
-                    end,
-                    settings = {
-                        json = {
-                            format = {
-                                enable = true,
-                            },
-                            validate = { enable = true },
-                        },
-                    },
-                },
-                lua_ls = {
-                    settings = {
-                        Lua = {
-                            hint = {
-                                enable = true,
-                                showParameterName = true,
-                            },
-                            workspace = {
-                                checkThirdParty = false,
-                                library = vim.api.nvim_get_runtime_file(
-                                    '',
-                                    true
-                                ),
-                            },
-                            telemetry = { enable = false },
-                            completion = {
-                                callSnippet = 'Replace',
-                            },
-                            diagnostics = {
-                                globals = {
-                                    'vim',
-                                    'use',
-                                    'describe',
-                                    'it',
-                                    'assert',
-                                    'before_each',
-                                    'after_each',
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-            setup = {
-                denols = function(_, opts)
-                    -- start denols only if  deno.json exists
-                    opts.root_dir = require('lspconfig').util.root_pattern(
-                        'deno.json',
-                        'deno.jsonc'
-                    )
-                    require('lspconfig').denols.setup(opts)
-                end,
-            },
-        },
-        config = function(_, opts)
-            -- setup formatting and keymaps
-            require('base.utils').on_attach(function(client, buffer)
-                -- INFO: tsserver and typescript-tools conflicts with denols
-                -- stop tsserver in deno project
-                if
-                    require('lspconfig').util.root_pattern(
-                        'deno.json',
-                        'import_map.json'
-                    )(vim.fn.getcwd())
-                then
-                    vim.g.markdown_fenced_languages = {
-                        'ts=typescript',
-                    }
-                    if
-                        client.name == 'tsserver'
-                        or client.name == 'typescript-tools'
-                    then
-                        client.stop()
-                        return
-                    end
-                end
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      { "antosha417/nvim-lsp-file-operations", config = true },
+    },
+    config = function()
+      -- import lspconfig plugin
+      local lspconfig = require("lspconfig")
 
-                require('plugins.lsp.format').on_attach(client, buffer)
-                require('plugins.lsp.keymaps').on_attach(client, buffer)
-            end)
+      -- import cmp-nvim-lsp plugin
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-            -- diagnostics
-            for name, icon in pairs(require('base.icons').diagnostics) do
-                name = 'DiagnosticSign' .. name
-                vim.fn.sign_define(
-                    name,
-                    { text = icon, texthl = name, numhl = '' }
-                )
-            end
+      local keymap = vim.keymap -- for conciseness
 
-            vim.diagnostic.config {
-                underline = true,
-                update_in_insert = true,
-                virtual_text = {
-                    spacing = 4,
-                    prefix = '●',
-                    source = 'always',
-                },
-                severity_sort = true,
-                float = { header = false, source = 'always' },
-            }
+      local opts = { noremap = true, silent = true }
+      local on_attach = function(client, bufnr)
+        opts.buffer = bufnr
 
-            local servers = opts.servers
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities.workspace.didChangeWatchedFiles.dynamicRegistration =
-                true
+        -- set keybinds
+        opts.desc = "Show LSP references"
+        keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-            require('mason-lspconfig').setup {
-                ensure_installed = vim.tbl_keys(servers),
-            }
-            require('mason-lspconfig').setup_handlers {
-                function(server)
-                    local server_opts = servers[server] or {}
-                    server_opts.capabilities = capabilities
-                    if opts.setup[server] then
-                        if opts.setup[server](server, server_opts) then
-                            return
-                        end
-                    elseif opts.setup['*'] then
-                        if opts.setup['*'](server, server_opts) then
-                            return
-                        end
-                    end
-                    require('lspconfig')[server].setup(server_opts)
-                end,
-            }
+        opts.desc = "Go to declaration"
+        keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+
+        opts.desc = "Show LSP definitions"
+        keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+
+        opts.desc = "Show LSP implementations"
+        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+
+        opts.desc = "Show LSP type definitions"
+        keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+
+        opts.desc = "See available code actions"
+        keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+
+        opts.desc = "Smart rename"
+        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+
+        opts.desc = "Show buffer diagnostics"
+        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+
+        opts.desc = "Show line diagnostics"
+        keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+        opts.desc = "Go to previous diagnostic"
+        keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+
+        opts.desc = "Go to next diagnostic"
+        keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+
+        opts.desc = "Show documentation for what is under cursor"
+        keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
+        opts.desc = "Restart LSP"
+        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+      end
+
+      -- used to enable autocompletion (assign to every lsp server config)
+      local capabilities = cmp_nvim_lsp.default_capabilities()
+
+      -- Change the Diagnostic symbols in the sign column (gutter)
+      -- (not in youtube nvim video)
+      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
+
+      -- configure html server
+      lspconfig["html"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure typescript server with plugin
+      lspconfig["tsserver"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure css server
+      lspconfig["cssls"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure tailwindcss server
+      lspconfig["tailwindcss"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure svelte server
+      lspconfig["svelte"].setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          on_attach(client, bufnr)
+
+          vim.api.nvim_create_autocmd("BufWritePost", {
+            pattern = { "*.js", "*.ts" },
+            callback = function(ctx)
+              if client.name == "svelte" then
+                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+              end
+            end,
+          })
         end,
-    },
-    -- Typesript tools
-    {
-        'pmizio/typescript-tools.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-        event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-        opts = {
-            settings = {
-                -- spawn additional tsserver instance to calculate diagnostics on it
-                separate_diagnostic_server = true,
-                -- "change"|"insert_leave" determine when the client asks the server about diagnostic
-                publish_diagnostic_on = 'insert_leave',
-                -- string|nil -specify a custom path to `tsserver.js` file, if this is nil or file under path
-                -- not exists then standard path resolution strategy is applied
-                tsserver_path = nil,
-                -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
-                -- (see 💅 `styled-components` support section)
-                tsserver_plugins = {
-                    '@styled/typescript-styled-plugin',
-                },
-                -- this value is passed to: https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes
-                -- memory limit in megabytes or "auto"(basically no limit)
-                tsserver_max_memory = 'auto',
-                -- described below
-                tsserver_format_options = {},
-                tsserver_file_preferences = {},
+      })
+
+      -- configure prisma orm server
+      lspconfig["prismals"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure graphql language server
+      lspconfig["graphql"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+      })
+
+      -- configure emmet language server
+      lspconfig["emmet_ls"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+      })
+
+      -- configure python server
+      lspconfig["pyright"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- configure lua server (with special settings)
+      lspconfig["lua_ls"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = { -- custom settings for lua
+          Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" },
             },
+            workspace = {
+              -- make language server aware of runtime files
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true,
+              },
+            },
+          },
         },
-    },
-}
+      })
+    end,
+  }

@@ -1,34 +1,56 @@
 return {
-    'williamboman/mason.nvim',
-    cmd = {
-        'Mason',
-        'MasonInstall',
-        'MasonUninstall',
-        'MasonUninstallAll',
-        'MasonLog',
-        'MasonUpdate',
-        'MasonUpdateAll',
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
-    build = ':MasonUpdate',
-    opts = {
-        ensure_installed = {},
-        ui = {
-            icons = {
-                package_installed = '✓',
-                package_uninstalled = '✗',
-                package_pending = '⟳',
-            },
-        },
-    },
-    config = function(_, opts)
-        require('mason').setup(opts)
+    config = function()
+      -- import mason
+      local mason = require("mason")
 
-        local mr = require 'mason-registry'
-        for _, tool in ipairs(opts.ensure_installed) do
-            local p = mr.get_package(tool)
-            if not p:is_installed() then
-                p:install()
-            end
-        end
+      -- import mason-lspconfig
+      local mason_lspconfig = require("mason-lspconfig")
+
+      local mason_tool_installer = require("mason-tool-installer")
+
+      -- enable mason and configure icons
+      mason.setup({
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+          },
+        },
+      })
+
+      mason_lspconfig.setup({
+        -- list of servers for mason to install
+        ensure_installed = {
+          "tsserver",
+          "html",
+          "cssls",
+        --   "tailwindcss",
+        --   "svelte",
+          "lua_ls",
+          "graphql",
+          "emmet_ls",
+          "prismals",
+          "pyright",
+        },
+        -- auto-install configured servers (with lspconfig)
+        automatic_installation = true, -- not the same as ensure_installed
+      })
+
+      mason_tool_installer.setup({
+        ensure_installed = {
+          "prettier", -- prettier formatter
+          "stylua", -- lua formatter
+          "isort", -- python formatter
+          "black", -- python formatter
+          "pylint", -- python linter
+          "eslint_d", -- js linter
+        },
+      })
     end,
-}
+  }
