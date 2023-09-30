@@ -88,11 +88,11 @@ return {
         on_attach = on_attach,
       })
 
-      -- configure tailwindcss server
-      lspconfig["tailwindcss"].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      -- -- configure tailwindcss server
+      -- lspconfig["tailwindcss"].setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
 
       -- configure svelte server
       lspconfig["svelte"].setup({
