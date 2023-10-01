@@ -1,3 +1,9 @@
+local colors ={
+    ukrainian_blue = '#0057b7',
+    ukrainian_yellow = '#ffdd00',
+    red = '#ff0000',
+}
+
 return{
     "petertriho/nvim-scrollbar",
     config = function()
@@ -19,10 +25,10 @@ return{
             },
             marks = {
                 Cursor = {
-                    text = "▎",
+                    text = "+",
                     priority = 0,
                     gui = nil,
-                    color = nil,
+                    color = colors.ukrainian_blue,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "Normal",
@@ -37,10 +43,10 @@ return{
                     highlight = "Search",
                 },
                 Error = {
-                    text = { "-", "=" },
+                    text = { "x" },
                     priority = 2,
                     gui = nil,
-                    color = nil,
+                    color = colors.red,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "DiagnosticVirtualTextError",
@@ -82,19 +88,19 @@ return{
                     highlight = "Normal",
                 },
                 GitAdd = {
-                    text = "┆",
+                    text = "|",
                     priority = 7,
                     gui = nil,
-                    color = nil,
+                    color = colors.ukrainian_yellow,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "GitSignsAdd",
                 },
                 GitChange = {
-                    text = "┆",
+                    text = "|",
                     priority = 7,
                     gui = nil,
-                    color = nil,
+                    color = colors.ukrainian_yellow,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "GitSignsChange",
