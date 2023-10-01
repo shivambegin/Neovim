@@ -53,6 +53,7 @@ return {
                 -- Blend colours against the "base" background
                 CursorLine = { bg = 'none', blend = 10 },
                 StatusLine = { fg = 'pine', bg = 'none', blend = 10 },
+                Signcolumn = { bg = 'none' },
 
                 -- By default each group adds to the existing config.
                 -- If you only want to set what is written in this config exactly,
