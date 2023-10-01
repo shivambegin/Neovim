@@ -3,13 +3,8 @@ return {
         'lewis6991/gitsigns.nvim',
         event = { 'BufReadPost', 'BufNewFile' },
         config = function()
-            -- require("scrollbar.handlers.gitsigns").setup()
-            require('gitsigns').setup{
-                signcolumn = auto,
-                on_attach = function()
-                vim.wo.signcolumn = "yes"
-                end
-                }
+            require("scrollbar.handlers.gitsigns").setup()
+            require('gitsigns').setup()
         end,
         opts = {
             signs = {
