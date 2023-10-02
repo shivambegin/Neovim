@@ -70,10 +70,9 @@ local options = {
     t = vim.t.bufs and vim.t.bufs or { bufs = vim.api.nvim_list_bufs() }, -- initialize buffers for the current tab
 }
 
--- set variables
+--set variables
 for scope, table in pairs(options) do
     for setting, value in pairs(table) do
         vim[scope][setting] = value
     end
 end
-
