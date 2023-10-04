@@ -3,21 +3,25 @@ return{
   main = "ibl",
   event = { "BufReadPost", "BufNewFile" },
   opts = {
-    -- char = "▏",
-    char = "│",
-    filetype_exclude = {
-      "help",
-      "alpha",
-      "dashboard",
-      "neo-tree",
-      "Trouble",
-      "lazy",
-      "mason",
-      "notify",
-      "toggleterm",
-      "lazyterm",
+    indent = { char = "▏" },
+    scope = { show_start = false, show_end = false },
+    exclude = {
+      buftypes = {
+        "nofile",
+        "terminal",
+      },
+      filetypes = {
+        "help",
+        "startify",
+        "aerial",
+        "alpha",
+        "dashboard",
+        "lazy",
+        "neogitstatus",
+        "NvimTree",
+        "neo-tree",
+        "Trouble",
+      },
     },
-    show_trailing_blankline_indent = false,
-    show_current_context = false,
-  },
+  }
 }
