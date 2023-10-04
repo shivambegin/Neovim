@@ -7,6 +7,14 @@ return     {
 if not status_ok then
  return
 end
+local status, toggleterm = pcall(require, 'toggleterm')
+if (not status) then return end
+
+vim.cmd("let &shell = has('win32') ? 'powershell' : 'pwsh'")
+vim.cmd("let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'")
+vim.cmd("let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'")
+vim.cmd("let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'")
+vim.cmd("set shellquote= shellxquote=")
 
 toggleterm.setup({
  size = 20,
@@ -20,7 +28,7 @@ toggleterm.setup({
  persist_size = true,
  direction = "float",
  close_on_exit = true,
- shell = vim.o.shell,
+ shell = 'pwsh.exe',
  float_opts = {
   border = "curved",
   winblend = 0,
