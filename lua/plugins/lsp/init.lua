@@ -5,6 +5,7 @@ local auto_save = require 'plugins.lsp.auto_save'
 local noice = require 'plugins.lsp.noice'
 local conform_nvim = require 'plugins.lsp.conform_nvim'
 local nvim_lint = require 'plugins.lsp.nvim_lint'
+-- local lspsaga = require 'plugins.lsp.lspsaga'
 
 return {
     mason,
@@ -13,5 +14,6 @@ return {
     auto_save,
     noice,
     conform_nvim,
-    nvim_lint
+    nvim_lint,
+    -- lspsaga
 }

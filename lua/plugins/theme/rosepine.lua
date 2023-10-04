@@ -60,7 +60,7 @@ return {
                 -- you can set the inherit option:
                 Search = { bg = 'gold', inherit = false },
 
-                TelescopeBorder = { fg = 'highlight_high', bg = 'none' },
+                TelescopeBorder = { fg = 'highlight_high', bg = 'black' },
                 TelescopeNormal = { bg = 'none' },
                 TelescopePromptNormal = { bg = 'base' },
                 TelescopeResultsNormal = { fg = 'subtle', bg = 'none' },
