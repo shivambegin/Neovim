@@ -3,6 +3,7 @@
         "undefined-global",
         "deprecated",
         "cast-local-type",
-        "undefined-doc-name"
+        "undefined-doc-name",
+        "different-requires"
     ]
 }
