@@ -341,7 +341,7 @@ ins_right({
       return msg
     end,
     icon = ' LSP:',
-    color = { fg = colors.ultraviolet, gui = 'bold' },
+    color = { fg = colors.red, gui = 'bold' },
   })
 
 ins_right({
