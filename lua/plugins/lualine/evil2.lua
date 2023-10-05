@@ -187,7 +187,7 @@ ins_left({
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.radioactive,
+      n = colors.darkblue,
       i = colors.red,
       v = colors.orange,
       V = colors.orange,
