@@ -49,6 +49,7 @@ local conditions = {
   end,
 }
 
+
 local function wordcount()
   return tostring(vim.fn.wordcount().words) .. " words"
 end
@@ -67,7 +68,10 @@ local config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
-    theme = "auto",
+    theme = {
+        normal = { c = { fg = colors.fg, bg = colors.bg } },
+        inactive = { c = { fg = colors.fg, bg = colors.bg } },
+    },
     globalstatus = true,
     disabled_filetypes = {
       statusline = { "dashboard", "alpha", "trouble" },
@@ -321,28 +325,24 @@ ins_right({
 
 ins_right({
   -- Lsp server name
-  function()
-    local msg = "None"
-
-    local buf_ft = vim.api.nvim_get_option_value("filetype", { 0 })
-    local clients = vim.lsp.get_clients()
-    if next(clients) == nil then
-      return msg
-    end
-    for _, client in ipairs(clients) do
----@diagnostic disable-next-line: undefined-field
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
+    function()
+      local msg = 'No Active Lsp'
+      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+      local clients = vim.lsp.get_active_clients()
+      if next(clients) == nil then
+        return msg
       end
-    end
-    return msg
-  end,
-  icon = "",
-  color = { fg = "cyan", gui = "bold" },
-  cond = conditions.hide_in_width,
-  padding = { left = 1, right = 0 },
-})
+      for _, client in ipairs(clients) do
+        local filetypes = client.config.filetypes
+        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+          return client.name
+        end
+      end
+      return msg
+    end,
+    icon = ' LSP:',
+    color = { fg = colors.ukrainian_yellow, gui = 'bold' },
+  })
 
 ins_right({
   -- filetype / language component
