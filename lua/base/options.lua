@@ -51,6 +51,7 @@ local options = {
         wrap = false, -- Disable wrapping of lines longer than the width of window.
         writebackup = false, -- Disable making a backup before overwriting a file
         lazyredraw = false,
+        shell = "pwsh.exe"
     },
     g = {
         mapleader = ' ', -- set leader key
