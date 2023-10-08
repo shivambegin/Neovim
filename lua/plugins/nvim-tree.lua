@@ -49,6 +49,13 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
+    keys = {
+      {
+        '<leader>nt',
+        '<cmd>NvimTreeToggle<CR>',
+        desc = 'NvimTreeToggle',
+        },
+      },
     config = function()
       require("nvim-tree").setup({
         sort_by = "case_sensitive",
