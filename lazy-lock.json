@@ -1,5 +1,6 @@
 {
   "LuaSnip": { "branch": "master", "commit": "cdbf6f41381e5ee4810b4b09284b603d8f18365d" },
+  "SmoothCursor.nvim": { "branch": "main", "commit": "efe978cb59a752adbc5908aefde1de1d0e1fc87b" },
   "asciitree.nvim": { "branch": "main", "commit": "a979a0c6987e07eaa9f405d90c086105c0a2d99c" },
   "auto-save.nvim": { "branch": "main", "commit": "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
   "auto-session": { "branch": "main", "commit": "3eb26b949e1b90798e84926848551046e2eb0721" },
