@@ -1,7 +1,7 @@
 return { 'gen740/SmoothCursor.nvim',
   config = function()
     require('smoothcursor').setup({
-    autostart = true,
+    autostart = false,
     cursor = "",              -- cursor shape (need nerd font)
     texthl = "SmoothCursor",   -- highlight group, default is { bg = nil, fg = "#FFD400" }
     linehl = nil,              -- highlight sub-cursor line like 'cursorline', "CursorLine" recommended
