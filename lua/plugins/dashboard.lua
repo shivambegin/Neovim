@@ -10,10 +10,10 @@ return{
         enable = true,
         },
         shortcut = {
-          { desc = '󰊳 init.lua',
+          { desc = '󰊳 Neovim',
             group = '@property',
-            action = 'edit C:\\Users\\shiva\\AppData\\Local\\nvim\\init.lua',
-            key = 'e'
+            action = 'edit C:\\Users\\shiva\\AppData\\Local\\nvim',
+            key = 'n'
           },
           {
             icon = ' ', icon_hl = '@variable', desc = 'Files',
