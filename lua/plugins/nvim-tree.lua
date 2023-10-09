@@ -66,7 +66,8 @@ return {
           cursorline = false,
         },
         filters = {
-          dotfiles = true,
+          dotfiles = false,
+          git_ignored = false,
         },
       })
     end,

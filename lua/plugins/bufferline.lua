@@ -12,10 +12,10 @@ return {
         close_icon = "",
         left_trunc_marker = "",
         right_trunc_marker = "",
-        max_name_length = 18,
-        max_prefix_length = 15,
+        max_name_length = 14,
+        max_prefix_length = 13,
         tab_size = 10,
-				show_tab_indicators = true,
+				show_tab_indicators = false,
 				indicator = {
 					style = "underline",
 				},
