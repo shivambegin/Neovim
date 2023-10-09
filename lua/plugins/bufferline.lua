@@ -25,7 +25,7 @@ return {
 				separator_style = "thin",
 				-- separator_style = "slant",
 				always_show_bufferline = true,
-				diagnostics = true,
+				diagnostics = false,
 				themable = true,
 			},
 		}
