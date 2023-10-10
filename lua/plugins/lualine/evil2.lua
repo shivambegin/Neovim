@@ -5,9 +5,6 @@ return {
         "nvim-tree/nvim-web-devicons",
         "akinsho/bufferline.nvim"
     },
-	opts = {
-		transparent = true
-	},
 	config = function ()
 -- Slightly modified GeoMetro
 -- (if you get it, you get it)
