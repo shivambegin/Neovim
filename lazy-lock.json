@@ -32,6 +32,7 @@
   "mini.comment": { "branch": "main", "commit": "2c7a512dad27e34a26d0f7d5d5bc2579f88167dc" },
   "mini.indentscope": { "branch": "main", "commit": "cbc07203ca8faae952ca373c1f6cc5881ce97af0" },
   "mini.pairs": { "branch": "main", "commit": "6f6bd7ed5757b40bc29c73dac0d743e4e6978124" },
+  "neorg": { "branch": "main", "commit": "7d507d4fdd1c4a3cb8a8299a469d22190ebaf7f0" },
   "nightfox.nvim": { "branch": "main", "commit": "fe2fc7b93d66349eff2c5baa6cec922ee3958f56" },
   "noice.nvim": { "branch": "main", "commit": "fcd01710ff6918d4d3ef90c8e36f3addacba13bf" },
   "none-ls.nvim": { "branch": "main", "commit": "ae339f45590cc421a68de885fc5a3261cc247362" },
