@@ -7,4 +7,5 @@ return {
     -- Non-lua nvim plugins ---------------------------------------------------
     'junegunn/vim-easy-align',       -- alignment plugin
     -- 'fladson/vim-kitty',           -- syntax highlighting for kitty
+    'nvim-lua/plenary.nvim',
 }
