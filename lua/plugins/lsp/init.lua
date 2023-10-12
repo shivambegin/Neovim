@@ -6,7 +6,7 @@ local nonels = require 'plugins.lsp.none-ls'
 local lspsaga = require 'plugins.lsp.lspsaga'
 local linting = require 'plugins.lsp.linting'
 local illuminate = require 'plugins.lsp.iluminate'
-
+local symbols = require 'plugins.lsp.symbols'
 
 return {
     mason,
@@ -17,4 +17,5 @@ return {
     lspsaga,
     linting,
     illuminate,
+    symbols,
 }
