@@ -101,7 +101,7 @@ return {
                 ---modified.
                 ---
                 ---@type boolean
-                show_modified = false,
+                show_modified = true,
 
                 ---Get modified status of file.
                 ---
@@ -216,7 +216,7 @@ return {
                 "InsertLeave",
 
                 -- include this if you have set `show_modified` to `true`
-                -- "BufModifiedSet",
+                "BufModifiedSet",
               }, {
                 group = vim.api.nvim_create_augroup("barbecue.updater", {}),
                 callback = function()
