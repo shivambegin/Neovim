@@ -1,9 +1,3 @@
-local colors ={
-    ukrainian_blue = '#0057b7',
-    ukrainian_yellow = '#ffdd00',
-    red = '#ff0000',
-}
-
 return{
     "petertriho/nvim-scrollbar",
     config = function()
@@ -25,10 +19,10 @@ return{
             },
             marks = {
                 Cursor = {
-                    text = "+",
+                    text = "💵",
                     priority = 0,
                     gui = nil,
-                    color = colors.ukrainian_blue,
+                    color = nil,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "Normal",
@@ -43,10 +37,10 @@ return{
                     highlight = "Search",
                 },
                 Error = {
-                    text = { "x" },
+                    text = { "-", "=" },
                     priority = 2,
                     gui = nil,
-                    color = colors.red,
+                    color = nil,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "DiagnosticVirtualTextError",
@@ -88,19 +82,19 @@ return{
                     highlight = "Normal",
                 },
                 GitAdd = {
-                    text = "|",
+                    text = "┆",
                     priority = 7,
                     gui = nil,
-                    color = colors.ukrainian_yellow,
+                    color = nil,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "GitSignsAdd",
                 },
                 GitChange = {
-                    text = "|",
+                    text = "┆",
                     priority = 7,
                     gui = nil,
-                    color = colors.ukrainian_yellow,
+                    color = nil,
                     cterm = nil,
                     color_nr = nil, -- cterm
                     highlight = "GitSignsChange",
@@ -146,7 +140,7 @@ return{
             handlers = {
                 cursor = true,
                 diagnostic = true,
-                gitsigns = true, -- Requires gitsigns
+                gitsigns = false, -- Requires gitsigns
                 handle = true,
                 search = false, -- Requires hlslens
                 ale = false, -- Requires ALE
