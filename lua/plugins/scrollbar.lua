@@ -19,7 +19,7 @@ return{
             },
             marks = {
                 Cursor = {
-                    text = "💵",
+                    text = "[]",
                     priority = 0,
                     gui = nil,
                     color = nil,
@@ -138,8 +138,8 @@ return{
                 },
             },
             handlers = {
-                cursor = true,
-                diagnostic = true,
+                cursor = false,
+                diagnostic = false,
                 gitsigns = false, -- Requires gitsigns
                 handle = true,
                 search = false, -- Requires hlslens
