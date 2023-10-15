@@ -39,4 +39,16 @@ function M.is_available(plugin)
     return lazy_config_avail and lazy_config.plugins[plugin] ~= nil
 end
 
+function M.get_hlgroup(name, fallback)
+    if vim.fn.hlexists(name) == 1 then
+        local hl
+        hl = vim.api.nvim_get_hl(0, { name = name, link = false })
+        if not hl.fg then hl.fg = "NONE" end
+        if not hl.bg then hl.bg = "NONE" end
+        return hl
+    end
+    return fallback or {}
+end
+
+
 return M
