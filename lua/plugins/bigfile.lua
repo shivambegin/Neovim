@@ -42,9 +42,9 @@ return {
             "indent_blankline",
             "syntax",
             "vimopts",
-            set_filetype_bigfile,
-            cmp,
-            mini_indentscope,
+            "set_filetype_bigfile",
+            "cmp",
+            "mini_indentscope",
           },
         }
       end,
