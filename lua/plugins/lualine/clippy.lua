@@ -1,6 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    lazy = false,
     opts = function()
         local get_hlgroup = require("base.utils").get_hlgroup
         local colours = {
