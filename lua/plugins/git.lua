@@ -73,7 +73,7 @@ return {
             'Gfetch',
         },
         keys = {
-            { '<leader>gg', '<cmd>Git<cr>', desc = 'Git status' },
+            { '<leader>fg', '<cmd>Git<cr>', desc = 'Git status' },
         },
     },
 }
