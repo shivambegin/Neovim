@@ -8,7 +8,7 @@ local linting = require 'plugins.lsp.linting'
 local illuminate = require 'plugins.lsp.iluminate'
 local symbols = require 'plugins.lsp.symbols'
 local neorg = require 'plugins.lsp.neorg'
-
+local conform = require 'plugins.lsp.formating'
 return {
     mason,
     lspconfig,
@@ -20,4 +20,5 @@ return {
     illuminate,
     symbols,
     neorg,
+    conform,
 }
