@@ -255,4 +255,24 @@ return {
         },
         opts = true,
     },
+    {
+        "kylechui/nvim-surround",
+        event = "BufEnter",
+        config = function()
+          require("nvim-surround").setup({
+            keymaps = {
+              normal = "s",
+              normal_cur = "ss",
+              visual = "s",
+            },
+          })
+        end
+    },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+          require("nvim-autopairs").setup()
+        end,
+      },
 }
