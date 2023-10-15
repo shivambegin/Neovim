@@ -43,12 +43,13 @@ return {
     },
     -- Winbar setup that uses navic
     {
-        "utilyre/barbecue.nvim",
-        tag = "*",
-        dependencies = {
-            "SmiteshP/nvim-navic",
-            {"nvim-tree/nvim-web-devicons", opt = true},
-        },
+      "utilyre/barbecue.nvim",
+      name = "barbecue",
+      version = "*",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "nvim-tree/nvim-web-devicons", -- optional dependency
+      },
         opts = {
             {
                 ---Whether to attach navic to language servers automatically.
