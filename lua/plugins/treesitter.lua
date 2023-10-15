@@ -42,14 +42,14 @@ return {
                 'regex',
                 'rust',
                 'scss',
-                -- 'svelte',
+                'svelte',
                 'todotxt',
                 'toml',
                 'tsx',
                 'typescript',
                 'vim',
                 'vimdoc',
-                -- 'vue',
+                'vue',
                 'yaml',
                 'yuck',
             },
@@ -247,12 +247,12 @@ return {
             vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
         end,
     },
-    -- {
-    --     'nvim-treesitter/nvim-treesitter-context',
-    --     event = 'BufReadPost',
-    --     dependencies = {
-    --         'nvim-treesitter/nvim-treesitter',
-    --     },
-    --     opts = true,
-    -- },
+    {
+        'nvim-treesitter/nvim-treesitter-context',
+        event = 'BufReadPost',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+        },
+        opts = true,
+    },
 }
