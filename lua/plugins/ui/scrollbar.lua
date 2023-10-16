@@ -12,8 +12,8 @@ return{
             handle = {
                 text = " ",
                 blend = 30, -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
-                color = nil,
-                color_nr = nil, -- cterm
+                color = "none",
+                color_nr = "none", -- cterm
                 highlight = "CursorColumn",
                 hide_if_all_visible = true, -- Hides handle if all lines are visible
             },
@@ -21,91 +21,91 @@ return{
                 Cursor = {
                     text = "[]",
                     priority = 0,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "Normal",
                 },
                 Search = {
                     text = { "-", "=" },
                     priority = 1,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "Search",
                 },
                 Error = {
                     text = { "-", "=" },
                     priority = 2,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "DiagnosticVirtualTextError",
                 },
                 Warn = {
                     text = { "-", "=" },
                     priority = 3,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "DiagnosticVirtualTextWarn",
                 },
                 Info = {
                     text = { "-", "=" },
                     priority = 4,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "DiagnosticVirtualTextInfo",
                 },
                 Hint = {
                     text = { "-", "=" },
                     priority = 5,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "DiagnosticVirtualTextHint",
                 },
                 Misc = {
                     text = { "-", "=" },
                     priority = 6,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "Normal",
                 },
                 GitAdd = {
                     text = "┆",
                     priority = 7,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "GitSignsAdd",
                 },
                 GitChange = {
                     text = "┆",
                     priority = 7,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "GitSignsChange",
                 },
                 GitDelete = {
                     text = "▁",
                     priority = 7,
-                    gui = nil,
-                    color = nil,
-                    cterm = nil,
-                    color_nr = nil, -- cterm
+                    gui = "none",
+                    color = "none",
+                    cterm = "none",
+                    color_nr = "none", -- cterm
                     highlight = "GitSignsDelete",
                 },
             },
