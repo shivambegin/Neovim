@@ -1,4 +1,4 @@
 return {
-    require 'plugins.theme.nightfox',
-    -- require 'plugins.theme.rosepine',
+    -- require 'plugins.theme.nightfox',
+    require 'plugins.theme.rosepine',
 }

@@ -48,27 +48,26 @@ return {
             -- Change specific vim highlight groups
             -- https://github.com/rose-pine/neovim/wiki/Recipes
             highlight_groups = {
-                ColorColumn = { bg = 'highlight_low' },
+                ColorColumn = { bg = 'none' },
 
                 -- Blend colours against the "base" background
-                CursorLine = { bg = 'none', blend = 10 },
-                StatusLine = { fg = 'pine', bg = 'none', blend = 10 },
+                CursorLine = { bg = 'none', },
+                StatusLine = { fg = 'none', bg = 'none',},
                 Signcolumn = { bg = 'none' },
 
                 -- By default each group adds to the existing config.
                 -- If you only want to set what is written in this config exactly,
                 -- you can set the inherit option:
-                Search = { bg = 'gold', inherit = false },
+                Search = { bg = 'none', inherit = false },
 
-                TelescopeBorder = { fg = 'highlight_high', bg = 'black' },
+                TelescopeBorder = { fg = 'none', bg = 'none' },
                 TelescopeNormal = { bg = 'none' },
-                TelescopePromptNormal = { bg = 'base' },
+                TelescopePromptNormal = { bg = 'none' },
                 TelescopeResultsNormal = { fg = 'subtle', bg = 'none' },
-                TelescopeSelection = { fg = 'text', bg = 'base' },
-                TelescopeSelectionCaret = { fg = 'rose', bg = 'rose' },
-                require("notify").setup({
-                    background_colour = "#000000",
-                  })
+                TelescopeSelection = { fg = 'text', bg = 'none' },
+                TelescopeSelectionCaret = { fg = 'none', bg = 'none' },
+                background = { fg = 'none', bg = 'none' },
+
             },
         }
 
