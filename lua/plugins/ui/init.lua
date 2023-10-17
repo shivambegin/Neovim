@@ -1,5 +1,4 @@
 return {
-    require 'plugins.ui.scrollbar',
     require 'plugins.ui.bufferline',
     require 'plugins.ui.git',
     require 'plugins.ui.toggleterm',
