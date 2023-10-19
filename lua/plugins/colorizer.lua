@@ -1,14 +1,14 @@
-return {
-    'NvChad/nvim-colorizer.lua',
-    event = 'BufReadPost',
-    cmd = {
-        'ColorizerToggle',
-        'ColorizerAttachToBuffer',
-        'ColorizerDetachFromBuffer',
-        'ColorizerReloadAllBuffers',
-    },
-    opts = { user_default_options = { names = true } },
+return  {
+    "NvChad/nvim-colorizer.lua",
+    event = "BufEnter",
     config = function()
-        require('colorizer').setup()
+      require("colorizer").setup({
+        filetypes = { "*" },
+        user_default_options = {
+          names = false,
+          tailwind = "both",
+          mode = "background",
+        },
+      })
     end,
-}
+  }
