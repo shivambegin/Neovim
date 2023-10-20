@@ -1,10 +1,3 @@
--- spectre.nvim [search and replace in project]
--- https://github.com/nvim-pack/nvim-spectre
--- INSTRUCTIONS:
--- To see the instructions press '?'
--- To start the search press <ESC>.
--- It doesn't have ctrl-z so please always commit before using it.
-
 return {
     'zeioth/nvim-spectre',
     cmd = 'Spectre',
