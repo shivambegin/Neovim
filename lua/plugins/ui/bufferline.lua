@@ -9,9 +9,9 @@ return	{
 		bufferline.setup({
 			options = {
 				offsets = {
-					{ filetype = "NvimTree", text = "", padding = 1 },
-					{ filetype = "neo-tree", text = "File Tree", padding = 1 },
-					{ filetype = "Outline", text = "", padding = 1 },
+					{ filetype = "NvimTree", text = "", padding = 0 },
+					{ filetype = "neo-tree", text = "File Tree", padding = 0 },
+					{ filetype = "Outline", text = "", padding = 0 },
 				},
 				max_name_length = 14,
 				max_prefix_length = 13,
