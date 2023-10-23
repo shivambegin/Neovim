@@ -6,7 +6,6 @@ return {
       "hrsh7th/cmp-path", -- source for file system paths
       "L3MON4D3/LuaSnip", -- snippet engine
       "saadparwaiz1/cmp_luasnip", -- for autocompletion
-      -- "rafamadriz/friendly-snippets", -- useful snippets
       'zeioth/friendly-snippets',
       "onsails/lspkind.nvim", -- vs-code like pictograms
     },
