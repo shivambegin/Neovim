@@ -59,7 +59,7 @@ map(
 
 -- map('n', '<C-s>', '<cmd>w!<CR>', { desc = 'Force save' })
 -- map('n', '<leader>s', '<cmd>w<CR>', { desc = 'Save buffer' })
-map('n', '<leader>q', '<cmd>q!<CR>', { desc = 'Force quit' })
+-- map('n', '<leader>q', '<cmd>q!<CR>', { desc = 'Force quit' })
 map('n', '<leader>Q', '<cmd>wq!<CR>', { desc = 'Force save and  quit' })
 -- }}}
 
@@ -124,3 +124,7 @@ map(
 -- }}}
 
 -- vim:fdm=marker:fdl=0
+
+map ('n', '<leader>l', '<cmd>Lazy<CR>', { desc = 'Lazy' })
+map ('n', '<leader>m', '<cmd>Mason<CR>', { desc = 'Mason' })
+map ('n', '<leader>ch', '<cmd>checkhealth<CR>', { desc = 'checkhealth' })
