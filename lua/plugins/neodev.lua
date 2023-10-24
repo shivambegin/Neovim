@@ -1,4 +1,7 @@
-return { "folke/neodev.nvim", opts = {
+return {
+  "folke/neodev.nvim",
+  event = "LspAttach",
+  opts = {
     {
         library = {
           enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
