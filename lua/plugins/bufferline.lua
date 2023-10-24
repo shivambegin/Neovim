@@ -22,5 +22,5 @@ return	{
 		})
 	end,
 	event = "VeryLazy",
-	enabled = true,
+	enabled = false,
 }
