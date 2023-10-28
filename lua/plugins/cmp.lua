@@ -10,6 +10,8 @@ return {
       "onsails/lspkind.nvim", -- vs-code like pictograms
     },
     config = function()
+      vim.cmd("highlight Pmenu guibg=NONE")
+
       local cmp = require("cmp")
 
       local luasnip = require("luasnip")
