@@ -1,5 +1,6 @@
 return {
     'Exafunction/codeium.vim',
+    enabled = false,
     event = 'InsertEnter',
     config = function()
         local map = vim.keymap.set
