@@ -18,7 +18,10 @@ return{
       "sindrets/diffview.nvim",        -- optional
       "ibhagwan/fzf-lua",              -- optional
     },
-    config = true
+    config = true,
+    keys = {
+      {"<leader>gg", "<cmd>Neogit<cr>", desc = "neogit open"}
+    }
   },
   {
     "tpope/vim-fugitive",
