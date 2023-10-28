@@ -12,7 +12,7 @@ local options = {
         colorcolumn = '0', -- PEP8 like character limit vertical bar.
         completeopt = { 'menu', 'menuone', 'noselect' }, -- Options for insert mode completion
         copyindent = true, -- Copy the previous indentation on autoindenting
-        cursorline = true, -- Highlight the text line of the cursor
+        cursorline = false, -- Highlight the text line of the cursor
         expandtab = true, -- Enable the use of space in tab
         fileencoding = 'utf-8', -- File content encoding for the buffer
         fillchars = { eob = ' ' }, -- Disable `~` on nonexistent lines
