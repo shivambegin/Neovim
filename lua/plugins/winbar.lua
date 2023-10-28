@@ -1,6 +1,7 @@
 return{
 {
     "utilyre/barbecue.nvim",
+    enabled =false,
     event = "BufReadPre",
     dependencies = {
       "folke/tokyonight.nvim",
@@ -38,5 +39,29 @@ return{
       --   return
       -- end
     end,
-  }
+  },
+  {
+    'nvimdev/lspsaga.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    event = 'LspAttach',
+    opts = {
+      ui = {border = 'rounded'},
+      symbol_in_winbar = {
+        enable = true,
+        folder_level = 2,
+      },
+      lightbulb = {
+        enable = false,
+        sign = false,
+      },
+      outline = {
+        layout = 'float',
+        max_height = 0.7,
+        left_width = 0.4,
+      },
+    },
+  },
 }
