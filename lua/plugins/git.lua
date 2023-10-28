@@ -1,6 +1,7 @@
 return{
     {
       "kdheepak/lazygit.nvim",
+      enabled = false;
       cmd = { "LazyGit", "LazyGitConfig" },
       keys = {
           { "<leader>gg", ":LazyGit<cr>", silent = true, desc = "LazyGit", mode = "n" },
@@ -21,6 +22,7 @@ return{
   },
   {
     "tpope/vim-fugitive",
+    enabled = false,
     cmd = "Git",
     keys = {
       { "<leader>gb", "<cmd>Git blame<cr>", desc = "Blame" },
