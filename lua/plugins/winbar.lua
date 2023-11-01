@@ -47,7 +47,7 @@ return{
       'nvim-tree/nvim-web-devicons',
     },
     enabled = false,
-    event = 'LspAttach',
+    event = 'BufReadPre',
     opts = {
       ui = {border = 'rounded'},
       symbol_in_winbar = {
@@ -80,6 +80,6 @@ return{
     }
     require("breadcrumbs").setup()
     end
-  }
+  },
 }
 
