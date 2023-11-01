@@ -46,6 +46,7 @@ return{
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
     },
+    enabled = false,
     event = 'LspAttach',
     opts = {
       ui = {border = 'rounded'},
@@ -64,4 +65,21 @@ return{
       },
     },
   },
+  {
+    "LunarVim/breadcrumbs.nvim",
+    enabled = true,
+    dependencies = {
+      {"SmiteshP/nvim-navic"},
+      {"nvim-tree/nvim-web-devicons"}
+    },
+    config = function()
+      require("nvim-navic").setup {
+        lsp = {
+            auto_attach = true,
+        },
+    }
+    require("breadcrumbs").setup()
+    end
+  }
 }
+
