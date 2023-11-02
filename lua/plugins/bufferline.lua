@@ -1,5 +1,6 @@
 return {
 	'akinsho/bufferline.nvim',
+	enabled = false,
 	lazy = true,
 	event = 'VimEnter',
 	dependencies = {'famiu/bufdelete.nvim'},
