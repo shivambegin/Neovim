@@ -8,14 +8,14 @@ local options = {
         -- clipboard = 'unnamedplus', -- Connection to the system clipboard
         autochdir = false, -- Use current file dir as working dir (See project.nvim)
         breakindent = true, -- Wrap indent to match  line start
-        cmdheight = 0, -- Height of the command line
+        cmdheight = 1, -- Height of the command line
         colorcolumn = '0', -- PEP8 like character limit vertical bar.
         completeopt = { 'menu', 'menuone', 'noselect' }, -- Options for insert mode completion
         copyindent = true, -- Copy the previous indentation on autoindenting
         cursorline = false, -- Highlight the text line of the cursor
         expandtab = true, -- Enable the use of space in tab
         fileencoding = 'utf-8', -- File content encoding for the buffer
-        fillchars = { eob = ' ' }, -- Disable `~` on nonexistent lines
+        -- fillchars = { eob = ' ' }, -- Disable `~` on nonexistent lines
         foldenable = true, -- enable fold for nvim-ufo
         foldlevel = 99, -- set high foldlevel for nvim-ufo
         foldlevelstart = 99, -- start with all code unfolded
