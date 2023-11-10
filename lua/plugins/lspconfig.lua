@@ -137,6 +137,15 @@ return {
       on_attach = on_attach,
     })
 
+    require("lspconfig").rust_analyzer.setup({
+      settings = {
+        ["rust-analyzer"] = {
+          diagnostics = {
+            enable = false,
+          },
+        },
+      },
+    })
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,

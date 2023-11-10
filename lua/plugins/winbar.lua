@@ -1,13 +1,13 @@
-return{
-{
+return {
+  {
     "utilyre/barbecue.nvim",
-    enabled =false,
+    enabled = false,
     event = "BufReadPre",
     dependencies = {
       "folke/tokyonight.nvim",
       "SmiteshP/nvim-navic",
       "neovim/nvim-lspconfig",
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
       require("barbecue").setup({
@@ -18,7 +18,7 @@ return{
         symbols = {
           prefix = " ",
           separator = "",
-          modified = "●",
+          modified = "*",
           default_context = "…",
         },
       })
@@ -28,7 +28,7 @@ return{
     "SmiteshP/nvim-navic",
     enabled = true,
     event = "BufReadPre",
-    dependencies = { "folke/tokyonight.nvim","MunifTanjim/nui.nvim","nvim-tree/nvim-web-devicons" },
+    dependencies = { "folke/tokyonight.nvim", "MunifTanjim/nui.nvim", "nvim-tree/nvim-web-devicons" },
     config = function()
       vim.g.navic_silence = true
       require("nvim-navic").setup({ separator = " › ", highlight = true, depth_limit = 3 })
@@ -41,15 +41,15 @@ return{
     end,
   },
   {
-    'nvimdev/lspsaga.nvim',
+    "nvimdev/lspsaga.nvim",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons',
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
     enabled = false,
-    event = 'BufReadPre',
+    event = "BufReadPre",
     opts = {
-      ui = {border = 'rounded'},
+      ui = { border = "rounded" },
       symbol_in_winbar = {
         enable = true,
         folder_level = 2,
@@ -59,7 +59,7 @@ return{
         sign = false,
       },
       outline = {
-        layout = 'float',
+        layout = "float",
         max_height = 0.7,
         left_width = 0.4,
       },
@@ -69,17 +69,16 @@ return{
     "LunarVim/breadcrumbs.nvim",
     enabled = true,
     dependencies = {
-      {"SmiteshP/nvim-navic"},
-      {"nvim-tree/nvim-web-devicons"}
+      { "SmiteshP/nvim-navic" },
+      { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
-      require("nvim-navic").setup {
+      require("nvim-navic").setup({
         lsp = {
-            auto_attach = true,
+          auto_attach = true,
         },
-    }
-    require("breadcrumbs").setup()
-    end
+      })
+      require("breadcrumbs").setup()
+    end,
   },
 }
-
