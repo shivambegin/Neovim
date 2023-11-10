@@ -41,6 +41,7 @@ return {
             "lua",
             "rust",
             "kdl",
+            "python",
           },
           auto_install = true,
           autotag = { -- dependency with 'nvim-ts-autotag'
