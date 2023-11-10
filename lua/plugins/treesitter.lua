@@ -1,63 +1,86 @@
 return {
+    -- Syntax highlightings
     {
       "nvim-treesitter/nvim-treesitter",
-      event = { "BufReadPre", "BufNewFile" },
       build = ":TSUpdate",
+      event = "BufEnter",
       dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/playground",
         "windwp/nvim-ts-autotag",
       },
       config = function()
-        -- import nvim-treesitter plugin
-        local treesitter = require("nvim-treesitter.configs")
-
-        -- configure treesitter
-        treesitter.setup({ -- enable syntax highlighting
+        require("nvim-treesitter.configs").setup({
           highlight = {
             enable = true,
           },
-          -- enable indentation
-          indent = { enable = true },
-          -- enable autotagging (w/ nvim-ts-autotag plugin)
-          autotag = {
+          indent = {
             enable = true,
+            disable = { "python" },
           },
-          -- ensure these language parsers are installed
           ensure_installed = {
-            "json",
+            "vim",
+            "vimdoc",
+            "markdown",
+            "markdown_inline",
+            "bash",
+            "regex",
+            "c",
+            "cpp",
+            "go",
+            "gomod",
+            "java",
             "javascript",
             "typescript",
             "tsx",
-            "yaml",
+            "json",
+            "toml",
             "html",
             "css",
-            "prisma",
-            "markdown",
-            "markdown_inline",
-            "svelte",
-            "graphql",
-            "bash",
+            "scss",
             "lua",
-            "vim",
-            "dockerfile",
-            "gitignore",
-            "query",
+            "rust",
+            "kdl",
           },
-          incremental_selection = {
+          auto_install = true,
+          autotag = { -- dependency with 'nvim-ts-autotag'
             enable = true,
-            keymaps = {
-              init_selection = "<C-space>",
-              node_incremental = "<C-space>",
-              scope_incremental = false,
-              node_decremental = "<bs>",
+          },
+          playground = {
+            enable = true,
+            disable = {},
+          },
+          textobjects = {
+            select = {
+              enable = true,
+              -- Automatically jump forward to textobj, similar to targets.vim
+              lookahead = true,
+              keymaps = {
+                ["af"] = { query = "@function.outer", desc = "Select outer part of a function region" },
+                ["if"] = { query = "@function.inner", desc = "Select inner part of a function region" },
+                ["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
+                ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+              },
+            },
+            swap = {
+              enable = true,
+              swap_next = {
+                ["<leader>xp"] = { query = "@parameter.inner", desc = "Swap parameter with the next one" },
+              },
+              swap_previous = {
+                ["<leader>xP"] = { query = "@parameter.inner", desc = "Swap parameter with the previous one" },
+              },
             },
           },
-          -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-          context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-          },
         })
+
+        -- Must installed zig via scoop in Windows
+        if _G.IS_WINDOWS then
+        require("nvim-treesitter.install").compilers = { "zig" }
+        else
+          require("nvim-treesitter.install").compilers = { "zig", "clang", "gcc", "cc", "cl", "zig" }
+        end
       end,
     },
   }
+
