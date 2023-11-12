@@ -1,30 +1,5 @@
 return {
   {
-    "utilyre/barbecue.nvim",
-    enabled = false,
-    event = "BufReadPre",
-    dependencies = {
-      "folke/tokyonight.nvim",
-      "SmiteshP/nvim-navic",
-      "neovim/nvim-lspconfig",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("barbecue").setup({
-        attach_navic = false,
-        show_navic = false,
-        show_modified = true,
-        theme = "tokyonight",
-        symbols = {
-          prefix = " ",
-          separator = "",
-          modified = "*",
-          default_context = "…",
-        },
-      })
-    end,
-  },
-  {
     "SmiteshP/nvim-navic",
     enabled = true,
     event = "BufReadPre",
@@ -39,31 +14,6 @@ return {
       --   return
       -- end
     end,
-  },
-  {
-    "nvimdev/lspsaga.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    enabled = false,
-    event = "BufReadPre",
-    opts = {
-      ui = { border = "rounded" },
-      symbol_in_winbar = {
-        enable = true,
-        folder_level = 2,
-      },
-      lightbulb = {
-        enable = false,
-        sign = false,
-      },
-      outline = {
-        layout = "float",
-        max_height = 0.7,
-        left_width = 0.4,
-      },
-    },
   },
   {
     "LunarVim/breadcrumbs.nvim",

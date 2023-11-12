@@ -1,5 +1,6 @@
 return {
     "lmburns/lf.nvim",
+    enabled = false,
     cmd = "Lf",
     dependencies = { "nvim-lua/plenary.nvim", "akinsho/toggleterm.nvim" },
     opts = {

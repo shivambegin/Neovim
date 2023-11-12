@@ -1,6 +1,6 @@
 local M = {
     "xiyaowong/transparent.nvim",
-    enabled = true,
+    enabled = enabled,
     opts = {
       extra_groups = {
         "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
