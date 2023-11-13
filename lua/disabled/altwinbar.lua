@@ -82,4 +82,13 @@ return{
       })
     end,
   },
+  {
+    'Bekaboo/dropbar.nvim',
+    enabled = false,
+    -- optional, but required for fuzzy finder support
+    -- sadly requires 0.10 nightly neovim version for now
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim'
+    }
+  }
 }
