@@ -39,4 +39,35 @@ git clone https://github.com/shivambegin/Neovim.git ~/.config/nvim
 ```bash
 git clone https://github.com/shivambegin/Neovim.git $env:LOCALAPPDATA\nvim
 ```
+# Overview
 
+## plugin managerr
+
+![image]("")
+
+
+## Setup
+
+- **Terminal:** windows terminal + tmux
+- **Shell:** fish + starship
+- **Editor:** nvim
+- **Source control:** git
+- **Theme:** neosolarized
+
+## Neovim
+
+- **Plugin manager:** lazy
+- **Statue line:** lualine
+- **Completions:** nvim-cmp
+- **LSP:** mason, none-ls,
+- **Syntax highlighting:** treesitter
+- **Fuzzy finder:** telescope
+- **File tree:** nvim-tree
+- **Snippets:** LuaSnip
+- Other goodies...
+
+---
+
+Author : Shivam Rajput
+
+Email: shivamrajputcse@gmail.com
