@@ -112,3 +112,9 @@ map(
 map ('n', '<leader>l', '<cmd>Lazy<CR>', { desc = 'Lazy' })
 map ('n', '<leader>m', '<cmd>Mason<CR>', { desc = 'Mason' })
 map ('n', '<leader>ch', '<cmd>checkhealth<CR>', { desc = 'checkhealth' })
+
+-- Visual Maps
+map("v", "<leader>r", "\"hy:%s/<C-r>h//g<left><left>")			    -- Replace all instances of highlighted words
+map("v", "<C-s>", ":sort<CR>")									-- Sort highlighted text in visual mode with Control+S
+map("v", "J", ":m '>+1<CR>gv=gv")								-- Move current line down
+map("v", "K", ":m '>-2<CR>gv=gv")								-- Move current line up

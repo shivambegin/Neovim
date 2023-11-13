@@ -1,6 +1,7 @@
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
     config = function()
       -- insert all the code from: https://github.com/lukas-reineke/indent-blankline.nvim#multiple-indent-colors
       local highlight = {
