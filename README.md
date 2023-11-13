@@ -41,9 +41,25 @@ git clone https://github.com/shivambegin/Neovim.git $env:LOCALAPPDATA\nvim
 ```
 # Overview
 
-## plugin managerr
+## plugin manager(Lazy)
 
-![image]("")
+![image](assets/lazy.png)
+
+## file browsing with telescope
+
+![image](assets/telescope.png)
+
+## file browsing with file browser
+
+![image](assets/filebrowser.png)
+
+## file browsing with nvim-tree
+
+![image](assets/nvim-tree.png)
+
+## lsp manager mason
+
+![image](assets/Mason.png)
 
 
 ## Setup
