@@ -28,9 +28,9 @@ return {
           lualine_a = { "buffers" },
           lualine_b = { "branch", "diff", "diagnostics" },
           lualine_c = {
-                        {
+            {
               function()
-                local msg = "lsp"
+                local msg = ""
                 local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
                 local clients = vim.lsp.get_active_clients()
                 if next(clients) == nil then
@@ -44,9 +44,9 @@ return {
                 end
                 return msg
               end,
-              icon = " ",
-              },
-           },
+              icon = " ",
+            },
+          },
           lualine_x = { "encoding", "fileformat", "filetype" },
           lualine_y = { "progress" },
           lualine_z = { "location" },
