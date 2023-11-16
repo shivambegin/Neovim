@@ -1,53 +1,38 @@
 local M = {}
 
-M.root_patterns = { '.git', '/lua' }
-
-M.on_attach = function(callback)
-    vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(args)
-            local buffer = args.buf
-            local client = vim.lsp.get_client_by_id(args.data.client_id)
-            callback(client, buffer)
-        end,
-    })
-end
-
-M.toggle_quickfix = function()
-    local qf_exists = false
-    for _, win in pairs(vim.fn.getwininfo()) do
-        if win['quickfix'] == 1 then
-            qf_exists = true
-        end
-    end
-    if qf_exists == true then
-        vim.cmd 'cclose'
-        return
-    end
-    vim.cmd 'copen'
-    -- only open if the list is not empty
-    -- if not vim.tbl_isempty(vim.fn.getqflist()) then
-    --   vim.cmd "copen"
-    -- end
-end
-
---- Check if a plugin is defined in lazy. Useful with lazy loading
---- when a plugin is not necessarily loaded yet.
----@param plugin string The plugin to search for.
----@return boolean available # Whether the plugin is available.
-function M.is_available(plugin)
-    local lazy_config_avail, lazy_config = pcall(require, 'lazy.core.config')
-    return lazy_config_avail and lazy_config.plugins[plugin] ~= nil
-end
-
-function M.get_hlgroup(name, fallback)
-    if vim.fn.hlexists(name) == 1 then
-        local hl
-        hl = vim.api.nvim_get_hl(0, { name = name, link = false })
-        if not hl.fg then hl.fg = "NONE" end
-        if not hl.bg then hl.bg = "NONE" end
-        return hl
-    end
-    return fallback or {}
+function M.cowboy()
+	---@type table?
+	local id
+	local ok = true
+	for _, key in ipairs({ "h", "j", "k", "l", "+", "-" }) do
+		local count = 0
+		local timer = assert(vim.loop.new_timer())
+		local map = key
+		vim.keymap.set("n", key, function()
+			if vim.v.count > 0 then
+				count = 0
+			end
+			if count >= 10 then
+				ok, id = pcall(vim.notify, "Hold it Cowboy!", vim.log.levels.WARN, {
+					icon = "🤠",
+					replace = id,
+					keep = function()
+						return count >= 10
+					end,
+				})
+				if not ok then
+					id = nil
+					return map
+				end
+			else
+				count = count + 1
+				timer:start(2000, 0, function()
+					count = 0
+				end)
+				return map
+			end
+		end, { expr = true, silent = true })
+	end
 end
 
 
