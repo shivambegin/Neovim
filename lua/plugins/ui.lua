@@ -124,7 +124,7 @@ return {
       require("incline").setup({
         highlight = {
           groups = {
-            InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
+            InclineNormal = { guibg = colors.cyan500, guifg = colors.base04 },
             InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
           },
         },
