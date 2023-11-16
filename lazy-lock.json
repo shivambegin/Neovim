@@ -33,6 +33,7 @@
   "mini.bracketed": { "branch": "main", "commit": "944e81e192cf054bb879cb64231e9b1cfb3c8145" },
   "mini.bufremove": { "branch": "main", "commit": "f53c7f27e36009fe61563c11cde154b94a0e5b94" },
   "mini.comment": { "branch": "main", "commit": "3d9c8009615857e982f09bc5357fc95f2a2175f3" },
+  "mini.hipatterns": { "branch": "main", "commit": "581ae9cab55fea530fecd3930925f4ef1c7703af" },
   "mini.pairs": { "branch": "main", "commit": "71f117fd57f930da6ef4126b24f594dd398bac26" },
   "neodev.nvim": { "branch": "main", "commit": "20f1e5d3c143333bdf5ea48729f7b50660135cb3" },
   "neogen": { "branch": "main", "commit": "70127baaff25611deaf1a29d801fc054ad9d2dc1" },
