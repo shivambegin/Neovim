@@ -1,5 +1,18 @@
 return {
   {
+    "Mofiqul/dracula.nvim",
+    lazy = false,
+    priority = 1000,
+    enabled = false,
+    opts = {
+      transparent = true,
+      no_underline = false,
+    },
+    config = function()
+      vim.cmd([[ colorscheme dracula]])
+    end,
+  },
+  {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
     priority = 1000,

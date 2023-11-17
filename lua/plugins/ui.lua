@@ -25,10 +25,10 @@ return {
           "LineNr",
           "NonText",
           "SignColumn",
-          -- "CursorLine",
-          -- "CursorLineNr",
-          --"StatusLine",
-          --"StatusLineNC",
+          "CursorLine",
+          "CursorLineNr",
+          "StatusLine",
+          "StatusLineNC",
           "EndOfBuffer",
         },
         extra_groups = {
@@ -45,6 +45,9 @@ return {
           "NvimTree",
           "NvimTreeNormal",
           "NvimTreeNormalNC",
+          "WinbarNormal",
+          "WinbarNormalNC",
+          "Navic",
         }, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       })
@@ -122,6 +125,7 @@ return {
     "b0o/incline.nvim",
     dependencies = { "craftzdog/solarized-osaka.nvim" },
     event = "BufReadPre",
+    enabled = false,
     priority = 1200,
     config = function()
       local colors = require("solarized-osaka.colors").setup()
