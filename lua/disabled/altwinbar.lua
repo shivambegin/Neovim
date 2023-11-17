@@ -1,4 +1,4 @@
-return{
+return {
   {
     "nvimdev/lspsaga.nvim",
     lazy = true,
@@ -58,37 +58,44 @@ return{
   },
 
   {
-    "utilyre/barbecue.nvim",
-    enabled = false,
-    event = "BufReadPre",
+    "LunarVim/breadcrumbs.nvim",
+    enabled = true,
     dependencies = {
-      "folke/tokyonight.nvim",
-      "SmiteshP/nvim-navic",
-      "neovim/nvim-lspconfig",
-      "nvim-tree/nvim-web-devicons",
+      { "SmiteshP/nvim-navic" },
+      { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
-      require("barbecue").setup({
-        attach_navic = false,
-        show_navic = false,
-        show_modified = true,
-        theme = "tokyonight",
-        symbols = {
-          prefix = " ",
-          separator = "",
-          modified = "*",
-          default_context = "…",
+      require("nvim-navic").setup({
+        lsp = {
+          auto_attach = true,
         },
       })
+      require("breadcrumbs").setup()
     end,
   },
   {
-    'Bekaboo/dropbar.nvim',
+    "Bekaboo/dropbar.nvim",
     enabled = false,
     -- optional, but required for fuzzy finder support
     -- sadly requires 0.10 nightly neovim version for now
     dependencies = {
-      'nvim-telescope/telescope-fzf-native.nvim'
-    }
-  }
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
+  },
+  {
+    "SmiteshP/nvim-navic",
+    enabled = true,
+    event = "BufReadPre",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-tree/nvim-web-devicons" },
+    config = function()
+      vim.g.navic_silence = true
+      require("nvim-navic").setup({ separator = " › ", highlight = true, depth_limit = 3 })
+
+      -- local theme = require("plugins.theme")
+      -- local colors = theme.colors()
+      -- if not colors then
+      --   return
+      -- end
+    end,
+  },
 }

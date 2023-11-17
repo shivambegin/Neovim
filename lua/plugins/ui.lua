@@ -42,6 +42,9 @@ return {
           "FloatBorder",
           "Search",
           "Cursor",
+          "NvimTree",
+          "NvimTreeNormal",
+          "NvimTreeNormalNC",
         }, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       })
@@ -180,38 +183,32 @@ return {
       })
     end,
   },
+
   {
-    "SmiteshP/nvim-navic",
+    "utilyre/barbecue.nvim",
     enabled = true,
     event = "BufReadPre",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-tree/nvim-web-devicons" },
-    config = function()
-      vim.g.navic_silence = true
-      require("nvim-navic").setup({ separator = " › ", highlight = true, depth_limit = 3 })
-
-      -- local theme = require("plugins.theme")
-      -- local colors = theme.colors()
-      -- if not colors then
-      --   return
-      -- end
-    end,
-  },
-  {
-    "LunarVim/breadcrumbs.nvim",
-    enabled = true,
     dependencies = {
-      { "SmiteshP/nvim-navic" },
-      { "nvim-tree/nvim-web-devicons" },
+      "SmiteshP/nvim-navic",
+      "neovim/nvim-lspconfig",
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("nvim-navic").setup({
-        lsp = {
-          auto_attach = true,
+      require("barbecue").setup({
+        attach_navic = true,
+        show_navic = true,
+        show_modified = true,
+        theme = "solarized_dark",
+        symbols = {
+          prefix = " ",
+          separator = "",
+          modified = "*",
+          default_context = "…",
         },
       })
-      require("breadcrumbs").setup()
     end,
   },
+
   {
     "folke/zen-mode.nvim",
     event = "VeryLazy",
