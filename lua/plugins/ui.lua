@@ -41,6 +41,7 @@ return {
           "PMenu",
           "FloatBorder",
           "Search",
+          "Cursor",
         }, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       })
@@ -57,8 +58,8 @@ return {
         options = {
           icons_enabled = true,
           theme = "solarized_dark",
-          component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
+          component_separators = { left = "", right = "" },
           disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -92,7 +93,7 @@ return {
                 end
                 return msg
               end,
-              icon = " ",
+              icon = "neko ",
             },
           },
           lualine_x = { "encoding", "fileformat", "filetype" },
@@ -124,7 +125,7 @@ return {
       require("incline").setup({
         highlight = {
           groups = {
-            InclineNormal = { guibg = colors.cyan500, guifg = colors.base04 },
+            InclineNormal = { guibg = colors.blue500, guifg = colors.base04 },
             InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
           },
         },
@@ -152,7 +153,7 @@ return {
       require("fidget").setup({
         text = {
           spinner = "meter",
-          done = "",
+          done = "Kawai",
         },
         window = {
           blend = 0, -- set 0 if using transparent background, otherwise set 100
