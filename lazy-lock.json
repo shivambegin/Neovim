@@ -71,6 +71,7 @@
   "vim-dadbod": { "branch": "master", "commit": "fecf5a3ecfb1869f34252c7c27351de99f01ab0e" },
   "vim-dadbod-completion": { "branch": "master", "commit": "bcdf3ff768cc7e544a0f78b0383d8719c2116569" },
   "vim-dadbod-ui": { "branch": "master", "commit": "95fd22469507e86b78aa55d868c14108adee2881" },
+  "vim-fugitive": { "branch": "master", "commit": "46eaf8918b347906789df296143117774e827616" },
   "vim-illuminate": { "branch": "master", "commit": "3bd2ab64b5d63b29e05691e624927e5ebbf0fb86" },
   "vim-markdown": { "branch": "master", "commit": "46add6c3017d3e4035dc10ffa9cb54221d8dfe1a" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" },

@@ -24,13 +24,4 @@ return{
       {"<leader>gg", "<cmd>Neogit<cr>", desc = "neogit open"}
     }
   },
-  {
-    "tpope/vim-fugitive",
-    enabled = false,
-    cmd = "Git",
-    keys = {
-      { "<leader>gb", "<cmd>Git blame<cr>", desc = "Blame" },
-      { "<leader>go", "<cmd>Git browse<cr>", desc = "Browse" },
-    },
-  }
 }
