@@ -4,7 +4,9 @@ return {
     event = {"BufReadPre", "BufNewFile"},
     enabled = true,
     config = function()
-      require("ibl").setup()
+      require("ibl").setup({
+        scope = { enabled = false },
+      })
     end,
   },
   {
