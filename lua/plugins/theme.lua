@@ -1,36 +1,20 @@
 return {
-  {
-    "Mofiqul/dracula.nvim",
-    lazy = false,
-    priority = 1000,
-    enabled = false,
-    opts = {
+  "EdenEast/nightfox.nvim",
+  lazy = false,
+  priority = 1000,
+  enabled = true,
+  config = function()
+    require("nightfox").setup({
+      fox = "carbonfox",
       transparent = true,
-      no_underline = false,
-    },
-    config = function()
-      vim.cmd([[ colorscheme dracula]])
-    end,
-  },
-  {
-    "craftzdog/solarized-osaka.nvim",
-    lazy = false,
-    priority = 1000,
-    enabled = true,
-    opts = {
-      transparent = true,
-    },
-    config = function()
-      vim.cmd([[ colorscheme solarized-osaka]])
-    end,
-  },
-  {
-    "Tsuzat/NeoSolarized.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    enabled = false,
-    config = function()
-      vim.cmd([[ colorscheme NeoSolarized ]])
-    end,
-  },
+      styles = {
+        comments = "NONE",
+        functions = "NONE",
+        keywords = "NONE",
+        strings = "NONE",
+        variables = "NONE",
+      },
+    })
+    vim.cmd([[ :colorscheme carbonfox]])
+  end,
 }
