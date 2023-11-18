@@ -53,6 +53,9 @@ local options = {
     lazyredraw = false,
     shell = "fish",
     wildmode = "longest:full,full",
+    list = true,
+
+    -- listchars = {leadmultispace = "┃ ",multispace = "│ ",tab = "┃ ",},
   },
   g = {
     mapleader = " ", -- set leader key
