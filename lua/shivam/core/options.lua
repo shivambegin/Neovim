@@ -75,6 +75,9 @@ local options = {
   t = vim.t.bufs and vim.t.bufs or { bufs = vim.api.nvim_list_bufs() }, -- initialize buffers for the current tab
 }
 
+-- Lua initialization file
+vim.g.nightflyTransparent = true
+
 --set variables
 for scope, table in pairs(options) do
   for setting, value in pairs(table) do
