@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "shivam.plugins" }, { import = "shivam.plugins.lsp" } }, {
+require("lazy").setup({ { import = "shivam.plugins" }, { import = "shivam.plugins.lsp" },{import = "shivam.plugins.ui"} }, {
   install = {
     colorscheme = { "tokyonight" },
   },
