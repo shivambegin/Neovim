@@ -175,9 +175,10 @@ return {
         attach_navic = true,
         show_navic = true,
         show_modified = true,
-        theme = {
-          normal = { fg = "none", bg = "none" },
-        },
+        theme = 'tokyonight',
+        -- theme = {
+        --   bg = "none", fg = "none"
+        -- }
         symbols = {
           prefix = " ",
           separator = "",
