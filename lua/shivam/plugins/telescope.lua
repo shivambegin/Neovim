@@ -1,4 +1,4 @@
-local icons = require("base.icons")
+
 
 return {
   {
@@ -85,8 +85,6 @@ return {
     },
     opts = {
       defaults = {
-        prompt_prefix = icons.ui.Telescope .. " ",
-        selection_caret = icons.ui.Forward .. " ",
         mappings = {
           i = {
             ["<C-p>"] = function(...)
