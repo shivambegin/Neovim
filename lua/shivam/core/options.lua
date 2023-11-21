@@ -32,6 +32,7 @@ local options = {
     scrolloff = 1000, -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
     selection = "old", -- Don't select the newline symbol when using <End> on visual mode
     shiftwidth = 2, -- Number of space inserted for indentation
+    --showtabline = 2,
     showmode = false, -- Disable showing modes in command line
     sidescrolloff = 8, -- Same but for side scrolling.
     signcolumn = "yes", -- Always show the sign column -- Disable sign column

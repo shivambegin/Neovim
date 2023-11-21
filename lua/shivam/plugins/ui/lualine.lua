@@ -25,7 +25,7 @@ return {
           },
         },
         sections = {
-          lualine_a = { "buffers" },
+          lualine_a = { "filename" },
           lualine_b = { "branch", "diff", "diagnostics" },
           lualine_c = {
             {
