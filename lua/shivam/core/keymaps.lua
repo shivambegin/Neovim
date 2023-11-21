@@ -87,10 +87,10 @@ map("n", "<Leader>lp", "<cmd>lprev<CR>", { desc = "Previous location list item" 
 
 -- vim:fdm=marker:fdl=0
 
-map("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy" })
-map("n", "<leader>m", "<cmd>Mason<CR>", { desc = "Mason" })
+map("n", "<leader>la", "<cmd>Lazy<CR>", { desc = "Lazy" })
+map("n", "<leader>ma", "<cmd>Mason<CR>", { desc = "Mason" })
 map("n", "<leader>ch", "<cmd>checkhealth<CR>", { desc = "checkhealth" })
-
+map("n", "<leader>ee", "<cmd>E<CR>", { desc = "netrw" })
 -- Visual Maps
 map("v", "<leader>r", '"hy:%s/<C-r>h//g<left><left>') -- Replace all instances of highlighted words
 map("v", "<C-s>", ":sort<CR>") -- Sort highlighted text in visual mode with Control+S
