@@ -16,6 +16,7 @@ require("lazy").setup({
   { import = "shivam.plugins.lsp" },
   { import = "shivam.plugins.ui" },
   { import = "shivam.plugins.colorscheme" },
+  { import = "shivam.plugins.git" },
 }, {
   install = {
     colorscheme = { "nightfly" },
