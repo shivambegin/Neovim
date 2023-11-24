@@ -10,6 +10,11 @@ return{
                 folder_level = 2,
                 color_mode = true,
                 delay = 300
+            },
+            code_action = {
+                num_shortcut = true,
+                show_server_name = false,
+                extend_gitsigns = false,
             }
         })
     end,
