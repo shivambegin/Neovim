@@ -7,7 +7,6 @@ map("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
 map("n", "<leader>fo", vim.lsp.buf.format)
-
 --utility mappings
 map("n", "n", "nzzzv") -- keep the cursor centered when doing 'n'
 map("n", "N", "Nzzzv") -- keep the cursor centered when doing 'N'
