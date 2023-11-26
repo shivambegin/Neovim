@@ -150,7 +150,7 @@ M.config = function()
     },
     view = {
       width = 30,
-      side = "left",
+      side = "right",
       relativenumber = false,
       preserve_window_proportions = true,
       centralize_selection = true,
