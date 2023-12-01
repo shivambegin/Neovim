@@ -3,7 +3,7 @@ return {
     "EdenEast/nightfox.nvim",
     lazy = false,
     priority = 1000,
-    enabled = false,
+    enabled = true,
     config = function()
       require("nightfox").setup({
         fox = "carbonfox",
