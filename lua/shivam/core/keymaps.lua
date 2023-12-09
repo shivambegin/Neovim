@@ -2,7 +2,7 @@ local map = vim.keymap.set
 
 -- General {{{
 --
-map("n", "<leader>pv", vim.cmd.Ex)
+map("n", "<leader>ex", vim.cmd.Ex)
 map("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
