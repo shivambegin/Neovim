@@ -6,7 +6,7 @@ return {
     },
     priority = 1000,
     lazy = false,
-    enabled = false,
+    enabled = true,
     config = function()
       vim.cmd([[colorscheme vitesse]])
     end,

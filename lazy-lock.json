@@ -9,6 +9,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
+  "colorbuddy.nvim": { "branch": "master", "commit": "cdb5b0654d3cafe61d2a845e15b2b4b0e78e752a" },
   "comment-box.nvim": { "branch": "main", "commit": "dd1a48f8d06102e9b87ae1e0069bc365c006979b" },
   "conform.nvim": { "branch": "master", "commit": "48bc9996ebfe90e7766f46338360f75fd6ecb174" },
   "dired.nvim": { "branch": "main", "commit": "f84195908d73c83292b5a4879b313ef84c7ef5ef" },
@@ -75,5 +76,6 @@
   "vim-illuminate": { "branch": "master", "commit": "3bd2ab64b5d63b29e05691e624927e5ebbf0fb86" },
   "vim-markdown": { "branch": "master", "commit": "46add6c3017d3e4035dc10ffa9cb54221d8dfe1a" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" },
+  "vitesse.nvim": { "branch": "main", "commit": "addd777a6b46c3369b7251d9d5e9ad8bb70a5d99" },
   "zen-mode.nvim": { "branch": "main", "commit": "50e2e2a36cc97847d9ab3b1a3555ba2ef6839b50" }
 }
