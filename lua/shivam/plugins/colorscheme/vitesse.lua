@@ -5,8 +5,8 @@ return {
       "tjdevries/colorbuddy.nvim",
     },
     priority = 1000,
-    lazy = false,
-    enabled = true,
+    lazy = true,
+    enabled = false,
     config = function()
       vim.cmd([[colorscheme vitesse]])
     end,
