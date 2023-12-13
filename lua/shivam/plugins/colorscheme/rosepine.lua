@@ -3,7 +3,7 @@ return {
     "rose-pine/neovim",
     lazy = false,
     priority = 1000,
-    enabled = true,
+    enabled = false,
     config = function()
       require("rose-pine").setup({
         --- @usage 'auto'|'main'|'moon'|'dawn'
