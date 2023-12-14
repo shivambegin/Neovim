@@ -52,7 +52,7 @@ local options = {
     wrap = false, -- Disable wrapping of lines longer than the width of window.
     writebackup = false, -- Disable making a backup before overwriting a file
     lazyredraw = false,
-    shell = "fish",
+    shell = "nu",
     wildmode = "longest:full,full",
   },
   g = {
