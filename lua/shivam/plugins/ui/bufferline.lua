@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   config = function()
     require("bufferline").setup({
