@@ -21,7 +21,7 @@ require("lazy").setup({
   { import = "shivam.plugins.snippets" },
 }, {
   install = {
-    colorscheme = { "onedark" },
+    colorscheme = { "nightfly" },
   },
   checker = {
     enabled = true,

@@ -1,7 +1,7 @@
 return {
   {
     "utilyre/barbecue.nvim",
-    enabled = false,
+    enabled = true,
     event = "BufReadPre",
     dependencies = {
       "neovim/nvim-lspconfig",
