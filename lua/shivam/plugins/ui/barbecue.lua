@@ -12,7 +12,7 @@ return {
         attach_navic = true,
         show_navic = true,
         show_modified = true,
-        theme = "vitesse",
+        theme = "nightfly",
         -- theme = {
         --   bg = "none", fg = "none"
         -- }
