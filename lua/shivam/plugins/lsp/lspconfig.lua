@@ -11,18 +11,13 @@ return {
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
       -- Setup language servers.
       local lspconfig = require("lspconfig")
-      lspconfig.pyright.setup({})
-      lspconfig.tsserver.setup({})
-      lspconfig.html.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.tailwindcss.setup({})
-      lspconfig.cssls.setup({})
-      lspconfig.rust_analyzer.setup({
-        -- Server-specific settings. See `:help lspconfig-setup`
-        settings = {
-          ["rust-analyzer"] = {},
-        },
-      })
+
+      local servers = { "tsserver", "pyright", "html", "lua_ls", "tailwindcss", "cssls", "rust_analyzer" }
+      for _, lsp in pairs(servers) do
+        lspconfig[lsp].setup({
+          capabilities = capabilities,
+        })
+      end
 
       -- Global mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
