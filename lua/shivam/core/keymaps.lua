@@ -2,7 +2,7 @@ local map = vim.keymap.set
 
 -- This is going to get me cancelled(primegen inspired : )
 map("i", "<C-c>", "<Esc>")
-
+map("n", "<leader>f", vim.lsp.buf.format)
 -- General {{{
 --
 map("n", "<leader>ex", vim.cmd.Ex)
