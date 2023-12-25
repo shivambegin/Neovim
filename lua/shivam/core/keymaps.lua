@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+-- This is going to get me cancelled(primegen inspired : )
+map("i", "<C-c>", "<Esc>")
+
 -- General {{{
 --
 map("n", "<leader>ex", vim.cmd.Ex)
