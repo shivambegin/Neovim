@@ -1,4 +1,6 @@
 db_ui
+.vscode
+assets
 # Compiled Lua sources
 luac.out
 
