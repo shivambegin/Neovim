@@ -14,43 +14,17 @@ return {
 
     bufferline.setup({
       options = {
-        mode = "buffers",
-        close_command = ":Bdelete!",
-        right_mouse_command = ":Bdelete!",
-        offsets = {
-          { filetype = "NvimTree", text = "File Explorer", highlight = "Directory", padding = 1 },
-          { filetype = "lspsagaoutline", text = "Code Outline", highlight = "Directory", padding = 1 },
-        },
-        indicator = {
-          icon = "▎",
-        },
+        close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+        right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        separator_style = "thin", -- slant, padded_slant; slope, padded_slope; thick; thin
+        color_icons = true,
+        diagnostics = false,
+        diagnostics_update_in_insert = false,
+        diagnostics_indicator = true,
         always_show_bufferline = true,
-        buffer_close_icon = "",
-        modified_icon = "●",
-        close_icon = "",
-        left_trunc_marker = "",
-        right_trunc_marker = "",
-        max_name_length = 18,
-        max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
-        tab_size = 18,
-        --   custom_areas = {
-        --     right = function()
-        --       local result = {}
-        --       local version = " " .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
-        --       table.insert(result, { text = version })
-        --       return result
-        --     end,
-        --   },
-      },
-      highlights = {
-        buffer_selected = {
-          bold = false,
-          italic = false,
-        },
-        tab_selected = {
-          bold = false,
-          italic = false,
-        },
+        themable = true,
+        show_buffer_icons = true,
       },
     })
   end,
