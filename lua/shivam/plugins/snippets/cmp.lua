@@ -10,6 +10,7 @@ return {
     "hrsh7th/cmp-cmdline", -- CommandLine Completions
     "L3MON4D3/LuaSnip", -- Snippet Engine
     "zeioth/friendly-snippets", -- Bunch of Snippets
+    "saadparwaiz1/cmp_luasnip",
     {
       "windwp/nvim-autopairs",
       config = function()
