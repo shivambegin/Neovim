@@ -12,7 +12,7 @@ return {
       -- Setup language servers.
       local lspconfig = require("lspconfig")
 
-      local servers = { "tsserver", "pyright", "html", "lua_ls", "tailwindcss", "cssls", "rust_analyzer" }
+      local servers = { "tsserver", "pyright", "html", "lua_ls", "tailwindcss", "cssls", "rust_analyzer", "jdtls" }
       for _, lsp in pairs(servers) do
         lspconfig[lsp].setup({
           capabilities = capabilities,
