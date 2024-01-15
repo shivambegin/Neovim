@@ -77,13 +77,6 @@ return {
       })
     end,
   },
-
-  -- find and replace
-  {
-    "windwp/nvim-spectre",
-    event = "BufRead",
-  },
-
   -- Add/change/delete surrounding delimiter pairs with ease
   {
     "kylechui/nvim-surround",
