@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -11,23 +12,31 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-  { import = "shivam.plugins" },
-  { import = "shivam.plugins.lsp" },
-  { import = "shivam.plugins.ui" },
-  { import = "shivam.plugins.colorscheme" },
-  { import = "shivam.plugins.git" },
-  { import = "shivam.plugins.filebrowser" },
-  { import = "shivam.plugins.snippets" },
-}, {
+require("lazy").setup({import = "plugins"}, {
   install = {
-    colorscheme = { "nightfly" },
+    missing = true,
+    colorscheme = { "catppuccin", "habamax" }
   },
   checker = {
     enabled = true,
     notify = false,
   },
   change_detection = {
+    enabled = true,
     notify = false,
+  },
+  ui = {
+    border = "rounded"
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
   },
 })
