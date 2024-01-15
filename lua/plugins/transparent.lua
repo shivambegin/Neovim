@@ -46,6 +46,7 @@ return {
           "NeoTree",
           "NeoTreeNormal",
           "NeoTreeNormalNC",
+          "NeoTreeBorder",
           "WinbarNormal",
           "WinbarNormalNC",
           "NavicIcons",
