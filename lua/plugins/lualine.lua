@@ -34,7 +34,7 @@ return {
         { "fancy_location" },
       },
       lualine_y = {
-        { "fancy_filetype", ts_icon = "" },
+        { "fancy_filetype" },
       },
       lualine_z = {
         { "fancy_lsp_servers" },
