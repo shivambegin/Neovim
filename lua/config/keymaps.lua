@@ -2,7 +2,7 @@
 vim.keymap.set("i", "<C-c>", "<Esc>")
 -- General {{{
 --
-vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>nt", vim.cmd.Ex)
 vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
