@@ -91,6 +91,9 @@ return {
   {
     "tpope/vim-sleuth",
   },
+  {
+    "tpope/vim-commentary",
+  },
 
   -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API
   {
@@ -120,17 +123,6 @@ return {
         sentenceLength = "mixedShort",
         comma = 1,
       })
-    end,
-  },
-
-  -- Indent guide for Neovim
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    event = { "InsertEnter" },
-    opts = {},
-    config = function()
-      require("ibl").setup()
     end,
   },
   -- editor config support

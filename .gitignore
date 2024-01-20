@@ -44,3 +44,8 @@ luac.out
 
 
 plugin/packer_compiled.lua
+
+.stylua.toml
+.luarc.json
+mynvim.log
+assets
