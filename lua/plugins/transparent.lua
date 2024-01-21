@@ -51,6 +51,7 @@ return {
           "WinbarNormalNC",
           "NavicIcons",
           "NavicIconsFile",
+          "WinSeparator",
           "NavicIconsModule",
           "NavicText",
           "NavicSeparator",

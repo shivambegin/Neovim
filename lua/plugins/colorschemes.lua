@@ -1,28 +1,53 @@
 return {
-  {
-    "bluz71/vim-nightfly-guicolors",
-    priority = 1000, -- make sure to load this before all the other start plugins
-    enabled = true,
-    lazy = false,
-    config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme nightfly]])
-    end,
-  },
-  {
-    "scottmckendry/cyberdream.nvim",
-    enabled = false,
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("cyberdream").setup({
-        -- Recommended - see "Configuring" below for more config options
-        transparent = true,
-        italic_comments = true,
-        hide_fillchars = true,
-        borderless_telescope = true,
-      })
-      vim.cmd("colorscheme cyberdream") -- set the colorscheme
-    end,
-  },
+  "loctvl842/monokai-pro.nvim",
+  config = function()
+    require("monokai-pro").setup({
+      transparent_background = true,
+      terminal_colors = true,
+      devicons = true, -- highlight the icons of `nvim-web-devicons`
+      styles = {
+        comment = { italic = true },
+        keyword = { italic = true }, -- any other keyword
+        type = { italic = true }, -- (preferred) int, long, char, etc
+        storageclass = { italic = true }, -- static, register, volatile, etc
+        structure = { italic = true }, -- struct, union, enum, etc
+        parameter = { italic = true }, -- parameter pass in function
+        annotation = { italic = true },
+        tag_attribute = { italic = true }, -- attribute of tag in reactjs
+      },
+      filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
+      -- Enable this will disable filter option
+      day_night = {
+        enable = false, -- turn off by default
+        day_filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
+        night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+      },
+      inc_search = "background", -- underline | background
+      background_clear = {
+        "float_win",
+        "toggleterm",
+        "telescope",
+        "which-key",
+        "renamer",
+        "notify",
+        "nvim-tree",
+        "neo-tree",
+        -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+      }, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+      plugins = {
+        bufferline = {
+          underline_selected = false,
+          underline_visible = false,
+        },
+        indent_blankline = {
+          context_highlight = "default", -- default | pro
+          context_start_underline = false,
+        },
+      },
+      ---@param c Colorscheme
+      override = function(c) end,
+    })
+
+    vim.cmd("colorscheme monokai-pro-octagon")
+  end,
 }
