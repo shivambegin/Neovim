@@ -131,7 +131,7 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        { name = "codeium" },
+        -- { name = "codeium" },
       },
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
