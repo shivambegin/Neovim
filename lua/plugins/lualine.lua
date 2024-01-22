@@ -27,6 +27,9 @@ return {
             "buffers",
           },
         },
+        lualine_z = {
+          { "fancy_lsp_servers" },
+        },
       },
     })
   end,
