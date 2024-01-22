@@ -1,5 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "meuter/lualine-so-fancy.nvim",
+  },
   enabled = true,
   lazy = false,
   event = { "BufNewFile", "BufReadPost", "VeryLazy" },
