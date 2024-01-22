@@ -13,6 +13,7 @@ return {
         icons_enabled = true,
         component_separators = "|",
         section_separators = "",
+        theme = "auto",
       },
       sections = {
         lualine_x = {
