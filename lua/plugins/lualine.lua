@@ -16,11 +16,11 @@ return {
         theme = "auto",
       },
       sections = {
-        lualine_x = {},
+        lualine_x = {
+          "fancy_diagnostics",
+        },
         lualine_a = {
-          {
-            "buffers",
-          },
+          { "fancy_mode" },
         },
         lualine_z = {
           { "fancy_lsp_servers" },
