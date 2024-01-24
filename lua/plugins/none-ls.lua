@@ -20,7 +20,7 @@ return {
         "pylint", -- python linter
         "eslint_d", -- js linter
         "gofumpt",
-        "goimports_reviser",
+        "goimports-reviser",
         "golines",
       },
     })
