@@ -45,7 +45,7 @@ vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
 
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = {
   eol = "󰘌",
 }
