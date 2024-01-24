@@ -25,7 +25,7 @@ vim.opt.undofile = true -- enable persistent undo
 vim.opt.updatetime = 100 -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true -- convert tabs to spaces
-vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
+vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.cursorline = false -- highlight the current line
 vim.opt.number = true -- set numbered lines
 vim.opt.breakindent = true -- wrap lines with indent
@@ -43,7 +43,7 @@ vim.opt.confirm = true -- confirm to save changes before exiting modified buffer
 vim.opt.fillchars = { eob = "" } -- change the character at the end of buffer
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
-vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.tabstop = 4 -- insert 2 spaces for a tab
 
 vim.opt.list = true
 vim.opt.listchars = {
