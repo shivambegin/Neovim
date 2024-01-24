@@ -19,6 +19,9 @@ return {
         "black", -- python formatter
         "pylint", -- python linter
         "eslint_d", -- js linter
+        "gofumpt",
+        "goimports_reviser",
+        "golines",
       },
     })
 
@@ -41,6 +44,9 @@ return {
           extra_filetypes = { "svelte" },
         }), -- js/ts formatter
         formatting.stylua, -- lua formatter
+        formatting.gofumpt,
+        formatting.goimports_reviser,
+        formatting.golines,
         formatting.isort,
         formatting.black,
         diagnostics.pylint,
