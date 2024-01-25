@@ -49,3 +49,4 @@ vim.opt.list = false
 vim.opt.listchars = {
   eol = "󰘌",
 }
+vim.opt.guicursor = "i:block"
