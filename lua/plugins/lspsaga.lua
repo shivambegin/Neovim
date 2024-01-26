@@ -14,6 +14,7 @@ return {
         enable = false,
       },
     })
+    keymap.set({ "n", "t" }, "<A-t>", "<cmd>Lspsaga term_toggle<cr>")
 
     keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
     keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>")
