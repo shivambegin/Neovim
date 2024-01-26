@@ -3,7 +3,7 @@ vim.keymap.set("n", "<leader>tt", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-
+vim.keymap.set("n", "<leader>ch", builtin.colorscheme, {})
 return {
   {
     "nvim-telescope/telescope.nvim",
