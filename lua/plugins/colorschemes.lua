@@ -1,4 +1,16 @@
 return {
+
+  {
+    "Shatur/neovim-ayu",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("ayu").setup({
+        -- vim.cmd([[colorscheme ayu]]),
+      })
+    end,
+  },
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
@@ -45,10 +57,10 @@ return {
     config = function()
       require("rose-pine").setup({
 
-        -- vim.cmd("colorscheme rose-pine")
+        vim.cmd("colorscheme rose-pine"),
         -- vim.cmd('colorscheme rose-pine-main')
         -- vim.cmd('colorscheme rose-pine-moon')
-        vim.cmd("colorscheme rose-pine-dawn"),
+        -- vim.cmd("colorscheme rose-pine-dawn"),
       })
     end,
   },

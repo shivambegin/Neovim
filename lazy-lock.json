@@ -51,6 +51,7 @@
   "neotest": { "branch": "master", "commit": "73043d666780e35185a77589e01bec96a52db910" },
   "neotest-jest": { "branch": "main", "commit": "a394106cf053eef86d65ae04c4b93a1a7bd60aef" },
   "neotest-vitest": { "branch": "main", "commit": "87e91bfd9419a8c74bf0d105e2ae31b9692daf0b" },
+  "neovim-ayu": { "branch": "master", "commit": "6463d39253bb70e2b867fce57f9e7174f657bd1b" },
   "none-ls.nvim": { "branch": "main", "commit": "a311c7cc8f17543143a7482cdbe3a384c371d56a" },
   "nui.nvim": { "branch": "main", "commit": "35da9ca1de0fc4dda96c2e214d93d363c145f418" },
   "nvim-autopairs": { "branch": "master", "commit": "096d0baecc34f6c5d8a6dd25851e9d5ad338209b" },
