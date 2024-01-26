@@ -4,7 +4,7 @@ return {
     local keymap = vim.keymap
 
     require("lspsaga").setup({
-      symbols_in_winbar = {
+      symbol_in_winbar = {
         enable = false,
       },
       ui = {
@@ -16,6 +16,7 @@ return {
     })
     keymap.set({ "n", "t" }, "<A-t>", "<cmd>Lspsaga term_toggle<cr>")
 
+    keymap.set({ "n" }, "<leader>r", "<cmd>Lspsaga rename<cr>")
     keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
     keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>")
     keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<cr>")
@@ -30,7 +31,6 @@ return {
 
         local opts = { buffer = ev.buf }
         vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
-        -- vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
         vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
         vim.keymap.set("n", "gr", builtin.lsp_references, opts)
       end,
