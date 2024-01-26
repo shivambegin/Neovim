@@ -1,5 +1,33 @@
 return {
+  -- Lua
 
+  {
+    "olivercederborg/poimandres.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("poimandres").setup({
+        -- leave this setup function empty for default config
+        -- or refer to the configuration section
+        -- for configuration options
+      })
+    end,
+
+    -- optionally set the colorscheme within lazy config
+    init = function()
+      vim.cmd("colorscheme poimandres")
+    end,
+  },
+
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("catppuccin").setup({})
+    end,
+  },
   {
     "Shatur/neovim-ayu",
     lazy = false,
@@ -57,7 +85,7 @@ return {
     config = function()
       require("rose-pine").setup({
 
-        vim.cmd("colorscheme rose-pine"),
+        -- vim.cmd("colorscheme rose-pine"),
         -- vim.cmd('colorscheme rose-pine-main')
         -- vim.cmd('colorscheme rose-pine-moon')
         -- vim.cmd("colorscheme rose-pine-dawn"),
