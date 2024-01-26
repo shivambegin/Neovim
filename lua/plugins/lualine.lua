@@ -6,7 +6,7 @@ return {
   },
   opts = {
     options = {
-      theme = "papercolor_dark",
+      theme = "auto",
       component_separators = { left = "│", right = "│" },
       section_separators = { left = "", right = "" },
       globalstatus = true,
