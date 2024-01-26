@@ -45,6 +45,9 @@ vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
 vim.opt.termguicolors = true
+vim.opt.autoindent = true
+vim.bo.autoread = true
+vim.opt.autoread = true
 
 vim.opt.list = false
 vim.opt.listchars = {
