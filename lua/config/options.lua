@@ -44,9 +44,17 @@ vim.opt.fillchars = { eob = "" } -- change the character at the end of buffer
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
+vim.opt.termguicolors = true
 
 vim.opt.list = false
 vim.opt.listchars = {
   eol = "󰘌",
 }
 -- vim.opt.guicursor = "i:block"
+
+-- highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
