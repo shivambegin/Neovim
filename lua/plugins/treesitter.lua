@@ -10,6 +10,8 @@ return {
       "windwp/nvim-ts-autotag",
     },
     config = function()
+
+
       require("nvim-treesitter.configs").setup({
         highlight = {
           enable = true,
