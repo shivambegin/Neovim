@@ -90,10 +90,6 @@ vim.keymap.set("n", "<Leader>lp", "<cmd>lprev<CR>", { desc = "Previous location 
 
 -- vim:fdm=marker:fdl=0
 
-vim.keymap.set("n", "<leader>la", "<cmd>Lazy<CR>", { desc = "Lazy" })
-vim.keymap.set("n", "<leader>ma", "<cmd>Mason<CR>", { desc = "Mason" })
-vim.keymap.set("n", "<leader>ch", "<cmd>checkhealth<CR>", { desc = "checkhealth" })
-vim.keymap.set("n", "<leader>ee", "<cmd>E<CR>", { desc = "netrw" })
 -- Visual vim.keymap.sets
 vim.keymap.set("v", "<leader>r", '"hy:%s/<C-r>h//g<left><left>') -- Replace all instances of highlighted words
 vim.keymap.set("v", "<C-s>", ":sort<CR>") -- Sort highlighted text in visual mode with Control+S
