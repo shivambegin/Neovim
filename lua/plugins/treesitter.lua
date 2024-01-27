@@ -10,8 +10,6 @@ return {
       "windwp/nvim-ts-autotag",
     },
     config = function()
-
-
       require("nvim-treesitter.configs").setup({
         highlight = {
           enable = true,
@@ -77,6 +75,7 @@ return {
       })
 
       -- Must installed zig via scoop in Windows
+      ---@diagnostic disable-next-line: undefined-field
       if _G.IS_WINDOWS then
         require("nvim-treesitter.install").compilers = { "zig" }
       else
