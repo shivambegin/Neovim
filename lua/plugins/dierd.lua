@@ -1,6 +1,6 @@
 return {
   "X3eRo0/dired.nvim",
-  dependency = { "MunifTanjim/nui.nvim" },
+  dependencies = { "MunifTanjim/nui.nvim" },
   enabled = true,
   config = function()
     require("dired").setup({
