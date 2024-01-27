@@ -12,9 +12,6 @@ return {
   {
     "tpope/vim-sleuth",
   },
-  {
-    "tpope/vim-commentary",
-  },
 
   {
     "christoomey/vim-tmux-navigator",
