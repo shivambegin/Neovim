@@ -51,6 +51,7 @@ vim.opt.autoread = true
 
 vim.opt.list = false
 vim.opt.listchars = {
+  space = " ",
   eol = "󰘌",
 }
 -- vim.opt.guicursor = "i:block"
