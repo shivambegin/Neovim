@@ -49,8 +49,9 @@ vim.opt.autoindent = true
 vim.bo.autoread = true
 vim.opt.autoread = true
 
-vim.opt.list = false
+vim.opt.list = true
 vim.opt.listchars = {
+  tab = "   ",
   space = " ",
   eol = "󰘌",
 }
