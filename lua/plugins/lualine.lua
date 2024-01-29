@@ -4,6 +4,7 @@ return {
     "meuter/lualine-so-fancy.nvim",
     "nvim-tree/nvim-web-devicons",
   },
+  lazy = true,
   opts = {
     options = {
       theme = "auto",
