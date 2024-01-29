@@ -1,10 +1,19 @@
 return {
   {
+    "baliestri/aura-theme",
+    lazy = false,
+    priority = 1000,
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+      vim.cmd([[colorscheme aura-dark]])
+    end,
+  },
+  {
     "sainnhe/everforest",
     priority = 1000,
     config = function()
       vim.g.everforest_diagnostic_line_highlight = 1
-      vim.cmd([[colorscheme everforest]])
+      -- vim.cmd([[colorscheme everforest]])
     end,
   },
   -- Lua
