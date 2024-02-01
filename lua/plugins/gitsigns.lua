@@ -2,9 +2,8 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
-    local gitsigns = require("gitsigns")
+    require("gitsigns").setup({
 
-    gitsigns.setup({
       signs = {
         add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
         change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
