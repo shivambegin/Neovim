@@ -52,7 +52,12 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- configure html server
+    -- configure htmx server
+    lspconfig["htmx"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    -- configure bash server
     lspconfig["bashls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
