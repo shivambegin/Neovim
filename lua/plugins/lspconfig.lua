@@ -52,6 +52,11 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- configure yaml server
+    lspconfig["yamlls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
     -- configure htmx server
     lspconfig["htmx"].setup({
       capabilities = capabilities,
