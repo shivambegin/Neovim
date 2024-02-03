@@ -1,5 +1,11 @@
 --TODO  find out use case for some of this plugins
 return {
+  {
+    "dstein64/vim-startuptime",
+  },
+  {
+    "fowlie/open-github-repo",
+  },
   -- Autotags
   {
     "windwp/nvim-ts-autotag",

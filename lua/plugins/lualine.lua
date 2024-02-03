@@ -4,10 +4,10 @@ return {
     "meuter/lualine-so-fancy.nvim",
     "nvim-tree/nvim-web-devicons",
   },
-  lazy = true,
+  lazy = false,
   opts = {
     options = {
-      theme = "auto",
+      theme = "modus-vivendi",
       component_separators = { left = "│", right = "│" },
       section_separators = { left = "", right = "" },
       globalstatus = true,
