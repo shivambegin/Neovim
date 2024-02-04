@@ -18,6 +18,7 @@
   "codeium.nvim": { "branch": "main", "commit": "f871000e91faa9ed334da2bfa4eadbf54d0e1047" },
   "colorbuddy.nvim": { "branch": "master", "commit": "cdb5b0654d3cafe61d2a845e15b2b4b0e78e752a" },
   "comment-box.nvim": { "branch": "main", "commit": "06bb771690bc9df0763d14769b779062d8f12bc5" },
+  "dashboard-nvim": { "branch": "master", "commit": "c045eb24334324fb39ad5ede0b5d15a74a5d229e" },
   "dired.nvim": { "branch": "main", "commit": "453372422cd82bcfbcebfc1e2e16660144d07a26" },
   "dressing.nvim": { "branch": "master", "commit": "6f212262061a2120e42da0d1e87326e8a41c0478" },
   "edgy.nvim": { "branch": "main", "commit": "0b35dc6da4cae6cc2f724bc610eadf955cd2319b" },
