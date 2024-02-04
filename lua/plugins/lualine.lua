@@ -5,6 +5,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   lazy = false,
+  enabled = false,
   opts = {
     options = {
       theme = "modus-vivendi",
