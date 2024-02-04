@@ -1,3 +1,5 @@
+
+
 -- This is going to get me cancelled(primegen inspired : )
 vim.keymap.set("i", "<C-c>", "<Esc>")
 -- General {{{
