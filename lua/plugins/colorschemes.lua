@@ -5,7 +5,7 @@ return {
     priority = 1000,
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
-      vim.cmd([[colorscheme aura-soft-dark-soft-text]])
+      -- vim.cmd([[colorscheme aura-soft-dark-soft-text]])
     end,
   },
   {
@@ -103,7 +103,7 @@ return {
       require("rose-pine").setup({
 
         -- vim.cmd("colorscheme rose-pine"),
-        -- vim.cmd('colorscheme rose-pine-main')
+        vim.cmd("colorscheme rose-pine-main"),
         -- vim.cmd('colorscheme rose-pine-moon')
         -- vim.cmd("colorscheme rose-pine-dawn"),
       })
