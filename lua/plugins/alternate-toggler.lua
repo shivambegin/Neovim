@@ -6,6 +6,8 @@ return {
     require("alternate-toggler").setup({
       alternates = {
         ["true"] = "false",
+        ["top"] = "bottom",
+        ["left"] = "right",
         ["True"] = "False",
         ["TRUE"] = "FALSE",
         ["Yes"] = "No",
