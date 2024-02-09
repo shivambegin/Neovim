@@ -18,7 +18,8 @@ return {
     },
     sections = {
       lualine_a = {
-        { "fancy_mode", width = 3 },
+        -- { "fancy_mode", width = 3 },
+        { "buffers" },
       },
       lualine_b = {
         { "fancy_branch" },
