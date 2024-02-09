@@ -1,5 +1,6 @@
 return {
   "j-hui/fidget.nvim",
+  enabled = false,
   branch = "legacy",
   lazy = false,
   config = function()

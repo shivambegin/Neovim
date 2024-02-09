@@ -45,6 +45,10 @@ return {
           "NvimTree",
           "NvimTreeNormal",
           "NvimTreeNormalNC",
+
+          "NeoTree",
+          "NeoTreeNormal",
+          "NeoTreeNormalNC",
           "NvimTreeBorder",
           "WinbarNormal",
           "WinbarNormalNC",

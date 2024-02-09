@@ -1,9 +1,14 @@
+-- Indent guide for Neovim
 return {
   "lukas-reineke/indent-blankline.nvim",
-  lazy = true,
+  event = { "BufReadPost", "BufNewFile" },
+  enabled = true,
   main = "ibl",
-  opts = {},
   config = function()
-    require("ibl").setup()
+    require("ibl").setup({
+      debounce = 100,
+      indent = { char = "│" },
+      whitespace = { highlight = { "Whitespace", "NonText" } },
+    })
   end,
 }
