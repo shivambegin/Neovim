@@ -2,15 +2,18 @@ return {
   {
     "xiyaowong/transparent.nvim",
     config = function()
+      require("transparent").clear_prefix("Normal")
+      require("transparent").clear_prefix("PMenu")
+      require("transparent").clear_prefix("Float")
       require("transparent").clear_prefix("NeoTree")
       require("transparent").clear_prefix("Noice")
+      require("transparent").clear_prefix("NvimTree")
+      require("transparent").clear_prefix("Telescope")
       require("transparent").clear_prefix("Notify")
       require("transparent").clear_prefix("BufferLine")
       require("transparent").clear_prefix("lualine")
       require("transparent").setup({ -- Optional, you don't have to run setup.
         groups = { -- table: default groups
-          "Normal",
-          "NormalNC",
           "Comment",
           "Constant",
           "Special",
@@ -36,21 +39,11 @@ return {
           "EndOfBuffer",
         },
         extra_groups = {
-          "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
           "OctoEditable",
           "NvimTreeNormal", -- NvimTree
           "EndOfBuffer",
-          "TelescopeNormal",
-          "TelescopeBorder",
-          "PMenu",
-          "PMenuBorder",
-          "FloatBorder",
           "Search",
           "Cursor",
-          "NvimTree",
-          "NvimTreeNormal",
-          "NvimTreeNormalNC",
-          "NvimTreeBorder",
           "WinbarNormal",
           "WinbarNormalNC",
           "NavicIcons",
@@ -60,7 +53,6 @@ return {
           "NavicText",
           "NavicSeparator",
           "LazyNormal",
-          "BufferlineNormal",
         }, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
       })
