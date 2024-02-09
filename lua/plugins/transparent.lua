@@ -24,10 +24,10 @@ return {
           "LineNr",
           "NonText",
           "SignColumn",
-          --"CursorLine",
-          --"CursorLineNr",
-          -- "StatusLine",
-          -- "StatusLineNC",
+          "CursorLine",
+          "CursorLineNr",
+          "StatusLine",
+          "StatusLineNC",
           "EndOfBuffer",
         },
         extra_groups = {
@@ -45,7 +45,6 @@ return {
           "NvimTree",
           "NvimTreeNormal",
           "NvimTreeNormalNC",
-
           "NeoTree",
           "NeoTreeNormal",
           "NeoTreeNormalNC",
