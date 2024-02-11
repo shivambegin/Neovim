@@ -90,7 +90,7 @@
   "tw-values.nvim": { "branch": "main", "commit": "3808621a53f6ac9c151b77d9df61b29991c12921" },
   "twilight.nvim": { "branch": "main", "commit": "8b7b50c0cb2dc781b2f4262a5ddd57571556d1e4" },
   "typescript-tools.nvim": { "branch": "master", "commit": "c43d9580c3ff5999a1eabca849f807ab33787ea7" },
-  "undotree": { "branch": "master", "commit": "7df3be7a261ea31b528aa442b494fcb458f3d968" },
+  "undotree": { "branch": "master", "commit": "9dbbf3b7d19dda0d22ceca461818e4739ad8154d" },
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },
   "vim-bookmarks": { "branch": "master", "commit": "9cc5fa7ecc23b052bd524d07c85356c64b92aeef" },
   "vim-dadbod": { "branch": "master", "commit": "9d3e3ce74a264642a41e8ae126be5afd095ef107" },
