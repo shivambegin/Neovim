@@ -9,8 +9,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        -- theme = "auto",
-        theme = "catppuccin",
+        theme = "auto",
         globalstatus = true,
         icons_enabled = true,
         component_separators = { left = "|", right = "|" },
