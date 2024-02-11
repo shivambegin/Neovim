@@ -1,7 +1,7 @@
 return {
   "nvimdev/dashboard-nvim",
   event = "VimEnter",
-  enabled = false,
+  enabled = true,
   config = function()
     require("dashboard").setup({
       theme = "doom",
