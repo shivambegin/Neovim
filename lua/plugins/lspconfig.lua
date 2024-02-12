@@ -52,6 +52,11 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- configure matlab server
+    lspconfig["matlab_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
     -- configure yaml server
     lspconfig["yamlls"].setup({
       capabilities = capabilities,

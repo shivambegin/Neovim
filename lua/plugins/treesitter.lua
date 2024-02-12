@@ -32,6 +32,7 @@ return {
           "javascript",
           "typescript",
           "yaml",
+          "matlab",
           "tsx",
           "json",
           "toml",
