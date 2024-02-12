@@ -18,6 +18,7 @@ return {
       vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
       vim.keymap.set("n", "<leader>ch", builtin.colorscheme, {})
+      vim.keymap.set("n", "<leader>fs", builtin.git_files, {})
       local telescope = require("telescope")
       local actions = require("telescope.actions")
       local trouble = require("trouble.providers.telescope")
@@ -85,6 +86,7 @@ return {
             path_display = formattedName,
             layout_config = {
               height = 0.4,
+              width = 0.6,
               prompt_position = "top",
               preview_cutoff = 120,
             },
@@ -94,6 +96,7 @@ return {
             path_display = formattedName,
             layout_config = {
               height = 0.4,
+              width = 0.6,
               prompt_position = "top",
               preview_cutoff = 120,
             },
@@ -127,7 +130,13 @@ return {
           },
           live_grep = {
             only_sort_text = true,
-            previewer = true,
+            previewer = false,
+            layout_config = {
+              height = 0.4,
+              width = 0.6,
+              prompt_position = "top",
+              preview_cutoff = 120,
+            },
           },
           grep_string = {
             only_sort_text = true,
@@ -143,6 +152,23 @@ return {
           },
           colorscheme = {
             enable_preview = true,
+            previewer = false,
+            layout_config = {
+              height = 0.4,
+              width = 0.6,
+              prompt_position = "top",
+              preview_cutoff = 120,
+            },
+          },
+          help_tags = {
+            enable_preview = true,
+            previewer = false,
+            layout_config = {
+              height = 0.4,
+              width = 0.6,
+              prompt_position = "top",
+              preview_cutoff = 120,
+            },
           },
         },
         extensions = {
