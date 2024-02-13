@@ -1,7 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "catppuccin/nvim",
+    "meuter/lualine-so-fancy.nvim",
   },
   enabled = true,
   lazy = false,
@@ -9,25 +9,59 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        theme = "auto",
+        globalstatus = true,
         icons_enabled = true,
-        component_separators = "|",
-        section_separators = "",
+        component_separators = { left = "|", right = "|" },
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = {
+          statusline = {
+            "alfa-nvim",
+            "help",
+            "neo-tree",
+            "Trouble",
+            "spectre_panel",
+            "toggleterm",
+          },
+          winbar = {},
+        },
       },
       sections = {
+        lualine_a = {},
+        lualine_b = {
+          "fancy_branch",
+        },
+        lualine_c = {
+          {
+            "filename",
+            path = 1, -- 2 for full path
+            symbols = {
+              modified = "  ",
+              -- readonly = "  ",
+              -- unnamed = "  ",
+            },
+          },
+          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
+          { "fancy_searchcount" },
+        },
         lualine_x = {
-          {
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
-            color = { fg = "#ff9e64" },
-          },
+          "fancy_lsp_servers",
+          "fancy_diff",
+          "progress",
         },
-        lualine_a = {
-          {
-            "mode",
-          },
-        },
+        lualine_y = {},
+        lualine_z = {},
       },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { "filename" },
+        -- lualine_x = { "location" },
+        lualine_y = {},
+        lualine_z = {},
+      },
+      tabline = {},
+      extensions = { "neo-tree", "lazy" },
     })
   end,
 }
