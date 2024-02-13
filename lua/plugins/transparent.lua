@@ -15,6 +15,7 @@ return {
       require("transparent").clear_prefix("Notify")
       require("transparent").clear_prefix("lualine")
       require("transparent").clear_prefix("BufferLine")
+      require("transparent").clear_prefix("barbecue")
       require("transparent").clear_prefix("Mini")
       require("transparent").setup({ -- Optional, you don't have to run setup.
         groups = { -- table: default groups
