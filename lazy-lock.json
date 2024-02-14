@@ -69,6 +69,7 @@
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "7ab799a9792f7cf3883cf28c6a00ad431f3d382a" },
   "nvim-web-devicons": { "branch": "master", "commit": "7f30f2da3c3641841ceb0e2c150281f624445e8f" },
   "oil.nvim": { "branch": "master", "commit": "bf753c3e3f8736939ad5597f92329dfe7b1df4f5" },
+  "onedarkpro.nvim": { "branch": "main", "commit": "bbe613372548ef8fa1a1f67d50f55795727ac432" },
   "open-github-repo": { "branch": "main", "commit": "58cad9bb14e74a7fd598483c6abbe6ba4011ce9b" },
   "package-info.nvim": { "branch": "master", "commit": "18f8126dd8e65b2e21804c9107785af4abbb5bfc" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
