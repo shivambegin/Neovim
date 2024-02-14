@@ -9,7 +9,6 @@ return {
       "nvim-tree/nvim-web-devicons",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "zig" },
       "nvim-telescope/telescope-ui-select.nvim",
-      "nvim-telescope/telescope-frecency.nvim",
     },
     config = function()
       local builtin = require("telescope.builtin")
@@ -208,7 +207,6 @@ return {
       })
       telescope.load_extension("ui-select")
       telescope.load_extension("refactoring")
-      telescope.load_extension("frecency")
       telescope.load_extension("notify")
     end,
   },

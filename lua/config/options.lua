@@ -1,11 +1,13 @@
 vim.g.mapleader = " " -- change leader to a space
 vim.g.maplocalleader = " " -- change localleader to a space
 
+vim.g.loaded_netrw = 1 -- disable netrw
+vim.g.loaded_netrwPlugin = 1 --  disable netrw
 vim.opt.incsearch = true -- make search act like search in modern browsers
 vim.opt.foldenable = false
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
+vim.opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
 vim.opt.updatetime = 200
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
