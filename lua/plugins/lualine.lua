@@ -99,7 +99,7 @@ return {
       "mode",
       fmt = function(str)
         if sts_mode == 0 then
-          return "--" .. str .. "--"
+          return "  " .. str .. "  "
         else
           return icon_mode .. str
         end
@@ -189,8 +189,8 @@ return {
 
     local lsp_info = {
       function()
-        --local msg = "No Active Lsp"
-        local msg = "LS Inactive"
+        local msg = "No Active Lsp"
+        -- local msg = "LS Inactive"
         -- local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
         local buf_ft = vim.bo.filetype
         local clients = vim.lsp.get_active_clients()
@@ -256,10 +256,13 @@ return {
         lualine_b = { mode },
         lualine_c = { diagnostics, lsp_info, lsp_progress },
         -- lualine_c = { file_name, lsp_info },
-        -- lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_x = { diff, spaces, "encoding", filetype },
-        lualine_y = { location },
-        --[[ 	lualine_z = { progress }, ]]
+        lualine_x = { --[[ "encoding", ]]
+          "fileformat",
+          "filetype",
+        },
+        -- lualine_x = { diff, spaces, "encoding", filetype },
+        -- lualine_y = { location },
+        -- lualine_z = { progress },
         lualine_z = { time },
       },
       inactive_sections = {
