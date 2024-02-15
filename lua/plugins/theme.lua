@@ -4,7 +4,7 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme nightfly]])
+      -- vim.cmd([[colorscheme nightfly]])
     end,
   },
   {
@@ -458,7 +458,7 @@ return {
       vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
       vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
 
-      -- vim.api.nvim_command("colorscheme catppuccin")
+      vim.api.nvim_command("colorscheme catppuccin-mocha")
     end,
   },
 }
