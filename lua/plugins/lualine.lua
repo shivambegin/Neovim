@@ -84,8 +84,8 @@ return {
     end
 
     local lsp_progess = function()
-      msg = msg or "LS Inactive"
-      local buf_clients = vim.lsp.buf_get_clients()
+      msg = msg or "lsp not attached"
+      local buf_clients = vim.lsp.get_clients()
       if next(buf_clients) == nil then
         -- TODO: clean up this if statement
         if type(msg) == "boolean" or #msg == 0 then
