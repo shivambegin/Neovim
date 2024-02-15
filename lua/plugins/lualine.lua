@@ -84,7 +84,7 @@ return {
     end
 
     local lsp_progess = function()
-      msg = msg or "lsp not attached"
+      msg = msg or "lsp loading..."
       local buf_clients = vim.lsp.get_clients()
       if next(buf_clients) == nil then
         -- TODO: clean up this if statement
