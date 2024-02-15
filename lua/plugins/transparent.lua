@@ -43,6 +43,7 @@ return {
           "StatusLine",
           "StatusLineNC",
           "EndOfBuffer",
+          "SignColumn",
         },
         extra_groups = {
           "OctoEditable",
