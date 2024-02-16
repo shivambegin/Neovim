@@ -5,71 +5,28 @@ return {
   event = "VeryLazy",
   lazy = true,
   config = function()
-    local status_ok, bufferline = pcall(require, "bufferline")
-    if not status_ok then
-      return
-    end
-
-    local icons = require("config.icons")
-    local use_icons = true
-
-    local function diagnostics_indicator(num, _, diagnostics, _)
-      local result = {}
-      local symbols = {
-        error = icons.diagnostics.Error,
-        warning = icons.diagnostics.Warning,
-        info = icons.diagnostics.Information,
-      }
-      if not use_icons then
-        return "(" .. num .. ")"
-      end
-      for name, count in pairs(diagnostics) do
-        if symbols[name] and count > 0 then
-          table.insert(result, symbols[name] .. " " .. count)
-        end
-      end
-      result = table.concat(result, " ")
-      return #result > 0 and result or ""
-    end
-
-    vim.opt.termguicolors = true
-
+    local bufferline = require("bufferline")
     bufferline.setup({
       options = {
-        color_icons = true,
-        numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        close_command = function(bufnum)
-          require("bufdelete").bufdelete(bufnum, true)
-        end,
-        right_mouse_command = function(bufnum)
-          require("bufdelete").bufdelete(bufnum, true)
-        end,
-        -- close_command = "bdelete! %d",
-        -- right_mouse_command = "bdelete! %d",
-        left_mouse_command = "buffer %d",
-        middle_mouse_command = nil,
-
-        indicator_icon = nil,
-        indicator = { style = "icon", icon = " " },
-        buffer_close_icon = icons.ui.Close,
-        modified_icon = icons.ui.Circle,
-        close_icon = icons.ui.BoldClose,
-        left_trunc_marker = icons.ui.ArrowCircleLeft,
-        right_trunc_marker = icons.ui.ArrowCircleRight,
+        mode = "buffers", -- set to "tabs" to only show tabpages instead
+        numbers = "none",
+        close_command = "bdelete! %d", -- can be a string | function, | false see "Mouse actions"
+        right_mouse_command = "bdelete! %d", -- can be a string | function | false, see "Mouse actions"
+        left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
+        middle_mouse_command = nil, -- can be a string | function, | false see "Mouse actions"
+        indicator = {
+          icon = "", -- this should be omitted if indicator style is not 'icon'
+          style = "icon",
+        },
+        left_trunc_marker = "",
+        right_trunc_marker = "",
         max_name_length = 30,
-        max_prefix_length = 30,
-        tab_size = 18,
-        diagnostics = false, -- | "nvim_lsp" | "coc",
+        max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+        truncate_names = true, -- whether or not tab names should be truncated
+        tab_size = 10,
+        diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
-        diagnostics_indicator = diagnostics_indicator,
         offsets = {
-          {
-            filetype = "NvimTree",
-            text = "Explorer",
-            highlight = "Directory",
-            text_align = "left",
-            padding = 1,
-          },
           {
             filetype = "neo-tree",
             text = "Explorer",
@@ -78,14 +35,21 @@ return {
             padding = 1,
           },
         },
-        show_buffer_icons = true,
-        show_buffer_close_icons = true,
-        show_close_icon = true,
+        color_icons = true, -- whether or not to add the filetype icon highlights
+        show_buffer_icons = true, -- disable filetype icons for buffers
+        show_buffer_close_icons = false,
+        show_close_icon = false,
         show_tab_indicators = true,
+        show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
-        enforce_regular_tabs = true,
+        move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
+        separator_style = "thin",
         always_show_bufferline = true,
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { "close" },
+        },
       },
       highlights = {
         background = {
