@@ -3,7 +3,7 @@ return {
   enabled = true,
   config = function()
     require("smoothcursor").setup({
-      cursor = "",
+      cursor = " ",
       fancy = {
         enable = true,
         head = { cursor = "" },
