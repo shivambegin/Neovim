@@ -50,7 +50,7 @@ return {
         middle_mouse_command = nil,
 
         indicator_icon = nil,
-        indicator = { style = "icon", icon = "▎" },
+        indicator = { style = "icon", icon = " " },
         buffer_close_icon = icons.ui.Close,
         modified_icon = icons.ui.Circle,
         close_icon = icons.ui.BoldClose,
@@ -58,7 +58,7 @@ return {
         right_trunc_marker = icons.ui.ArrowCircleRight,
         max_name_length = 30,
         max_prefix_length = 30,
-        tab_size = 21,
+        tab_size = 18,
         diagnostics = false, -- | "nvim_lsp" | "coc",
         diagnostics_update_in_insert = false,
         diagnostics_indicator = diagnostics_indicator,
