@@ -7,6 +7,12 @@ return {
       vim.cmd([[colorscheme ayu-mirage]])
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   {
     "bluz71/vim-nightfly-guicolors",
