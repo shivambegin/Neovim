@@ -10,15 +10,24 @@ return {
     require("noice").setup({
       views = {
         mini = {
-          win_options = {
-            winblend = 0,
+          zindex = 100,
+          win_options = { winblend = 0 },
+        },
+        cmdline_popup = {
+          position = {
+            row = 5,
+            col = "50%",
+          },
+          size = {
+            width = "auto",
+            height = "auto",
           },
         },
       },
 
       lsp = {
         progress = {
-          enabled = true,
+          enabled = false,
         },
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
