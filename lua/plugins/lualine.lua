@@ -68,7 +68,7 @@ return {
 
     local custom_icons = {
       function()
-        return ""
+        return ""
       end,
       separator = { left = "", right = "" },
     }
@@ -221,7 +221,7 @@ return {
           "progress",
           {
             function()
-              return ""
+              return ""
             end,
             separator = { left = "", right = "" },
             color = { bg = "#86AAEC", fg = "#000000" },
