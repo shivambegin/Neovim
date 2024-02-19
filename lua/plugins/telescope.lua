@@ -18,6 +18,8 @@ return {
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
       vim.keymap.set("n", "<leader>ch", builtin.colorscheme, {})
       vim.keymap.set("n", "<leader>fs", builtin.git_files, {})
+      vim.keymap.set("n", "<leader>tc", builtin.commands, {})
+
       local telescope = require("telescope")
       local actions = require("telescope.actions")
       local trouble = require("trouble.providers.telescope")
@@ -160,6 +162,16 @@ return {
             },
           },
           help_tags = {
+            enable_preview = true,
+            previewer = false,
+            layout_config = {
+              height = 0.4,
+              width = 0.6,
+              prompt_position = "top",
+              preview_cutoff = 120,
+            },
+          },
+          commands = {
             enable_preview = true,
             previewer = false,
             layout_config = {
