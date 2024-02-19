@@ -7,14 +7,11 @@ return {
   lazy = false,
   event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
-    -- local icons = require("config.icons")
     require("lualine").setup({
       options = {
-        -- theme = "auto",
         theme = "catppuccin",
         globalstatus = false,
         icons_enabled = true,
-        -- component_separators = { left = "│", right = "│" },
         component_separators = { left = "|", right = "|" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
@@ -40,7 +37,7 @@ return {
             path = 1, -- 2 for full path
             symbols = {
               modified = "  ",
-              -- readonly = "  ",
+              readonly = "  ",
               -- unnamed = "  ",
             },
           },
@@ -59,7 +56,7 @@ return {
         lualine_a = {},
         lualine_b = {},
         lualine_c = { "filename" },
-        -- lualine_x = { "location" },
+        lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {},
       },
