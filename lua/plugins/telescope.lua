@@ -18,7 +18,7 @@ return {
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
       vim.keymap.set("n", "<leader>ch", builtin.colorscheme, {})
       vim.keymap.set("n", "<leader>fs", builtin.git_files, {})
-      vim.keymap.set("n", "<leader>tc", builtin.commands, {})
+      vim.keymap.set("n", "<leader>tc", builtin.command_history, {})
 
       local telescope = require("telescope")
       local actions = require("telescope.actions")
@@ -171,7 +171,7 @@ return {
               preview_cutoff = 120,
             },
           },
-          commands = {
+          command_history = {
             enable_preview = true,
             previewer = false,
             layout_config = {
