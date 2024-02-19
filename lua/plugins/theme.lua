@@ -3,7 +3,7 @@ return {
     "embark-theme/vim",
     name = "embark",
     config = function()
-      vim.cmd("colorscheme embark")
+      -- vim.cmd("colorscheme embark")
     end,
   },
   {
@@ -35,7 +35,7 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      -- vim.cmd([[colorscheme nightfly]])
+      vim.cmd([[colorscheme nightfly]])
     end,
   },
   {
