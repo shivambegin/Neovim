@@ -149,6 +149,7 @@ return {
       vim.list_extend(buf_client_names, supported_linters)
       local unique_client_names = vim.fn.uniq(buf_client_names)
 
+      ---@diagnostic disable-next-line: param-type-mismatch
       local language_servers = " " .. table.concat(unique_client_names, ", ") .. ""
 
       if copilot_active then
