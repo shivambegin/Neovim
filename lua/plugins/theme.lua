@@ -1,5 +1,13 @@
 return {
   {
+    "sainnhe/everforest",
+    config = function()
+      vim.g.everforest_background = "hard"
+      vim.cmd.colorscheme("everforest")
+      vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#9DA9A0" })
+    end,
+  },
+  {
     "embark-theme/vim",
     name = "embark",
     config = function()
@@ -35,7 +43,7 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme nightfly]])
+      -- vim.cmd([[colorscheme nightfly]])
     end,
   },
   {
