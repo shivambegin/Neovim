@@ -4,7 +4,7 @@ return {
     "meuter/lualine-so-fancy.nvim",
   },
   priority = 1000,
-  event = "VeryLazy",
+  -- event = "VeryLazy",
   config = function()
     require("lualine").setup({
       options = {
