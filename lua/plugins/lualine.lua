@@ -3,9 +3,8 @@ return {
   dependencies = {
     "meuter/lualine-so-fancy.nvim",
   },
-  enabled = true,
-  lazy = false,
-  event = { "BufReadPost", "BufNewFile", "VeryLazy" },
+  event = "VeryLazy",
+  lazy = true,
   config = function()
     require("lualine").setup({
       options = {

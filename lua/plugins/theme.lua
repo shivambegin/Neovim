@@ -2,9 +2,16 @@ return {
   {
     "sainnhe/everforest",
     config = function()
-      vim.g.everforest_background = "hard"
-      vim.cmd.colorscheme("everforest")
-      vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#9DA9A0" })
+      -- vim.g.everforest_background = "hard"
+      -- vim.cmd.colorscheme("everforest")
+      -- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#9DA9A0" })
+    end,
+  },
+  {
+    "savq/melange-nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme melange")
     end,
   },
   {
