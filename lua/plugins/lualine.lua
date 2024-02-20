@@ -5,6 +5,7 @@ return {
   },
   enabled = true,
   lazy = false,
+  event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
     require("lualine").setup({
       options = {
