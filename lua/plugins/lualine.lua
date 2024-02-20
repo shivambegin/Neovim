@@ -5,12 +5,11 @@ return {
   },
   enabled = true,
   lazy = false,
-  event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
     require("lualine").setup({
       options = {
         theme = "auto",
-        globalstatus = false,
+        globalstatus = true,
         icons_enabled = true,
         component_separators = { left = "|", right = "|" },
         section_separators = { left = "", right = "" },

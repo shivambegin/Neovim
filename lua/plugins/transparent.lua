@@ -1,6 +1,7 @@
 return {
   {
     "xiyaowong/transparent.nvim",
+    event = "VeryLazy",
     config = function()
       require("transparent").clear_prefix("Normal")
       require("transparent").clear_prefix("Navic")
