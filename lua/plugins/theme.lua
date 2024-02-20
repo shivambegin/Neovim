@@ -12,6 +12,7 @@ return {
     priority = 1000,
     config = function()
       vim.cmd("colorscheme melange")
+      vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#9DA9A0" })
     end,
   },
   {
