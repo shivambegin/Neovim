@@ -115,10 +115,5 @@ return {
     }
 
     require("lualine").setup(opts)
-
-    vim.cmd([[
-		    hi StatusLine guibg=NONE ctermbg=NONE
-		    hi StatusLineNC guibg=NONE ctermbg=NONE
-		  ]])
   end,
 }
