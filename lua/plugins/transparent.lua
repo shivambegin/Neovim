@@ -43,7 +43,7 @@ return {
           "CursorLine",
           "CursorLineNr",
           "StatusLine",
-          "StatusLineNC",
+          -- "StatusLineNC",
           "EndOfBuffer",
           "SignColumn",
         },
