@@ -67,21 +67,21 @@ return {
     local opts = {
       options = {
         icons_enabled = true,
-        theme = embark,
+        theme = "auto",
         component_separators = "",
-        section_separators = { left = "", right = " " },
+        section_separators = { left = " ", right = " " },
         disabled_filetypes = disable,
         ignore_focus = ignore,
         always_divide_middle = true,
         globalstatus = true,
       },
       sections = {
-        lualine_a = { filetype, "filename" },
-        lualine_b = { "branch" },
+        lualine_a = { filetype },
+        lualine_b = { "filename" },
         lualine_c = { space, diff, "diagnostics" },
         lualine_x = { lsp_progress, language_server },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_y = {},
+        lualine_z = { "branch" },
       },
       inactive_sections = {
         lualine_a = { "mode" },
