@@ -83,7 +83,7 @@ return {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
     config = function()
-      -- vim.cmd("colorscheme onedark")
+      vim.cmd("colorscheme onedark_vivid")
     end,
   },
 
@@ -505,7 +505,7 @@ return {
       vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
       vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
 
-      vim.api.nvim_command("colorscheme catppuccin-mocha")
+      -- vim.api.nvim_command("colorscheme catppuccin-mocha")
     end,
   },
 }

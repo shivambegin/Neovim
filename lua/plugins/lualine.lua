@@ -3,7 +3,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  event = "UiEnter",
+  priority = 1000,
   config = function()
     local disable = {
       "neogitstatus",
