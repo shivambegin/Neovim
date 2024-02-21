@@ -11,8 +11,8 @@ return {
     "savq/melange-nvim",
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme melange")
-      vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#9DA9A0" })
+      -- vim.cmd("colorscheme melange")
+      -- vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#9DA9A0" })
     end,
   },
   {
@@ -505,7 +505,7 @@ return {
       vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
       vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
 
-      -- vim.api.nvim_command("colorscheme catppuccin-mocha")
+      vim.api.nvim_command("colorscheme catppuccin-mocha")
     end,
   },
 }
