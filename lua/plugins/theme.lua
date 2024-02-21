@@ -1,5 +1,13 @@
 return {
   {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme rose-pine")
+    end,
+  },
+  {
     "sainnhe/everforest",
     config = function()
       -- vim.g.everforest_background = "hard"
@@ -83,7 +91,7 @@ return {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
     config = function()
-      vim.cmd("colorscheme onedark_vivid")
+      -- vim.cmd("colorscheme onedark_vivid")
     end,
   },
 
