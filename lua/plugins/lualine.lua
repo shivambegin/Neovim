@@ -5,8 +5,6 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   event = "UiEnter",
   config = function()
-    local icons = require("config.lualineIcons")
-
     local disable = {
       "neogitstatus",
       "netrw",
@@ -28,28 +26,10 @@ return {
       " ",
     }
 
-    local diagnostics = {
-      "diagnostics",
-      sources = { "nvim_diagnostic" },
-      sections = { "error", "warn" },
-      symbols = {
-        error = icons.error .. " ",
-        warn = icons.warn .. " ",
-      },
-      colored = false,
-      padding = 0,
-      update_in_insert = false,
-    }
-
     local diff = {
       "diff",
       colored = false,
       cond = hide_in_width,
-    }
-
-    local branch = {
-      "branch",
-      icon = icons.git,
     }
 
     local filetype = {
@@ -60,7 +40,7 @@ return {
     }
 
     local function lsp_client_names()
-      local clients = vim.lsp.get_active_clients()
+      local clients = vim.lsp.get_clients()
       if next(clients) == nil then
         return ""
       end
@@ -97,8 +77,8 @@ return {
       },
       sections = {
         lualine_a = { filetype, "filename" },
-        lualine_b = { branch },
-        lualine_c = { space, diff, diagnostics },
+        lualine_b = { "branch" },
+        lualine_c = { space, diff, "diagnostics" },
         lualine_x = { lsp_progress, language_server },
         lualine_y = { "progress" },
         lualine_z = { "location" },
