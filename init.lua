@@ -4,7 +4,7 @@ require("config.lazy")
 require("config.neovide")
 require("config.language")
 require("config.autocmd")
-require("plugins.custom.statusline")
+-- require("plugins.custom.statusline")
 -- local discipline = require("config.discipline")
 --
 -- discipline.cowboy()

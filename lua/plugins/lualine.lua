@@ -20,231 +20,220 @@ return {
       magenta = "#c678dd",
       blue = "#51afef",
       red = "#ec5f67",
-      white = "#ffffff",
     }
-
-    local gui = {
-      bold = "bold",
-      italic = "italic",
-    }
-
-    local buffer_not_empty = function()
-      return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-    end
-    -- local nvim_tree = function() return vim.fn.winnr() == 1 end
-    local nvim_tree = function()
-      return not not string.match(vim.fn.expand("%:t"), "NvimTree")
-    end
-    local check_git_workspace = function()
-      local filepath = vim.fn.expand("%:p:h")
-      local gitdir = vim.fn.finddir(".git", filepath .. ";")
-      return gitdir and #gitdir > 0 and #gitdir < #filepath
-    end
-    local hide_in_width = function()
-      return vim.fn.winwidth(0) > 60
-    end
 
     local conditions = {
-      show_filesize = function()
-        return buffer_not_empty()
+      buffer_not_empty = function()
+        return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
       end,
-      show_branch = function()
-        return nvim_tree() and check_git_workspace()
+      hide_in_width = function()
+        return vim.fn.winwidth(0) > 80
       end,
-      show_filename = function()
-        return buffer_not_empty() and not nvim_tree()
+      check_git_workspace = function()
+        local filepath = vim.fn.expand("%:p:h")
+        local gitdir = vim.fn.finddir(".git", filepath .. ";")
+        return gitdir and #gitdir > 0 and #gitdir < #filepath
       end,
-      show_encoding = function()
-        return not nvim_tree() and hide_in_width()
-      end,
-      show_diff = function()
-        return hide_in_width()
-      end,
-      show_fileformat = function()
-        return hide_in_width()
-      end,
-      show_lsp = function()
-        return not nvim_tree()
-      end,
-      show_location = function()
-        return not nvim_tree()
-      end,
-      show_progress = function()
-        return not nvim_tree()
-      end,
-      show_vim_mode = function()
-        return not nvim_tree()
-      end,
-    }
-
-    local sectionss = {
-      border = {
-        function()
-          return "▊"
-        end,
-        color = { fg = colors.blue, gb = colors.blue }, -- Sets highlighting of component
-        padding = 0, -- We don't need space before this
-      },
-      filename = {
-        "filename",
-        cond = conditions.show_filename,
-        color = { gui = gui.italic },
-      },
-      vim_mode = {
-        function()
-          return ""
-        end,
-        cond = conditions.show_vim_mode,
-        left_padding = 0,
-      },
-      location = {
-        "location",
-        cond = conditions.show_location,
-      },
-      progress = {
-        "progress",
-        cond = conditions.show_progress,
-      },
-      diagnostics = {
-        "diagnostics",
-        sources = { "nvim_lsp" },
-        symbols = { error = " ", warn = " ", info = " " },
-        color_error = colors.red,
-        color_warn = colors.yellow,
-        color_info = colors.cyan,
-      },
-      lsp_status = {
-        function()
-          local msg = "No Active Lsp"
-          local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-          local clients = vim.lsp.get_clients()
-          if next(clients) == nil then
-            return msg
-          end
-          for _, client in ipairs(clients) do
-            local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-              return client.name
-            end
-          end
-          return msg
-        end,
-        icon = " LSP:",
-        color = { fg = colors.white, gui = gui.bold },
-        cond = conditions.show_lsp,
-      },
-      branch = {
-        "branch",
-        icon = "",
-        cond = conditions.show_branch,
-        color = { fg = colors.violet, gui = gui.bold },
-      },
-      filesize = {
-        -- filesize component
-        function()
-          local function format_file_size(file)
-            local size = vim.fn.getfsize(file)
-            if size <= 0 then
-              return ""
-            end
-            local sufixes = { "b", "k", "m", "g" }
-            local i = 1
-            while size > 1024 do
-              size = size / 1024
-              i = i + 1
-            end
-            return string.format("%.1f%s", size, sufixes[i])
-          end
-          local file = vim.fn.expand("%:p")
-          if string.len(file) == 0 then
-            return ""
-          end
-          return format_file_size(file)
-        end,
-        cond = conditions.show_filesize,
-        color = { gui = gui.bold },
-      },
-      encoding = {
-        "o:encoding", -- option component same as &encoding in viml
-        upper = true, -- I'm not sure why it's upper case either ;)
-        cond = conditions.show_encoding,
-        color = { fg = colors.green, gui = gui.bold },
-      },
-      fileformat = {
-        "fileformat",
-        upper = true,
-        icons_enabled = true,
-        color = { fg = colors.blue, gui = gui.bold },
-        cond = conditions.show_fileformat,
-      },
-      diff = {
-        "diff",
-        -- Is it me or the symbol for modified us really weird
-        symbols = { added = "", modified = "柳", removed = "" },
-        color_added = colors.green,
-        color_modified = colors.orange,
-        color_removed = colors.red,
-        cond = conditions.show_diff,
-      },
-      space = {
-        function()
-          return "%="
-        end,
-      },
     }
 
     -- Config
     local config = {
       options = {
-        -- Disable sectionss and component separators
+        -- Disable sections and component separators
         component_separators = "",
         section_separators = "",
         theme = {
-          normal = { c = { fg = colors.red, bg = colors.bg } },
-          insert = { c = { fg = colors.green, bg = colors.bg } },
-          visual = { c = { fg = colors.blue, bg = colors.bg } },
-          replace = { c = { fg = colors.yellow, bg = colors.bg } },
-          inactive = { c = { fg = colors.fg, bg = colors.black } },
+          -- We are going to use lualine_c an lualine_x as left and
+          -- right section. Both are highlighted by c theme .  So we
+          -- are just setting default looks o statusline
+          normal = { c = { fg = colors.fg, bg = colors.bg } },
+          inactive = { c = { fg = colors.fg, bg = colors.bg } },
         },
       },
       sections = {
+        -- these are to remove the defaults
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {
-          sectionss.border,
-          sectionss.branch,
-          sectionss.vim_mode,
-          sectionss.filename,
-          sectionss.location,
-          sectionss.progress,
-        },
-        lualine_x = {
-          sectionss.filesize,
-          sectionss.encoding,
-          sectionss.fileformat,
-        },
         lualine_y = {},
         lualine_z = {},
+        -- These will be filled later
+        lualine_c = {},
+        lualine_x = {},
       },
       inactive_sections = {
+        -- these are to remove the defaults
         lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          sectionss.border,
-          sectionss.filename,
-          sectionss.branch,
-        },
-        lualine_x = {
-          sectionss.lsp_status,
-          sectionss.filesize,
-          sectionss.encoding,
-          sectionss.fileformat,
-          sectionss.diff,
-        },
+        lualine_v = {},
         lualine_y = {},
         lualine_z = {},
+        lualine_c = {},
+        lualine_x = {},
       },
     }
+
+    -- Inserts a component in lualine_c at left section
+    local function ins_left(component)
+      table.insert(config.sections.lualine_c, component)
+    end
+
+    -- Inserts a component in lualine_x ot right section
+    local function ins_right(component)
+      table.insert(config.sections.lualine_x, component)
+    end
+
+    ins_left({
+      function()
+        return "▊"
+      end,
+      color = { fg = colors.blue }, -- Sets highlighting of component
+      left_padding = 0, -- We don't need space before this
+    })
+
+    ins_left({
+      -- mode component
+      function()
+        -- auto change color according to neovims mode
+        local mode_color = {
+          n = colors.red,
+          i = colors.green,
+          v = colors.blue,
+          [""] = colors.blue,
+          V = colors.blue,
+          c = colors.magenta,
+          no = colors.red,
+          s = colors.orange,
+          S = colors.orange,
+          [""] = colors.orange,
+          ic = colors.yellow,
+          R = colors.violet,
+          Rv = colors.violet,
+          cv = colors.red,
+          ce = colors.red,
+          r = colors.cyan,
+          rm = colors.cyan,
+          ["r?"] = colors.cyan,
+          ["!"] = colors.red,
+          t = colors.red,
+        }
+        vim.api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
+        return ""
+      end,
+      color = "LualineMode",
+      left_padding = 0,
+    })
+
+    ins_left({
+      -- filesize component
+      function()
+        local function format_file_size(file)
+          local size = vim.fn.getfsize(file)
+          if size <= 0 then
+            return ""
+          end
+          local sufixes = { "b", "k", "m", "g" }
+          local i = 1
+          while size > 1024 do
+            size = size / 1024
+            i = i + 1
+          end
+          return string.format("%.1f%s", size, sufixes[i])
+        end
+        local file = vim.fn.expand("%:p")
+        if string.len(file) == 0 then
+          return ""
+        end
+        return format_file_size(file)
+      end,
+      condition = conditions.buffer_not_empty,
+    })
+
+    ins_left({
+      "filename",
+      condition = conditions.buffer_not_empty,
+      color = { fg = colors.magenta, gui = "bold" },
+    })
+
+    ins_left({ "location" })
+
+    ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+
+    ins_left({
+      "diagnostics",
+      sources = { "nvim_lsp" },
+      symbols = { error = " ", warn = " ", info = " " },
+      color_error = colors.red,
+      color_warn = colors.yellow,
+      color_info = colors.cyan,
+    })
+
+    -- Insert mid section. You can make any number of sections in neovim :)
+    -- for lualine it's any number greater then 2
+    ins_left({
+      function()
+        return "%="
+      end,
+    })
+
+    ins_left({
+      -- Lsp server name .
+      function()
+        local msg = "No Active Lsp"
+        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+        local clients = vim.lsp.get_clients()
+        if next(clients) == nil then
+          return msg
+        end
+        for _, client in ipairs(clients) do
+          local filetypes = client.config.filetypes
+          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            return client.name
+          end
+        end
+        return msg
+      end,
+      icon = " LSP:",
+      color = { fg = "#ffffff", gui = "bold" },
+    })
+
+    -- Add components to right sections
+    ins_right({
+      "o:encoding", -- option component same as &encoding in viml
+      upper = true, -- I'm not sure why it's upper case either ;)
+      condition = conditions.hide_in_width,
+      color = { fg = colors.green, gui = "bold" },
+    })
+
+    ins_right({
+      "fileformat",
+      upper = true,
+      icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+      color = { fg = colors.green, gui = "bold" },
+    })
+
+    ins_right({
+      "branch",
+      icon = "",
+      condition = conditions.check_git_workspace,
+      color = { fg = colors.violet, gui = "bold" },
+    })
+
+    ins_right({
+      "diff",
+      -- Is it me or the symbol for modified us really weird
+      symbols = { added = " ", modified = "柳 ", removed = " " },
+      color_added = colors.green,
+      color_modified = colors.orange,
+      color_removed = colors.red,
+      condition = conditions.hide_in_width,
+    })
+
+    ins_right({
+      function()
+        return "▊"
+      end,
+      color = { fg = colors.blue },
+      right_padding = 0,
+    })
 
     -- Now don't forget to initialize lualine
     lualine.setup(config)
