@@ -1,13 +1,15 @@
 vim.g.mapleader = " " -- change leader to a space
 vim.g.maplocalleader = " " -- change localleader to a space
-
 vim.g.loaded_netrw = 1 -- disable netrw
+vim.opt.backup = false
+vim.opt.showcmd = true
+vim.opt.backspace = { "start,eol,indent" }
 vim.g.loaded_netrwPlugin = 1 --  disable netrw
 vim.opt.incsearch = true -- make search act like search in modern browsers
 vim.opt.foldenable = false
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
+vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.opt.updatetime = 200
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
@@ -37,21 +39,25 @@ vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false -- display lines as one long line
-vim.opt.scrolloff = 8 -- Makes sure there are always eight lines of context
-vim.opt.sidescrolloff = 8 -- Makes sure there are always eight lines of context
+vim.opt.scrolloff = 10 -- Makes sure there are always eight lines of context
+vim.opt.sidescrolloff = 10 -- Makes sure there are always eight lines of context
 vim.opt.showcmd = false -- Don't show the command in the last line
 vim.opt.ruler = false -- Don't show the ruler
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.confirm = true -- confirm to save changes before exiting modified buffer
 vim.opt.fillchars = { eob = " " } -- change the character at the end of buffer
-vim.opt.laststatus = 3
+vim.opt.laststatus = 0 -- disable statusline
 vim.opt.splitkeep = "screen"
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
 vim.opt.termguicolors = true
 vim.opt.autoindent = true
 vim.bo.autoread = true
 vim.opt.autoread = true
+vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.path:append({ "**" })
+vim.opt.splitkeep = "cursor"
+vim.opt.formatoptions:append({ "r" })
 
 vim.opt.list = true
 vim.opt.listchars = {
