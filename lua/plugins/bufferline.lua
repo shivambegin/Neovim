@@ -1,5 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
+  enabled = false,
   event = "VeryLazy",
   keys = {
     { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
