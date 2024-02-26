@@ -20,7 +20,6 @@ return {
       require("transparent").clear_prefix("Fidget")
       require("transparent").clear_prefix("barbecue")
       require("transparent").clear_prefix("Mini")
-      require("transparent").clear_prefix("DropBar")
       -- require("transparent").clear_prefix("Tab")
       require("transparent").setup({ -- Optional, you don't have to run setup.
         groups = { -- table: default groups
@@ -28,6 +27,7 @@ return {
           "Constant",
           "TabLineFill",
           "Special",
+          "WinBar",
           "Identifier",
           "Statement",
           "PreProc",
