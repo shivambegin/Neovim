@@ -51,8 +51,8 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
       },
       sections = {
-        lualine_a = { { "fancy_cwd", icon = "󱂵" } },
-        lualine_b = { { "fancy_branch", icon = "" } },
+        lualine_a = { { "fancy_cwd", icon = "" } },
+        lualine_b = { { "fancy_branch", icon = "" } },
         lualine_c = { "fancy_diagnostics" },
         lualine_x = {
           {
