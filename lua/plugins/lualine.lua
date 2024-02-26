@@ -15,12 +15,21 @@ return {
       cyan = "#689d6a",
       orange = "#d65d0e",
     }
-    local copilot_colours = {
-      [""] = { fg = colours.grey, bg = colours.bg },
-      ["Normal"] = { fg = colours.grey, bg = colours.bg },
-      ["Warning"] = { fg = colours.red, bg = colours.bg },
-      ["InProgress"] = { fg = colours.yellow, bg = colours.bg },
-    }
+    -- LSP clients attached to buffer
+    local clients_lsp = function()
+      local bufnr = vim.api.nvim_get_current_buf()
+
+      local clients = vim.lsp.buf_get_clients(bufnr)
+      if next(clients) == nil then
+        return ""
+      end
+
+      local c = {}
+      for _, client in pairs(clients) do
+        table.insert(c, client.name)
+      end
+      return "\u{f085} " .. table.concat(c, "  ")
+    end
 
     lualine.setup({
       options = {
@@ -52,7 +61,7 @@ return {
       },
       sections = {
         lualine_a = { { "mode", icon = "" } },
-        lualine_b = { { "branch", icon = "" } },
+        lualine_b = { { "branch", icon = "" } },
         lualine_c = {
           {
             "diagnostics",
@@ -64,16 +73,7 @@ return {
             },
           },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { "filename", symbols = { modified = "  ", readonly = "", unnamed = "" } },
-          -- {
-          --   function()
-          --     return require("nvim-navic").get_location()
-          --   end,
-          --   cond = function()
-          --     return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-          --   end,
-          --   color = { fg = colours.grey, bg = colours.bg },
-          -- },
+          { "filename", symbols = { modified = "  ", readonly = "", unnamed = "" } },
         },
         lualine_x = {
           {
@@ -81,32 +81,11 @@ return {
             cond = require("lazy.status").has_updates,
             color = { fg = colours.green },
           },
-          {
-            function()
-              local icon = " "
-              local status = require("copilot.api").status.data
-              return icon .. (status.message or "")
-            end,
-            cond = function()
-              local ok, clients = pcall(vim.lsp.get_clients, { name = "copilot", bufnr = 0 })
-              return ok and #clients > 0
-            end,
-            color = function()
-              if not package.loaded["copilot"] then
-                return
-              end
-              local status = require("copilot.api").status.data
-              return copilot_colours[status.status] or copilot_colours[""]
-            end,
-          },
           { "diff" },
+          {},
         },
         lualine_y = {},
-        lualine_z = {
-          function()
-            return "󰥔  " .. os.date("%X")
-          end,
-        },
+        lualine_z = { clients_lsp },
       },
     })
   end,
