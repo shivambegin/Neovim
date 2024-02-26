@@ -3,6 +3,7 @@ return {
   dependencies = {},
   event = "BufReadPre",
   priority = 1200,
+  enabled = false,
   config = function()
     local helpers = require("incline.helpers")
     require("incline").setup({

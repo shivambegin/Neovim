@@ -51,7 +51,7 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
       },
       sections = {
-        lualine_a = { { "mode", icon = "" } },
+        lualine_a = { { "mode", icon = "" } },
         lualine_b = { { "branch", icon = "" } },
         lualine_c = {
           {
@@ -65,15 +65,15 @@ return {
           },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { "filename", symbols = { modified = "  ", readonly = "", unnamed = "" } },
-          {
-            function()
-              return require("nvim-navic").get_location()
-            end,
-            cond = function()
-              return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-            end,
-            color = { fg = colours.grey, bg = colours.bg },
-          },
+          -- {
+          --   function()
+          --     return require("nvim-navic").get_location()
+          --   end,
+          --   cond = function()
+          --     return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+          --   end,
+          --   color = { fg = colours.grey, bg = colours.bg },
+          -- },
         },
         lualine_x = {
           {
@@ -88,7 +88,7 @@ return {
               return icon .. (status.message or "")
             end,
             cond = function()
-              local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
+              local ok, clients = pcall(vim.lsp.get_clients, { name = "copilot", bufnr = 0 })
               return ok and #clients > 0
             end,
             color = function()
@@ -101,13 +101,10 @@ return {
           },
           { "diff" },
         },
-        lualine_y = {
-          { "progress" },
-          { "location", color = { fg = colours.cyan, bg = colours.bg } },
-        },
+        lualine_y = {},
         lualine_z = {
           function()
-            return "  " .. os.date("%X")
+            return "󰥔  " .. os.date("%X")
           end,
         },
       },
