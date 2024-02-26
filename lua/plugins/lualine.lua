@@ -1,5 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "meuter/lualine-so-fancy.nvim",
+  },
   event = "VeryLazy",
   config = function()
     local lualine = require("lualine")
@@ -15,24 +19,11 @@ return {
       cyan = "#689d6a",
       orange = "#d65d0e",
     }
-    -- LSP clients attached to buffer
-    local clients_lsp = function()
-      local bufnr = vim.api.nvim_get_current_buf()
-
-      local clients = vim.lsp.buf_get_clients(bufnr)
-      if next(clients) == nil then
-        return ""
-      end
-
-      local c = {}
-      for _, client in pairs(clients) do
-        table.insert(c, client.name)
-      end
-      return "\u{f085} " .. table.concat(c, "  ")
-    end
-
     lualine.setup({
       options = {
+        refresh = {
+          statusline = 100,
+        },
         component_separators = { left = " ", right = " " },
         theme = {
           normal = {
@@ -60,21 +51,9 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
       },
       sections = {
-        lualine_a = { { "mode", icon = "" } },
-        lualine_b = { { "branch", icon = "" } },
-        lualine_c = {
-          {
-            "diagnostics",
-            symbols = {
-              error = " ",
-              warn = " ",
-              info = " ",
-              hint = "󰝶 ",
-            },
-          },
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { "filename", symbols = { modified = "  ", readonly = "", unnamed = "" } },
-        },
+        lualine_a = { { "fancy_cwd", icon = "󱂵" } },
+        lualine_b = { { "fancy_branch", icon = "" } },
+        lualine_c = { "fancy_diagnostics" },
         lualine_x = {
           {
             require("lazy.status").updates,
@@ -85,7 +64,7 @@ return {
           {},
         },
         lualine_y = {},
-        lualine_z = { clients_lsp },
+        lualine_z = { { "fancy_lsp_servers", icon = "" } },
       },
     })
   end,
