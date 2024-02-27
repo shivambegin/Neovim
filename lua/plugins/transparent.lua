@@ -11,7 +11,7 @@ return {
       require("transparent").clear_prefix("NeoTree")
       require("transparent").clear_prefix("Noice")
       require("transparent").clear_prefix("NvimTree")
-      require("transparent").clear_prefix("Telescope")
+      -- require("transparent").clear_prefix("Telescope")
       require("transparent").clear_prefix("Notify")
       require("transparent").clear_prefix("GitSigns")
       require("transparent").clear_prefix("Satellite")
@@ -46,7 +46,7 @@ return {
           "CursorLine",
           "CursorLineNr",
           "StatusLine",
-          -- "StatusLineNC",
+          "StatusLineNC",
           "EndOfBuffer",
           "SignColumn",
         },
