@@ -51,21 +51,38 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
       },
       sections = {
-        lualine_a = { { "fancy_cwd", icon = "" } },
-        lualine_b = { { "fancy_branch", icon = "" } },
-        lualine_c = { "fancy_diagnostics" },
-        lualine_x = {
+        lualine_a = {},
+        lualine_b = {
+          "fancy_branch",
+        },
+        lualine_c = {
           {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
-            color = { fg = colours.green },
+            "filename",
+            path = 1, -- 2 for full path
+            symbols = {
+              modified = "  ",
+            },
           },
-          { "diff" },
-          {},
+          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
+          { "fancy_searchcount" },
+        },
+        lualine_x = {
+          "fancy_lsp_servers",
+          "fancy_diff",
+          "progress",
         },
         lualine_y = {},
-        lualine_z = { { "fancy_lsp_servers", icon = "" } },
+        lualine_z = {},
       },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { "filename" },
+        lualine_y = {},
+        lualine_z = {},
+      },
+      tabline = {},
+      extensions = { "neo-tree", "lazy" },
     })
   end,
 }
