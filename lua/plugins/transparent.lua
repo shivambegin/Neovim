@@ -2,6 +2,7 @@ return {
   {
     "xiyaowong/transparent.nvim",
     config = function()
+      require("transparent").clear_prefix("WinBar")
       require("transparent").clear_prefix("Normal")
       require("transparent").clear_prefix("Navic")
       require("transparent").clear_prefix("Mason")
@@ -52,18 +53,10 @@ return {
         },
         extra_groups = {
           "OctoEditable",
-          "NvimTreeNormal", -- NvimTree
           "EndOfBuffer",
           "Search",
           "Cursor",
-          "WinbarNormal",
-          "WinbarNormalNC",
-          "NavicIcons",
-          "NavicIconsFile",
           "WinSeparator",
-          "NavicIconsModule",
-          "NavicText",
-          "NavicSeparator",
           "LazyNormal",
         }, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
