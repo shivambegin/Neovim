@@ -46,10 +46,11 @@ git clone https://github.com/shivambegin/Neovim.git $env:LOCALAPPDATA\nvim
 
 - **Terminal:** Wezterm + Tmux
 - **Shell:** Zsh + Starship
-- **Editor:** Neovim
+- **Editor:** Neovim Nightly
 - **Source control:** Git
 - **Operating system:** Endavouros
 - **Tiling manager :** Hyprland
+
 ## Plugins
 
 ### bars-and-lines
