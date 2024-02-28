@@ -1,4 +1,108 @@
 return {
+  {
+    "navarasu/onedark.nvim",
+    config = function(_)
+      local one_dark_overrides = {
+        black = "#000000",
+        bg_d = "#0a0d11",
+        bg0 = "#101317",
+        bg1 = "#13161a",
+        bg2 = "#171b20",
+        bg3 = "#1b1f25",
+      }
+      local colors = vim.tbl_extend("error", one_dark_overrides, {
+        white = "#ffffff",
+        light0 = "#eeeeee",
+        light1 = "#cccccc",
+        maroon = "#43262a",
+        dark_red = "#af3030",
+        red = "#e55561",
+        orange = "#ff6050",
+        light_orange = "#ffa090",
+        pink = "#f04a90",
+        light_pink = "#ff90b0",
+        yellow = "#e2b86b",
+        blue = "#303fa0",
+        light_blue = "#90b0f0",
+        green = "#309f60",
+        lime = "#30cfa0",
+        turquoise = "#30faf0",
+        dark3 = "#555b67",
+        dark2 = "#444444",
+        dark1 = "#262a30",
+        dark0 = "#222222",
+        neovim_green = "#6ba33e",
+        neovim_blue = "#2e9cdb",
+      })
+
+      local accent = colors.neovim_green
+
+      local highlights = {
+        Search = { fg = colors.light0, bg = colors.dark2 },
+        IncSearch = { fg = colors.light0, bg = colors.dark0 },
+        SpecialKey = { fg = colors.neovim_blue },
+        Conceal = { fg = colors.white, bg = "none" },
+        Todo = { fg = colors.white, bg = colors.blue },
+        FloatBorder = { bg = colors.bg2 },
+        FloatTitle = { fg = colors.dark3, bg = colors.bg2 },
+        NormalFloat = { bg = colors.bg2 },
+        CursorLineNr = { fg = colors.white },
+        ColorColumn = { bg = colors.maroon },
+        CursorColumn = { bg = colors.dark1 },
+        FoldColumn = { bg = colors.bg0 },
+        CursorLineFold = { fg = colors.white, bg = colors.bg0 },
+        DiffDelete = { bg = colors.maroon, fg = colors.maroon },
+        Whitespace = { fg = colors.dark1 },
+        NonText = { fg = colors.dark1 },
+        LspInlayHint = { fg = colors.dark3, bg = colors.bg3, gui = "italic" },
+        TabLine = { fg = colors.light0, bg = colors.bg_1 },
+        TabLineSel = { fg = colors.bg_d, bg = accent },
+        StatusLine = { bg = colors.bg2, fg = colors.white },
+        StatusLineNC = { bg = colors.bg2, fg = colors.white },
+        User1 = { fg = colors.bg_d, bg = accent },
+        User2 = { fg = colors.light_blue, bg = colors.bg2 },
+        User3 = { fg = colors.yellow, bg = colors.bg2 },
+        User4 = { fg = colors.light_pink, bg = colors.bg2 },
+        User9 = { fg = colors.dark3, bg = colors.bg2 },
+        DiagnosticStatusLineError = { bg = colors.bg2, fg = colors.red },
+        DiagnosticStatusLineWarn = { bg = colors.bg2, fg = colors.yellow },
+        DiagnosticStatusLineHint = { bg = colors.bg2, fg = colors.light_blue },
+        DiagnosticStatusLineInfo = { bg = colors.bg2, fg = colors.turquoise },
+        IBLIndent = { fg = colors.bg3 },
+        IBLScope = { fg = colors.dark1 },
+        IBLWhitespace = { fg = colors.dark1 },
+        NvimTreeIndentMarker = { fg = colors.bg3 },
+        MiniCursorword = { bg = colors.dark1, fmt = "none" },
+        MiniCursorwordCurrent = { bg = colors.dark1, fmt = "none" },
+        TelescopeBorder = { fg = colors.black, bg = colors.black },
+        TelescopeNormal = { bg = colors.black },
+        TelescopeSelection = { bg = colors.bg2, fg = colors.white },
+        TelescopePromptTitle = { fg = colors.white, bg = colors.dark_red },
+        TelescopePromptBorder = { fg = colors.bg2, bg = colors.bg2 },
+        TelescopePromptNormal = { fg = colors.white, bg = colors.bg2 },
+        TelescopePromptPrefix = { fg = colors.dark_red, bg = colors.bg2 },
+        TelescopePreviewTitle = { fg = colors.white, bg = colors.blue },
+        TelescopePreviewBorder = { fg = colors.black, bg = colors.black },
+        TelescopeResultsTitle = { fg = colors.bg_d, bg = colors.bg_d },
+        TelescopeResultsNormal = { bg = colors.bg_d },
+        TelescopeResultsBorder = { fg = colors.bg_d, bg = colors.bg_d },
+        TelescopeResultsDiffAdd = { fg = colors.blue },
+        TelescopeResultsDiffChange = { fg = colors.yellow },
+        TelescopeResultsDiffDelete = { fg = colors.dark_red },
+        ["@operator"] = { fg = colors.pink },
+        ["@punctuation.delimiter"] = { fg = colors.light1 },
+        ["@variable"] = { fg = "#50afa0" },
+        ["@lsp.type.variable"] = { fg = "#50afa0" },
+      }
+
+      require("onedark").setup({
+        style = "darker",
+        colors = one_dark_overrides,
+        highlights = highlights,
+      })
+      require("onedark").load()
+    end,
+  },
 
   {
     "catppuccin/nvim",
@@ -355,7 +459,7 @@ return {
       vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
       vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
 
-      vim.api.nvim_command("colorscheme catppuccin")
+      -- vim.api.nvim_command("colorscheme catppuccin")
     end,
   },
 }
