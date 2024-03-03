@@ -134,7 +134,7 @@ return {
       color = { fg = colors.magenta, gui = "bold" },
     })
 
-    ins_left({ "branch", icon = "󰊢" })
+    -- ins_left({ "branch", icon = "󰊢" })
 
     ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
@@ -195,7 +195,7 @@ return {
 
     ins_right({
       "branch",
-      icon = "",
+      icon = "󰊢",
       color = { fg = colors.violet, gui = "bold" },
     })
 
