@@ -134,7 +134,7 @@ return {
       color = { fg = colors.magenta, gui = "bold" },
     })
 
-    ins_left({ "location" })
+    ins_left({ "branch", icon = "󰊢" })
 
     ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
