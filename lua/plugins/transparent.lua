@@ -41,7 +41,7 @@ return {
           "Repeat",
           "Operator",
           "Structure",
-          "LineNr",
+          -- "LineNr",
           "NonText",
           "SignColumn",
           "CursorLine",
