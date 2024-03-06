@@ -47,7 +47,7 @@ vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applicati
 vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.confirm = true -- confirm to save changes before exiting modified buffer
 vim.opt.fillchars = { eob = " " } -- change the character at the end of buffer
-vim.opt.laststatus = 3 -- disable statusline
+vim.opt.laststatus = 0 -- disable statusline
 vim.opt.splitkeep = "screen"
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
 vim.opt.termguicolors = true
