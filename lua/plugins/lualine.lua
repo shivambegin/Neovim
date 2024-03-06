@@ -4,7 +4,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   config = function()
     local lualine = require("lualine")
 
