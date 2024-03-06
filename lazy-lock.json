@@ -16,7 +16,6 @@
   "codesnap.nvim": { "branch": "main", "commit": "5d51b637125a0e419a684d503f09beb63b0abb96" },
   "dired.nvim": { "branch": "main", "commit": "6cc325290b3dcfe6ac2be2beb1e7dc3e7ebb76fc" },
   "dressing.nvim": { "branch": "master", "commit": "6f212262061a2120e42da0d1e87326e8a41c0478" },
-  "dropbar.nvim": { "branch": "master", "commit": "c32ce3f1d9c7a011df0013ccea1ed0e3396df6a5" },
   "edgy.nvim": { "branch": "main", "commit": "0b35dc6da4cae6cc2f724bc610eadf955cd2319b" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
