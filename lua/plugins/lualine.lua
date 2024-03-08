@@ -123,21 +123,21 @@ return {
       padding = { right = 1 },
     })
 
-    ins_left({
-      -- filesize component
-      "filesize",
-      cond = conditions.buffer_not_empty,
-    })
+    -- ins_left({
+    --   -- filesize component
+    --   "filesize",
+    --   cond = conditions.buffer_not_empty,
+    -- })
 
     ins_left({
       "filename",
-      cond = conditions.buffer_not_empty,
+      -- cond = conditions.buffer_not_empty,
       color = { fg = colors.magenta, gui = "bold" },
     })
 
     ins_left({ "filetype" })
 
-    ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+    -- ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
     ins_left({
       "diagnostics",
