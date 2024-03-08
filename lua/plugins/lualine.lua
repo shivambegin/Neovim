@@ -100,12 +100,14 @@ return {
           n = colors.red,
           i = colors.green,
           v = colors.blue,
+          ---@diagnostic disable-next-line: duplicate-index
           [""] = colors.blue,
           V = colors.blue,
           c = colors.magenta,
           no = colors.red,
           s = colors.orange,
           S = colors.orange,
+          ---@diagnostic disable-next-line: duplicate-index
           [""] = colors.orange,
           ic = colors.yellow,
           R = colors.violet,
@@ -162,12 +164,14 @@ return {
       -- Lsp server name .
       function()
         local msg = "No Active Lsp"
+        ---@diagnostic disable-next-line: deprecated
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
         local clients = vim.lsp.get_clients()
         if next(clients) == nil then
           return msg
         end
         for _, client in ipairs(clients) do
+          ---@diagnostic disable-next-line: undefined-field
           local filetypes = client.config.filetypes
           if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
             return client.name
