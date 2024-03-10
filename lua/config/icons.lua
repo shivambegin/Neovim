@@ -184,7 +184,7 @@ return {
     Sleep = "󰒲 ",
     Star = " ",
     Table = " ",
-    Telescope = "🔭 ",
+    Telescope = "󰮗 ",
     Terminal = " ",
     Test = " ",
     Time = " ",
