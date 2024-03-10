@@ -46,7 +46,7 @@ return {
 
       telescope.setup({
         file_ignore_patterns = { "%.git/." },
-        -- borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+        borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
         defaults = {
           mappings = {
             i = {
