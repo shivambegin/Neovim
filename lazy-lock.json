@@ -50,7 +50,7 @@
   "neoscroll.nvim": { "branch": "master", "commit": "21d52973bde32db998fc8b6590f87eb3c3c6d8e4" },
   "neotest": { "branch": "master", "commit": "4440cc2227894c2ae9b0673a30e6cc6f1836e8c2" },
   "neotest-jest": { "branch": "main", "commit": "959d45b133de938c79e3f064db188680eaf69055" },
-  "neotest-vitest": { "branch": "main", "commit": "ae774282a592b872e84ffdcc5b4d11fc991eca7b" },
+  "neotest-vitest": { "branch": "main", "commit": "102e7494bbe0f205d28c31a3fd75a9dfbcc78c73" },
   "nerdy.nvim": { "branch": "main", "commit": "1ad36242f40a8fd95ae5711258540a07a5dabb51" },
   "noice.nvim": { "branch": "main", "commit": "bf67d70bd7265d075191e7812d8eb42b9791f737" },
   "none-ls.nvim": { "branch": "main", "commit": "ff3819c52ca04232fb70fbd6c1639de9abcbe122" },
