@@ -1,5 +1,14 @@
 return {
   {
+    "2nthony/vitesse.nvim",
+    dependencies = {
+      "tjdevries/colorbuddy.nvim",
+    },
+    config = function()
+      vim.cmd.colorscheme("vitesse")
+    end,
+  },
+  {
     "sainnhe/sonokai",
     priority = 1000,
     config = function()
@@ -18,7 +27,7 @@ return {
         flavour = "mocha",
         transparent_background = true,
       })
-      vim.cmd.colorscheme("catppuccin")
+      -- vim.cmd.colorscheme("catppuccin")
     end,
   },
 }
