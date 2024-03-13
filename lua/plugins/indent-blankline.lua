@@ -1,22 +1,20 @@
 -- Indent guide for Neovim
 return {
   "lukas-reineke/indent-blankline.nvim",
-  opts = {
-    indent = {
-      char = " ",
-      tab_char = " ",
-    },
-    scope = {
-      enabled = true,
-      char = " ",
-      highlight = "NonText",
-      show_start = true,
-    },
-  },
-  config = function(_, opts)
-    require("ibl").setup(opts)
-
-    vim.cmd.highlight("clear @ibl.scope.underline.1")
-    vim.cmd.highlight("link @ibl.scope.underline.1 Visual")
+  event = "VeryLazy",
+  config = function()
+    require("ibl").setup({
+      scope = {
+        show_start = false,
+      },
+      indent = {
+        char = "┊",
+        tab_char = "┊",
+        smart_indent_cap = true,
+      },
+      whitespace = {
+        remove_blankline_trail = true,
+      },
+    })
   end,
 }
