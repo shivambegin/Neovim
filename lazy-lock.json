@@ -81,7 +81,7 @@
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "refactoring.nvim": { "branch": "master", "commit": "93d69cce9f0cbee8afae5b2380b296323792645f" },
-  "schemastore.nvim": { "branch": "main", "commit": "7a4bac1aa44c50979432b71f34f237bad3a0a232" },
+  "schemastore.nvim": { "branch": "main", "commit": "07b5f94cb04888adb8492ec254741c6b803d65b6" },
   "search.nvim": { "branch": "main", "commit": "cfde7b91c713d17e590aad2f0d22a68ddeba3043" },
   "sonokai": { "branch": "master", "commit": "a62656a798043f3c6b603efa98d4de2da89c72b2" },
   "statuscol.nvim": { "branch": "main", "commit": "d954893262a57a92e46edd87de67e2b3fe72305e" },
