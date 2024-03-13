@@ -9,7 +9,7 @@ return {
   opts = function()
     -- miasma colors
     local colors = {
-      bg = "nil",
+      bg = "none",
       black = "#181a1c",
       grey = "#828a9a",
       red = "#ff6578",
