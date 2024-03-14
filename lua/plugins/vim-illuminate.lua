@@ -2,7 +2,7 @@ return {
   "RRethy/vim-illuminate",
   event = { "BufReadPost", "BufNewFile" },
   opts = {
-    delay = 200,
+    delay = 100,
     filetypes_denylist = {
       "mason",
       "harpoon",
@@ -30,7 +30,6 @@ return {
   lazy = false,
   config = function(_, opts)
     require("illuminate").configure(opts)
-
     local function map(key, dir, buffer)
       vim.keymap.set("n", key, function()
         require("illuminate")["goto_" .. dir .. "_reference"](false)
