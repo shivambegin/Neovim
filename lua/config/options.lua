@@ -59,9 +59,4 @@ vim.opt.path:append({ "**" })
 vim.opt.splitkeep = "cursor"
 vim.opt.formatoptions:append({ "r" })
 
-vim.opt.list = true
-vim.opt.listchars = {
-  tab = "   ",
-  space = " ",
-  -- eol = "󰘌",
-}
+vim.opt.list = false
