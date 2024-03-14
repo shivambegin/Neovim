@@ -1,4 +1,17 @@
 return {
+  -- Lua
+
+  {
+    "olivercederborg/poimandres.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("poimandres").setup({})
+    end,
+    init = function()
+      vim.cmd("colorscheme poimandres")
+    end,
+  },
   {
     "2nthony/vitesse.nvim",
     dependencies = {
@@ -15,7 +28,7 @@ return {
       vim.g.sonokai_transparent_background = "1"
       vim.g.sonokai_enable_italic = "1"
       vim.g.sonokai_style = "andromeda"
-      vim.cmd.colorscheme("sonokai")
+      -- vim.cmd.colorscheme("sonokai")
     end,
   },
   {
