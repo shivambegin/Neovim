@@ -11,7 +11,7 @@ return {
       enabled = true,
       char = " ",
       highlight = "NonText",
-      show_start = true,
+      show_start = false,
     },
   },
   config = function(_, opts)
