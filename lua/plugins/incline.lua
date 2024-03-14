@@ -1,7 +1,4 @@
--- filename
-return
--- filename
-{
+return {
   "b0o/incline.nvim",
   dependencies = {},
   event = "BufReadPre",
