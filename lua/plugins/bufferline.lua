@@ -6,7 +6,7 @@ return {
     options = {
       indicator = { style = "none" },
       buffer_close_icon = "",
-      separator_style = { "", "" },
+      separator_style = { "|", "|" },
       always_show_bufferline = false,
       offsets = {
         {
