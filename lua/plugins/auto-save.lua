@@ -1,6 +1,7 @@
 --TODO  understand the proper way to set up the auto-save
 return {
   "Pocco81/auto-save.nvim",
+  enabled = false,
   config = function()
     require("auto-save").setup({
       {
