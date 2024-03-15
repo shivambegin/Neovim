@@ -8,10 +8,18 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "zig" },
-      "nvim-telescope/telescope-ui-select.nvim",
+      { "nvim-telescope/telescope-ui-select.nvim" },
+      "danielfalk/smart-open.nvim",
+      "kkharji/sqlite.lua",
+      "nvim-telescope/telescope-fzy-native.nvim",
     },
     config = function()
       local builtin = require("telescope.builtin")
+      local telescope = require("telescope")
+      local actions = require("telescope.actions")
+      local trouble = require("trouble.providers.telescope")
+      local icons = require("config.icons")
+
       vim.keymap.set("n", "<leader>tt", builtin.find_files, {})
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
       vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
@@ -19,11 +27,9 @@ return {
       vim.keymap.set("n", "<leader>ch", builtin.colorscheme, {})
       vim.keymap.set("n", "<leader>fs", builtin.git_files, {})
       vim.keymap.set("n", "<leader>tc", builtin.command_history, {})
-
-      local telescope = require("telescope")
-      local actions = require("telescope.actions")
-      local trouble = require("trouble.providers.telescope")
-      local icons = require("config.icons")
+      vim.keymap.set("n", "<leader>so", function()
+        telescope.extensions.smart_open.smart_open()
+      end, { noremap = true, silent = true })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "TelescopeResults",
@@ -92,6 +98,9 @@ return {
               preview_cutoff = 120,
             },
           },
+          --TODO:figure out the way to customize the smart open window
+          smart_open = {},
+
           git_files = {
             previewer = false,
             path_display = formattedName,
@@ -220,6 +229,7 @@ return {
       telescope.load_extension("ui-select")
       telescope.load_extension("refactoring")
       telescope.load_extension("notify")
+      telescope.load_extension("smart_open")
     end,
   },
 }
