@@ -1,7 +1,10 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "letieu/harpoon-lualine",
+  },
   config = function()
     -- LSP clients attached to buffer
     local clients_lsp = function()
@@ -22,6 +25,12 @@ return {
     local branch = { "branch", icon = "" }
     local mode = { "mode", icon = "󰡛" }
     local diagnostics = { "diagnostics", symbols = { error = " ", warn = " ", info = " " }, colored = false }
+    local harpoon = {
+      "harpoon2",
+      icon = "♥",
+      indicators = { "1", "2", "3", "4" },
+      active_indicators = { "[1]", "[2]", "[3]", "[4]" },
+    }
 
     require("lualine").setup({
       options = {
@@ -35,8 +44,8 @@ return {
       },
       sections = {
         lualine_a = { mode },
-        lualine_b = { branch },
-        lualine_c = { "filename" },
+        lualine_b = { branch, "filename" },
+        lualine_c = { harpoon },
         lualine_x = { diagnostics, "diff", "filetype" },
         lualine_y = { "progress", "location" },
         lualine_z = { clients_lsp },
