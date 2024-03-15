@@ -2,6 +2,7 @@ return {
   "b0o/incline.nvim",
   dependencies = {},
   event = "BufReadPre",
+  enabled = false,
   priority = 1200,
   config = function()
     local helpers = require("incline.helpers")
