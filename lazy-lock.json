@@ -84,7 +84,7 @@
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "refactoring.nvim": { "branch": "master", "commit": "d2786877c91aa409c824f27b4ce8a9f560dda60a" },
-  "schemastore.nvim": { "branch": "main", "commit": "9f74c6a52f4f6adaf3b3d64b15d2363219afefae" },
+  "schemastore.nvim": { "branch": "main", "commit": "4d798fd5b692c8fce77268aba8f6f926b0c9f835" },
   "search.nvim": { "branch": "main", "commit": "cfde7b91c713d17e590aad2f0d22a68ddeba3043" },
   "smart-open.nvim": { "branch": "main", "commit": "3cff486c7074a23c92339a8916ebe42bb0ffd2bf" },
   "sqlite.lua": { "branch": "master", "commit": "40701b6151f8883980c1548647116de39b763540" },
@@ -115,7 +115,7 @@
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" },
   "vim-startuptime": { "branch": "master", "commit": "308b0088a864c4711a96e45b6734cf9294074f65" },
   "vim-tmux-navigator": { "branch": "master", "commit": "38b1d0402c4600543281dc85b3f51884205674b6" },
-  "visual-whitespace.nvim": { "branch": "main", "commit": "100c308f68622440e25aee043f7a090b18d9e942" },
+  "visual-whitespace.nvim": { "branch": "main", "commit": "3a8e8b71879b549076b1ae97075a11f58b805d4d" },
   "wildfire.nvim": { "branch": "master", "commit": "1729faca1c6ae34520a6e531983a3737d3654ee1" },
   "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
 }
