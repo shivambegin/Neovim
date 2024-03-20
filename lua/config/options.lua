@@ -41,6 +41,7 @@ vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would sh
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 10 -- Makes sure there are always eight lines of context
 vim.opt.sidescrolloff = 10 -- Makes sure there are always eight lines of context
+vim.opt.smoothscroll = true
 vim.opt.showcmd = false -- Don't show the command in the last line
 vim.opt.ruler = false -- Don't show the ruler
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
