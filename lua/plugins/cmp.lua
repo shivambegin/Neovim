@@ -70,6 +70,7 @@ return {
       Calendar = "",
       Tag = "",
       Null = "󰟢",
+      Codeium = "",
     }
 
     cmp.setup({
