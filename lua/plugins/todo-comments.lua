@@ -2,6 +2,7 @@ return {
   "folke/todo-comments.nvim",
   event = { "BufReadPost", "BufNewFile" },
   cmd = { "TodoLocList", "TodoTelescope", "TodoQuickFix", "TodoTrouble" },
+  keys = { { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Search Todo" } },
   opts = {
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
