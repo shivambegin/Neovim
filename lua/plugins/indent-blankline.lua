@@ -10,7 +10,7 @@ return {
     scope = {
       enabled = true,
       char = " ",
-      highlight = "NonText",
+      -- highlight = "NonText",
       show_start = false,
     },
   },

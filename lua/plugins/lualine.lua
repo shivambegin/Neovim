@@ -35,7 +35,7 @@ return {
     require("lualine").setup({
       options = {
         icons_enabled = true,
-        theme = "tundra",
+        theme = "auto",
         disabled_filetypes = {},
         section_separators = {},
         component_separators = {},
