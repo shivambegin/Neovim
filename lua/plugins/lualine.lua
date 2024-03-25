@@ -1,3 +1,4 @@
+--lualine config version 1
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
