@@ -1,66 +1,71 @@
---lualine config version 1
+--lualine config version 2
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "letieu/harpoon-lualine",
+    "meuter/lualine-so-fancy.nvim",
   },
+  enabled = true,
+  lazy = false,
+  event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
-    -- LSP clients attached to buffer
-    local clients_lsp = function()
-      local bufnr = vim.api.nvim_get_current_buf()
-      ---@diagnostic disable-next-line: deprecated
-      local clients = vim.lsp.buf_get_clients(bufnr)
-      if next(clients) == nil then
-        return ""
-      end
-
-      local c = {}
-      for _, client in pairs(clients) do
-        table.insert(c, client.name)
-      end
-      return "\u{f085} " .. table.concat(c, "|")
-    end
-
-    local branch = { "branch", icon = "" }
-    local mode = { "mode", icon = "󰡛" }
-    local diagnostics = { "diagnostics", symbols = { error = " ", warn = " ", info = " " }, colored = false }
-    local harpoon = {
-      "harpoon2",
-      icon = "♥",
-      indicators = { "1", "2", "3", "4" },
-      active_indicators = { "[1]", "[2]", "[3]", "[4]" },
-    }
-
+    -- local icons = require("config.icons")
     require("lualine").setup({
       options = {
-        icons_enabled = true,
         theme = "auto",
-        disabled_filetypes = {},
-        section_separators = {},
-        component_separators = {},
-        always_divide_middle = true,
-        globalstatus = false,
+        -- theme = "catppuccin",
+        globalstatus = true,
+        icons_enabled = true,
+        -- component_separators = { left = "│", right = "│" },
+        component_separators = { left = "|", right = "|" },
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = {
+          statusline = {
+            "alfa-nvim",
+            "help",
+            "neo-tree",
+            "Trouble",
+            "spectre_panel",
+            "toggleterm",
+          },
+          winbar = {},
+        },
       },
       sections = {
-        lualine_a = { mode },
-        lualine_b = { branch, "filename" },
-        lualine_c = { harpoon },
-        lualine_x = { diagnostics, "diff", "filetype" },
-        lualine_y = { "progress", "location" },
-        lualine_z = { clients_lsp },
+        lualine_a = {},
+        lualine_b = {
+          "fancy_branch",
+        },
+        lualine_c = {
+          {
+            "filename",
+            path = 1, -- 2 for full path
+            symbols = {
+              modified = "  ",
+              -- readonly = "  ",
+              -- unnamed = "  ",
+            },
+          },
+          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
+          { "fancy_searchcount" },
+        },
+        lualine_x = {
+          "fancy_lsp_servers",
+          "fancy_diff",
+          "progress",
+        },
+        lualine_y = {},
+        lualine_z = {},
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
         lualine_c = { "filename" },
-        lualine_x = { "location" },
+        -- lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {},
       },
       tabline = {},
-      extensions = {},
+      extensions = { "neo-tree", "lazy" },
     })
   end,
 }
