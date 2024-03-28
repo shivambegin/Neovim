@@ -52,7 +52,17 @@ return {
 
       telescope.setup({
         file_ignore_patterns = { "%.git/." },
-        borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+
+        borderchars = {
+          -- prompt = { "─", "│", "─", "│", "╭", "┬", "┤", "├" },
+          -- results = { " ", "│", "─", "│", "│", "│", "┴", "╰" },
+          -- prompt = { "─", "│", "─", "│", "╭", "╮", "┤", "├" },
+          -- results = { " ", "│", "─", "│", "│", "│", "╯", "╰" },
+          prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          results = { " ", " ", " ", " ", " ", " ", " ", " " },
+          -- preview = { "─", "│", "─", " ", "─", "╮", "╯", "─" },
+        },
+
         defaults = {
           mappings = {
             i = {
@@ -63,8 +73,9 @@ return {
             n = { ["<C-t>"] = trouble.open_with_trouble },
           },
           previewer = false,
-          prompt_prefix = " " .. icons.ui.Telescope .. " ",
-          selection_caret = icons.ui.ArrowRight .. " ",
+          prompt_prefix = "    ",
+          selection_caret = " ",
+
           file_ignore_patterns = { "node_modules", "package-lock.json" },
           initial_mode = "insert",
           select_strategy = "reset",
