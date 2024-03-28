@@ -37,7 +37,7 @@ vim.opt.number = true -- set numbered lines
 vim.opt.breakindent = true -- wrap lines with indent
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn = "yes:2" -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 10 -- Makes sure there are always eight lines of context
 vim.opt.sidescrolloff = 10 -- Makes sure there are always eight lines of context
@@ -47,7 +47,8 @@ vim.opt.ruler = false -- Don't show the ruler
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.confirm = true -- confirm to save changes before exiting modified buffer
-vim.opt.fillchars = { eob = " " } -- change the character at the end of buffer
+vim.opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
+-- change the character at the end of buffer
 vim.opt.laststatus = 0 -- disable statusline
 vim.opt.splitkeep = "screen"
 vim.opt.tabstop = 4 -- insert 2 spaces for a tab
