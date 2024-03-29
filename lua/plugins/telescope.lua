@@ -18,7 +18,6 @@ return {
       local telescope = require("telescope")
       local actions = require("telescope.actions")
       local trouble = require("trouble.providers.telescope")
-      local icons = require("config.icons")
 
       vim.keymap.set("n", "<leader>tt", builtin.find_files, {})
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
@@ -30,6 +29,9 @@ return {
       vim.keymap.set("n", "<leader>so", function()
         telescope.extensions.smart_open.smart_open()
       end, { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>gs", function()
+        builtin.grep_string({ search = vim.fn.input("Grep > ") })
+      end)
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "TelescopeResults",
