@@ -5,7 +5,7 @@ return {
       sections = {
         left = { "  ", "mode", " ", "branch", " ", "lsp" },
         mid = { "lsp_name" },
-        right = { "file_name" },
+        right = { "cool_symbol", "file_name" },
       },
       mode_colors = {
         i = "#d4be98",
@@ -15,7 +15,12 @@ return {
       },
       defaults = {
         true_colors = true,
+        full_path = true,
         branch_symbol = " ",
+        expand_null_ls = true, -- This expands out all the null-ls sources to be shown
+        lsp_client_character_length = 1000, -- Shorten LSP client names.
+        cool_symbol = "󰣇 ", -- Change this to override default OS icon.
+        font_active = "none", -- "bold", "italic", "bold,italic", etc
       },
     })
     require("stabline").setup({
