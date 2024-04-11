@@ -19,7 +19,13 @@ return {
       end,
     },
     init = function()
-      vim.cmd.colorscheme("catppuccin")
+      -- vim.cmd.colorscheme("catppuccin")
+    end,
+  },
+  {
+    "sainnhe/gruvbox-material",
+    config = function()
+      vim.cmd.colorscheme("gruvbox-material")
     end,
   },
 }
