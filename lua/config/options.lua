@@ -59,6 +59,6 @@ vim.opt.autoread = true
 vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.path:append({ "**" })
 vim.opt.splitkeep = "cursor"
-vim.opt.formatoptions:append({ "r" })
+-- vim.opt.formatoptions:append({ "r" })
 
 vim.opt.list = false
