@@ -1,6 +1,6 @@
 return {
   "OXY2DEV/intro.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     require("intro").setup()
   end,
