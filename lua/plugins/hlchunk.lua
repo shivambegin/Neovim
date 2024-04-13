@@ -16,7 +16,7 @@ return {
         },
 
         style = {
-          { fg = "#806d9c" },
+          { fg = "none" },
           { fg = "#c21f30" }, -- this fg is used to highlight wrong chunk
         },
         textobject = "",
