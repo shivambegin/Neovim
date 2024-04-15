@@ -15,7 +15,7 @@ return {
       },
       defaults = {
         true_colors = true,
-        full_path = true,
+        full_path = false,
         branch_symbol = " ",
         expand_null_ls = true, -- This expands out all the null-ls sources to be shown
         lsp_client_character_length = 1000, -- Shorten LSP client names.
