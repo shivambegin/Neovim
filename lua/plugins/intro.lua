@@ -1,6 +1,6 @@
 return {
   "OXY2DEV/intro.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("intro").setup({
