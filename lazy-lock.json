@@ -86,6 +86,7 @@
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "refactoring.nvim": { "branch": "master", "commit": "d2786877c91aa409c824f27b4ce8a9f560dda60a" },
   "schemastore.nvim": { "branch": "main", "commit": "f8b00bba94eab372e0c29605568a7ec323e30620" },
+  "screenkey.nvim": { "branch": "main", "commit": "3ee8f62196bb4fc3bdb9b102501f25a2f21218d9" },
   "search.nvim": { "branch": "main", "commit": "cfde7b91c713d17e590aad2f0d22a68ddeba3043" },
   "smart-open.nvim": { "branch": "main", "commit": "028bb71d20e8212da3514bf6dabfb17038d81ee4" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
