@@ -1,5 +1,6 @@
 return {
   "tamton-aquib/flirt.nvim",
+  enabled = false,
   config = function()
     local f = require("flirt")
     vim.keymap.set("n", "<leader><left>", function()
