@@ -3,6 +3,7 @@ vim.g.maplocalleader = " " -- change localleader to a space
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.opt.backup = false
 vim.opt.showcmd = true
+vim.opt.modifiable = true
 vim.opt.backspace = { "start,eol,indent" }
 vim.g.loaded_netrwPlugin = 1 --  disable netrw
 vim.opt.incsearch = true -- make search act like search in modern browsers
