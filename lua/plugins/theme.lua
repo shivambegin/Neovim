@@ -1,5 +1,4 @@
 return {
-  -- Lua
   {
     "olivercederborg/poimandres.nvim",
     lazy = false,
