@@ -63,3 +63,4 @@ vim.opt.splitkeep = "cursor"
 -- vim.opt.formatoptions:append({ "r" })
 
 vim.opt.list = false
+vim.o.mousemoveevent = true
