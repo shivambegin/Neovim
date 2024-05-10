@@ -1,6 +1,6 @@
 return {
   "shellRaining/hlchunk.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  event = "BufReadPre",
   opts = {
     blank = {
       enable = false,
