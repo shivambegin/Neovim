@@ -1,19 +1,9 @@
 return {
   {
-    "olivercederborg/poimandres.nvim",
-    lazy = false,
-    priority = 1000,
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
     config = function()
-      -- vim.cmd("colorscheme poimandres")
-      -- require("poimandres").setup({})
-    end,
-  },
-  {
-    "dgox16/oldworld.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("oldworld")
+      vim.cmd("colorscheme onedark_dark")
     end,
   },
 }
