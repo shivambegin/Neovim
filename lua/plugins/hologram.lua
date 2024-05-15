@@ -1,5 +1,6 @@
 --image rendering in neovim
 return {
+  enabled = false,
   "edluffy/hologram.nvim",
   config = function()
     require("hologram").setup({
