@@ -57,6 +57,7 @@
   "nerdy.nvim": { "branch": "main", "commit": "1ad36242f40a8fd95ae5711258540a07a5dabb51" },
   "noice.nvim": { "branch": "main", "commit": "2c49d4a7fdeaca930bb08a8239bdf5bccc26507b" },
   "none-ls.nvim": { "branch": "main", "commit": "37671797d6e5f9bd0ee3ab965ab2e6de251e1930" },
+  "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
   "nui-components.nvim": { "branch": "main", "commit": "caecfe2089e5ffbe99c2b0e0468da91990263a90" },
   "nui.nvim": { "branch": "main", "commit": "a3597dc88b53489d3fddbddbbd13787355253bb0" },
   "nvim-autopairs": { "branch": "master", "commit": "b0b79e42a28f09719a7da9534c3731fa37319d9b" },
