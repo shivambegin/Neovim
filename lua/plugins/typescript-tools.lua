@@ -1,7 +1,5 @@
---NOTE: disbabling beacuse of non compatiblity with nvim 0.11
 return {
   "pmizio/typescript-tools.nvim",
-  enabled = false,
   event = "BufReadPre",
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   opts = {},
