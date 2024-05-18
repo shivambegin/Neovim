@@ -61,6 +61,14 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.path:append({ "**" })
 vim.opt.splitkeep = "cursor"
 -- vim.opt.formatoptions:append({ "r" })
+vim.opt.listchars = {
+  tab = ">>>",
+  trail = "·",
+  precedes = "←",
+  extends = "→",
+  eol = "↲",
+  nbsp = "␣",
+}
 
-vim.opt.list = false
+vim.opt.list = true
 vim.o.mousemoveevent = true
