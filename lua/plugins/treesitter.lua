@@ -43,6 +43,7 @@ return {
           "rust",
           "kdl",
           "python",
+          "gleam",
         },
         auto_install = true,
         autotag = { -- dependency with 'nvim-ts-autotag'

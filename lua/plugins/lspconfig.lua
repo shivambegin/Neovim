@@ -51,6 +51,10 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
+    lspconfig["gleam"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
 
     -- configure matlab server
     lspconfig["matlab_ls"].setup({
