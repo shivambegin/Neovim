@@ -63,7 +63,8 @@ vim.opt.path:append({ "**" })
 vim.opt.splitkeep = "cursor"
 -- vim.opt.formatoptions:append({ "r" })
 vim.opt.listchars = {
-  tab = ">>>",
+  -- tab = ">>>",
+  tab = "  ",
   trail = "·",
   precedes = "←",
   extends = "→",
