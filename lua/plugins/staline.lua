@@ -1,5 +1,5 @@
 return {
-  "tamton-aquib/staline.nvim",
+  "shivambegin/staline.nvim",
   event = "VeryLazy",
   config = function()
     require("staline").setup({
