@@ -3,6 +3,7 @@ return {
     "xiyaowong/transparent.nvim",
     config = function()
       require("transparent").clear_prefix("WinBar")
+      require("transparent").clear_prefix("ToggleTerm1")
       require("transparent").clear_prefix("Normal")
       require("transparent").clear_prefix("Navic")
       -- require("transparent").clear_prefix("Mason")
