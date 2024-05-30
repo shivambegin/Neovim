@@ -4,7 +4,7 @@ return {
     enabled = true,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("minimal")
+      -- vim.cmd.colorscheme("minimal")
     end,
   },
 
@@ -23,6 +23,14 @@ return {
     opts = { style = "moon" },
     config = function()
       -- vim.cmd([[colorscheme tokyonight]])
+    end,
+  },
+  {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("oldworld")
     end,
   },
 }
