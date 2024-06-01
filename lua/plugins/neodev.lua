@@ -1,5 +1,6 @@
 return {
   "folke/neodev.nvim",
+  enabled = false,
   event = "LspAttach",
   opts = {
     {
