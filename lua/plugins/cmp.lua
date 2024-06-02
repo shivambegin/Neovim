@@ -42,6 +42,12 @@ local plugins = {
           behavior = cmp.ConfirmBehavior.Insert,
           select = true,
         }),
+        cmp.setup.cmdline(":", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = "cmdline" },
+          },
+        }),
       },
 
       -- sources for autocompletion
