@@ -68,9 +68,9 @@ vim.opt.listchars = {
   trail = "·",
   precedes = "←",
   extends = "→",
-  -- eol = "↲",
+  eol = "↲",
   nbsp = "␣",
 }
 
-vim.opt.list = true
+vim.opt.list = false
 vim.o.mousemoveevent = true
