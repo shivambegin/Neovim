@@ -1,56 +1,48 @@
+-- override nvim ui
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  enabled = true,
   dependencies = {
+    "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
   },
-  config = function()
-    require("noice").setup({
-      views = {
-        mini = {
-          zindex = 100,
-          win_options = { winblend = 0 },
-        },
-        cmdline_popup = {
-          position = {
-            row = 5,
-            col = "50%",
+  opts = {
+    lsp = {
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
+      },
+    },
+    routes = {
+      {
+        filter = {
+          event = "msg_show",
+          any = {
+            { find = "%d+L, %d+B" },
+            { find = "; after #%d+" },
+            { find = "; before #%d+" },
           },
-          size = {
-            width = "auto",
-            height = "auto",
-          },
+        },
+        view = "mini",
+      },
+    },
+    presets = {
+      bottom_search = true,
+      command_palette = true,
+      long_message_to_split = true,
+      inc_rename = true,
+      lsp_doc_border = true,
+    },
+    cmdline = {
+      view = "cmdline",
+    },
+    views = {
+      mini = {
+        win_options = {
+          winblend = 0,
         },
       },
-
-      lsp = {
-        progress = {
-          enabled = false,
-        },
-        hover = {
-          enabled = false,
-        },
-        signature = {
-          enabled = false,
-        },
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
-      },
-      presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
-      },
-      cmdline = {
-        view = "cmdline",
-      },
-    })
-  end,
+    },
+  },
 }

@@ -24,12 +24,12 @@ return {
         font_active = "none", -- "bold", "italic", "bold,italic", etc
       },
     })
-    require("stabline").setup({
-      font_active = "none",
-      stab_start = "  %#Identifier#  ",
-      stab_bg = "none",
-      stab_left = "",
-      inactive_fg = "none",
-    })
+    -- require("stabline").setup({
+    --   font_active = "none",
+    --   stab_start = "  %#Identifier#  ",
+    --   stab_bg = "none",
+    --   stab_left = "->",
+    --   inactive_fg = "none",
+    -- })
   end,
 }

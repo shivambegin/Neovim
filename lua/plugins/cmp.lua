@@ -1,181 +1,58 @@
-return {
+-- configure autocomplete
+local plugins = {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    "hrsh7th/cmp-buffer", -- Buffer Completions
-    "hrsh7th/cmp-path", -- Path Completions
-    "saadparwaiz1/cmp_luasnip", -- Snippet Completions
-    "hrsh7th/cmp-nvim-lsp", -- LSP Completions
-    "hrsh7th/cmp-nvim-lua", -- Lua Completions
-    "hrsh7th/cmp-cmdline", -- CommandLine Completions
-    "L3MON4D3/LuaSnip", -- Snippet Engine
-    "zeioth/friendly-snippets", -- Bunch of Snippets
+    -- autocomplete plugins
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
     "saadparwaiz1/cmp_luasnip",
-    {
-      "windwp/nvim-autopairs",
-      config = function()
-        local autopairs = require("nvim-autopairs")
 
-        autopairs.setup({
-          check_ts = true, -- treesitter integration
-          disable_filetype = { "TelescopePrompt" },
-        })
-
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-        local cmp_status_ok, cmp = pcall(require, "cmp")
-        if not cmp_status_ok then
-          return
-        end
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({}))
-      end,
-    },
+    -- vscode like icons to autocomplete list
+    "onsails/lspkind.nvim",
+    -- snippet plugin
+    "L3MON4D3/LuaSnip",
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
-    require("luasnip.loaders.from_snipmate").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets/snipmate" })
-    require("luasnip.loaders.from_vscode").lazy_load()
-    -- require("luasnip.loaders.from_vscode").lazy_load { paths = vim.fn.stdpath "config" .. "/snippets/vscode" }
-
-    local kind_icons = {
-      Text = "󰉿",
-      Table = "",
-      Method = "󰆧",
-      Function = "󰊕",
-      Constructor = "",
-      Field = "󰜢",
-      Variable = "󰀫",
-      Class = "󰠱",
-      Interface = "",
-      Module = "",
-      Property = "󰜢",
-      Unit = "󰑭",
-      Value = "󰎠",
-      Enum = "",
-      Keyword = "󰌋",
-      Snippet = "",
-      Color = "󰏘",
-      File = "󰈙",
-      Reference = "󰈇",
-      Folder = "󰉋",
-      EnumMember = "",
-      Constant = "󰏿",
-      Struct = "󰙅",
-      Event = "",
-      Operator = "󰆕",
-      TypeParameter = "",
-      Package = "",
-      Copilot = "",
-      Calendar = "",
-      Tag = "",
-      Null = "󰟢",
-      Codeium = "",
-    }
-
     cmp.setup({
-      snippet = {
+      completion = {
+        keyword_length = 1,
+        completeopt = "menu,menuone",
+      },
+      snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
-          luasnip.lsp_expand(args.body) -- For `luasnip` users.
+          luasnip.lsp_expand(args.body)
         end,
+      },
+      mapping = {
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-k>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-j>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<Esc>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Insert,
+          select = true,
+        }),
       },
 
-      mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1)),
-        ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1)),
-        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ["<C-e>"] = cmp.mapping({
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close(),
-        }),
-        -- Accept currently selected item. If none selected, `select` first item.
-        -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expandable() then
-            luasnip.expand()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, {
-          "i",
-          "s",
-        }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, {
-          "i",
-          "s",
-        }),
-      }),
-      formatting = {
-        format = function(_, vim_item)
-          vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-          return vim_item
-        end,
-      },
+      -- sources for autocompletion
       sources = {
         { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "codeium" },
-      },
-      confirm_opts = {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
-      },
-      window = {
-        completion = cmp.config.window.bordered({
-          border = "rounded",
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:Search",
-          col_offset = -3,
-          side_padding = 1,
-        }),
-        documentation = cmp.config.window.bordered({
-          border = "rounded",
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:Search",
-          col_offset = -3,
-          side_padding = 1,
-        }),
-      },
-      experimental = {
-        ghost_text = { enabled = true },
-      },
-    })
-
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "cmdline" },
-      },
-      window = {
-        completion = cmp.config.window.bordered({
-          border = "rounded",
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:Search",
-          col_offset = -3,
-          side_padding = 1,
-        }),
-      },
-      formatting = {
-        format = function(_, vim_item)
-          vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-          return vim_item
-        end,
+        { name = "luasnip" }, -- snippets
+        { name = "buffer" }, -- text within current buffer
+        { name = "path" }, -- file system paths
       },
     })
   end,
 }
+
+return plugins
