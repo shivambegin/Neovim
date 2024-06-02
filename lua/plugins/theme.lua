@@ -1,36 +1,49 @@
 return {
   {
-    "Yazeed1s/minimal.nvim",
-    enabled = true,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme("minimal")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
+  {
+    "neanias/everforest-nvim",
+    name = "everforest",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everforest").setup({
+        italics = true,
+        transparent_background_level = 1,
 
-  {
-    "luisiacc/gruvbox-baby",
-    enabled = false,
-    priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme("gruvbox-baby")
+        -- Add underline to selected word
+        on_highlights = function(hl, palette)
+          hl.CurrentWord = { underline = true }
+        end,
+      })
+      -- vim.o.background = "light"
+      vim.cmd.colorscheme("everforest")
     end,
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
+    "sainnhe/gruvbox-material",
+    name = "gruvbox-material",
+    lazy = true,
     priority = 1000,
-    opts = { style = "moon" },
     config = function()
-      -- vim.cmd([[colorscheme tokyonight]])
+      vim.g.gruvbox_material_background = "hard"
+      vim.cmd.colorscheme("gruvbox-material")
     end,
   },
   {
-    "dgox16/oldworld.nvim",
-    lazy = false,
+    "shaunsingh/nord.nvim",
+    name = "nord",
+    lazy = true,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("oldworld")
+      vim.cmd.colorscheme("nord")
     end,
   },
 }
