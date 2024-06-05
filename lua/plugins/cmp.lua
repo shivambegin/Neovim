@@ -10,6 +10,8 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
     "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    "hrsh7th/cmp-calc",
 
     -- vscode like icons to autocomplete list
     "onsails/lspkind.nvim",
@@ -56,6 +58,8 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "nvim_lsp_signature_help" },
+        { name = "calc" }, --for maths calculations
       },
     })
   end,
