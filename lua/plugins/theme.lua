@@ -9,9 +9,17 @@ return {
     end,
   },
   {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+    lazy = false,
+    config = function()
+      vim.cmd("colorscheme onedark")
+    end,
+  },
+  {
     "neanias/everforest-nvim",
     name = "everforest",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("everforest").setup({
