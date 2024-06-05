@@ -1,5 +1,5 @@
 -- configure autocomplete
-local plugins = {
+return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
@@ -60,5 +60,3 @@ local plugins = {
     })
   end,
 }
-
-return plugins
