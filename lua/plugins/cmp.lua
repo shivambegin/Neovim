@@ -21,11 +21,24 @@ return {
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
+    require("luasnip/loaders/from_vscode").lazy_load()
 
     cmp.setup({
       completion = {
         keyword_length = 1,
         completeopt = "menu,menuone",
+      },
+      formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = strings[1] .. " "
+          kind.menu = "    " .. strings[2]
+
+          return kind
+        end,
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
@@ -51,7 +64,12 @@ return {
           { name = "cmdline" },
         },
       }),
-
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      }),
       -- sources for autocompletion
       sources = {
         { name = "nvim_lsp" },
