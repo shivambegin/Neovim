@@ -1,5 +1,14 @@
 return {
   {
+    "olivercederborg/poimandres.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("poimandres").setup({})
+      vim.cmd("colorscheme poimandres")
+    end,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = true,
@@ -11,7 +20,7 @@ return {
   {
     "navarasu/onedark.nvim",
     priority = 1000, -- Ensure it loads first
-    lazy = false,
+    lazy = true,
     config = function()
       require("onedark").setup({
         style = "darker",
