@@ -90,7 +90,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "b77921fdc44833c994fdb389d658ccbce5490c16" },
   "odoo-snippets": { "branch": "main", "commit": "5e6b7191e3ea60bba00df6cdbc031291b194768d" },
   "oil.nvim": { "branch": "master", "commit": "bbc0e67eebc15342e73b146a50d9b52e6148161b" },
-  "onedarkpro.nvim": { "branch": "main", "commit": "13c3244b2520a832989d797d69436df7d27e20b9" },
+  "onedark.nvim": { "branch": "master", "commit": "8e4b79b0e6495ddf29552178eceba1e147e6cecf" },
   "open-github-repo": { "branch": "main", "commit": "58cad9bb14e74a7fd598483c6abbe6ba4011ce9b" },
   "opener.nvim": { "branch": "main", "commit": "c2ec7ba6e6380a7837ab2d4dd3c6ec9b7fadbfd0" },
   "outline.nvim": { "branch": "main", "commit": "6a91568110684ac056e62e3b2d7409d7c8b2e5e1" },
