@@ -1,7 +1,7 @@
 return {
   {
     "olivercederborg/poimandres.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("poimandres").setup({
@@ -68,7 +68,7 @@ return {
   {
     "shaunsingh/nord.nvim",
     name = "nord",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       vim.cmd.colorscheme("nord")
