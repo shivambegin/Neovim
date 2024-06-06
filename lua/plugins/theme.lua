@@ -4,7 +4,15 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("poimandres").setup({})
+      require("poimandres").setup({
+        {
+          bold_vert_split = false, -- use bold vertical separators
+          dim_nc_background = false, -- dim 'non-current' windows
+          disable_background = true, -- disable background
+          disable_float_background = true, -- disable background for floats
+          disable_italics = false, -- disable italics
+        },
+      })
       vim.cmd("colorscheme poimandres")
     end,
   },
