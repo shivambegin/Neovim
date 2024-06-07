@@ -2,7 +2,7 @@ return {
   {
     "bluz71/vim-nightfly-colors",
     name = "nightfly",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd([[colorscheme nightfly]])
@@ -48,7 +48,7 @@ return {
   {
     "neanias/everforest-nvim",
     name = "everforest",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       require("everforest").setup({
