@@ -1,5 +1,14 @@
 return {
   {
+    "bluz71/vim-nightfly-colors",
+    name = "nightfly",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme nightfly]])
+    end,
+  },
+  {
     "olivercederborg/poimandres.nvim",
     lazy = true,
     priority = 1000,
@@ -68,7 +77,7 @@ return {
   {
     "shaunsingh/nord.nvim",
     name = "nord",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd.colorscheme("nord")
