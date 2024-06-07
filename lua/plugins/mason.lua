@@ -1,6 +1,5 @@
 return {
   "williamboman/mason.nvim",
-  cmd = {"Mason"},
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -30,7 +29,6 @@ return {
       ensure_installed = {
         "tsserver",
         "html",
-        "htmx",
         "cssls",
         "tailwindcss",
         "svelte",
@@ -39,13 +37,7 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
-        "gopls",
-        "bashls",
-        "yamlls",
-        "matlab_ls",
       },
-      -- auto-install configured servers (with lspconfig)
-      automatic_installation = true, -- not the same as ensure_installed
     })
 
     mason_tool_installer.setup({
@@ -54,8 +46,8 @@ return {
         "stylua", -- lua formatter
         "isort", -- python formatter
         "black", -- python formatter
-        "pylint", -- python linter
-        -- "eslint_d", -- js linter
+        "pylint",
+        "eslint_d",
       },
     })
   end,

@@ -1,6 +1,7 @@
 return {
   "shivambegin/staline.nvim",
   event = "VeryLazy",
+  enabled = false,
   config = function()
     require("staline").setup({
       sections = {
