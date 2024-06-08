@@ -4,6 +4,7 @@ return {
     "meuter/lualine-so-fancy.nvim",
   },
   lazy = false,
+  enabled = false,
   event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
     require("lualine").setup({

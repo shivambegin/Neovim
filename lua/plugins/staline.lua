@@ -1,7 +1,7 @@
 return {
   "shivambegin/staline.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   config = function()
     require("staline").setup({
       sections = {
@@ -25,12 +25,13 @@ return {
         font_active = "none", -- "bold", "italic", "bold,italic", etc
       },
     })
-    -- require("stabline").setup({
-    --   font_active = "none",
-    --   stab_start = "  %#Identifier#  ",
-    --   stab_bg = "none",
-    --   stab_left = "->",
-    --   inactive_fg = "none",
-    -- })
+    require("stabline").setup({
+      font_active = "none",
+      stab_start = "  %#Identifier#  ",
+      stab_bg = "none",
+      stab_left = "",
+      inactive_fg = "none",
+      fg = "#95c561",
+    })
   end,
 }
