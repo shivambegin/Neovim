@@ -19,6 +19,7 @@ return {
   },
   {
     "echasnovski/mini.indentscope",
+    enabled = false,
     version = false,
     event = {
       "BufReadPre",
