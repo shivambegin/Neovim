@@ -13,7 +13,6 @@ opt.showtabline = 0 -- always show tabs
 opt.title = true -- set the title of window to the value of the titlestring
 opt.confirm = true -- confirm to save changes before exiting modified buffer
 opt.laststatus = 3 -- global statusline
-opt.showtabline = 2 -- show tabs
 opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.undofile = true -- enable persistent undo
 opt.updatetime = 100 -- faster completion (4000ms default)

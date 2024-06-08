@@ -107,7 +107,7 @@
   "search.nvim": { "branch": "main", "commit": "7b8f2315d031be73e14bc2d82386dfac15952614" },
   "smart-open.nvim": { "branch": "main", "commit": "028bb71d20e8212da3514bf6dabfb17038d81ee4" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
-  "staline.nvim": { "branch": "main", "commit": "2043adb1cfb9f6aecf83de8b264deb113069bb64" },
+  "staline.nvim": { "branch": "main", "commit": "d337bc9b343df3328921ef4c3f8ff604102d0201" },
   "statuscol.nvim": { "branch": "main", "commit": "2eaca29ef3079dedc484dbd7824ad723e8d35676" },
   "styledoc.nvim": { "branch": "main", "commit": "78785d58942d1b6ccfe64d3298bab1dc4d83e751" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9ef21b2e6bb6ebeaf349a0781745549bbb870d27" },

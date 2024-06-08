@@ -1,5 +1,5 @@
 return {
-  "shivambegin/staline.nvim",
+  "tamton-aquib/staline.nvim",
   event = "VeryLazy",
   enabled = true,
   config = function()
@@ -25,13 +25,13 @@ return {
         font_active = "none", -- "bold", "italic", "bold,italic", etc
       },
     })
-    require("stabline").setup({
-      font_active = "none",
-      stab_start = "  %#Identifier#  ",
-      stab_bg = "none",
-      stab_left = "",
-      inactive_fg = "none",
-      fg = "#95c561",
-    })
+    -- require("stabline").setup({
+    --   font_active = "none",
+    --   stab_start = "  %#Identifier#  ",
+    --   stab_bg = "none",
+    --   stab_left = "",
+    --   inactive_fg = "none",
+    --   fg = "#95c561",
+    -- })
   end,
 }
