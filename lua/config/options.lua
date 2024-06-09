@@ -7,6 +7,7 @@ vim.g.maplocalleader = " "
 local opt = vim.opt
 
 opt.backup = false --no backup
+opt.background = dark
 opt.modifiable = true --modify text and buffers
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.showtabline = 0 -- always show tabs
