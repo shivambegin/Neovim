@@ -1,5 +1,14 @@
 return {
   {
+    "shaunsingh/nord.nvim",
+    name = "nord",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("nord")
+    end,
+  },
+  {
     "catppuccin/nvim",
     priority = 150,
     name = "catppuccin",
@@ -374,7 +383,7 @@ return {
       -- vim.g.gruvbox_material_colors_override = { bg0 = "#121212" }
       -- vim.g.gruvbox_material_better_performance = 1
 
-      vim.cmd.colorscheme("gruvbox-material")
+      -- vim.cmd.colorscheme("gruvbox-material")
     end,
   },
   {
