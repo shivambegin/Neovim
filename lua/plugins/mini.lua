@@ -19,14 +19,14 @@ return {
   },
   {
     "echasnovski/mini.indentscope",
-    enabled = false,
+    enabled = true,
     version = false,
     event = {
       "BufReadPre",
       "BufNewFile",
     },
     opts = {
-      symbol = "┆",
+      symbol = "│",
       options = { try_as_border = true },
     },
     init = function()
