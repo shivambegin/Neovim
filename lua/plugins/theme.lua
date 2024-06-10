@@ -1,18 +1,18 @@
 return {
   {
-    {
-      "dgox16/oldworld.nvim",
-      -- dir = "~/Documentos/project_nvim/oldworld.nvim/",
-      priority = 1000,
-      lazy = false,
-      opts = {
-        styles = {
-          booleans = { bold = true },
-          functions = { italic = true },
-          comments = { italic = true },
-        },
+    "dgox16/oldworld.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      styles = {
+        booleans = { bold = true },
+        functions = { italic = true },
+        comments = { italic = true },
       },
     },
+    config = function()
+      vim.cmd.colorscheme("oldworld")
+    end,
   },
   {
     "shaunsingh/nord.nvim",
