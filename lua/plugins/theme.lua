@@ -1,8 +1,23 @@
 return {
   {
+    {
+      "dgox16/oldworld.nvim",
+      -- dir = "~/Documentos/project_nvim/oldworld.nvim/",
+      priority = 1000,
+      lazy = false,
+      opts = {
+        styles = {
+          booleans = { bold = true },
+          functions = { italic = true },
+          comments = { italic = true },
+        },
+      },
+    },
+  },
+  {
     "shaunsingh/nord.nvim",
     name = "nord",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd.colorscheme("nord")
