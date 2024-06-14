@@ -53,7 +53,7 @@ return {
       })
       telescope.load_extension("ui-select")
       telescope.load_extension("refactoring")
-      telescope.load_extension("notify")
+      -- telescope.load_extension("notify")
       telescope.load_extension("smart_open")
       telescope.load_extension("opener")
     end,
