@@ -23,10 +23,10 @@ return {
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "none" },
-        lualine_c = { "none" },
-        lualine_x = { "diagnostics", "diff" },
-        lualine_y = { "fancy_lsp_servers" },
-        lualine_z = { "fancy_branch" },
+        lualine_c = { "fancy_branch" },
+        lualine_x = { "fancy_diff", "fancy_diagnostics" },
+        lualine_y = { "none" },
+        lualine_z = { "fancy_lsp_servers" },
       },
       inactive_sections = {
         lualine_a = {},
