@@ -1,13 +1,13 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       require("gruvbox").setup({
         contrast = "hard",
         palette_overrides = {
-          gray = "#2ea542", -- comments are green and by that I mean GREEN
+          gray = "#61afef", -- comments are blue and by that I mean BLUE
         },
       })
       vim.cmd("colorscheme gruvbox")
@@ -15,7 +15,7 @@ return {
   },
   {
     "tomasr/molokai",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd("colorscheme molokai")
