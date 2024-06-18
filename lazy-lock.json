@@ -56,6 +56,7 @@
   "mini.indentscope": { "branch": "main", "commit": "f0d7faa064c892b96997810afcddfadc3f2a15b3" },
   "mini.nvim": { "branch": "main", "commit": "ebc8cb0c1f73ee6c53e0560957a37a2307a70f98" },
   "modes.nvim": { "branch": "main", "commit": "3188692abf02a8838ec75e59d68c2ce3e4323f5c" },
+  "molokai": { "branch": "master", "commit": "c67bdfcdb31415aa0ade7f8c003261700a885476" },
   "neo-tree.nvim": { "branch": "main", "commit": "206241e451c12f78969ff5ae53af45616ffc9b72" },
   "neogen": { "branch": "main", "commit": "6de0add4805165317ab7d3d36b5cef48b1b865f3" },
   "neogit": { "branch": "master", "commit": "11dea1b67bb153cd5b4a2de348ceefa69508dfce" },
