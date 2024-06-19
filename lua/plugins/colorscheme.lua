@@ -1,7 +1,7 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("gruvbox").setup({
@@ -15,7 +15,7 @@ return {
   },
   {
     "tomasr/molokai",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       vim.cmd("colorscheme molokai")
