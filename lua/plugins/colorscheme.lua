@@ -1,7 +1,15 @@
 return {
   {
-    "ayu-theme/ayu-vim",
+    "EdenEast/nightfox.nvim",
     lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme carbonfox")
+    end,
+  },
+  {
+    "ayu-theme/ayu-vim",
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd("colorscheme ayu")
