@@ -1,5 +1,13 @@
 return {
   {
+    "ayu-theme/ayu-vim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme ayu")
+    end,
+  },
+  {
     "ellisonleao/gruvbox.nvim",
     lazy = true,
     priority = 1000,
@@ -15,7 +23,7 @@ return {
   },
   {
     "tomasr/molokai",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd("colorscheme molokai")
