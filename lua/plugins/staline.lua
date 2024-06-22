@@ -9,6 +9,10 @@ return {
         mid = { "lsp_name" },
         right = { "Broken", "cool_symbol", "file_size" },
       },
+      special_table = {
+        neotree = { "neotree", " " },
+        lazy = { "lazy", " " }, -- etc
+      },
       mode_colors = {
         i = "#d4be98",
         n = "#84a598",
