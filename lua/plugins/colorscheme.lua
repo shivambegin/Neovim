@@ -1,4 +1,7 @@
 return {
+  {
+    "olivercederborg/poimandres.nvim",
+  },
   { "bluz71/vim-nightfly-colors", name = "nightfly" },
   {
     "sainnhe/sonokai",
