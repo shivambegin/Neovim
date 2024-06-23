@@ -4,7 +4,7 @@ return {
   config = function()
     -- Minimal config
     require("themery").setup({
-      themes = { "gruvbox", "ayu", "carbonfox", "molokai", "everforest", "sonokai" }, -- Your list of installed colorschemes
+      themes = { "gruvbox", "ayu", "carbonfox", "molokai", "everforest", "sonokai", "nightfly" }, -- Your list of installed colorschemes
       themeConfigFile = "~/.config/nvim/lua/config/theme-select.lua", -- Described below
       livePreview = true, -- Apply theme while browsing. Default to true.
     })
