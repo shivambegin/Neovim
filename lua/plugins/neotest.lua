@@ -1,6 +1,7 @@
 return {
   "nvim-neotest/neotest",
   dependencies = { "haydenmeade/neotest-jest", "marilari88/neotest-vitest" },
+  cmd = "Neotest",
   config = function()
     require("neotest").setup({
       status = { virtual_text = true },

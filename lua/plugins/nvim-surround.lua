@@ -1,7 +1,7 @@
 return {
   "kylechui/nvim-surround",
   version = "*",
-  event = "VeryLazy",
+  event = "InsertEnter",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",
