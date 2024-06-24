@@ -7,15 +7,11 @@ return {
   lazy = false,
   event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
-    -- local icons = require("config.icons")
     require("lualine").setup({
       options = {
         theme = "poimandres",
-        -- theme = "github_dark",
-        -- theme = "catppuccin",
         globalstatus = true,
         icons_enabled = true,
-        -- component_separators = { left = "│", right = "│" },
         component_separators = { left = "|", right = "|" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
