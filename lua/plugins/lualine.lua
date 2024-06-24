@@ -1,45 +1,71 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
-  enabled = false,
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "joshdick/onedark.vim",
     "meuter/lualine-so-fancy.nvim",
   },
+  enabled = true,
+  lazy = false,
+  event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
-    local auto_theme_custom = require("lualine.themes.onedark")
-    auto_theme_custom.normal.c.bg = "none"
+    -- local icons = require("config.icons")
     require("lualine").setup({
       options = {
+        theme = "poimandres",
+        -- theme = "github_dark",
+        -- theme = "catppuccin",
+        globalstatus = true,
         icons_enabled = true,
-        theme = auto_theme_custom,
-        disabled_filetypes = {},
-        -- section_separators = { left = '', right = '' },
-        -- component_separators = { left = '', right = '' },
-        section_separators = {},
-        component_separators = {},
-        always_divide_middle = true,
-        globalstatus = false,
+        -- component_separators = { left = "│", right = "│" },
+        component_separators = { left = "|", right = "|" },
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = {
+          statusline = {
+            "alfa-nvim",
+            "help",
+            "neo-tree",
+            "Trouble",
+            "spectre_panel",
+            "toggleterm",
+          },
+          winbar = {},
+        },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "none" },
-        lualine_c = { "fancy_branch" },
-        lualine_x = { "fancy_diff", "fancy_diagnostics" },
-        lualine_y = { "none" },
-        lualine_z = { "fancy_lsp_servers" },
+        lualine_a = {},
+        lualine_b = {
+          "fancy_branch",
+        },
+        lualine_c = {
+          {
+            "filename",
+            path = 1, -- 2 for full path
+            symbols = {
+              modified = "  ",
+              -- readonly = "  ",
+              -- unnamed = "  ",
+            },
+          },
+          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
+          { "fancy_searchcount" },
+        },
+        lualine_x = {
+          "fancy_lsp_servers",
+          "fancy_diff",
+          "progress",
+        },
+        lualine_y = {},
+        lualine_z = {},
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
         lualine_c = { "filename" },
-        lualine_x = { "location" },
+        -- lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {},
       },
       tabline = {},
-      extensions = {},
+      extensions = { "neo-tree", "lazy" },
     })
   end,
 }
