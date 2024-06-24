@@ -1,0 +1,3 @@
+return {
+  "justinsgithub/wezterm-types",
+}
