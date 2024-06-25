@@ -1,5 +1,6 @@
 return {
   "VidocqH/lsp-lens.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   opts = {
     enable = true,
     include_declaration = false, -- Reference include declaration
