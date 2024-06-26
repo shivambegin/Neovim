@@ -1,5 +1,6 @@
 return {
   "ggandor/leap.nvim",
+  enabled = false,
   keys = {
     { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
     { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
