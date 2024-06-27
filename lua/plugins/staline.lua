@@ -1,7 +1,7 @@
 return {
   "tamton-aquib/staline.nvim",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   config = function()
     require("staline").setup({
       sections = {
