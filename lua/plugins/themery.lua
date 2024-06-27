@@ -14,6 +14,7 @@ return {
         "nightfly",
         "poimandres",
         "github_dark",
+        "neofusion",
       }, -- Your list of installed colorschemes
       themeConfigFile = "~/.config/nvim/lua/config/theme-select.lua", -- Described below
       livePreview = true, -- Apply theme while browsing. Default to true.

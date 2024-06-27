@@ -1,5 +1,8 @@
 return {
   {
+    "diegoulloao/neofusion.nvim",
+  },
+  {
     "olivercederborg/poimandres.nvim",
   },
   { "bluz71/vim-nightfly-colors", name = "nightfly" },
