@@ -47,9 +47,6 @@ return {
           "gleam",
         },
         auto_install = true,
-        autotag = { -- dependency with 'nvim-ts-autotag'
-          enable = true,
-        },
         playground = {
           enable = true,
           disable = {},
