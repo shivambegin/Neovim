@@ -5,6 +5,8 @@ return {
     -- Minimal config
     require("themery").setup({
       themes = {
+        "decay",
+        "bamboo",
         "gruvbox",
         "ayu",
         "carbonfox",

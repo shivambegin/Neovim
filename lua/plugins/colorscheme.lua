@@ -1,5 +1,9 @@
 return {
   {
+    "ribru17/bamboo.nvim",
+  },
+  { "decaycs/decay.nvim", name = "decay" },
+  {
     "diegoulloao/neofusion.nvim",
   },
   {

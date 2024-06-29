@@ -1,6 +1,6 @@
 return {
   "shellRaining/hlchunk.nvim",
-  enabled = false,
+  enabled = true,
   event = {
     "BufReadPre",
     "BufNewFile",
@@ -8,8 +8,8 @@ return {
   opts = {
     indent = { enable = true, use_treesitter = true },
     chunk = {
-      enable = true,
-      notify = true,
+      enable = false,
+      notify = false,
       chars = { right_arrow = "─" },
     },
   },
