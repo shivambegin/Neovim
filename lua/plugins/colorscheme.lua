@@ -1,5 +1,11 @@
 return {
   {
+    "folke/tokyonight.nvim",
+  },
+  {
+    "loctvl842/monokai-pro.nvim",
+  },
+  {
     "ribru17/bamboo.nvim",
   },
   { "decaycs/decay.nvim", name = "decay" },

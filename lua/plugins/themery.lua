@@ -5,6 +5,8 @@ return {
     -- Minimal config
     require("themery").setup({
       themes = {
+        "tokyonight-night",
+        "monokai-pro",
         "decay",
         "bamboo",
         "gruvbox",
