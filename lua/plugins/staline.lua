@@ -5,7 +5,7 @@ return {
   config = function()
     require("staline").setup({
       sections = {
-        left = { "mode", " ", "branch", " ", "lsp" },
+        left = { "file_name", " ", "branch", " ", "lsp" },
         mid = { "lsp_name" },
         right = { "Broken", "cool_symbol", "file_size" },
       },
