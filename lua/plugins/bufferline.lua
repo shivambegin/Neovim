@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
@@ -9,13 +9,13 @@ return {
     options = {
       diagnostics = "nvim_lsp",
       separator_style = "thin",
-      always_show_bufferline = false,
+      always_show_bufferline = true,
       offsets = {
         {
-          filetype = "NvimTree",
-          text = "",
+          filetype = "neo-tree",
+          text = "FileTree",
           highlight = "Directory",
-          text_align = "left",
+          text_align = "center",
           separator = false,
         },
       },

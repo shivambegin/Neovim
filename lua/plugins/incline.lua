@@ -1,5 +1,6 @@
 return {
   "b0o/incline.nvim",
+  enabled = false,
   dependencies = {},
   event = "BufReadPre",
   priority = 1200,
