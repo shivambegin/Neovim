@@ -5,5 +5,5 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   cmd = "Nerdy",
-  vim.keymap.set("n", "<Leader>ti", "<cmd>Nerdy<cr>", opts), --> nerd icons
+  vim.keymap.set("n", "<Leader>si", "<cmd>Nerdy<cr>", opts), --> nerd icons
 }
