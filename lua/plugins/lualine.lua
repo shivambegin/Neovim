@@ -1,69 +1,73 @@
+-- inspired from https://www.reddit.com/r/neovim/comments/1ds30mw/i_replaced_the_mode_names_with_ascii_emoticons/ reddit post
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "meuter/lualine-so-fancy.nvim",
   },
-  enabled = false,
+  enabled = true,
   lazy = false,
   event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   config = function()
+    -- use emotes for mode names
+
+    local mode_map = {
+
+      n = "(ᴗ_ ᴗ。)",
+
+      nt = "(ᴗ_ ᴗ。)",
+
+      i = "(•̀ - •́ )",
+
+      R = "( •̯́ ₃ •̯̀)",
+
+      v = "(⊙ _ ⊙ )",
+
+      V = "(⊙ _ ⊙ )",
+
+      no = "Σ(°△°ꪱꪱꪱ)",
+
+      ["\22"] = "(⊙ _ ⊙ )",
+
+      t = "(⌐■_■)",
+
+      ["!"] = "Σ(°△°ꪱꪱꪱ)",
+
+      c = "Σ(°△°ꪱꪱꪱ)",
+
+      s = "SUB",
+    }
+
     local auto_theme_custom = require("lualine.themes.auto")
     auto_theme_custom.normal.c.bg = "none"
+
     require("lualine").setup({
       options = {
-        theme = auto_theme_custom,
-        globalstatus = true,
-        icons_enabled = true,
-        component_separators = { left = "|", right = "|" },
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = {
-          statusline = {
-            "alfa-nvim",
-            "help",
-            "neo-tree",
-            "Trouble",
-            "spectre_panel",
-            "toggleterm",
-          },
-          winbar = {},
-        },
+        theme = "poimandres",
       },
+
       sections = {
-        lualine_a = {},
-        lualine_b = {
-          "fancy_branch",
-        },
-        lualine_c = {
+
+        lualine_a = {
+
           {
-            "filename",
-            path = 1, -- 2 for full path
-            symbols = {
-              modified = "  ",
-              -- readonly = "  ",
-              -- unnamed = "  ",
+
+            "mode",
+
+            icons_enabled = true,
+
+            separator = {
+
+              left = "",
+
+              right = "",
             },
+
+            fmt = function()
+              return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
+            end,
           },
-          { "fancy_diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
-          { "fancy_searchcount" },
         },
-        lualine_x = {
-          "fancy_lsp_servers",
-          "fancy_diff",
-          "progress",
-        },
-        lualine_y = {},
-        lualine_z = {},
       },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { "filename" },
-        -- lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      tabline = {},
-      extensions = { "neo-tree", "lazy" },
     })
   end,
 }
