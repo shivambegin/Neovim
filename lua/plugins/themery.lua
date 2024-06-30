@@ -7,6 +7,7 @@ return {
       themes = {
         "tokyonight-night",
         "monokai-pro",
+        "darkplus",
         "decay",
         "bamboo",
         "gruvbox",

@@ -1,5 +1,8 @@
 return {
   {
+    "LunarVim/darkplus.nvim",
+  },
+  {
     "folke/tokyonight.nvim",
   },
   {
