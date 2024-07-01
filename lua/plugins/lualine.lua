@@ -110,7 +110,9 @@ return {
         lualine_c = { "fancy_branch" },
         lualine_x = { attached_clients },
         lualine_y = { "none" },
-        lualine_z = { Cuties },
+        lualine_z = {
+          "location",
+        },
       },
     })
   end,
