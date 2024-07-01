@@ -1,5 +1,6 @@
 return {
   "VidocqH/lsp-lens.nvim",
+  enabled = false, --similar functionality as symbol-usage.nvim
   event = { "BufReadPre", "BufNewFile" },
   opts = {
     enable = true,
