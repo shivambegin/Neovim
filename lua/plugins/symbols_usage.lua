@@ -61,7 +61,8 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig", -- Just ensure Lsp setup is finished.
     },
-    event = "LspAttach", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+    -- event = "LspAttach", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       -- hl-groups can have any name
       vim.api.nvim_set_hl(0, "SymbolUsageRounding", { fg = h("CursorLine").bg, italic = true })
