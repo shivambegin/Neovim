@@ -78,6 +78,7 @@ return {
   },
   event = "VeryLazy",
   config = function()
+    local lazy_status = require("lazy.status") -- to configure lazy pending updates count
     local attached_clients = {
       get_attached_clients,
       color = {
@@ -107,12 +108,18 @@ return {
           },
         },
         lualine_b = { "none" },
-        lualine_c = { "fancy_branch" },
-        lualine_x = { attached_clients },
-        lualine_y = { "none" },
-        lualine_z = {
-          "location",
+        lualine_c = { "fancy_branch", "fancy_diff" },
+        lualine_x = {
+          {
+            lazy_status.updates,
+            cond = lazy_status.has_updates,
+            color = { fg = "#eb6f92" },
+          },
+          { "fancy_diagnostics" },
+          { "filename" },
+          attached_clients,
         },
+        lualine_y = { "none" },
       },
     })
   end,
