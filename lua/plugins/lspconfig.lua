@@ -69,14 +69,15 @@ return {
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
     local signs = {
-      Error = "🔥",
-      Warn = "😤",
-      Info = "🤔",
-      Hint = "🐼",
+
+      { name = "DiagnosticSignError", text = "󰅗" },
+      { name = "DiagnosticSignWarn", text = "󰀧 " },
+      { name = "DiagnosticSignHint", text = "󰌵 " },
+      { name = "DiagnosticSignInfo", text = " " },
     }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+
+    for _, sign in ipairs(signs) do
+      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
     end
 
     -- configure matlab server
