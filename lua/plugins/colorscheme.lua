@@ -1,4 +1,5 @@
 return {
+  { "oneslash/helix-nvim", version = "*" },
   { "rose-pine/neovim", name = "rose-pine" },
   {
     "LunarVim/darkplus.nvim",

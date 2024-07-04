@@ -5,6 +5,7 @@ return {
     -- Minimal config
     require("themery").setup({
       themes = {
+        "helix",
         "tokyonight-night",
         "monokai-pro",
         "darkplus",
