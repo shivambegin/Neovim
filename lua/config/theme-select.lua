@@ -1,5 +1,5 @@
 -- Themery block
 -- This block will be replaced by Themery.
-vim.cmd("colorscheme bamboo")
-vim.g.theme_id = 6
+vim.cmd("colorscheme monokai-pro")
+vim.g.theme_id = 3
 -- end themery block
