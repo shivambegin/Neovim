@@ -76,6 +76,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "meuter/lualine-so-fancy.nvim",
   },
+  enabled = false,
   event = "VeryLazy",
   config = function()
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
