@@ -4,4 +4,5 @@ return {
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
   },
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 }

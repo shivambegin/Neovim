@@ -1,7 +1,7 @@
 return {
   "kylechui/nvim-surround",
   version = "*",
-  event = "InsertEnter",
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",

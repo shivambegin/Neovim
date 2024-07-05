@@ -1,9 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = {
-    "BufReadPre",
-    "BufNewFile",
-  },
+  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
   config = function()
     local icons = require("config.icons")
     require("ibl").setup({
@@ -12,7 +9,7 @@ return {
       },
       scope = {
         enabled = true,
-        show_start = true,
+        show_start = false,
         show_end = false,
         injected_languages = true,
         show_exact_scope = false,
