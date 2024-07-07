@@ -1,5 +1,6 @@
 return {
   "yamatsum/nvim-cursorline",
+  enabled = false,
   opts = {
     cursorline = {
       enable = true,
