@@ -2,7 +2,7 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  enabled = true,
+  enabled = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",

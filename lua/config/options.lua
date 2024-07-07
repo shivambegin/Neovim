@@ -4,63 +4,57 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local opt = vim.opt
+vim.opt.backup = false -- creates a backup file
+vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
+vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
+-- vim.opt.fileencoding = "utf-8" -- the encoding written to a file
+vim.opt.hlsearch = true -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true -- ignore case in search patterns
+vim.opt.mouse = "a" -- allow the mouse to be used in neovim
+vim.opt.pumheight = 10 -- pop up menu height
+vim.opt.pumblend = 10
+vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 1 -- always show tabs
+vim.opt.smartcase = true -- smart case
+vim.opt.smartindent = true -- make indenting smarter again
+vim.opt.splitbelow = true -- force all horizontal splits to go below current window
+vim.opt.splitright = true -- force all vertical splits to go to the right of current window
+vim.opt.swapfile = false -- creates a swapfile
+vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
+vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.undofile = true -- enable persistent undo
+vim.opt.updatetime = 100 -- faster completion (4000ms default)
+vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.opt.expandtab = true -- convert tabs to spaces
+vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.cursorline = true -- highlight the current line
+vim.opt.number = true -- set numbered lines
+vim.opt.laststatus = 3
+vim.opt.showcmd = false
+vim.opt.ruler = false
+vim.opt.relativenumber = true -- set relative numbered lines
+vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
+vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
+vim.opt.wrap = false -- display lines as one long line
+vim.opt.scrolloff = 0
+vim.opt.sidescrolloff = 8
+vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
+vim.opt.title = true
+vim.opt.titlelen = 0 -- do not shorten title
+-- colorcolumn = "80",
+-- colorcolumn = "120",
+vim.opt.fillchars = vim.opt.fillchars + "eob: "
+vim.opt.fillchars:append({
+  stl = " ",
+})
 
-opt.backup = false --no backup
-opt.background = dark
-opt.modifiable = true --modify text and buffers
-opt.conceallevel = 0 -- so that `` is visible in markdown files
-opt.showtabline = 0 -- always show tabs
-opt.title = true -- set the title of window to the value of the titlestring
-opt.confirm = true -- confirm to save changes before exiting modified buffer
-opt.laststatus = 3 -- global statusline
-opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
-opt.undofile = true -- enable persistent undo
-opt.updatetime = 100 -- faster completion (4000ms default)
+vim.opt.shortmess:append("c")
 
--- line numbers
-opt.relativenumber = false -- show relative line numbers
-opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
 
--- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
-
--- line wrapping
-opt.wrap = false -- disable line wrapping
-
--- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-opt.hlsearch = true -- highlight all matches on previous search pattern
-opt.incsearch = true -- make search act like modern browsers
-
--- cursor line
-opt.cursorline = true -- highlight the current cursor line
-
--- appearance
-
--- turn on termguicolors for colorscheme to work
-opt.termguicolors = true
-opt.showmode = false -- hide mode (mode is already show in lualine bar)
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-opt.cmdheight = 0
-
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
-
--- clipboard
-opt.clipboard = "unnamedplus" -- use system clipboard as default register
-
--- scroll
-opt.scrolloff = 10 -- Makes sure there are always eight lines of context
-opt.sidescrolloff = 10 -- Makes sure there are always eight lines of context
-
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
-
--- turn off swapfile
-opt.swapfile = false
+vim.g.netrw_banner = 0
+vim.g.netrw_mouse = 2
