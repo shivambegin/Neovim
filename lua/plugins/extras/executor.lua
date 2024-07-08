@@ -1,5 +1,6 @@
 return {
   "google/executor.nvim",
+  enabled = false,
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
