@@ -39,8 +39,8 @@ return {
         component_separators = "",
         section_separators = "",
         theme = {
-          normal = { c = { fg = colors.fg, bg = colors.bg} },
-          inactive = { c = { fg = colors.fg, bg = colors.bg} },
+          normal = { c = { fg = colors.fg, bg = colors.transparentbg } },
+          inactive = { c = { fg = colors.fg, bg = colors.transparentbg} },
         },
       },
       sections = {
