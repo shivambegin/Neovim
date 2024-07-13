@@ -25,7 +25,7 @@ return {
     messages = { view_search = "mini" },
     lsp = {
       progress = {
-        enabled = true,
+        enabled = false,
       },
 
       override = {

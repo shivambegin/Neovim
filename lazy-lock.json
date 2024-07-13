@@ -22,6 +22,7 @@
   "dropbar.nvim": { "branch": "master", "commit": "cab5e0226bc4f90a28cadcb0dc7341d550f1bdf0" },
   "eagle.nvim": { "branch": "main", "commit": "509cccee17eb165bfdd99d2366f6433745c70287" },
   "edgy.nvim": { "branch": "main", "commit": "64009ec349a36f5df9bda25582a537192ec076cf" },
+  "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "flash.nvim": { "branch": "main", "commit": "ec0bf2842189f65f60fd40bf3557cac1029cc932" },
   "flatten.nvim": { "branch": "main", "commit": "e420e531d2ab24aebcf7b3c9fca28e6c5c34964d" },
   "friendly-snippets": { "branch": "main", "commit": "45a1b96e46efe5fce8af325d4bed45feb9d29d0f" },
