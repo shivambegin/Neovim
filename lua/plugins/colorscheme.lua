@@ -4,6 +4,10 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      require("cyberdream").setup({
+        italic_comments = true,
+        transparent = true,
+      })
       vim.cmd.colorscheme("cyberdream")
     end,
   },
