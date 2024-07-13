@@ -68,6 +68,17 @@ return {
     local function ins_right(component)
       table.insert(config.sections.lualine_x, component)
     end
+            local function get_lsp_client(_)
+            ---@type any?{}
+            local client_names = {}
+            local msg = 'No Active Lsp'
+            local clients = vim.lsp.get_clients { bufnr = 0 }
+            if next(clients) == nil then return msg end
+            for _, client in ipairs(clients) do
+                table.insert(client_names, client.name)
+            end
+            return #client_names == 0 and msg or table.concat(client_names, ' | ')
+        end
 
     -- left
     ins_left {
@@ -98,6 +109,7 @@ return {
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
+      newfile_status = true, path = 1 ,
       color = { fg = colors.yellow, gui = 'bold' },
     }
 
@@ -113,33 +125,31 @@ return {
     }
 
     -- right
-    ins_right {
-      'fileformat',
-      fmt = string.upper,
-      icons_enabled = true,
-      color = { fg = colors.yellow, gui = 'bold' },
-    }
+    -- ins_right {
+    --   'fileformat',
+    --   fmt = string.upper,
+    --   icons_enabled = true,
+    --   color = { fg = colors.yellow, gui = 'bold' },
+    -- }
 
-    ins_right { 'filetype' }
+    -- ins_right { 'filetype' }
+
+    -- ins_right {
+    --   'progress',
+    --   color = { fg = colors.fg, gui = 'bold' }
+    -- }
+
 
     ins_right {
-      'progress',
-      color = { fg = colors.fg, gui = 'bold' }
+      get_lsp_client, icon = '' ,
+      color = { fg = colors.blue, gui = 'bold' }
     }
 
     ins_right {
       'branch',
-      icon = '',
+      icon = '',
       color = { fg = colors.pink, gui = 'bold' },
     }
-
-    ins_right {
-      function()
-        return os.date("%H:%M")
-      end,
-      color = { fg = colors.blue, gui = 'bold' }
-    }
-
     ins_right {
       function()
         return '▊'
