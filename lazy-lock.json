@@ -116,7 +116,7 @@
   "todo-comments.nvim": { "branch": "main", "commit": "d61567557e2ff5c548c74e96b2d9f8d33e5fcb34" },
   "toggleterm.nvim": { "branch": "main", "commit": "cd55bf6aab3f88c259fa29ea86bbdcb1a325687d" },
   "transparent.nvim": { "branch": "main", "commit": "fd35a46f4b7c1b244249266bdcb2da3814f01724" },
-  "treesj": { "branch": "main", "commit": "1e6746322df13956d6623b3378a9c812d5342f69" },
+  "treesj": { "branch": "main", "commit": "275f83c81a5a1f5ae23c1eac30c4ac28beebbca2" },
   "trouble.nvim": { "branch": "main", "commit": "03c1fbf518bef683422a3be9643c3da190903488" },
   "tw-values.nvim": { "branch": "main", "commit": "34183307a8a3867afb1f52a262d89faac6b20f9d" },
   "twilight.nvim": { "branch": "main", "commit": "2b632c169a4b51b1eba5be90fde22a80c51c990e" },
