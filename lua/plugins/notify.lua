@@ -11,6 +11,9 @@ return {
     },
   },
   opts = {
+    on_open = function(win)
+      vim.api.nvim_win_set_config(win, { focusable = false })
+    end,
     timeout = "3000",
     max_height = function()
       return math.floor(vim.o.lines * 0.75)
