@@ -1,5 +1,6 @@
 return {
   "NeogitOrg/neogit",
+  cmd = "Neogit",
   -- branch = "nightly",
 
   dependencies = {

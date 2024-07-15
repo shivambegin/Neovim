@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  event = "BufReadPre",
   config = function()
     local icons = require("config.icons")
     require("ibl").setup({

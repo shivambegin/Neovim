@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = "BufEnter",
+  event = "BufReadPre",
   cmd = "Gitsigns",
   config = function()
     local icons = require("config.icons")

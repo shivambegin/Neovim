@@ -1,5 +1,16 @@
 --TODO  find out use case for some of this plugins
 return {
+  { "utilyre/sentiment.nvim", event = "BufReadpre", config = true }, --* Bracket highlighter *--
+  { "rachartier/tiny-inline-diagnostic.nvim", event = "VeryLazy", config = true }, --* really good looking diagnostics
+  { "ethanholz/nvim-lastplace", lazy = false, config = true }, --* Remember cursor position
+  { --* Write with administartives privileges in neovim *--
+    "lambdalisue/suda.vim",
+    cmd = "SudaWrite",
+    init = function()
+      vim.cmd([[let g:suda#nopass = 1]])
+    end,
+  },
+
   {
     "dstein64/vim-startuptime",
     cmd = { "StartupTime" },
