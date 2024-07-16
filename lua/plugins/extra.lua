@@ -1,7 +1,7 @@
 --TODO  find out use case for some of this plugins
 return {
   { "utilyre/sentiment.nvim", event = "BufReadpre", config = true }, --* Bracket highlighter *--
-  { "rachartier/tiny-inline-diagnostic.nvim", event = "VeryLazy", config = true }, --* really good looking diagnostics
+  { "rachartier/tiny-inline-diagnostic.nvim", event = "VeryLazy", config = true, enabled = false }, --* really good looking diagnostics
   { "ethanholz/nvim-lastplace", lazy = false, config = true }, --* Remember cursor position
   { --* Write with administartives privileges in neovim *--
     "lambdalisue/suda.vim",
