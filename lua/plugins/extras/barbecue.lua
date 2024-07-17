@@ -12,6 +12,8 @@ return {
   },
   config = function()
     require("barbecue").setup({
+      show_dirname = false,
+      show_basename = false,
       create_autocmd = false, -- prevent barbecue from updating itself automatically
     })
 
