@@ -1,57 +1,29 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = "BufReadPre",
-  cmd = "Gitsigns",
   config = function()
-    local icons = require("config.icons")
-    require("gitsigns").setup({
+    local gitsigns = require("gitsigns")
+    gitsigns.setup({
       signs = {
-        add = {
-          -- hl = "GitSignsAdd",
-          text = icons.ui.BoldLineMiddle,
-          -- numhl = "GitSignsAddNr",
-          -- linehl = "GitSignsAddLn",
-        },
-        change = {
-          -- hl = "GitSignsChange",
-          text = icons.ui.BoldLineDashedMiddle,
-          -- numhl = "GitSignsChangeNr",
-          -- linehl = "GitSignsChangeLn",
-        },
-        delete = {
-          -- hl = "GitSignsDelete",
-          text = icons.ui.TriangleShortArrowRight,
-          -- numhl = "GitSignsDeleteNr",
-          -- linehl = "GitSignsDeleteLn",
-        },
-        topdelete = {
-          -- hl = "GitSignsDelete",
-          text = icons.ui.TriangleShortArrowRight,
-          -- numhl = "GitSignsTopDeleteNr",
-          -- linehl = "GitSignsDeleteLn",
-        },
-        changedelete = {
-          -- hl = "GitSignsChange",
-          text = icons.ui.BoldLineMiddle,
-          -- numhl = "GitSignsChangeNr",
-          -- linehl = "GitSignsChangeLn",
-        },
+        add = { text = "┃" },
+        change = { text = "┃" },
+        delete = { text = "┃" },
+        topdelete = { text = "┃" },
+        changedelete = { text = "┃" },
+        untracked = { text = "┃" },
       },
+      signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+      linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+      numhl = false, -- Toggle with `:Gitsigns toggle_nunhl`
+      word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+      sign_priority = 9,
       watch_gitdir = {
         interval = 1000,
-        follow_files = true,
       },
-      attach_to_untracked = true,
-      current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
-      update_debounce = 200,
-      max_file_length = 40000,
-      preview_config = {
-        border = "rounded",
-        style = "minimal",
-        relative = "cursor",
-        row = 0,
-        col = 1,
-      },
+      attach_to_untracked = false,
     })
+    --		if pcall(require, "scrollbar") then
+    --			require("scrollbar.handlers.gitsigns").setup()
+    --		end
   end,
+  event = { "BufReadPre", "BufNewFile" },
 }
