@@ -20,6 +20,7 @@
   "dired.nvim": { "branch": "main", "commit": "6cc325290b3dcfe6ac2be2beb1e7dc3e7ebb76fc" },
   "dracula.nvim": { "branch": "main", "commit": "fdf503e52ec1c8aae07353604d891fe5a3ed5201" },
   "dressing.nvim": { "branch": "master", "commit": "6741f1062d3dc6e4755367a7e9b347b553623f04" },
+  "dropbar.nvim": { "branch": "master", "commit": "cab5e0226bc4f90a28cadcb0dc7341d550f1bdf0" },
   "eagle.nvim": { "branch": "main", "commit": "509cccee17eb165bfdd99d2366f6433745c70287" },
   "edgy.nvim": { "branch": "main", "commit": "0e8bbab4eba9dab6c237e4a2e146dc0466897be6" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
