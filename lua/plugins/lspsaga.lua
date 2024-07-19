@@ -10,7 +10,7 @@ return {
         enable = false,
       },
       symbol_in_winbar = {
-        enable = false,
+        enable = true,
       },
     })
   end,
