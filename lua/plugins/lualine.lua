@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "meuter/lualine-so-fancy.nvim",
-    "olivercederborg/poimandres.nvim",
   },
   opts = {
     options = {
