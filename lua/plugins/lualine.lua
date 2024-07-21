@@ -4,6 +4,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "meuter/lualine-so-fancy.nvim",
   },
+  enabled = false,
   opts = {
     options = {
       theme = "auto",
