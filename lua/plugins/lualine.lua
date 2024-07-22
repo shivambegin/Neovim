@@ -4,6 +4,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "meuter/lualine-so-fancy.nvim",
   },
+  event = { "BufReadPost", "BufAdd", "BufNewFile" },
   enabled = true,
   opts = {
     options = {

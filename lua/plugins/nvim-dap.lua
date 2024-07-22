@@ -5,6 +5,7 @@ return {
     "rcarriga/nvim-dap-ui",
     "nvim-neotest/nvim-nio",
   },
+  lazy = true,
   config = function()
     require("dap-go").setup()
     require("dapui").setup()

@@ -4,7 +4,15 @@ end
 
 return {
   "akinsho/toggleterm.nvim",
-  cmd = "ToggleTerm",
+  lazy = true,
+  cmd = {
+    "ToggleTerm",
+    "ToggleTermSetName",
+    "ToggleTermToggleAll",
+    "ToggleTermSendVisualLines",
+    "ToggleTermSendCurrentLine",
+    "ToggleTermSendVisualSelection",
+  },
   keys = {
     { "<A-t>", "<cmd>ToggleTerm size=" .. size() .. "<cr>", desc = "Toggle Terminal", mode = "n" },
     { "<A-t>", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal", mode = "t" },

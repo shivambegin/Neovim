@@ -3,10 +3,17 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufReadPre",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "nvim-treesitter/playground",
+      {
+        "nvim-treesitter/playground",
+        lazy = true,
+        cmd = {
+          "TSHighlightCapturesUnderCursor",
+          "TSPlaygroundToggle",
+        },
+      },
       "windwp/nvim-ts-autotag",
     },
     config = function()

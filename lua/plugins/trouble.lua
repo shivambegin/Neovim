@@ -1,6 +1,7 @@
 return {
   "folke/trouble.nvim",
-  cmd = { "Trouble" },
+  lazy = true,
+  cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
   opts = {
     modes = {
       lsp = {

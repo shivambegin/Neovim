@@ -1,5 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
+  event = { "CursorHold", "CursorHoldI" },
   config = function()
     local gitsigns = require("gitsigns")
     gitsigns.setup({
@@ -25,5 +26,4 @@ return {
     --			require("scrollbar.handlers.gitsigns").setup()
     --		end
   end,
-  event = { "BufReadPre", "BufNewFile" },
 }

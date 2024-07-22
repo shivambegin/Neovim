@@ -3,6 +3,8 @@ return {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
     cmd = "LazyDev",
+    lazy = true,
+    event = "LspAttach",
     opts = {
       library = {},
     },

@@ -5,7 +5,7 @@ return {
   { "ethanholz/nvim-lastplace", lazy = false, config = true }, --* Remember cursor position
   { --* Write with administartives privileges in neovim *--
     "lambdalisue/suda.vim",
-    cmd = "SudaWrite",
+    cmd = { "SudaRead", "SudaWrite" },
     init = function()
       vim.cmd([[let g:suda#nopass = 1]])
     end,
@@ -26,6 +26,8 @@ return {
   -- Heuristically set buffer options
   {
     "tpope/vim-sleuth",
+    lazy = true,
+    event = { "BufNewFile", "BufReadPost", "BufFilePost" },
   },
 
   {
