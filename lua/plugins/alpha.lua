@@ -4,6 +4,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
   },
+  event = "BufWinEnter",
   config = function()
     local dashboard = require("alpha.themes.dashboard")
 
