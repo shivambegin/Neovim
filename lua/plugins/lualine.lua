@@ -16,6 +16,10 @@ return {
         statusline = 1000,
       },
     },
+    tabline = {
+      lualine_a = { "buffers" },
+      lualine_z = { "tabs" },
+    },
     sections = {
       lualine_a = {
         { "fancy_branch" },
