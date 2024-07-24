@@ -1,7 +1,7 @@
 return {
   "akinsho/bufferline.nvim",
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  enabled = false,
+  enabled = true,
   version = "*",
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
