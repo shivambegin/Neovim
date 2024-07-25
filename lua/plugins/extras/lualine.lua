@@ -5,7 +5,7 @@ return {
     "meuter/lualine-so-fancy.nvim",
   },
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  enabled = true,
+  enabled = false,
   opts = {
     options = {
       theme = "auto",

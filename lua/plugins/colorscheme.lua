@@ -2,6 +2,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    enabled = false,
     opts = {
       transparent_background = true, -- disables setting the background color.
       flavour = "mocha",

@@ -1,11 +1,11 @@
 return {
   {
     "xiyaowong/transparent.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       require("transparent").clear_prefix("WinBar")
       require("transparent").clear_prefix("ToggleTerm1")
-      require("transparent").clear_prefix("Normal")
+      -- require("transparent").clear_prefix("Normal")
       require("transparent").clear_prefix("Navic")
       -- require("transparent").clear_prefix("Mason")
       -- require("transparent").clear_prefix("Lazy")
@@ -14,7 +14,7 @@ return {
       require("transparent").clear_prefix("NeoTree")
       require("transparent").clear_prefix("Noice")
       require("transparent").clear_prefix("NvimTree")
-      require("transparent").clear_prefix("Telescope")
+      -- require("transparent").clear_prefix("Telescope")
       require("transparent").clear_prefix("Notify")
       require("transparent").clear_prefix("GitSigns")
       require("transparent").clear_prefix("Satellite")

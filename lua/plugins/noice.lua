@@ -36,7 +36,7 @@ return {
       message = { view = "mini" },
       hover = { opts = { win_options = { winhighlight = { Normal = "NormalFloat" } } } },
       signature = {
-        enabled = true,
+        enabled = false,
         auto_open = {
           enabled = true,
           trigger = true,
