@@ -1,5 +1,6 @@
 return { --* Cheatsheets for the editor, multiple vim plugins, nerd-fonts, regex, etc *--
   "doctorfree/cheatsheet.nvim",
+  enabled = false, -- don't need it anymore
   cmd = "Cheatsheet",
   dependencies = {
     { "nvim-telescope/telescope.nvim" },
