@@ -5,14 +5,14 @@ return {
     version = false,
     lazy = true,
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-tree/nvim-web-devicons" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "zig" },
       { "nvim-telescope/telescope-ui-select.nvim" },
-      "danielfalk/smart-open.nvim",
-      "kkharji/sqlite.lua",
-      "nvim-telescope/telescope-fzy-native.nvim",
-      "willthbill/opener.nvim",
+      { "danielfalk/smart-open.nvim", enabled = false },
+      { "kkharji/sqlite.lua", enabled = false },
+      { "nvim-telescope/telescope-fzy-native.nvim", enabled = false },
+      { "willthbill/opener.nvim", enabled = false },
     },
     config = function()
       local builtin = require("telescope.builtin")
@@ -27,9 +27,9 @@ return {
       vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
       vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-      vim.keymap.set("n", "<leader>so", function()
-        telescope.extensions.smart_open.smart_open()
-      end, { noremap = true, silent = true })
+      -- vim.keymap.set("n", "<leader>so", function()
+      --   telescope.extensions.smart_open.smart_open()
+      -- end, { noremap = true, silent = true })
       telescope.setup({
         file_ignore_patterns = { "%.git/." },
         defaults = {
@@ -52,9 +52,9 @@ return {
       })
       telescope.load_extension("ui-select")
       telescope.load_extension("refactoring")
-      -- telescope.load_extension("notify")
-      telescope.load_extension("smart_open")
-      telescope.load_extension("opener")
+      telescope.load_extension("notify")
+      -- telescope.load_extension("smart_open")
+      -- telescope.load_extension("opener")
     end,
   },
 }

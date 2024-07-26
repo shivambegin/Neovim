@@ -1,6 +1,7 @@
 --TODO  find out use case for some of this plugins
 return {
-  { "utilyre/sentiment.nvim", event = "BufReadpre", config = true }, --* Bracket highlighter *--
+  { "utilyre/sentiment.nvim", event = "BufReadpre", config = true, enabled = false }, --* Bracket highlighter *--
+  -- vim-matchup aternative
   { "rachartier/tiny-inline-diagnostic.nvim", event = "VeryLazy", config = true, enabled = false }, --* really good looking diagnostics
   { "ethanholz/nvim-lastplace", lazy = false, config = true }, --* Remember cursor position
   { --* Write with administartives privileges in neovim *--
@@ -44,6 +45,7 @@ return {
 
   {
     "ahmedkhalf/project.nvim",
+    enabled = false, -- never used it and i think never going to soo...
     event = "VeryLazy",
     config = function()
       require("project_nvim").setup({

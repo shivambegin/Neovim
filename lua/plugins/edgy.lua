@@ -1,6 +1,7 @@
 return {
   "folke/edgy.nvim",
   event = "VeryLazy",
+  enabled = false, -- can't find it helpful
   opts = {
     {
       left = {}, ---@type (Edgy.View.Opts|string)[]
