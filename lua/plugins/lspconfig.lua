@@ -9,7 +9,6 @@ return {
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
-    local icons = require("config.icons")
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -190,10 +189,11 @@ return {
         },
       },
     })
+    dofile(vim.g.base46_cache .. "lsp")
+    require("nvchad.lsp")
 
-    -- diagnostics config
-    vim.diagnostic.config({
-      underline = false,
+    local config = {
+      -- Enable virtual text
       virtual_text = { -- or false for disable
         prefix = "", -- ■  󰊠
         suffix = "",
@@ -204,8 +204,50 @@ return {
           return prefix .. diagnostic.message .. suffix
         end,
       },
-    })
+      update_in_insert = true,
+      underline = false,
+      severity_sort = true,
+      float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      },
+    }
 
+    local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
+
+    if vim.fn.has("nvim-0.11") == 1 then
+      config.signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = signs.Error,
+          [vim.diagnostic.severity.WARN] = signs.Warn,
+          [vim.diagnostic.severity.HINT] = signs.Hint,
+          [vim.diagnostic.severity.INFO] = signs.Info,
+        },
+        linehl = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+        },
+      }
+    else
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
+      config.signs = { active = signs }
+    end
+    vim.diagnostic.config(config)
     -- add borders to lsp info window
     require("lspconfig.ui.windows").default_options.border = "single"
   end,
