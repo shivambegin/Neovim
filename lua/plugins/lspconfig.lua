@@ -82,6 +82,11 @@ return {
     end
 
     -- configure matlab server
+    lspconfig["clangd"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    -- configure matlab server
     lspconfig["matlab_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
