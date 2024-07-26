@@ -3,7 +3,7 @@
 local M = {}
 
 M.ui = {
-  theme = "mountain",
+  theme = "decay",
   transparency = true,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
@@ -16,7 +16,7 @@ M.ui = {
       "git",
       "%=",
       "lsp_msg",
-      "python_venv",
+      -- "python_venv",
       "diagnostics",
       "command",
       "clients",
