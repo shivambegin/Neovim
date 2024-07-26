@@ -3,14 +3,14 @@
 local M = {}
 
 M.ui = {
-  theme = "poimandres",
+  theme = "bearded-arc",
   transparency = true,
   statusline = {
-    theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
+    theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
     separator_style = "default",
-    order = nil,
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd" },
     modules = nil,
   },
   -- lazyload it when there are 1+ buffers
