@@ -3,7 +3,7 @@
 local M = {}
 
 M.ui = {
-  theme = "bearded-arc",
+  theme = "ayu_dark",
   transparency = true,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
