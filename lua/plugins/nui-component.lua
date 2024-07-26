@@ -1,4 +1,4 @@
---TODO:find out the working
+-- TODO:find out the working
 -- not useful for me currently
 return {
   "grapp-dev/nui-components.nvim",

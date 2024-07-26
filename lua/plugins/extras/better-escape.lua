@@ -1,4 +1,4 @@
---TODO: find the working for this after rewrite
+-- TODO: find the working for this after rewrite
 return {
   "max397574/better-escape.nvim",
   enabled = false,
