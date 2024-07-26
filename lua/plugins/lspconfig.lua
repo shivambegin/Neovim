@@ -9,7 +9,7 @@ return {
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
-
+    local icons = require("config.icons")
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -66,20 +66,6 @@ return {
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
-
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
-    local signs = {
-
-      { name = "DiagnosticSignError", text = "󰅗" },
-      { name = "DiagnosticSignWarn", text = "󰀧 " },
-      { name = "DiagnosticSignHint", text = "󰌵 " },
-      { name = "DiagnosticSignInfo", text = " " },
-    }
-
-    for _, sign in ipairs(signs) do
-      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-    end
 
     -- configure matlab server
     lspconfig["clangd"].setup({
@@ -210,5 +196,23 @@ return {
         },
       },
     })
+
+    -- diagnostics config
+    vim.diagnostic.config({
+      underline = false,
+      virtual_text = { -- or false for disable
+        prefix = "", -- ■  󰊠
+        suffix = "",
+        format = function(diagnostic)
+          local prefix = "󰊠 "
+          local suffix = " "
+          -- return full message with custom prefix & suffix
+          return prefix .. diagnostic.message .. suffix
+        end,
+      },
+    })
+
+    -- add borders to lsp info window
+    require("lspconfig.ui.windows").default_options.border = "single"
   end,
 }
