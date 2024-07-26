@@ -8,7 +8,7 @@ return {
   },
   keys = {
     { "<leader>ee", ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
-    { "<leader><tab>", ":Neotree toggle left<CR>", silent = true, desc = "Left File Explorer" },
+    { "<leader><tab>", ":Neotree toggle right<CR>", silent = true, desc = "Left File Explorer" },
   },
   cmd = { "Neotree" },
   opts = {
