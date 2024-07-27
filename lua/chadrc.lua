@@ -9,9 +9,9 @@ M.ui = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "round",
-    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd" },
-    modules = nil,
+    separator_style = "block",
+    order = { "mode", "git", "%=", "lsp", "%=", "diagnostics", "cwd" },
+    modules = {},
   },
   -- lazyload it when there are 1+ buffers
   tabufline = {
