@@ -3,12 +3,8 @@ vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46_cache/"
 require("config.keymaps")
 require("config.options")
 require("config.lazy")
-require("config.neovide")
-require("config.language")
 require("config.autocmd")
 require("config.chadmaps")
--- require("config.diagnostics")
--- require("config.statusline")
 local integrations = require("nvconfig").base46.integrations
 for _, name in ipairs(integrations) do
   dofile(vim.g.base46_cache .. name)
