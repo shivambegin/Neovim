@@ -28,7 +28,7 @@ return {
         enable = true,
         separator = "  ",
         hide_keyword = true,
-        show_file = false,
+        show_file = true,
         folder_level = 0,
       },
     })

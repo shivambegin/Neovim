@@ -12,16 +12,11 @@ return {
     },
   },
   opts = {
-    on_open = function(win)
-      vim.api.nvim_win_set_config(win, { focusable = false })
-    end,
-    timeout = "3000",
-    max_height = function()
-      return math.floor(vim.o.lines * 0.75)
-    end,
-    max_width = function()
-      return math.floor(vim.o.columns * 0.75)
-    end,
+    level = 2,
+    minimum_width = 50,
+    stages = "fade",
+    timeout = 3000,
+    top_down = true,
     render = "compact",
     background_colour = "#000000",
   },
