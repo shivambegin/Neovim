@@ -2,7 +2,7 @@ return {
   {
     "Eandrju/cellular-automaton.nvim",
     config = function()
-      vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+      vim.keymap.set("n", "<leader>mir", "<cmd>CellularAutomaton make_it_rain<CR>")
       require("cellular-automaton").register_animation({
         fps = 50,
         name = "slide",
