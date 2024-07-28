@@ -3,21 +3,21 @@
 local M = {}
 
 M.ui = {
-  theme = "bearded-arc",
+  theme = "falcon",
   transparency = true,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
     separator_style = "block",
-    order = { "mode", "git", "%=", "lsp", "%=", "diagnostics", "cwd" },
+    order = { "mode", "file", "git", "%=", "lsp", "%=", "diagnostics", "cwd" },
     modules = {},
   },
   -- lazyload it when there are 1+ buffers
   tabufline = {
-    enabled = false,
+    enabled = true,
     lazyload = true,
-    order = { "treeOffset", "buffers", "tabs", "btns" },
+    order = { "treeOffset", "buffers", "tabs" },
     modules = nil,
   },
   cmp = {

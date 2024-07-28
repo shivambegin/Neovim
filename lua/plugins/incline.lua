@@ -1,6 +1,7 @@
 return {
   "b0o/incline.nvim",
   dependencies = {},
+  enabled = false,
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   priority = 1200,
   config = function()

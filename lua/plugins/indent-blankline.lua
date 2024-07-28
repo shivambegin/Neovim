@@ -1,70 +1,17 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = "BufReadPost",
-  config = function()
-    local icons = require("config.icons")
-    require("ibl").setup({
-      indent = {
-        char = icons.ui.LineLeft,
-      },
-      scope = {
-        enabled = false,
-        show_start = false,
-        show_end = false,
-        injected_languages = true,
-        show_exact_scope = false,
-        include = {
-          node_type = {
-            ["typescript"] = {
-              "unary_expression",
-              "expression_statement",
-              "return_statement",
-              "open_tag",
-              "key",
-              "array",
-              "object",
-              "lexical_declaration",
-              "switch_statement",
-              "switch_case",
-              "switch_body",
-              "switch_default",
-            },
+  opts = {
+    indent = { char = "│", highlight = "IblChar" },
+    scope = { char = "│", highlight = "IblScopeChar" },
+  },
+  config = function(_, opts)
+    dofile(vim.g.base46_cache .. "blankline")
 
-            ["tsx"] = {
-              "unary_expression",
-              "jsx_expression",
-              "jsx_self_closing_element",
-              "expression_statement",
-              "return_statement",
-              "open_tag",
-              "key",
-              "array",
-              "object",
-              "lexical_declaration",
-              "switch_statement",
-              "switch_case",
-              "switch_body",
-              "switch_default",
-            },
-            ["rust"] = { "let_declaration", "const_declaration" },
-          },
-        },
-      },
-      exclude = {
-        filetypes = {
-          "help",
-          "lazy",
-          "neo-tree",
-          "notify",
-          "text",
-          "startify",
-          "dashboard",
-          "neogitstatus",
-          "NvimTree",
-          "Trouble",
-        },
-        buftypes = { "terminal", "nofile" },
-      },
-    })
+    local hooks = require("ibl.hooks")
+    hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+    require("ibl").setup(opts)
+
+    dofile(vim.g.base46_cache .. "blankline")
   end,
 }
