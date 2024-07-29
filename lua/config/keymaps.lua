@@ -1,3 +1,6 @@
+-- Clear highlights on search when pressing <Esc> in normal mode
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 --utility vim.keymap.setpings
 vim.keymap.set("n", "n", "nzzzv") -- keep the cursor centered when doing 'n'
 vim.keymap.set("n", "N", "Nzzzv") -- keep the cursor centered when doing 'N'
