@@ -5,6 +5,7 @@ require("config.options")
 require("config.lazy")
 require("config.autocmd")
 require("config.chadmaps")
+require("config.neovide")
 local integrations = require("nvconfig").base46.integrations
 for _, name in ipairs(integrations) do
   dofile(vim.g.base46_cache .. name)

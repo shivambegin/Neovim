@@ -3,7 +3,7 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
 return {
   "3rd/image.nvim",
-  enabled = true,
+  enabled = false,
   config = function()
     require("image").setup({
       backend = "kitty",
