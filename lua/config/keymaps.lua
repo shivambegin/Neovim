@@ -1,5 +1,8 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+-- NOTE: figure out playgroud usage
+-- vim.keymap.set("n", "<leader>pt", "<cmd>InspectTree<CR>", { desc = "parser tree" })
+-- vim.keymap.set("n", "<leader>eq", "<cmd>EditQuery<CR>", { desc = "parser tree" })
 
 --utility vim.keymap.setpings
 vim.keymap.set("n", "n", "nzzzv") -- keep the cursor centered when doing 'n'
