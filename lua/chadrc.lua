@@ -3,8 +3,8 @@
 local M = {}
 
 M.ui = {
-  theme = "catppuccin",
-  transparency = true,
+  theme = "ashes",
+  transparency = false,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
