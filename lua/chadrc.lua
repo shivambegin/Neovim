@@ -3,7 +3,7 @@
 local M = {}
 
 M.ui = {
-  theme = "ashes",
+  theme = "gatekeeper",
   transparency = false,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
