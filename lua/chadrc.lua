@@ -3,7 +3,7 @@
 local M = {}
 
 M.ui = {
-  theme = "wombat",
+  theme = "catppuccin",
   transparency = true,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
