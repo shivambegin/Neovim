@@ -6,6 +6,7 @@ return {
       require("transparent").clear_prefix("WinBar")
       require("transparent").clear_prefix("Navic")
       require("transparent").clear_prefix("Float")
+      require("transparent").clear_prefix("Normal")
       require("transparent").clear_prefix("NeoTree")
       require("transparent").clear_prefix("Noice")
       require("transparent").clear_prefix("Notify")
