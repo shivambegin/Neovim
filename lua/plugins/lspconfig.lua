@@ -189,8 +189,6 @@ return {
         },
       },
     })
-    dofile(vim.g.base46_cache .. "lsp")
-    require("nvchad.lsp")
 
     local x = vim.diagnostic.severity
     local config = {

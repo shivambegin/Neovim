@@ -2,11 +2,9 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "BufReadPost",
   config = function()
-    dofile(vim.g.base46_cache .. "blankline")
     require("ibl").setup({
       indent = {
         char = "│",
-        highlight = "IblChar",
       },
       scope = {
         enabled = false,
@@ -67,6 +65,5 @@ return {
         buftypes = { "terminal", "nofile" },
       },
     })
-    dofile(vim.g.base46_cache .. "blankline")
   end,
 }
