@@ -8,7 +8,7 @@ return {
     options = {
       debug = { logging = true },
       mode = "buffers",
-      indicator = { icon = "▍", style = "icon" },
+      indicator = { icon = "▍", style = "none" },
       sort_by = "insert_after_current",
       move_wraps_at_ends = true,
       right_mouse_command = "vert sbuffer %d",
