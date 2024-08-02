@@ -7,9 +7,9 @@ if vim.g.neovide then
   vim.g.neovide_floating_z_height = 10
   vim.g.neovide_transparency = 0.9
   vim.g.neovide_padding_top = 10
-  vim.g.neovide_padding_left = 10
-  vim.g.neovide_padding_bottom = 10
-  vim.g.neovide_padding_left = 10
+  vim.g.neovide_padding_left = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_left = 0
   vim.g.neovide_remember_window_size = true
 
   vim.o.guifont = "SpaceMono Nerd Font:h18" -- text below applies for VimScript
