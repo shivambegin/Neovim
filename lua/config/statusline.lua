@@ -193,7 +193,7 @@ end
 local function git_diff_added()
   local added = get_git_diff("added")
   if added > 0 then
-    return string.format("%%#StatusLineGitDiffAdded#+%s%%*", added)
+    return string.format("%%#StatusLineGitDiffAdded#  %s%%*", added)
   end
 
   return ""
@@ -203,7 +203,7 @@ end
 local function git_diff_changed()
   local changed = get_git_diff("changed")
   if changed > 0 then
-    return string.format("%%#StatusLineGitDiffChanged#~%s%%*", changed)
+    return string.format("%%#StatusLineGitDiffChanged#  %s%%*", changed)
   end
 
   return ""
@@ -213,7 +213,7 @@ end
 local function git_diff_removed()
   local removed = get_git_diff("removed")
   if removed > 0 then
-    return string.format("%%#StatusLineGitDiffRemoved#-%s%%*", removed)
+    return string.format("%%#StatusLineGitDiffRemoved#  %s%%*", removed)
   end
 
   return ""
