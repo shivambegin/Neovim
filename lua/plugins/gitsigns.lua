@@ -20,7 +20,7 @@ return {
       watch_gitdir = {
         interval = 1000,
       },
-      attach_to_untracked = false,
+      attach_to_untracked = true,
     })
     --		if pcall(require, "scrollbar") then
     --			require("scrollbar.handlers.gitsigns").setup()

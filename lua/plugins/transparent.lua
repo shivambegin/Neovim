@@ -11,6 +11,7 @@ return {
       require("transparent").clear_prefix("Notify")
       require("transparent").clear_prefix("GitSigns")
       require("transparent").clear_prefix("Mini")
+      require("transparent").clear_prefix("WhichKey")
       require("transparent").clear_prefix("Tab")
       require("transparent").setup({ -- Optional, you don't have to run setup.
         groups = { -- table: default groups
