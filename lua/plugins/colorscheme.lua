@@ -3,7 +3,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      transparent_background = true, -- disables setting the background color.
+      transparent_background = false, -- disables setting the background color.
       flavour = "mocha",
       color_overrides = {
         mocha = {
