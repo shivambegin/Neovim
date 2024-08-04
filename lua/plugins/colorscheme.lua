@@ -1,5 +1,15 @@
 return {
   {
+    "tiagovla/tokyodark.nvim",
+    opts = {
+      -- custom options here
+    },
+    config = function(_, opts)
+      require("tokyodark").setup(opts) -- calling setup is optional
+      vim.cmd([[colorscheme tokyodark]])
+    end,
+  },
+  {
     "ramojus/mellifluous.nvim",
     -- version = "v0.*", -- uncomment for stable config (some features might be missed if/when v1 comes out)
     config = function()
@@ -10,7 +20,7 @@ return {
           bg_contrast = "hard", -- options: "soft", "medium", "hard"
         },
       })
-      vim.cmd("colorscheme mellifluous")
+      -- vim.cmd("colorscheme mellifluous")
     end,
   },
   {
