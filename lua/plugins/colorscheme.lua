@@ -1,5 +1,16 @@
 return {
   {
+    "craftzdog/solarized-osaka.nvim",
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("solarized-osaka").setup({
+        transparent = false, -- Enable this to disable setting the background color
+      })
+      vim.cmd([[colorscheme solarized-osaka]])
+    end,
+  },
+  {
     "sainnhe/gruvbox-material",
     enabled = true,
     priority = 1000,
@@ -16,7 +27,7 @@ return {
       -- vim.g.gruvbox_material_colors_override = { bg0 = "#121212" }
       -- vim.g.gruvbox_material_better_performance = 1
 
-      vim.cmd.colorscheme("gruvbox-material")
+      -- vim.cmd.colorscheme("gruvbox-material")
     end,
   },
   {

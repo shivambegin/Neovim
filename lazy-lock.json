@@ -96,6 +96,7 @@
   "schemastore.nvim": { "branch": "main", "commit": "a86e7a0ecaf09fdb0b58ca09f34cd1e2b2b1fd75" },
   "screenkey.nvim": { "branch": "main", "commit": "6c9b5a8a38d56f425a44bb8e4d3d49e6bb0cfa7d" },
   "search.nvim": { "branch": "main", "commit": "7b8f2315d031be73e14bc2d82386dfac15952614" },
+  "solarized-osaka.nvim": { "branch": "main", "commit": "126d394c0c979a99206214a2b6b8c86e456c9c0f" },
   "statuscol.nvim": { "branch": "main", "commit": "93d8bcda516fc86e11c03f9ef577bae9a72fba0e" },
   "styledoc.nvim": { "branch": "main", "commit": "3bcea85b3d47cbe3bc3defa93a6c1ed08bdcb3a9" },
   "suda.vim": { "branch": "master", "commit": "b97fab52f9cdeabe2bbb5eb98d82356899f30829" },
