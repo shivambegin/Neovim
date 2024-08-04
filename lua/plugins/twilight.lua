@@ -1,6 +1,7 @@
 return -- Lua
 {
   "folke/twilight.nvim",
+  enabled = false,
   config = function()
     local status_ok, twilight = pcall(require, "twilight")
     if not status_ok then
