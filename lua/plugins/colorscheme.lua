@@ -1,10 +1,30 @@
 return {
   {
+    "sainnhe/gruvbox-material",
+    enabled = true,
+    priority = 1000,
+    config = function()
+      vim.g.gruvbox_material_transparent_background = 0
+      vim.g.gruvbox_material_foreground = "mix"
+      vim.g.gruvbox_material_background = "hard" -- soft, medium, hard
+      vim.g.gruvbox_material_ui_contrast = "high" -- The contrast of line numbers, indent lines, etc.
+      vim.g.gruvbox_material_float_style = "bright" -- Background of floating windows
+      vim.g.gruvbox_material_statusline_style = "material"
+      vim.g.gruvbox_material_cursor = "auto"
+
+      -- vim.g.gruvbox_material_colors_override = { bg0 = '#000000' } -- #0e1010
+      -- vim.g.gruvbox_material_colors_override = { bg0 = "#121212" }
+      -- vim.g.gruvbox_material_better_performance = 1
+
+      vim.cmd.colorscheme("gruvbox-material")
+    end,
+  },
+  {
     "projekt0n/github-nvim-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      vim.cmd("colorscheme github_dark_default")
+      -- vim.cmd("colorscheme github_dark_default")
     end,
   },
   {
