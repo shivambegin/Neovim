@@ -1,6 +1,7 @@
 return {
   {
     "echasnovski/mini.nvim",
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
     version = false,
     config = function()
       local statusline = require("mini.statusline")

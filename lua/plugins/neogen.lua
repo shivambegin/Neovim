@@ -1,6 +1,8 @@
 -- A better annotation generator.
+-- TODO: find the usage of this plugin
 return {
   "danymat/neogen",
+  enabled = false,
   event = "VeryLazy",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
