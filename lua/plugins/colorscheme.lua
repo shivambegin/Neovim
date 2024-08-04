@@ -1,5 +1,19 @@
 return {
   {
+    "ramojus/mellifluous.nvim",
+    -- version = "v0.*", -- uncomment for stable config (some features might be missed if/when v1 comes out)
+    config = function()
+      require("mellifluous").setup({
+        color_set = "alduin",
+        mellifluous = {
+          neutral = true, -- set this to false and bg_contrast to "medium" for original mellifluous (then it was called meliora theme)
+          bg_contrast = "hard", -- options: "soft", "medium", "hard"
+        },
+      })
+      vim.cmd("colorscheme mellifluous")
+    end,
+  },
+  {
     "craftzdog/solarized-osaka.nvim",
     priority = 1000,
     opts = {},
@@ -7,7 +21,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false, -- Enable this to disable setting the background color
       })
-      vim.cmd([[colorscheme solarized-osaka]])
+      -- vim.cmd([[colorscheme solarized-osaka]])
     end,
   },
   {
