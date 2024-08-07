@@ -4,17 +4,30 @@ return {
   enabled = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    { "juansalvatore/git-dashboard-nvim", dependencies = { "nvim-lua/plenary.nvim" } },
     "nvim-lua/plenary.nvim",
   },
   config = function()
     local dashboard = require("alpha.themes.dashboard")
 
-    local git_dashboard = require("git-dashboard-nvim").setup({})
+    dashboard.section.header.val = {
+      [[　　　 　　/＾>》, -―‐‐＜＾}]],
+      [[　　　 　./:::/,≠´::::::ヽ.]],
+      [[　　　　/::::〃::::／}::丿ハ]],
+      [[　　　./:::::i{l|／　ﾉ／ }::}]],
+      [[　　 /:::::::瓜イ＞　´＜ ,:ﾉ]],
+      [[　 ./::::::|ﾉﾍ.{､　(_ﾌ_ノﾉイ＿]],
+      [[　 |:::::::|／}｀ｽ /          /]],
+      [[.　|::::::|(_:::つ/ ArchLinux /　neovim!]],
+      [[.￣￣￣￣￣￣￣＼/＿＿＿＿＿/￣￣￣￣￣]],
+    }
 
-    dashboard.section.header.val = git_dashboard
-    dashboard.section.buttons.val = {}
+    dashboard.section.buttons.val = {
+      dashboard.button("f", "  Find project", ":lua require'telescope.builtin'.find_files{}<CR>", {}),
 
-    require("alpha").setup(dashboard.opts)
+      dashboard.button("r", "  Recent files", ":lua require'telescope.builtin'.oldfiles{}<CR>", {}),
+
+      dashboard.button("q", "ﰌ  Quit", ":qa<CR>", {}),
+    }
+    require("alpha").setup(dashboard.config)
   end,
 }
