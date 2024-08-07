@@ -5,7 +5,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("decayce")
+      -- vim.cmd.colorscheme("decayce")
     end,
   },
   {
@@ -75,7 +75,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      transparent_background = false, -- disables setting the background color.
+      transparent_background = true, -- disables setting the background color.
       flavour = "mocha",
       color_overrides = {
         mocha = {
@@ -121,7 +121,7 @@ return {
       end,
     },
     init = function()
-      -- vim.cmd.colorscheme("catppuccin")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
   {
