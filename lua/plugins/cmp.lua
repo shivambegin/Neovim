@@ -75,6 +75,7 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "supermaven" },
         -- { name = "nvim_lsp_signature_help" },
         -- { name = "calc" }, --for maths calculations
       },

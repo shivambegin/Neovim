@@ -106,6 +106,7 @@
   "statuscol.nvim": { "branch": "main", "commit": "93d8bcda516fc86e11c03f9ef577bae9a72fba0e" },
   "styledoc.nvim": { "branch": "main", "commit": "3bcea85b3d47cbe3bc3defa93a6c1ed08bdcb3a9" },
   "suda.vim": { "branch": "master", "commit": "b97fab52f9cdeabe2bbb5eb98d82356899f30829" },
+  "supermaven-nvim": { "branch": "main", "commit": "d71257f431e190d9236d7f30da4c2d659389e91f" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope-vim-bookmarks.nvim": { "branch": "main", "commit": "09a61043496bd9c4240955f7532ff2ae8fe3a905" },
