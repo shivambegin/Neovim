@@ -1,3 +1,10 @@
+local opts = { noremap = true, silent = true }
+
+-- Delete a word backwards
+vim.keymap.set("n", "dw", 'vb"_d')
+
+-- Select all
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- NOTE: figure out playgroud usage
@@ -25,6 +32,8 @@ vim.keymap.set({ "i" }, "<C-h>", "<Left>", { desc = "Move cursor to right" })
 
 -- Better window management
 
+vim.keymap.set("n", "hs", ":split<Return>", opts)
+vim.keymap.set("n", "vs", ":vsplit<Return>", opts)
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left split" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below split" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above split" })
