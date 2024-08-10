@@ -1,7 +1,7 @@
 return {
   {
     "xiyaowong/transparent.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       require("transparent").clear_prefix("WinBar")
       require("transparent").clear_prefix("Navic")

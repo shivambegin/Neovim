@@ -1,5 +1,6 @@
 return {
   "MattesGroeger/vim-bookmarks",
+  enabled = false,
   dependencies = {
     "tom-anders/telescope-vim-bookmarks.nvim",
   },
