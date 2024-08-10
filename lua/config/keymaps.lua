@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 -- Delete a word backwards
-vim.keymap.set("n", "dw", 'vb"_d')
+vim.keymap.set("n", "db", 'vb"_d')
 
 -- Select all
 vim.keymap.set("n", "<C-a>", "gg<S-v>G")
