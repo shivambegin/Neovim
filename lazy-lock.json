@@ -104,6 +104,7 @@
   "schemastore.nvim": { "branch": "main", "commit": "6ba091a30616aadeda531c7f27dfad263303f55d" },
   "screenkey.nvim": { "branch": "main", "commit": "75cb5603fc991c05222bef257921c98702df84c3" },
   "search.nvim": { "branch": "main", "commit": "7b8f2315d031be73e14bc2d82386dfac15952614" },
+  "starry.nvim": { "branch": "master", "commit": "d34483f09383be20d04dde5b52b53624d759558d" },
   "statuscol.nvim": { "branch": "main", "commit": "93d8bcda516fc86e11c03f9ef577bae9a72fba0e" },
   "styledoc.nvim": { "branch": "main", "commit": "3bcea85b3d47cbe3bc3defa93a6c1ed08bdcb3a9" },
   "suda.vim": { "branch": "master", "commit": "b97fab52f9cdeabe2bbb5eb98d82356899f30829" },
