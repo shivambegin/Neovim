@@ -1,6 +1,7 @@
 return {
   {
     "preservim/vim-markdown",
+    enabled = false,
     ft = { "markdown" },
   },
   -- markdown preview
