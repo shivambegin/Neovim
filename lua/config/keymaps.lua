@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "db", 'vb"_d')
 
 -- Select all
-vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+vim.keymap.set("n", "<C-s>", "gg<S-v>G")
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- NOTE: figure out playgroud usage
