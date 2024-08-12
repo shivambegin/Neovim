@@ -129,20 +129,10 @@ return {
     })
 
     ins_left({
-      -- filesize component
-      "filesize",
-      cond = conditions.buffer_not_empty,
-    })
-
-    ins_left({
       "filename",
       cond = conditions.buffer_not_empty,
       color = { fg = colors.magenta, gui = "bold" },
     })
-
-    ins_left({ "location" })
-
-    ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
     ins_left({
       "diagnostics",
@@ -184,27 +174,6 @@ return {
       color = { fg = "#ffffff", gui = "bold" },
     })
 
-    -- Add components to right sections
-    ins_right({
-      "o:encoding", -- option component same as &encoding in viml
-      fmt = string.upper, -- I'm not sure why it's upper case either ;)
-      cond = conditions.hide_in_width,
-      color = { fg = colors.green, gui = "bold" },
-    })
-
-    ins_right({
-      "fileformat",
-      fmt = string.upper,
-      icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-      color = { fg = colors.green, gui = "bold" },
-    })
-
-    ins_right({
-      "branch",
-      icon = "",
-      color = { fg = colors.violet, gui = "bold" },
-    })
-
     ins_right({
       "diff",
       -- Is it me or the symbol for modified us really weird
@@ -215,6 +184,12 @@ return {
         removed = { fg = colors.red },
       },
       cond = conditions.hide_in_width,
+    })
+
+    ins_right({
+      "branch",
+      icon = "",
+      color = { fg = colors.violet, gui = "bold" },
     })
 
     ins_right({
