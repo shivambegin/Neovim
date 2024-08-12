@@ -158,7 +158,7 @@ return {
       function()
         local msg = "No Active Lsp"
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-        local clients = vim.lsp.get_active_clients()
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then
           return msg
         end
@@ -177,7 +177,7 @@ return {
     ins_right({
       "diff",
       -- Is it me or the symbol for modified us really weird
-      symbols = { added = " ", modified = "󰝤 ", removed = " " },
+      symbols = { added = " ", modified = " ", removed = " " },
       diff_color = {
         added = { fg = colors.green },
         modified = { fg = colors.orange },
@@ -188,7 +188,7 @@ return {
 
     ins_right({
       "branch",
-      icon = "",
+      icon = "",
       color = { fg = colors.violet, gui = "bold" },
     })
 
