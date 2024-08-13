@@ -11,7 +11,7 @@ return {
       require("transparent").clear_prefix("Noice")
       require("transparent").clear_prefix("Notify")
       require("transparent").clear_prefix("GitSigns")
-      require("transparent").clear_prefix("Mini")
+      -- require("transparent").clear_prefix("Mini")
       require("transparent").clear_prefix("WhichKey")
       require("transparent").clear_prefix("BufferLine")
       require("transparent").clear_prefix("Tab")

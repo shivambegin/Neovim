@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  enabled = true,
+  enabled = false,
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = function()
     -- Eviline config for lualine
