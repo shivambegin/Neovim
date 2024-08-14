@@ -8,7 +8,7 @@ return {
       require("mini.pairs").setup({}) --alternative for nvim-autopairs
       require("mini.move").setup({})
       require("mini.cursorword").setup() -- alternative for cursorline
-      require("mini.tabline").setup()
+      -- require("mini.tabline").setup()
       local statusline = require("mini.statusline")
       statusline.setup({ use_icons = true })
       ---@diagnostic disable-next-line: duplicate-set-field
