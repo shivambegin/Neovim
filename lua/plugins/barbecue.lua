@@ -7,8 +7,15 @@ return {
     "SmiteshP/nvim-navic",
     "nvim-tree/nvim-web-devicons", -- optional dependency
   },
-  opts = {
-    -- configurations go here
+  opts = {},
+  keys = {
+    {
+      "<leader>bq",
+      function()
+        require("barbecue.ui").toggle()
+      end,
+      desc = "toggle barbecue",
+    },
   },
   config = function()
     require("barbecue").setup({
