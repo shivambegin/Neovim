@@ -1,7 +1,7 @@
 -- configure autocomplete
 return {
   "hrsh7th/nvim-cmp",
-  event = { "InsertEnter", "CmdlineEnter" },
+  event = { "InsertEnter" },
   dependencies = {
     -- autocomplete plugins
     "hrsh7th/cmp-buffer",
