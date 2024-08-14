@@ -1,6 +1,7 @@
 --- lazy nvim
 return {
   "FabianWirth/search.nvim",
+  enabled = false,
   dependencies = { "nvim-telescope/telescope.nvim" },
   config = function()
     require("search").setup({

@@ -1,6 +1,7 @@
 --highlights the instance of the word under the cursor
 return {
   "RRethy/vim-illuminate",
+  enabled = false,
   event = { "BufReadPost", "BufNewFile" },
   opts = {
     delay = 100,

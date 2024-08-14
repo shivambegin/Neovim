@@ -7,14 +7,6 @@ return {
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      {
-        "nvim-treesitter/playground",
-        lazy = true,
-        cmd = {
-          "TSHighlightCapturesUnderCursor",
-          "TSPlaygroundToggle",
-        },
-      },
       "windwp/nvim-ts-autotag",
     },
     config = function()
