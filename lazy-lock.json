@@ -109,7 +109,7 @@
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "0543d6ff37d3178e37131dfd5486e8a75d52f696" },
   "refactoring.nvim": { "branch": "master", "commit": "c406fc5fb4d7ba5fce7b668637075fad6e75e9f8" },
   "rose-pine": { "branch": "main", "commit": "cf8de969c49b1d879091ae9048715f4aacd4f9fb" },
-  "schemastore.nvim": { "branch": "main", "commit": "91ebf754a371380b521099d7a57337e180bac542" },
+  "schemastore.nvim": { "branch": "main", "commit": "0d18cb5f8faf160335b4ed4699b6b35c616de5b9" },
   "screenkey.nvim": { "branch": "main", "commit": "a96a13fede30bba0b37f6a87cb0a2cdd1679e422" },
   "search.nvim": { "branch": "main", "commit": "7b8f2315d031be73e14bc2d82386dfac15952614" },
   "statuscol.nvim": { "branch": "main", "commit": "93d8bcda516fc86e11c03f9ef577bae9a72fba0e" },

@@ -30,7 +30,7 @@ return {
     lazy = true,
   },
 
-  { "b0o/schemastore.nvim", lazy = true },
+  { "b0o/schemastore.nvim", lazy = true, enabled = false }, -- TODO: proper config required to use it
   {
     "moll/vim-bbye",
     cmd = { "Bdelete", "Bwipeout" },
