@@ -23,7 +23,7 @@ require("lazy").setup({
   },
   install = {
     missing = true,
-    colorscheme = { "nvchad" },
+    -- colorscheme = { "nvchad" },
   },
   checker = {
     enabled = true,
