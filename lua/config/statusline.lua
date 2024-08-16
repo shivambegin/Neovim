@@ -1,5 +1,20 @@
 local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
 
+-- LSP clients attached to buffer
+local function lsp_clients()
+  local current_buf = vim.api.nvim_get_current_buf()
+
+  local clients = vim.lsp.get_clients({ bufnr = current_buf })
+  if next(clients) == nil then
+    return ""
+  end
+
+  local c = {}
+  for _, client in pairs(clients) do
+    table.insert(c, client.name)
+  end
+  return "" .. table.concat(c, "|")
+end
 --- @return string
 local function filename()
   local fname = vim.fn.expand("%:t")
@@ -102,7 +117,7 @@ local function lsp_active()
   local space = "%#StatusLineMedium# %*"
 
   if #clients > 0 then
-    return space .. "%#StatusLineLspActive#%*" .. space .. "%#StatusLineMedium#LSP%*"
+    return space .. "%#StatusLineLspActive#%*" .. space .. "%#StatusLineMedium#LSP%*: "
   end
 
   return ""
@@ -317,7 +332,7 @@ local function formatted_filetype(hlgroup)
 end
 
 local function filetype()
-  return string.format(" {%s}", vim.bo.filetype):lower()
+  return string.format(" {ft:%s}", vim.bo.filetype):lower()
 end
 
 StatusLine = {}
@@ -369,6 +384,7 @@ StatusLine.active = function()
     diagnostics_hint(),
     diagnostics_info(),
     lsp_active(),
+    lsp_clients(),
     python_env(),
     filetype(),
     file_percentage(),
