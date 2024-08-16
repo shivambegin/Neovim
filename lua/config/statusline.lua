@@ -316,6 +316,10 @@ local function formatted_filetype(hlgroup)
   return string.format("%%#%s# %s %%*", hlgroup, filetype)
 end
 
+local function filetype()
+  return string.format(" {%s}", vim.bo.filetype):lower()
+end
+
 StatusLine = {}
 
 StatusLine.inactive = function()
@@ -366,6 +370,7 @@ StatusLine.active = function()
     diagnostics_info(),
     lsp_active(),
     python_env(),
+    filetype(),
     file_percentage(),
     total_lines(),
   }
