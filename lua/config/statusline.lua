@@ -1,4 +1,4 @@
-local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
+local statusline_augroup = vim.api.nvim_create_augroup("native_statusline", { clear = true })
 
 -- LSP clients attached to buffer
 local function lsp_clients()
