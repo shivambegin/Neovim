@@ -1,5 +1,14 @@
 local statusline_augroup = vim.api.nvim_create_augroup("gmr_statusline", { clear = true })
 
+--- @return string
+local function filename()
+  local fname = vim.fn.expand("%:t")
+  if fname == "" then
+    return ""
+  end
+  return fname .. " "
+end
+
 --- @param severity integer
 --- @return integer
 local function get_lsp_diagnostics_count(severity)
@@ -345,6 +354,7 @@ StatusLine.active = function()
 
   local statusline = {
     mode(),
+    filename(),
     full_git(),
     "%=",
     "%=",
