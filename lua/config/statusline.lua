@@ -384,13 +384,13 @@ StatusLine.active = function()
     diagnostics_warns(),
     diagnostics_hint(),
     diagnostics_info(),
-    -- lsp_active(),
-    lsp_clients(),
+    lsp_active(),
     python_env(),
     filetype(),
     file_percentage(),
     total_lines(),
-    "▊",
+    lsp_clients(),
+    " ▊",
   }
 
   return table.concat(statusline)
