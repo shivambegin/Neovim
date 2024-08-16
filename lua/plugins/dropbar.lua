@@ -3,7 +3,7 @@ return {
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
 
   lazy = false,
-  enabled = false,
+  enabled = true,
   -- optional, but required for fuzzy finder support
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
