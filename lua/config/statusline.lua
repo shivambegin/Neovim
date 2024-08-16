@@ -13,7 +13,7 @@ local function lsp_clients()
   for _, client in pairs(clients) do
     table.insert(c, client.name)
   end
-  return "" .. table.concat(c, "|")
+  return "󰌘 " .. table.concat(c, "|")
 end
 --- @return string
 local function filename()
@@ -117,7 +117,7 @@ local function lsp_active()
   local space = "%#StatusLineMedium# %*"
 
   if #clients > 0 then
-    return space .. "%#StatusLineLspActive#%*" .. space .. "%#StatusLineMedium#LSP%*: "
+    return space .. "%#StatusLineLspActive#%*" .. space .. "%#StatusLineMedium#LSP%* "
   end
 
   return ""
