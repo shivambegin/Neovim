@@ -12,5 +12,5 @@ if vim.g.neovide then
   vim.g.neovide_padding_left = 0
   vim.g.neovide_remember_window_size = true
 
-  vim.o.guifont = "SpaceMono Nerd Font:h18" -- text below applies for VimScript
+  vim.o.guifont = "SpaceMono Nerd Font Mono:h18" -- text below applies for VimScript
 end
