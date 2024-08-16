@@ -7,9 +7,10 @@
 ## Installation
  > Install requires Neovim nightly but might works on latest stable release. Always review the code before installing a configuration.
 
-> Make sure you delete or backup your old neovim configuration to somewhere safe before installing this one.
+ > Make sure you delete or backup your old neovim configuration to somewhere safe before installing this one.
 
-### Backup linux &MacOS
+
+### Backup for linux & MacOS
 
 ```bash
 # required
@@ -31,13 +32,13 @@ Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
 Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
 ```
 
-### Linux & MacOS
+### Installation for Linux & MacOS
 
 ```bash
 git clone https://github.com/shivambegin/Neovim.git ~/.config/nvim
 ```
 
-### Windows
+### Installation for Windows
 
 ```bash
 git clone https://github.com/shivambegin/Neovim.git $env:LOCALAPPDATA\nvim
