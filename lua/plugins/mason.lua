@@ -14,14 +14,16 @@ return {
 
     local mason_tool_installer = require("mason-tool-installer")
 
+    local icons = require("config.icons").ui
+
     -- enable mason and configure icons
     mason.setup({
       ui = {
         border = "rounded",
         icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
+          package_installed = icons.Check,
+          package_pending = icons.History,
+          package_uninstalled = icons.BoldClose,
         },
       },
     })

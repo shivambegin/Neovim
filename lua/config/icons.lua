@@ -145,6 +145,7 @@ return {
     Hint = "󰌶",
     Debug = "",
     Trace = "✎",
+    Ghost = "󰊠 ",
   },
   misc = {
     Robot = "󰚩",
