@@ -1,12 +1,12 @@
 -- configure autocomplete
 return {
   "hrsh7th/nvim-cmp",
-  event = { "InsertEnter" },
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     -- autocomplete plugins
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    -- "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
     "saadparwaiz1/cmp_luasnip",
@@ -57,18 +57,21 @@ return {
           select = true,
         }),
       },
-      -- cmp.setup.cmdline(":", {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = {
-      --     { name = "cmdline" },
-      --   },
-      -- }),
-      -- cmp.setup.cmdline("/", {
-      --   mapping = cmp.mapping.preset.cmdline(),
-      --   sources = {
-      --     { name = "buffer" },
-      --   },
-      -- }),
+      -- `/` cmdline setup.
+      cmp.setup.cmdline({ "/", "?" }, {
+        completion = { completeopt = "menu,menuone,noselect" },
+        sources = {
+          { name = "buffer" },
+        },
+      }),
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(":", {
+        completion = { completeopt = "menu,menuone,noselect" },
+        sources = cmp.config.sources(
+          { { name = "path" } },
+          { { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } } }
+        ),
+      }),
       -- sources for autocompletion
       sources = {
         { name = "nvim_lsp" },
