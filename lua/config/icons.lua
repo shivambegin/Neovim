@@ -145,7 +145,6 @@ return {
     Hint = "󰌶",
     Debug = "",
     Trace = "✎",
-    Ghost = "󰊠 ",
   },
   misc = {
     Robot = "󰚩",
@@ -157,5 +156,6 @@ return {
     CircuitBoard = "",
     ellipsis = "…",
     vertical_bar = "│",
+    Ghost = "󰊠",
   },
 }

@@ -191,14 +191,14 @@ return {
     })
 
     local x = vim.diagnostic.severity
-    local icons = require("config.icons").diagnostics
+    local icons = require("config.icons")
     local config = {
       -- Enable virtual text
       virtual_text = { -- or false for disable
         prefix = "", -- ■  󰊠
         suffix = "",
         format = function(diagnostic)
-          local prefix = icons.Ghost
+          local prefix = icons.misc.Ghost .. " "
           local suffix = " "
           -- return full message with custom prefix & suffix
           return prefix .. diagnostic.message .. suffix
@@ -206,7 +206,12 @@ return {
       },
       update_in_insert = true,
       signs = {
-        text = { [x.ERROR] = icons.Error, [x.WARN] = icons.Warn, [x.HINT] = icons.Hint, [x.INFO] = icons.Info },
+        text = {
+          [x.ERROR] = icons.diagnostics.Error,
+          [x.WARN] = icons.diagnostics.Warn,
+          [x.HINT] = icons.diagnostics.Hint,
+          [x.INFO] = icons.diagnostics.Info,
+        },
       },
       underline = false,
       severity_sort = true,
