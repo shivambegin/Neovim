@@ -22,6 +22,7 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     require("luasnip/loaders/from_vscode").lazy_load()
+    local lspkind = require("lspkind")
 
     cmp.setup({
       completion = {
@@ -29,15 +30,22 @@ return {
         completeopt = "menu,menuone",
       },
       formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-          local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-          local strings = vim.split(kind.kind, "%s", { trimempty = true })
-          kind.kind = " " .. (strings[1] or "") .. " "
-          kind.menu = "    (" .. (strings[2] or "") .. ")"
-
-          return kind
-        end,
+        expandable_indicator = true,
+        fields = {
+          "abbr",
+          "kind",
+          "menu",
+        },
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          maxwidth = 65,
+          -- ellipsis_char = "...",
+          show_labelDetails = false,
+          before = function(entry, item)
+            item.menu = ""
+            return item
+          end,
+        }),
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
