@@ -25,6 +25,7 @@
   "dressing.nvim": { "branch": "master", "commit": "c5775a888adbc50652cb370073fcfec963eca93e" },
   "dropbar.nvim": { "branch": "master", "commit": "c53d1d312407927903f0ce4bb504e25113641989" },
   "eagle.nvim": { "branch": "main", "commit": "f590404f510be11ef2cf7c68e135441bfa48c9a8" },
+  "eldritch.nvim": { "branch": "master", "commit": "48788ef2f7be7e86b0a57ef87f1a96bc18e24b8b" },
   "everforest": { "branch": "master", "commit": "b49ba81e79b20d2b47bb71e98fa984bae90731be" },
   "flash.nvim": { "branch": "main", "commit": "34c7be146a91fec3555c33fe89c7d643f6ef5cf1" },
   "flatten.nvim": { "branch": "main", "commit": "e420e531d2ab24aebcf7b3c9fca28e6c5c34964d" },
