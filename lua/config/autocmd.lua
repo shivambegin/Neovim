@@ -1,7 +1,3 @@
--- TODO: make it more robust
--- vim.api.nvim_create_autocmd("InsertEnter", { command = [[set norelativenumber]] })
--- vim.api.nvim_create_autocmd("InsertLeave", { command = [[set relativenumber]] })
-
 -- toggle relative number on the basis of mode
 local numbertoggle = vim.api.nvim_create_augroup("numbertoggle", {})
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdlineLeave" }, {
