@@ -154,5 +154,7 @@ return {
     Smiley = "",
     Package = "",
     CircuitBoard = "",
+    ellipsis = "…",
+    vertical_bar = "│",
   },
 }
