@@ -13,6 +13,22 @@ return {
         show_start = false,
         show_end = false,
       },
+      exclude = {
+        filetypes = {
+          "help",
+          "lazy",
+          "neo-tree",
+          "notify",
+          "text",
+          "startify",
+          "dashboard",
+          "neogitstatus",
+          "NvimTree",
+          "Trouble",
+          "oil",
+        },
+        buftypes = { "terminal", "nofile" },
+      },
     },
   },
 }
