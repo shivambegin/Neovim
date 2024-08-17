@@ -4,14 +4,15 @@ return {
   enabled = true,
   config = function()
     local gitsigns = require("gitsigns")
+    local sign_icon = require("config.icons").misc.vertical_bar
     gitsigns.setup({
       signs = {
-        add = { text = "┃" },
-        change = { text = "┃" },
-        delete = { text = "┃" },
-        topdelete = { text = "┃" },
-        changedelete = { text = "┃" },
-        untracked = { text = "┃" },
+        add = { text = sign_icon },
+        untracked = { text = sign_icon },
+        change = { text = sign_icon },
+        delete = { text = sign_icon },
+        topdelete = { text = sign_icon },
+        changedelete = { text = sign_icon },
       },
       signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
       linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
