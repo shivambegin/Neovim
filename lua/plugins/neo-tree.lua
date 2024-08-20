@@ -5,6 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
+    { "antosha417/nvim-lsp-file-operations", config = true },
   },
   keys = {
     { "<leader>ee", ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
