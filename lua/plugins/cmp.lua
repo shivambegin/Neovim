@@ -37,7 +37,7 @@ return {
           "menu",
         },
         format = lspkind.cmp_format({
-          mode = "symbol_text",
+          mode = "symbol",
           maxwidth = 65,
           -- ellipsis_char = "...",
           show_labelDetails = false,
