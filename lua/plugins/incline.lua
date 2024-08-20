@@ -1,7 +1,7 @@
 return {
   "b0o/incline.nvim",
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  enabled = false,
+  enabled = true,
   config = function()
     require("incline").setup({
       highlight = {

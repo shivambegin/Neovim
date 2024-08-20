@@ -7,7 +7,8 @@ return {
       require("mini.surround").setup({})
       require("mini.pairs").setup({}) --alternative for nvim-autopairs
       require("mini.move").setup({})
-      require("mini.bracketed").setup({
+      require("mini.move").setup({})
+      require("mini.tabline").setup({
         file = { suffix = "" },
         window = { suffix = "" },
         quickfix = { suffix = "" },
