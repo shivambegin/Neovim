@@ -1,6 +1,7 @@
 return {
   "vague2k/huez.nvim",
   import = "huez-manager.import",
+  enabled = false,
   branch = "stable",
   event = "UIEnter",
   keys = {

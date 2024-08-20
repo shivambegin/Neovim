@@ -5,10 +5,10 @@ return {
     priority = 1000,
     config = function()
       require("cyberdream").setup({
-        transparent = false,
+        transparent = true,
         italic_comments = true,
       })
-      -- vim.cmd("colorscheme cyberdream")
+      vim.cmd("colorscheme cyberdream")
     end,
   },
 }
