@@ -2,28 +2,9 @@ return {
   "rebelot/heirline.nvim",
   dependencies = { "zeioth/heirline-components.nvim" },
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  enabled = true,
   opts = function()
     local lib = require("heirline-components.all")
     return {
-      opts = {
-        disable_winbar_cb = function(args) -- We do this to avoid showing it on the greeter.
-          local is_disabled = not require("heirline-components.buffer").is_valid(args.buf)
-            or lib.condition.buffer_matches({
-              buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-              filetype = {
-                "NvimTree",
-                "neo%-tree",
-                "dashboard",
-                "Outline",
-                "aerial",
-                "rnvimr",
-                "yazi",
-              },
-            }, args.buf)
-          return is_disabled
-        end,
-      },
       tabline = { -- UI upper bar
         lib.component.tabline_conditional_padding(),
         lib.component.tabline_buffers(),
@@ -41,7 +22,6 @@ return {
         lib.component.cmd_info(),
         lib.component.fill(),
         lib.component.lsp(),
-        lib.component.compiler_state(),
         lib.component.virtual_env(),
         lib.component.nav(),
         lib.component.mode({ surround = { separator = "right" } }),

@@ -1,5 +1,5 @@
 {
-  "LuaSnip": { "branch": "master", "commit": "b84eeb3641b08324287587b426ec974b888390d9" },
+  "LuaSnip": { "branch": "master", "commit": "7ad2eaeaca56d6ed63acacbfc114b99f1f67b982" },
   "alpha-nvim": { "branch": "main", "commit": "36e4baca9533ec87afa948fe20a0a1c4897a6a6e" },
   "alternate-toggler": { "branch": "main", "commit": "819800304d3e8e575fd6aa461a8bcf2217e1cfb6" },
   "barbecue": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },

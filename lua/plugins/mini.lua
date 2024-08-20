@@ -7,14 +7,7 @@ return {
       require("mini.surround").setup({})
       require("mini.pairs").setup({}) --alternative for nvim-autopairs
       require("mini.move").setup({})
-      require("mini.move").setup({})
-      require("mini.bracketed").setup({
-        file = { suffix = "" },
-        window = { suffix = "" },
-        quickfix = { suffix = "" },
-        yank = { suffix = "" },
-        treesitter = { suffix = "n" },
-      })
+      require("mini.bracketed").setup({})
     end,
   },
 }
