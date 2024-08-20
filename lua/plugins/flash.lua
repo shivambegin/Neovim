@@ -1,6 +1,6 @@
 return {
   "folke/flash.nvim",
-  event = { "CursorHold", "CursorHoldI" },
+  event = { "BufReadPost", "BufNewFile" },
   vscode = true,
   ---@type Flash.Config
   opts = {},

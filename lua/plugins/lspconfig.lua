@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   lazy = true,
-  event = { "CursorHold", "CursorHoldI" },
+  event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
   },

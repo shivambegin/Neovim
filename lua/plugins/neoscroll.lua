@@ -1,7 +1,7 @@
 -- Smooth scrolling neovim plugin written in lua
 return {
   "karb94/neoscroll.nvim",
-  event = { "CursorHold", "CursorHoldI" },
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     require("neoscroll").setup({
       mappings = { -- Keys to be mapped to their corresponding default scrolling animation

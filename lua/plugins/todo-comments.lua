@@ -1,6 +1,9 @@
 return {
   "folke/todo-comments.nvim",
-  event = { "CursorHold", "CursorHoldI" },
+  event = {
+    "BufReadPost",
+    "BufNewFile",
+  },
   cmd = { "TodoLocList", "TodoTelescope", "TodoQuickFix", "TodoTrouble" },
   keys = { { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Search Todo" } },
   opts = {

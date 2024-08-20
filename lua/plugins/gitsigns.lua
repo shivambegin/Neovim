@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "CursorHold", "CursorHoldI" },
+  event = { "BufReadPost", "BufNewFile" },
   enabled = true,
   config = function()
     local gitsigns = require("gitsigns")
