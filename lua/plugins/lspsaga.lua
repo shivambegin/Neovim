@@ -1,5 +1,6 @@
 return {
   "nvimdev/lspsaga.nvim",
+  enabled = false,
   lazy = true,
   event = "LspAttach",
   config = function()
