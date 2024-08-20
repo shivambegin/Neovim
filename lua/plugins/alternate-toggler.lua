@@ -2,6 +2,9 @@
 
 return {
   "rmagatti/alternate-toggler",
+  keys = {
+    { "<leader>i", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>" },
+  },
   config = function()
     require("alternate-toggler").setup({
       alternates = {
@@ -23,11 +26,6 @@ return {
         ["==="] = "!==",
       },
     })
-    vim.keymap.set(
-      "n",
-      "<leader>i", -- <space><space>
-      "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>"
-    )
   end,
-  event = { "BufReadPost" }, -- lazy load after reading a buffer
+  -- event = { "BufReadPost" }, -- lazy load after reading a buffer
 }

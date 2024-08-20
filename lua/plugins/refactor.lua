@@ -2,7 +2,7 @@
 return {
   "ThePrimeagen/refactoring.nvim",
   cmd = "Refactor",
-  event = { "BufReadPre", "BufNewFile" },
+  -- event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
