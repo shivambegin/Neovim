@@ -1,6 +1,9 @@
 return {
   "Exafunction/codeium.vim",
   event = "BufEnter",
+  keys = {
+    { "<leader>ct", "<cmd>CodeiumToggle<CR>", desc = "Toggle Codeium" },
+  },
   config = function()
     vim.keymap.set("i", "<C-g>", function()
       return vim.fn["codeium#Accept"]()
