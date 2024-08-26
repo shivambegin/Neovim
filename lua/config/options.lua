@@ -51,7 +51,7 @@ vim.opt.fillchars:append({
 })
 
 vim.opt.shortmess:append("c")
-
+vim.opt.pumheight = 5 -- Looks good on the cmdline
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 
