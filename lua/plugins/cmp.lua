@@ -25,6 +25,11 @@ return {
     local lspkind = require("lspkind")
 
     cmp.setup({
+      auto_brackets = {}, -- configure any filetype to auto add brackets
+      performance = {
+        debounce = 0, -- default is 60ms
+        throttle = 0, -- default is 30ms
+      },
       completion = {
         keyword_length = 1,
         completeopt = "menu,menuone",
