@@ -1,6 +1,7 @@
 return {
   {
     "xiyaowong/transparent.nvim",
+    event = "VeryLazy",
     enabled = true,
     config = function()
       require("transparent").clear_prefix("WinBar")
