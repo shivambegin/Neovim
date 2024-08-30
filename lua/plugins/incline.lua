@@ -6,7 +6,7 @@ return {
     require("incline").setup({
       highlight = {
         groups = {
-          InclineNormal = { guibg = "#303270", guifg = "#a9b1d6" },
+          InclineNormal = { guibg = "none", guifg = "#a9b1d6" },
           InclineNormalNC = { guibg = "none", guifg = "#a9b1d6" },
         },
       },
