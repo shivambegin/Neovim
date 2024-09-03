@@ -1,7 +1,7 @@
 --Remap space as leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.diagnostic.enable(false)
+-- vim.diagnostic.enable(false)
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 0 -- more space in the neovim command line for displaying messages

@@ -2,7 +2,7 @@
 return {
   "karb94/neoscroll.nvim",
   event = { "BufReadPost", "BufNewFile" },
-  enabled = false,
+  enabled = true,
   config = function()
     require("neoscroll").setup({
       mappings = { -- Keys to be mapped to their corresponding default scrolling animation

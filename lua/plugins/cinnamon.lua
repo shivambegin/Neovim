@@ -1,5 +1,6 @@
 return {
   "declancm/cinnamon.nvim",
+  enabled = false,
   event = { "BufReadPost", "BufNewFile" },
   version = "*",
   opts = {},
