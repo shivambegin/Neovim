@@ -1,5 +1,6 @@
 return {
   "sainnhe/sonokai",
+  enabled = false,
   lazy = false,
   name = "sonokai",
   opts = {},
