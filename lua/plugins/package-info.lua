@@ -5,7 +5,7 @@ return {
     dependencies = { "MunifTanjim/nui.nvim" },
     keys = {
       {
-        "<leader>si",
+        "<leader>spi",
         "<cmd>Telescope package_info<cr>",
         desc = "Show package info",
       },
