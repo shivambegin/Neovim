@@ -32,7 +32,7 @@ return {
       },
       completion = {
         keyword_length = 1,
-        completeopt = "menu,menuone",
+        completeopt = "menu,menuone,noselect",
       },
       formatting = {
         expandable_indicator = true,
