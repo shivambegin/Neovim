@@ -51,26 +51,27 @@ vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2 -- insert 2 spaces for a tab
 vim.opt.cursorline = true -- highlight the current line
-vim.opt.cursorlineopt = "number"
+vim.opt.cursorlineopt = "both"
 vim.opt.number = true -- set numbered lines
 vim.opt.laststatus = 3 --disable native statusline
 vim.opt.showcmd = false
-vim.opt.ruler = false
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false -- display lines as one long line
-vim.opt.scrolloff = 0
+vim.opt.scrolloff = 4
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.title = true
 vim.opt.titlelen = 0 -- do not shorten title
 vim.opt.inccommand = "split" -- split below for to show replaces
 vim.opt.virtualedit = "block"
-vim.opt.fillchars = vim.opt.fillchars + "eob: "
-vim.opt.fillchars:append({
-  stl = " ",
-})
+vim.opt.autowriteall = true
+
+-- vim.opt.fillchars = vim.opt.fillchars + "eob: "
+-- vim.opt.fillchars:append({
+--   stl = " ",
+-- })
 
 vim.opt.shortmess:append("c")
 vim.opt.pumheight = 5 -- Looks good on the cmdline

@@ -23,9 +23,17 @@ return {
         interval = 1000,
       },
       attach_to_untracked = true,
+      signs_staged_enable = false,
+      current_line_blame = false,
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol",
+        delay = 100,
+      },
+      preview_config = {
+        border = "solid",
+        style = "minimal",
+      },
     })
-    --		if pcall(require, "scrollbar") then
-    --			require("scrollbar.handlers.gitsigns").setup()
-    --		end
   end,
 }
