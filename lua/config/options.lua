@@ -67,7 +67,7 @@ vim.opt.titlelen = 0 -- do not shorten title
 vim.opt.inccommand = "split" -- split below for to show replaces
 vim.opt.virtualedit = "block"
 vim.opt.autowriteall = true
-
+vim.o.completeopt = "menuone,noselect"
 -- vim.opt.fillchars = vim.opt.fillchars + "eob: "
 -- vim.opt.fillchars:append({
 --   stl = " ",
