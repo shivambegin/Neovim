@@ -4,9 +4,31 @@ vim.g.maplocalleader = " "
 -- vim.diagnostic.enable(false)
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
+vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
+vim.opt.gcr = {
+  "i-c-ci-ve:-block-TermCursor",
+  "n-v:block-Curosr/lCursor",
+  "o:hor50-Curosr/lCursor",
+  "r-cr:hor20-Curosr/lCursor",
+}
+
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "→ ",
+  trail = "·",
+}
+vim.opt.fillchars = {
+  fold = "·",
+  foldsep = " ",
+  eob = " ",
+}
+
+vim.opt.mousemoveevent = true
+vim.opt.ruler = true
+vim.opt.smoothscroll = true
+vim.opt.breakindent = true
 -- vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
@@ -28,7 +50,7 @@ vim.opt.writebackup = false -- if a file is being edited by another program (or 
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2 -- insert 2 spaces for a tab
-vim.opt.cursorline = false -- highlight the current line
+vim.opt.cursorline = true -- highlight the current line
 vim.opt.cursorlineopt = "number"
 vim.opt.number = true -- set numbered lines
 vim.opt.laststatus = 3 --disable native statusline
