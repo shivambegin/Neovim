@@ -16,7 +16,7 @@ vim.opt.gcr = {
 
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = "→ ",
+  tab = "│ ",
   trail = "·",
 }
 vim.opt.fillchars = {
