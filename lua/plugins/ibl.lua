@@ -1,7 +1,7 @@
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
+    enabled = true,
     main = "ibl",
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     -- For setting shiftwidth and tabstop automatically.

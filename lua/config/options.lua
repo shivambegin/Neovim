@@ -14,16 +14,16 @@ vim.opt.gcr = {
   "r-cr:hor20-Curosr/lCursor",
 }
 
-vim.opt.list = true
-vim.opt.listchars = {
-  tab = "│ ",
-  trail = "·",
-}
-vim.opt.fillchars = {
-  fold = "·",
-  foldsep = " ",
-  eob = " ",
-}
+-- vim.opt.list = false
+-- vim.opt.listchars = {
+--   tab = "│ ",
+--   trail = "·",
+-- }
+-- vim.opt.fillchars = {
+--   fold = "·",
+--   foldsep = " ",
+--   eob = " ",
+-- }
 
 vim.opt.mousemoveevent = true
 vim.opt.ruler = true
