@@ -2,7 +2,7 @@ return {
   "olivercederborg/poimandres.nvim",
   lazy = false,
   priority = 1000,
-  enabled = false,
+  enabled = true,
   config = function()
     require("poimandres").setup({})
   end,
