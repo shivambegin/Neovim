@@ -372,7 +372,6 @@ StatusLine.active = function()
   end
 
   local statusline = {
-    "▊",
     mode(),
     filename(),
     full_git(),
@@ -390,7 +389,6 @@ StatusLine.active = function()
     file_percentage(),
     total_lines(),
     lsp_clients(),
-    " ▊",
   }
 
   return table.concat(statusline)
