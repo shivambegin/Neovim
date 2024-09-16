@@ -25,6 +25,7 @@
   "dressing.nvim": { "branch": "master", "commit": "c5775a888adbc50652cb370073fcfec963eca93e" },
   "dropbar.nvim": { "branch": "master", "commit": "d26bf92161cd70e049dc138b44ffa0246dbf7178" },
   "eagle.nvim": { "branch": "main", "commit": "f590404f510be11ef2cf7c68e135441bfa48c9a8" },
+  "everybody-wants-that-line.nvim": { "branch": "main", "commit": "d48f3e187422a206e0b83b50545fbcaaef307664" },
   "flash.nvim": { "branch": "main", "commit": "34c7be146a91fec3555c33fe89c7d643f6ef5cf1" },
   "flatten.nvim": { "branch": "main", "commit": "e420e531d2ab24aebcf7b3c9fca28e6c5c34964d" },
   "flow.nvim": { "branch": "main", "commit": "b95debe4cdc572b6f23d5e5fc43f0373bc448757" },
