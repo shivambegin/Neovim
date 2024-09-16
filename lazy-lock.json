@@ -7,6 +7,7 @@
   "bars-N-lines.nvim": { "branch": "main", "commit": "8c87b17c19e970e95fec19b560d70b62a34c7b96" },
   "bufdelete.nvim": { "branch": "master", "commit": "f6bcea78afb3060b198125256f897040538bcb81" },
   "bufferline.nvim": { "branch": "main", "commit": "2e3c8cc5a57ddd32f1edd2ffd2ccb10c09421f6c" },
+  "catppuccin": { "branch": "main", "commit": "63685e1562ef53873c9764b483d7ac5c7a608922" },
   "ccc.nvim": { "branch": "main", "commit": "790aa881d7f47bc7cc07ad03f1216bb7caf9ef67" },
   "cellular-automaton.nvim": { "branch": "main", "commit": "11aea08aa084f9d523b0142c2cd9441b8ede09ed" },
   "cinnamon.nvim": { "branch": "master", "commit": "ecd211e46a1d4fb0efffbdb2c2bbd59785605870" },
