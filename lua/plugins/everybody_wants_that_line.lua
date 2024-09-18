@@ -1,9 +1,8 @@
 return {
   "strash/everybody-wants-that-line.nvim",
+  event = { "BufReadPost", "BufAdd", "BufNewFile" },
   config = function()
-    -- You can omit the config table
-    require("everybody-wants-that-line").setup()
-
+    vim.opt.laststatus = 3 --disable native statusline
     -- or you can add it
     require("everybody-wants-that-line").setup({
       buffer = {
