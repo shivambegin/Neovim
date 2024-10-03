@@ -1,6 +1,7 @@
 return {
   "strash/everybody-wants-that-line.nvim",
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
+  enabled = false,
   config = function()
     vim.opt.laststatus = 3 --disable native statusline
     -- or you can add it

@@ -1,9 +1,11 @@
 return {
   "rebelot/heirline.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = { "zeioth/heirline-components.nvim" },
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   opts = function()
+    vim.opt.showtabline = 2
+    vim.opt.laststatus = 3
     local lib = require("heirline-components.all")
     return {
       tabline = { -- UI upper bar
