@@ -1,6 +1,6 @@
 return {
   "davidosomething/vim-colors-meh",
-  enabled = false,
+  enabled = true,
   lazy = false,
   event = "VeryLazy",
   priority = 1000,

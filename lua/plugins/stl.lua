@@ -4,6 +4,7 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
+    enabled = false,
     event = { "BufEnter" },
     -- branch = "table_version",
     config = function()
