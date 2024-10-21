@@ -69,7 +69,7 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    -- configure yaml server
+    -- configure yaml server>
     lspconfig["yamlls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -175,9 +175,9 @@ return {
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global
-          diagnostics = {
-            globals = { "vim" },
-          },
+          -- diagnostics >= {
+          --     globals = { "vim" },
+          --   },
           workspace = {
             -- make language server aware of runtime files
             library = {
