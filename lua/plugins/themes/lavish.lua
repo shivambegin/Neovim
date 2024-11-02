@@ -1,6 +1,6 @@
 return {
   "ferdinandrau/lavish.nvim",
-  enabled = false,
+  enabled = true,
   priority = 1000,
   config = function()
     require("lavish").apply()
