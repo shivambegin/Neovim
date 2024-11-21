@@ -4,6 +4,6 @@ return {
   priority = 1000,
   opts = {},
   config = function()
-    vim.cmd([[colorscheme monoglow-void]])
+    vim.cmd([[colorscheme monoglow]])
   end,
 }
