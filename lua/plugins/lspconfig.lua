@@ -2,14 +2,14 @@ return {
   "neovim/nvim-lspconfig",
   lazy = true,
   event = { "BufReadPost", "BufNewFile" },
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-  },
+  -- dependencies = {
+  --   "hrsh7th/cmp-nvim-lsp",
+  -- },
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
     -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap -- for conciseness
 
@@ -57,7 +57,8 @@ return {
     })
 
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    -- local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- configure matlab server
     lspconfig["clangd"].setup({

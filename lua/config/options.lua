@@ -26,7 +26,7 @@ vim.opt.gcr = {
 -- }
 
 vim.opt.mousemoveevent = true
-vim.opt.ruler = true
+vim.opt.ruler = false
 vim.opt.smoothscroll = true
 vim.opt.breakindent = true
 -- vim.opt.fileencoding = "utf-8" -- the encoding written to a file

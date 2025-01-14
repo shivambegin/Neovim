@@ -1,6 +1,6 @@
 return {
   "rebelot/heirline.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = { "zeioth/heirline-components.nvim" },
   event = { "BufReadPost", "BufAdd", "BufNewFile" },
   opts = function()
