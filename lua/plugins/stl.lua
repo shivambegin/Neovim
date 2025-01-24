@@ -37,8 +37,4 @@ return {
       })
     end,
   },
-  {
-    "nvim-lualine/lualine.nvim",
-    enabled = false,
-  },
 }
