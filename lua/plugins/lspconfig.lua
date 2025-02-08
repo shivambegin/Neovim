@@ -212,6 +212,12 @@ return {
           [x.HINT] = icons.diagnostics.Hint,
           [x.INFO] = icons.diagnostics.Info,
         },
+        numhl = {
+          [x.ERROR] = "WarningMsg",
+          [x.WARN] = "ErrorMsg",
+          [x.HINT] = "DiagnosticHint",
+          [x.INFO] = "DiagnosticInfo",
+        },
       },
       underline = false,
       severity_sort = true,
