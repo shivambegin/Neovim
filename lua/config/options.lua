@@ -81,3 +81,16 @@ vim.cmd([[set iskeyword+=-]])
 
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
+
+-- Rulers
+vim.opt.colorcolumn = "80,120" -- Add vertical rulers at columns 80 and 120
+
+-- -- Highlight trailing spaces
+-- vim.cmd([[
+--   highlight ExtraWhitespace ctermbg=red guibg=red
+--   match ExtraWhitespace /\s\+$/
+--   autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+--   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+--   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+--   autocmd BufWinLeave * call clearmatches()
+-- ]])

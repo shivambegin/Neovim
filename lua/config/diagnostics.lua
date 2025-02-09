@@ -109,7 +109,7 @@ diagnostic.print = function(messages)
   vim.api.nvim_buf_clear_namespace(diagnostic.buffer, diagnostic.ns, 0, -1)
 
   local row, col = diagnostic.get_cursor_pos()
-
+JetBrainsMono Nerd font Mono
   local _l = 0
   local used_col = 0
 
